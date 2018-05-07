@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: Erdahl Teber
+# Author: Erdahl Teber and Ted Wong
 
 #PBS -N BWA_hg38
 #PBS -l walltime=35:00:00
@@ -21,6 +21,3 @@ short_name=$sampleID
 echo $sampleID
 
 time bwa mem -t 16 -M $REF $DS/F1_PAIRED_${short_name}.fq $DS/F2_PAIRED_${short_name}.fq > $OX/HG38_${short_name}.sam
-
-
-
