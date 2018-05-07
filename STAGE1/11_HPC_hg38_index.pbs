@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: Erdahl Teber
+# Author: Erdahl Teber and Ted Wong
 
 #PBS -N INDEX_hg38
 #PBS -l walltime=15:00:00
@@ -17,4 +17,3 @@ short_name=$sampleID
 echo $sampleID 
 
 time java -jar $PD/BuildBamIndex.jar INPUT=$DS/RG_DEDUP_SORTED_HG38_${short_name}.bam OUTPUT=$DS/RG_DEDUP_SORTED_HG38_${short_name}.bai
-
