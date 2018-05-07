@@ -1,0 +1,26 @@
+
+#!/bin/bash
+# Author: Erdahl Teber
+
+
+#PBS -N GATK_HG38
+#PBS -l walltime=120:0:0
+#PBS -P RDS-SMS-WGS22-RW
+#PBS -l select=1:ncpus=3:mem=64GB
+#PBS -q defaultQ
+
+module load gatk
+
+cd /project/RDS-SMS-WGS22-RW
+
+DS='/scratch/RDS-SMS-WGS22-RW/RDAGG'
+OX='/scratch/RDS-SMS-WGS22-RW/RDAGG/GATK'
+REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_pBABE_puro.fasta'
+
+echo $sampleID $PBS_JOBID $PBS_JOBNAME
+
+time java -jar  /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller \
+-R       $REF \
+-I       $DS/${sampleID}.bam \
+-o       $OX/GATK_${sampleID}.vcf \
+--genotyping_mode DISCOVERY -stand_call_conf 30 -stand_emit_conf 10

@@ -1,0 +1,20 @@
+#!/bin/bash
+# Author: Erdahl Teber
+
+#PBS -N RMDUP_hg38
+#PBS -l walltime=00:02:00
+#PBS -P RDS-SMS-CMRIWGS-RW
+#PBS -l select=1:ncpus=1
+#PBS -q defaultQ
+
+cd /scratch/RDS-SMS-WGS22-RW
+
+DS='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
+
+
+short_name=$sampleID
+echo $sampleID 
+
+rm $DS/DEDUP_SORTED_HG38_${short_name}.bam
+
+

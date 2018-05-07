@@ -1,0 +1,17 @@
+#!/bin/bash
+# Author: Erdahl Teber
+
+#PBS -N DICT_hg38
+#PBS -l walltime=00:30:00
+#PBS -P RDS-SMS-CMRIWGS-RW
+#PBS -l select=1:ncpus=1
+#PBS -q defaultQ
+
+
+cd /project/RDS-SMS-WGS22-RW
+
+PD='/usr/local/picard/1.119'
+REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_with_vectors.fasta'
+DICT='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_with_vectors.dict'
+
+time java -jar $PD/CreateSequenceDictionary.jar R=$REF O=$DICT

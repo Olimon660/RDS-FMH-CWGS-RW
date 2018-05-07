@@ -1,0 +1,20 @@
+#!/bin/bash
+# Author: Erdahl Teber
+
+#PBS -N RMTRIM_hg38
+#PBS -P RDS-SMS-CMRIWGS-RW
+#PBS -l walltime=00:02:00
+#PBS -l select=1:ncpus=1
+#PBS -q defaultQ
+
+cd /scratch/RDS-SMS-WGS22-RW
+
+OX='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
+
+echo $sampleID
+short_name=$sampleID
+
+rm  $OX/F1_UNPAIRED_${short_name}.fq
+rm  $OX/F2_UNPAIRED_${short_name}.fq
+
+

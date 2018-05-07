@@ -1,0 +1,23 @@
+#!/bin/bash
+# Author: Erdahl Teber
+
+#PBS -N FASTQC_hg38
+#PBS -l walltime=18:00:00
+#PBS -P RDS-SMS-CMRIWGS-RW
+#PBS -l select=2:ncpus=2:mem=16GB
+#PBS -q defaultQ
+
+
+cd /scratch/RDS-SMS-WGS22-RW
+
+FQ='/usr/local/fastqc/0.11.3/FastQC'
+DS='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
+OX='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
+
+
+echo $sampleID
+short_name=$sampleID
+
+time $FQ/fastqc $DS/F1_PAIRED_${short_name}.fq  $DS/F2_PAIRED_${short_name}.fq --outdir=$OX/FASTQC_RESULTS --threads 4 
+
+

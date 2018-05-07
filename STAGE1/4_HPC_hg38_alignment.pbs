@@ -1,0 +1,26 @@
+#!/bin/bash
+# Author: Erdahl Teber
+
+#PBS -N BWA_hg38
+#PBS -l walltime=35:00:00
+#PBS -P RDS-SMS-CMRIWGS-RW
+#PBS -l select=4:ncpus=4:mem=64GB
+#PBS -q defaultQ
+
+module load bwa
+
+cd /scratch/RDS-SMS-WGS22-RW
+
+DS='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
+REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_with_vectors.fasta'
+OX='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
+
+
+short_name=$sampleID
+
+echo $sampleID
+
+time bwa mem -t 16 -M $REF $DS/F1_PAIRED_${short_name}.fq $DS/F2_PAIRED_${short_name}.fq > $OX/HG38_${short_name}.sam
+
+
+

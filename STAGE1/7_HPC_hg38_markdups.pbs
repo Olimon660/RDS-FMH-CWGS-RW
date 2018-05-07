@@ -1,0 +1,22 @@
+#!/bin/bash
+# Author: Erdahl Teber
+
+#PBS -N MRKDP_hg38
+#PBS -l walltime=30:00:00
+#PBS -P RDS-SMS-CMRIWGS-RW
+#PBS -l select=1:ncpus=2:mem=64GB
+#PBS -q defaultQ
+
+cd /scratch/RDS-SMS-WGS22-RW
+
+PD='/usr/local/picard/1.119'
+REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_with_vectors.fasta'
+DS='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
+
+
+short_name=$sampleID
+echo $sampleID 
+
+time java -jar $PD/MarkDuplicates.jar INPUT=$DS/SORTED_HG38_${short_name}.bam OUTPUT=$DS/DEDUP_SORTED_HG38_${short_name}.bam \
+REMOVE_DUPLICATES=FALSE VALIDATION_STRINGENCY=LENIENT ASSUME_SORTED=TRUE CREATE_INDEX=TRUE METRICS_FILE=$DS/METRICS_DEDUP_SORTED_HG38_${short_name}.txt
+

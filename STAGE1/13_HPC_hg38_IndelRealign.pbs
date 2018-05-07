@@ -1,0 +1,24 @@
+#!/bin/bash
+# Author: Erdahl Teber
+
+#PBS -N INDELREALN_hg38
+#PBS -l walltime=35:00:00
+#PBS -P RDS-SMS-CMRIWGS-RW
+#PBS -l select=1:ncpus=2:mem=64GB
+#PBS -q defaultQ
+
+cd /scratch/RDS-SMS-WGS22-RW
+
+REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_with_vectors.fasta'
+DS='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
+GT='/usr/local/gatk/3.3.0'
+
+short_name=$sampleID
+echo $sampleID 
+
+time java -jar $GT/GenomeAnalysisTK.jar -T IndelRealigner \
+-R $REF \
+-I $DS/RG_DEDUP_SORTED_HG38_${short_name}.bam \
+-o $DS/REALIGNED_RG_DEDUP_SORTED_HG38_${short_name}.bam \
+-targetIntervals  $DS/RG_DEDUP_SORTED_HG38_${short_name}.intervals
+
