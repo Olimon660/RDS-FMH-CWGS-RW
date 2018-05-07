@@ -1,5 +1,5 @@
 #!/bin/bash
-# Author: Erdahl Teber
+# Author: Erdahl Teber and Ted Wong
 
 #PBS -N DSORT_hg38
 #PBS -l walltime=00:02:00
@@ -18,4 +18,3 @@ short_name=$sampleID
 echo $sampleID 
 
 rm $DS/SORTED_HG38_${short_name}.bam
-
