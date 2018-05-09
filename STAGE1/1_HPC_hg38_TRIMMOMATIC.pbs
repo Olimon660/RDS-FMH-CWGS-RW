@@ -5,6 +5,8 @@
 #PBS -l select=1:ncpus=1:mem=128GB
 #PBS -q defaultQ
 
+cd /scratch/RDS-FMH-CWGS-RW/RDS-FMH-CWGS-RW
+
 GENOME=combined.fasta
 PICARD=/home/twon2259/Sources/picard.jar
 
