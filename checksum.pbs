@@ -1,0 +1,8 @@
+#!/bin/bash
+
+#PBS -l walltime=10:00:00
+#PBS -P RDS-FMH-CWGS-RW
+#PBS -l select=1:ncpus=1
+#PBS -q defaultQ
+
+find /scratch/RDS-FMH-CWGS-RW/large_files/1803KHX-0015_hdd1 -type f -exec md5sum "{}" + > USYD_Checksums.txt
