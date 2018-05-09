@@ -1,9 +1,7 @@
 #!/bin/bash
-# Author: Erdahl Teber
 
-#PBS -N TRIM_hg38
 #PBS -l walltime=25:00:00
-#PBS -P RDS-SMS-CMRIWGS-RW
+#PBS -P RDS-FMH-CWGS-RW
 #PBS -l select=2:ncpus=4:mem=32GB
 #PBS -q defaultQ
 
@@ -11,10 +9,8 @@ TRM='/home/twon2259/Sources/Trimmomatic-0.36'
 OX='/scratch/RDS-FMH-CWGS-RW/RDS-FMH-CWGS-RW/trimmed'
 IX='/scratch/RDS-FMH-CWGS-RW/large_files/1803KHX-0015_hdd1'
 
-
 short_name=$sampleID
 echo $sampleID 
-
 
 time java -jar $TRM/trimmomatic-0.36.jar PE -threads 8 -phred33 $IX/${short_name}_R1.fq.gz $IX/${short_name}_R2.fq.gz \
 $OX/F1_PAIRED_${short_name}.fq $OX/F1_UNPAIRED_${short_name}.fq \
