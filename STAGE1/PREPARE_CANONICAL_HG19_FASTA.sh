@@ -25,5 +25,3 @@ time $MP/bwa index -a bwtsw $REF
 cat $REF | grep '>'
 
 ###reference ready to use
-
-
