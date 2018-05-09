@@ -8,7 +8,7 @@
 module load samtools
 
 # Reference FASTA
-FASTA='/home/CMRI/eteber/das/Process/Bioinformatics/eteber/hg38bundle/hg38bundle/broad_38_canonical.fasta'
+FASTA='/scratch/RDS-FMH-CWGS-RW/RDS-FMH-CWGS-RW/combined.fasta'
 
 # Where for BWA
 BWA='/tools/bwa/0.7.10'
