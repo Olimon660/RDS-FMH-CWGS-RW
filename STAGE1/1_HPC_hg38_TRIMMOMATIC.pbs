@@ -11,7 +11,7 @@ TRIM='/scratch/RDS-FMH-CWGS-RW/softwares/Trimmomatic-0.36'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/2'
 
 # '/scratch/RDS-FMH-CWGS-RW/large_files/1803KHX-0015_hdd1'
-IX=$in
+IX=' /scratch/RDS-FMH-CWGS-RW/large_files/1803KHX-0015_hdd1'
 
 # Sample name
 SM=$sm
