@@ -8,7 +8,7 @@
 module load samtools
 
 # Reference FASTA
-FASTA='/scratch/RDS-FMH-CWGS-RW/RDS-FMH-CWGS-RW/combined.fasta'
+FASTA='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 
 # Where for BWA
 BWA='/scratch/RDS-FMH-CWGS-RW/softwares/bwa-0.7.17/bwa'
