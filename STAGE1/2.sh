@@ -1,5 +1,5 @@
 #
-# ./STAGE1/startTrim.sh <INPUT> <SAMPLE_TXT>
+# ./STAGE1/2.sh <INPUT> <SAMPLE_TXT>
 #
 
 #!/bin/bash 
