@@ -3,7 +3,7 @@
 
 #PBS -N TRIM_hg38
 #PBS -l walltime=25:00:00
-#PBS -P RDS-SMS-CMRIWGS-RW
+#PBS -P RDS-FMH-CWGS-RW
 #PBS -l select=2:ncpus=4:mem=32GB
 #PBS -q defaultQ
 
