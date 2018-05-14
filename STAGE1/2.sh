@@ -8,5 +8,5 @@ samples=$(cat $2)
 
 for name in $samples; do
     echo 'qsub -v sampleID=$name -v in=$1 STAGE1/1_HPC_hg38_TRIMMOMATIC.pbs'
-    qsub -v sample=$name -v in=$1 STAGE1/1_HPC_hg38_TRIMMOMATIC.pbs
+    qsub -v sm=$name -v in=$1 STAGE1/1_HPC_hg38_TRIMMOMATIC.pbs
 done;
