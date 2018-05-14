@@ -20,8 +20,8 @@ echo $OX/F1_UNPAIRED_${sampleID}.fastq.gz
 echo $OX/F2_PAIRED_${sampleID}.fastq.gz
 echo $OX/F2_UNPAIRED_${sampleID}.fastq.gz
 
-time java -jar $TRIM/trimmomatic-0.36.jar PE -threads 8 -phred33 $IX/${sampleID}/${sampleID}_R1.fastq.gz \
-    $IX/${sampleID}/${sampleID}_R2.fastq.gz \
-    $OX/F1_PAIRED_${sampleID}.fastq.gz $OX/F1_UNPAIRED_${sampleID}.fastq.gz \
-    $OX/F2_PAIRED_${sampleID}.fastq.gz $OX/F2_UNPAIRED_${sampleID}.fastq.gz \
-    ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:75 2> $OX/TRIMMOMATIC_${sampleID}.log
+#time java -jar $TRIM/trimmomatic-0.36.jar PE -threads 8 -phred33 $IX/${sampleID}/${sampleID}_R1.fastq.gz \
+#    $IX/${sampleID}/${sampleID}_R2.fastq.gz \
+#    $OX/F1_PAIRED_${sampleID}.fastq.gz $OX/F1_UNPAIRED_${sampleID}.fastq.gz \
+#    $OX/F2_PAIRED_${sampleID}.fastq.gz $OX/F2_UNPAIRED_${sampleID}.fastq.gz \
+#    ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:75 2> $OX/TRIMMOMATIC_${sampleID}.log
