@@ -5,7 +5,7 @@
 #PBS -l select=2:ncpus=4:mem=32GB
 #PBS -q defaultQ
 
-TRIM='/home/twon2259/Sources/Trimmomatic-0.36'
+TRIM='/scratch/RDS-FMH-CWGS-RW/softwares/Trimmomatic-0.36'
 
 # Where the trimmed library files
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/2'
