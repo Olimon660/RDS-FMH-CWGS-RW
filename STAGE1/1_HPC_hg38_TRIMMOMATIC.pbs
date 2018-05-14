@@ -14,7 +14,7 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/2'
 IX=$in
 
 # Sample name
-SM=$sample
+SM=$sm
 
 echo $IX/${SM}/${SM}_R1.fastq.gz
 echo $IX/${SM}/${SM}_R2.fastq.gz
