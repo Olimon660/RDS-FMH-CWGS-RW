@@ -11,7 +11,7 @@ module load samtools
 FASTA='/scratch/RDS-FMH-CWGS-RW/RDS-FMH-CWGS-RW/combined.fasta'
 
 # Where for BWA
-BWA='/home/twon2259/Sources/bwa-0.7.17/bwa'
+BWA='/scratch/RDS-FMH-CWGS-RW/softwares/bwa-0.7.17/bwa'
 
 # Where for SAMTools
 SAMTOOLS='samtools'
