@@ -1,12 +1,11 @@
 #
-# ./STAGE1/startTrim.sh STAGE1
+# ./STAGE1/startTrim.sh <INPUT> <SAMPLE_TXT>
 #
 
 #!/bin/bash 
 
-directory=$1
-my_samples=$(cat $directory/samples.txt)
+samples=$(cat $2)
 
-for sname in $my_samples; do
-    A=$(qsub -v sampleID=$sname STAGE1/1_HPC_hg38_TRIMMOMATIC.pbs) 
+for name in $samples; do
+    A=$(qsub -v sampleID=$name, in=$1 STAGE1/1_HPC_hg38_TRIMMOMATIC.pbs) 
 done;
