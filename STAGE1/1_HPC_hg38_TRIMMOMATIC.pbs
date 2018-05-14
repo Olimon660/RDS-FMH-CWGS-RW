@@ -13,15 +13,18 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/2'
 # '/scratch/RDS-FMH-CWGS-RW/large_files/1803KHX-0015_hdd1'
 IX=$in
 
-echo $IX/${sampleID}/${sampleID}_R1.fastq.gz
-echo $IX/${sampleID}/${sampleID}_R2.fastq.gz
-echo $OX/F1_PAIRED_${sampleID}.fastq.gz
-echo $OX/F1_UNPAIRED_${sampleID}.fastq.gz
-echo $OX/F2_PAIRED_${sampleID}.fastq.gz
-echo $OX/F2_UNPAIRED_${sampleID}.fastq.gz
+# Sample name
+SM=$sample
 
-#time java -jar $TRIM/trimmomatic-0.36.jar PE -threads 8 -phred33 $IX/${sampleID}/${sampleID}_R1.fastq.gz \
-#    $IX/${sampleID}/${sampleID}_R2.fastq.gz \
-#    $OX/F1_PAIRED_${sampleID}.fastq.gz $OX/F1_UNPAIRED_${sampleID}.fastq.gz \
-#    $OX/F2_PAIRED_${sampleID}.fastq.gz $OX/F2_UNPAIRED_${sampleID}.fastq.gz \
-#    ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:75 2> $OX/TRIMMOMATIC_${sampleID}.log
+echo $IX/${SM}/${SM}_R1.fastq.gz
+echo $IX/${SM}/${SM}_R2.fastq.gz
+echo $OX/F1_PAIRED_${SM}.fastq.gz
+echo $OX/F1_UNPAIRED_${SM}.fastq.gz
+echo $OX/F2_PAIRED_${SM}.fastq.gz
+echo $OX/F2_UNPAIRED_${SM}.fastq.gz
+
+#time java -jar $TRIM/trimmomatic-0.36.jar PE -threads 8 -phred33 $IX/${SM}/${SM}_R1.fastq.gz \
+#    $IX/${SM}/${SM}_R2.fastq.gz \
+#    $OX/F1_PAIRED_${SM}.fastq.gz $OX/F1_UNPAIRED_${SM}.fastq.gz \
+#    $OX/F2_PAIRED_${SM}.fastq.gz $OX/F2_UNPAIRED_${SM}.fastq.gz \
+#    ILLUMINACLIP:TruSeq3-PE.fa:2:30:10 LEADING:3 TRAILING:3 SLIDINGWINDOW:4:20 MINLEN:75 2> $OX/TRIMMOMATIC_${SM}.log
