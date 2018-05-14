@@ -16,6 +16,13 @@ IX=$in
 sample=$sampleID
 echo $sampleID 
 
+echo $IX/${sample}/${sample}_R1.fastq.gz
+echo $IX/${sample}/${sample}_R2.fastq.gz
+echo $OX/F1_PAIRED_${sample}.fastq.gz
+echo $OX/F1_UNPAIRED_${sample}.fastq.gz
+echo $OX/F2_PAIRED_${sample}.fastq.gz
+echo $OX/F2_UNPAIRED_${sample}.fastq.gz
+
 time java -jar $TRIM/trimmomatic-0.36.jar PE -threads 8 -phred33 $IX/${sample}/${sample}_R1.fastq.gz \
     $IX/${sample}/${sample}_R2.fastq.gz \
     $OX/F1_PAIRED_${sample}.fastq.gz $OX/F1_UNPAIRED_${sample}.fastq.gz \
