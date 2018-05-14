@@ -8,7 +8,7 @@
 TRIM='/home/twon2259/Sources/Trimmomatic-0.36'
 
 # Where the trimmed library files
-OX='/scratch/RDS-FMH-CWGS-RW/RDS-FMH-CWGS-RW/trimmed'
+OX='/scratch/RDS-FMH-CWGS-RW/Sources/trimmed'
 
 # '/scratch/RDS-FMH-CWGS-RW/large_files/1803KHX-0015_hdd1'
 IX=$in
