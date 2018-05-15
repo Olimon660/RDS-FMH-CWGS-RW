@@ -6,8 +6,6 @@
 #PBS -l select=2:ncpus=4:mem=32GB
 #PBS -q defaultQ
 
-cd /scratch/RDS-SMS-WGS22-RW
-
 TRM='/scratch/RDS-FMH-CWGS-RW/softwares/Trimmomatic-0.36'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/2'
 IX='/scratch/RDS-FMH-CWGS-RW/Sources/RawFiles'
