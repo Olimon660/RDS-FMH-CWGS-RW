@@ -11,7 +11,6 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/2'
 IX='/scratch/RDS-FMH-CWGS-RW/Sources/RawFiles'
 
 short_name=$sm
-echo $sampleID 
 
 time java -jar $TRM/trimmomatic-0.36.jar PE -threads 8 -phred33 $IX/${short_name}_R1.fastq.gz $IX/${short_name}_R2.fastq.gz \
 $OX/F1_PAIRED_${short_name}.fq $OX/F1_UNPAIRED_${short_name}.fq \
