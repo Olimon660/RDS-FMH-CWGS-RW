@@ -4,7 +4,7 @@
 
 #!/bin/bash 
 
-samples=$(ls RawFiles)
+samples=$(cat samples.txt)
 
 for name in $samples; do
     A=$(qsub -v sm=$name STAGE1/1_HPC_hg38_TRIMMOMATIC.pbs) 
