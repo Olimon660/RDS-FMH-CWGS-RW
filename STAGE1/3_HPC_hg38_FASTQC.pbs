@@ -11,6 +11,6 @@ DS='/scratch/RDS-FMH-CWGS-RW/Sources/2'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/3'
 
 echo $sampleID
-short_name=$sampleID
+short_name=$sm
 
 time $FQ/fastqc $DS/F1_PAIRED_${short_name}.fq  $DS/F2_PAIRED_${short_name}.fq --outdir=$OX/FASTQC_RESULTS --threads 4
