@@ -11,6 +11,6 @@ DS='/scratch/RDS-FMH-CWGS-RW/Sources/2'
 REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/4'
 
-short_name=$sampleID
+short_name=$sm
 
 /scratch/RDS-FMH-CWGS-RW/softwares/bwa-0.7.17/bwa mem -t 15 -M $REF $DS/F1_PAIRED_${short_name}.fq $DS/F2_PAIRED_${short_name}.fq | samtools view -bS - | samtools sort > $OX/HG38_${short_name}.bam
