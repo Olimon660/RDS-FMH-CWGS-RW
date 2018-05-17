@@ -1,9 +1,7 @@
 #!/bin/bash
-# Author: Erdahl Teber and Ted Wong
 
-#PBS -N BWA_hg38
 #PBS -l walltime=35:00:00
-#PBS -P RDS-SMS-CMRIWGS-RW
+#PBS -P RDS-FMH-CWGS-RW
 #PBS -l select=4:ncpus=4:mem=64GB
 #PBS -q defaultQ
 
