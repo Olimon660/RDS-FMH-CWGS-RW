@@ -5,17 +5,12 @@
 #PBS -l select=4:ncpus=4:mem=64GB
 #PBS -q defaultQ
 
-module load bwa
+module load samtools
 
-cd /scratch/RDS-SMS-WGS22-RW
-
-DS='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
-REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_with_vectors.fasta'
-OX='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
-
+DS='/scratch/RDS-FMH-CWGS-RW/Sources/2'
+REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
+OX='/scratch/RDS-FMH-CWGS-RW/Sources/4'
 
 short_name=$sampleID
 
-echo $sampleID
-
-time bwa mem -t 16 -M $REF $DS/F1_PAIRED_${short_name}.fq $DS/F2_PAIRED_${short_name}.fq > $OX/HG38_${short_name}.sam
+/scratch/RDS-FMH-CWGS-RW/softwares/bwa-0.7.17/bwa mem -t 15 -M $REF $DS/F1_PAIRED_${short_name}.fq $DS/F2_PAIRED_${short_name}.fq | samtools view -bS - | samtools sort > $OX/HG38_${short_name}.bam
