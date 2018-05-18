@@ -1,5 +1,6 @@
 #
-# ./STAGE1/get_BWA.started.sh
+# ./STAGE1/get_BWA.started.sh samples1.txt
+# ./STAGE1/get_BWA.started.sh samples2.txt
 #
 
 #!/bin/bash 
