@@ -4,7 +4,8 @@
 
 #!/bin/bash 
 
-samples=$(cat samples.txt)
+file=$1
+samples=$(cat $file)
 
 for name in $samples; do
     A=$(qsub -v sm=$name STAGE1/4_HPC_hg38_alignment.pbs) 
