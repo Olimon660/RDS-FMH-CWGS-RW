@@ -13,4 +13,5 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/4'
 
 short_name=$sm
 
+cd /scratch/RDS-FMH-CWGS-RW/Sources/4
 /scratch/RDS-FMH-CWGS-RW/softwares/bwa-0.7.17/bwa mem -t 14 -M $REF $DS/F1_PAIRED_${short_name}.fq $DS/F2_PAIRED_${short_name}.fq | samtools view -bS - | samtools sort -@ 2 > $OX/HG19_${short_name}.bam
