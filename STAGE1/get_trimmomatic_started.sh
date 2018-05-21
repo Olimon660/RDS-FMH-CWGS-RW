@@ -1,5 +1,5 @@
 #
-# ./STAGE1/get_trimmomatic_started.sh
+# ./STAGE1/get_trimmomatic_started.sh samples.txt
 #
 
 #!/bin/bash 
