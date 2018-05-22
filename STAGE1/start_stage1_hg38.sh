@@ -16,21 +16,17 @@ for name in $samples; do
     I=$(qsub -W depend=afterok:$G -v sampleID=$name STAGE1/9_HPC_hg38_readgroups.pbs) 
     echo $sname $I
 
-	# DEL_DEDUP
-	#J=$(qsub -W depend=afterok:$I -v sampleID=$name STAGE1/10_HPC_hg38_delete_dedup.pbs)
-       # echo $sname $J
+    # DEL_DEDUP
+    J=$(qsub -W depend=afterok:$I -v sampleID=$name STAGE1/10_HPC_hg38_delete_dedup.pbs)
+    echo $sname $J
 
-	# INDEX
-	#K=$(qsub -W depend=afterok:$J -v sampleID=$name 1STAGE1/1_HPC_hg38_index.pbs) 
-	#echo $sname $K
- 
-	# RealignerTargetCreator
-	#L=$(qsub -W depend=afterok:$K -v sampleID=$name STAGE1/12_HPC_hg38_RealignerTarget.pbs) 
-	#echo $sname $L
+    # RealignerTargetCreator
+    L=$(qsub -W depend=afterok:$J -v sampleID=$name STAGE1/12_HPC_hg38_RealignerTarget.pbs) 
+    echo $sname $L
 
-	# IndelRealigner
-	#M=$(qsub -W depend=afterok:$L -v sampleID=$name STAGE1/13_HPC_hg38_IndelRealign.pbs) 
-	#echo $sname $M
+    # IndelRealigner
+    M=$(qsub -W depend=afterok:$L -v sampleID=$name STAGE1/13_HPC_hg38_IndelRealign.pbs) 
+    echo $sname $M
 
         # FINAL INDEX
        # N=$(qsub -W depend=afterok:$M -v sampleID=$name STAGE1/14_HPC_hg38_final_index.pbs)
