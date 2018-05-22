@@ -8,13 +8,13 @@ for name in $samples; do
     G=$(qsub -v sampleID=$name STAGE1/7_HPC_hg38_markdups.pbs) 
     echo $sname $G 
 	
-	# DEL SORTED BAM
-	#H=$(qsub -W depend=afterok:$G -v sampleID=$name STAGE1/8_HPC_hg38_del_sorted_bam.pbs)
-       # echo $sname $H
+    # DEL SORTED BAM
+    #H=$(qsub -W depend=afterok:$G -v sampleID=$name STAGE1/8_HPC_hg38_del_sorted_bam.pbs)
+    #echo $sname $H
 
-	# READGROUPS
-	#I=$(qsub -W depend=afterok:$H -v sampleID=$name STAGE1/9_HPC_hg38_readgroups.pbs) 
-	#echo $sname $I
+    # READGROUPS
+    I=$(qsub -W depend=afterok:$G -v sampleID=$name STAGE1/9_HPC_hg38_readgroups.pbs) 
+    echo $sname $I
 
 	# DEL_DEDUP
 	#J=$(qsub -W depend=afterok:$I -v sampleID=$name STAGE1/10_HPC_hg38_delete_dedup.pbs)
