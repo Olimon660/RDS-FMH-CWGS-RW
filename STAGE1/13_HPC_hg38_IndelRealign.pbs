@@ -19,4 +19,3 @@ time java -jar $GT/GenomeAnalysisTK.jar -T IndelRealigner \
 -I $DS/RG_DEDUP_SORTED_HG19_${short_name}.bam \
 -o $DS/REALIGNED_RG_DEDUP_SORTED_HG19_${short_name}.bam \
 -targetIntervals $DS/RG_DEDUP_SORTED_HG19_${short_name}.intervals
-
