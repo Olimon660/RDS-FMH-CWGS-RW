@@ -9,7 +9,7 @@ cd /scratch/RDS-FMH-CWGS-RW/Sources
 
 PD='/scratch/RDS-FMH-CWGS-RW/softwares'
 REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
-DS='/scratch/RDS-FMH-CWGS-RW/5'
+DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 
 short_name=$sampleID
 echo $sampleID 
