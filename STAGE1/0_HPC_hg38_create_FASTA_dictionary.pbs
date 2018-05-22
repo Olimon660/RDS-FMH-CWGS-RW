@@ -7,7 +7,9 @@
 
 cd /scratch/RDS-FMH-CWGS-RW/RDS-FMH-CWGS-RW
 
-GENOME=combined.fasta
-PICARD=/home/twon2259/Sources/picard.jar
+#GENOME=combined.fasta
+#PICARD=/home/twon2259/Sources/picard.jar
 
-java -jar $PICARD CreateSequenceDictionary R=$GENOME O=combined.dict
+#java -jar $PICARD CreateSequenceDictionary R=$GENOME O=combined.dict
+java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CreateSequenceDictionary \
+REFERENCE=/scratch/RDS-FMH-CWGS-RW/softwares/combined.fasta OUTPUT=/scratch/RDS-FMH-CWGS-RW/softwares/combined.dict
