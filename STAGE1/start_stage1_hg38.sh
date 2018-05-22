@@ -21,7 +21,7 @@ for name in $samples; do
     echo $sname $J
     
     # INDEX
-    K=$(qsub -W depend=afterok:$J -v sampleID=$sname STAGE1/11_HPC_hg38_index.pbs) 
+    K=$(qsub -W depend=afterok:$J -v sampleID=$name STAGE1/11_HPC_hg38_index.pbs) 
     echo $sname $K
 	
     # RealignerTargetCreator
