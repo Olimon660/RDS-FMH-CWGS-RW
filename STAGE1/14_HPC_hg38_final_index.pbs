@@ -1,5 +1,4 @@
 #!/bin/bash
-# Author: Erdahl Teber
 
 #PBS -l walltime=20:00:00
 #PBS -P RDS-FMH-CWGS-RW
@@ -8,12 +7,11 @@
 
 cd /scratch/RDS-FMH-CWGS-RW/Sources
 
-PD='/usr/local/picard/1.119'
-REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_with_vectors.fasta'
-DS='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
+PD='/scratch/RDS-FMH-CWGS-RW/softwares/picard.jar'
+REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
+DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 
 short_name=$sampleID
 echo $sampleID
 
-time java -jar $PD/BuildBamIndex.jar INPUT=$DS/REALIGNED_RG_DEDUP_SORTED_HG38_${short_name}.bam OUTPUT=$DS/REALIGNED_RG_DEDUP_SORTED_HG38_${short_name}.bai
-
+java -jar $PD BuildBamIndex INPUT=$DS/REALIGNED_RG_DEDUP_SORTED_HG19_${short_name}.bam OUTPUT=$DS/REALIGNED_RG_DEDUP_SORTED_HG19_${short_name}.bai
