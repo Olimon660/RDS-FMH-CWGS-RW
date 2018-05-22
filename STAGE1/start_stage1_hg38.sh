@@ -28,7 +28,7 @@ for name in $samples; do
     M=$(qsub -W depend=afterok:$L -v sampleID=$name STAGE1/13_HPC_hg38_IndelRealign.pbs) 
     echo $sname $M
 
-        # FINAL INDEX
-       # N=$(qsub -W depend=afterok:$M -v sampleID=$name STAGE1/14_HPC_hg38_final_index.pbs)
-       # echo $sname $N
+    # FINAL INDEX
+    N=$(qsub -W depend=afterok:$M -v sampleID=$name STAGE1/14_HPC_hg38_final_index.pbs)
+    echo $sname $N
 done;
