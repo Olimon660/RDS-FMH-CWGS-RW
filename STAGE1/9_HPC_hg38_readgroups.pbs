@@ -1,17 +1,15 @@
 #!/bin/bash
-# Author: Erdahl Teber
 
 #PBS -l walltime=40:00:00
-#PBS -P RDS-SMS-CMRIWGS-RW
+#PBS -P RDS-FMH-CWGS-RW
 #PBS -l select=1:ncpus=2:mem=64GB
 #PBS -q defaultQ
 
-cd /scratch/RDS-FMH-CWGS-RW 
+cd /scratch/RDS-FMH-CWGS-RW/Sources 
 
-PD='/usr/local/picard/1.119'
-REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_with_vectors.fasta'
-DS='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
-
+PD='/scratch/RDS-FMH-CWGS-RW/softwares'
+REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
+DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 
 short_name=$sampleID
 echo $sampleID 
@@ -20,6 +18,5 @@ supplier='MGEN_GARVAN'
 rg_sample_name='SAMPLE_'
 lib_name='NA_'
 
-
-time java -jar $PD/AddOrReplaceReadGroups.jar INPUT=$DS/DEDUP_SORTED_HG38_${short_name}.bam OUTPUT=$DS/RG_DEDUP_SORTED_HG38_${short_name}.bam \
+java -jar $PD/picard.jar AddOrReplaceReadGroups INPUT=$DS/DEDUP_SORTED_HG38_${short_name}.bam OUTPUT=$DS/RG_DEDUP_SORTED_HG38_${short_name}.bam \
 RGID=${short_name} RGLB=${lib_name}${short_name} RGPL=ILLUMINA RGPU=$supplier RGSM=${rg_sample_name}${short_name}
