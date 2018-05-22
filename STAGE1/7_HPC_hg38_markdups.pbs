@@ -10,10 +10,11 @@ cd /scratch/RDS-FMH-CWGS-RW
 PD='/scratch/RDS-FMH-CWGS-RW/softwares'
 REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 DS='/scratch/RDS-FMH-CWGS-RW/Sources/4'
+OS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 
 short_name=$sampleID
 echo $sampleID 
 
-java -jar $PD/MarkDuplicates.jar INPUT=$DS/SORTED_HG38_${short_name}.bam OUTPUT=$DS/DEDUP_SORTED_HG38_${short_name}.bam \
-REMOVE_DUPLICATES=FALSE VALIDATION_STRINGENCY=LENIENT ASSUME_SORTED=TRUE CREATE_INDEX=TRUE METRICS_FILE=$DS/METRICS_DEDUP_SORTED_HG38_${short_name}.txt
-
+java -jar $PD/picard.jar MarkDuplicates INPUT=$DS/HG19_${short_name}.bam OUTPUT=$OS/DEDUP_SORTED_HG19_${short_name}.bam \
+REMOVE_DUPLICATES=FALSE VALIDATION_STRINGENCY=LENIENT ASSUME_SORTED=TRUE CREATE_INDEX=TRUE \
+METRICS_FILE=$OS/DEDUP_SORTED_HG19_${short_name}.txt
