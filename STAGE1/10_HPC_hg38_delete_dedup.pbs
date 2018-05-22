@@ -10,4 +10,4 @@ DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 short_name=$sampleID
 echo $sampleID 
 
-rm $DS/DEDUP_SORTED_HG38_${short_name}.bam
+rm $DS/DEDUP_SORTED_HG19_${short_name}.bam
