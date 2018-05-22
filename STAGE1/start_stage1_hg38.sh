@@ -6,9 +6,9 @@ samples=$(cat $file)
 cd /project/RDS-FMH-CWGS-RW
 
 for name in $samples; do
-	# MARK DUPS
-	G=$(qsub -W depend=afterok:$F -v sampleID=$name 7_HPC_hg38_markdups.pbs) 
-	echo $sname $G 
+    # MARK DUPS
+    G=$(qsub -W depend=afterok:$F -v sampleID=$name 7_HPC_hg38_markdups.pbs) 
+    echo $sname $G 
 	
 	# DEL SORTED BAM
 	H=$(qsub -W depend=afterok:$G -v sampleID=$name 8_HPC_hg38_del_sorted_bam.pbs)
