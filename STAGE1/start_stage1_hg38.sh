@@ -19,9 +19,13 @@ for name in $samples; do
     # DEL_DEDUP
     J=$(qsub -W depend=afterok:$I -v sampleID=$name STAGE1/10_HPC_hg38_delete_dedup.pbs)
     echo $sname $J
-
+    
+    # INDEX
+    K=$(qsub -W depend=afterok:$J -v sampleID=$sname 11_HPC_hg38_index.pbs) 
+    echo $sname $K
+	
     # RealignerTargetCreator
-    L=$(qsub -W depend=afterok:$J -v sampleID=$name STAGE1/12_HPC_hg38_RealignerTarget.pbs) 
+    L=$(qsub -W depend=afterok:$K -v sampleID=$name STAGE1/12_HPC_hg38_RealignerTarget.pbs) 
     echo $sname $L
 
     # IndelRealigner
