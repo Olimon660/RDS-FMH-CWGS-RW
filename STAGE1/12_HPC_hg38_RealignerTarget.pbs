@@ -5,7 +5,7 @@
 #PBS -l select=1:ncpus=2:mem=64GB
 #PBS -q defaultQ
 
-cd /scratch/RDS-FMH-CWGS-RW/Source
+cd /scratch/RDS-FMH-CWGS-RW/Sources
 
 WD='/scratch/RDS-FMH-CWGS-RW/softwares'
 REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
