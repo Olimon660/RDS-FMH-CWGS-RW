@@ -5,9 +5,7 @@
 #PBS -l select=1:ncpus=1
 #PBS -q defaultQ
 
-cd /scratch/RDS-FMH-CWGS-RW/Sources
-
-DS='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
+DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 
 short_name=$sampleID
 echo $sampleID 
