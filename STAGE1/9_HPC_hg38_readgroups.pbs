@@ -18,5 +18,5 @@ supplier='MGEN_GARVAN'
 rg_sample_name='SAMPLE_'
 lib_name='NA_'
 
-java -jar $PD/picard.jar AddOrReplaceReadGroups INPUT=$DS/DEDUP_SORTED_HG38_${short_name}.bam OUTPUT=$DS/RG_DEDUP_SORTED_HG38_${short_name}.bam \
+java -jar $PD/picard.jar AddOrReplaceReadGroups INPUT=$DS/DEDUP_SORTED_HG19_${short_name}.bam OUTPUT=$DS/RG_DEDUP_SORTED_HG19_${short_name}.bam \
 RGID=${short_name} RGLB=${lib_name}${short_name} RGPL=ILLUMINA RGPU=$supplier RGSM=${rg_sample_name}${short_name}
