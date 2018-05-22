@@ -3,8 +3,6 @@
 file=$1
 samples=$(cat $file)
 
-cd /project/RDS-FMH-CWGS-RW
-
 for name in $samples; do
     # MARK DUPS
     G=$(qsub -v sampleID=$name STAGE1/7_HPC_hg38_markdups.pbs) 
