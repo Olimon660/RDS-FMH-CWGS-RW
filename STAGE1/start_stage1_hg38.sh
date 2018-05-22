@@ -6,35 +6,6 @@ samples=$(cat $file)
 cd /project/RDS-FMH-CWGS-RW
 
 for sname in $samples; do
-
-	#TRIMMOMATIC
-#	A=$(qsub -v sampleID=$sname 1_HPC_h19_TRIMMOMATIC.pbs) 
-#	echo $sname $A 
-
-	#DEL UNPAIRED.FQ
-#	B=$(qsub -W depend=afterok:$A -v sampleID=$sname 2_HPC_hg38_remove_unpaired.pbs)
-#        echo $sname $B
-
-	#FASTQC
-#	C=$(qsub -W depend=afterok:$A -v sampleID=$sname 3_HPC_hg38_FASTQC.pbs) 
-#	echo $sname $C 
-
-	#BWA
-#	D=$(qsub -W depend=afterok:$A -v sampleID=$sname 4_HPC_hg38_alignment.pbs) 
-#	echo $sname $D
-
-	#BWA
-#	D=$(qsub -v sampleID=$sname 4_HPC_hg38_alignment.pbs) 
-#	echo $sname $D
-
-	#SORT
-#	E=$(qsub -W depend=afterok:$D -v sampleID=$sname 5_HPC_hg38_sort.pbs) 
-#	echo $sname $E 
-
-	#REMOVE SAM
-#	F=$(qsub -W depend=afterok:$E -v sampleID=$sname 6_HPC_hg38_remove_sam.pbs) 
-#	echo $sname $F 
-
 	# MARK DUPS
 	G=$(qsub -W depend=afterok:$F -v sampleID=$sname 7_HPC_hg38_markdups.pbs) 
 	echo $sname $G 
