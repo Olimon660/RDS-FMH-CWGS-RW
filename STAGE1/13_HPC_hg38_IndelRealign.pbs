@@ -1,13 +1,11 @@
 #!/bin/bash
-# Author: Erdahl Teber
 
-#PBS -N INDELREALN_hg38
 #PBS -l walltime=35:00:00
 #PBS -P RDS-SMS-CMRIWGS-RW
 #PBS -l select=1:ncpus=2:mem=64GB
 #PBS -q defaultQ
 
-cd /scratch/RDS-SMS-WGS22-RW
+cd /scratch/RDS-FMH-CWGS-RW
 
 REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_with_vectors.fasta'
 DS='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
