@@ -8,10 +8,10 @@
 cd /scratch/RDS-FMH-CWGS-RW/Sources
 
 PD='/scratch/RDS-FMH-CWGS-RW/softwares'
-REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_with_vectors.fasta'
-DS='/scratch/RDS-SMS-WGS22-RW/HG38_PROJECT'
+REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
+DS='/scratch/RDS-FMH-CWGS-RW/5'
 
 short_name=$sampleID
 echo $sampleID 
 
-time java -jar $PD/picard.jar BuildBamIndex INPUT=$DS/RG_DEDUP_SORTED_HG38_${short_name}.bam OUTPUT=$DS/RG_DEDUP_SORTED_HG38_${short_name}.bai
+java -jar $PD/picard.jar BuildBamIndex INPUT=$DS/RG_DEDUP_SORTED_HG38_${short_name}.bam OUTPUT=$DS/RG_DEDUP_SORTED_HG38_${short_name}.bai
