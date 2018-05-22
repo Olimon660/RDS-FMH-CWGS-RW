@@ -14,4 +14,4 @@ DS='/scratch/RDS-FMH-CWGS-RW/5'
 short_name=$sampleID
 echo $sampleID 
 
-java -jar $PD/picard.jar BuildBamIndex INPUT=$DS/RG_DEDUP_SORTED_HG38_${short_name}.bam OUTPUT=$DS/RG_DEDUP_SORTED_HG38_${short_name}.bai
+java -jar $PD/picard.jar BuildBamIndex INPUT=$DS/RG_DEDUP_SORTED_HG19_${short_name}.bam OUTPUT=$DS/RG_DEDUP_SORTED_HG19_${short_name}.bai
