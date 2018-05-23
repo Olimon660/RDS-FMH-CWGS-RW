@@ -1,5 +1,4 @@
 #!/bin/bash
-# Author: Erdahl Teber
 
 #PBS -l walltime=25:00:00
 #PBS -P RDS-FMH-CWGS-RW
