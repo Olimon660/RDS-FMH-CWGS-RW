@@ -8,7 +8,7 @@
 cd /scratch/RDS-FMH-CWGS-RW/Sources
 
 REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
-DS='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta/5'
+DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 GT='/usr/local/gatk/3.3.0'
 
 short_name=$sampleID
