@@ -2,7 +2,7 @@
 
 #PBS -l walltime=24:00:00
 #PBS -P RDS-FMH-CWGS-RW
-#PBS -l select=1:ncpus=1:mem=32GB
+#PBS -l select=1:ncpus=1:mem=128GB
 #PBS -q defaultQ
 
 module load samtools
