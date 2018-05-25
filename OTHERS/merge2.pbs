@@ -6,4 +6,5 @@
 #PBS -q defaultQ
 
 module load samtools
+cd /scratch/RDS-FMH-CWGS-RW/Sources
 samtools merge JFCF_6_P_pLKO_5.bam 4/HG19_H06L4ALXX_2_JFCF6_P-pLKO_5_Human__Reddel_Lab.bam 4/HG19_JFCF_6_P_pLKO_5.bam
