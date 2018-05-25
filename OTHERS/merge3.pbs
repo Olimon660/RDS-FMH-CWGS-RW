@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#PBS -l walltime=24:00:00
+#PBS -P RDS-FMH-CWGS-RW
+#PBS -l select=1:ncpus=1:mem=32GB
+#PBS -q defaultQ
+
+module load samtools
+samtools merge JFCF_6_T_1J_1_3C.bam 4/HG19_JFCF6_T_1J_1-3C_H06L4ALXX_3.bam 4/HG19_JFCF6_T_1J_1-3C_H0AF0ALXX_3.bam
