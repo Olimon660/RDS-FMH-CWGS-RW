@@ -5,4 +5,5 @@
 #PBS -l select=1:ncpus=1:mem=128GB
 #PBS -q defaultQ
 
+cd /scratch/RDS-FMH-CWGS-RW/Sources
 java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar ValidateSamFile I=5/RG_DEDUP_SORTED_HG19_JFCF-6_T_2H.bam > RG_DEDUP_SORTED_HG19_JFCF-6_T_2H.bam.txt
