@@ -6,4 +6,4 @@
 #PBS -q defaultQ
 
 cd /scratch/RDS-FMH-CWGS-RW/Sources
-java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar ValidateSamFile I=5/RG_DEDUP_SORTED_HG19_IIICF-E6_A2.bam > RG_DEDUP_SORTED_HG19_IIICF-E6_A2.bam.txt
+java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar ValidateSamFile I=4/HG19_IIICF-E6_A2.bam > HG19_IIICF-E6_A2.bam.txt
