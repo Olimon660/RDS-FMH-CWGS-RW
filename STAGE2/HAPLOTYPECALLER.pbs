@@ -1,11 +1,7 @@
-
 #!/bin/bash
-# Author: Erdahl Teber
 
-
-#PBS -N GATK_HG38
 #PBS -l walltime=120:0:0
-#PBS -P RDS-SMS-WGS22-RW
+#PBS -P RDS-FMH-CWGS-RW
 #PBS -l select=1:ncpus=3:mem=64GB
 #PBS -q defaultQ
 
