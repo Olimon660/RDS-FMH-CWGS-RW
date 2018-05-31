@@ -2,7 +2,7 @@
 
 #PBS -l walltime=120:0:0
 #PBS -P RDS-FMH-CWGS-RW
-#PBS -l select=2:ncpus=16:mem=32GB
+#PBS -l select=1:ncpus=32:mem=64GB
 #PBS -q defaultQ
 
 module load gatk
