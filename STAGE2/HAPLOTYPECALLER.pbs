@@ -11,7 +11,7 @@ DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/6'
 REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 
-echo $sampleID $PBS_JOBID $PBS_JOBNAME
+echo $sampleID
 
 java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller \
 -R       $REF \
