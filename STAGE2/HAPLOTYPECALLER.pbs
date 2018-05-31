@@ -2,7 +2,7 @@
 
 #PBS -l walltime=120:0:0
 #PBS -P RDS-FMH-CWGS-RW
-#PBS -l select=1:ncpus=3:mem=64GB
+#PBS -l select=16:ncpus=2:mem=32GB
 #PBS -q defaultQ
 
 module load gatk
@@ -13,7 +13,7 @@ REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 
 echo $sampleID
 
-java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller \
+java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller -nct 32 \
 -R       $REF \
 -I       $DS/REALIGNED_RG_DEDUP_SORTED_HG19_${sampleID}.bam \
 -o       $OX/GATK_${sampleID}.vcf \
