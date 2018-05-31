@@ -15,7 +15,7 @@ REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_pBABE_puro.fasta'
 
 echo $sampleID $PBS_JOBID $PBS_JOBNAME
 
-time java -jar  /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller \
+java -jar  /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller \
 -R       $REF \
 -I       $DS/${sampleID}.bam \
 -o       $OX/GATK_${sampleID}.vcf \
