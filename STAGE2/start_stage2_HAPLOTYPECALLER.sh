@@ -5,5 +5,5 @@ samples=$(cat $file)
 
 for name in $samples; do
     #GATK=$(qsub -v sampleID=$name HAPLOTYPECALLER.pbs)
-    echo $t_name $GATK
+    echo $name $GATK
 done;
