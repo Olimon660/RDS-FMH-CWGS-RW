@@ -7,7 +7,7 @@
 
 module load gatk
 
-cd /project/RDS-SMS-WGS22-RW
+cd /scratch/RDS-FMH-CWGS-RW/Sources
 
 DS='/scratch/RDS-SMS-WGS22-RW/RDAGG'
 OX='/scratch/RDS-SMS-WGS22-RW/RDAGG/GATK'
