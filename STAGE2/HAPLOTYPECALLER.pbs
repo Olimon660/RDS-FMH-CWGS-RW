@@ -7,15 +7,13 @@
 
 module load gatk
 
-cd /scratch/RDS-FMH-CWGS-RW/Sources
-
-DS='/scratch/RDS-SMS-WGS22-RW/RDAGG'
-OX='/scratch/RDS-SMS-WGS22-RW/RDAGG/GATK'
-REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_pBABE_puro.fasta'
+DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
+OX='/scratch/RDS-FMH-CWGS-RW/Sources/6'
+REF='/scratch/RDS-FMH-CWGS-RW/combined.fasta'
 
 echo $sampleID $PBS_JOBID $PBS_JOBNAME
 
-java -jar  /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller \
+java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller \
 -R       $REF \
 -I       $DS/${sampleID}.bam \
 -o       $OX/GATK_${sampleID}.vcf \
