@@ -15,6 +15,6 @@ echo $sampleID
 
 java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller \
 -R       $REF \
--I       $DS/${sampleID}.bam \
+-I       $DS/REALIGNED_RG_DEDUP_SORTED_HG19_${sampleID}.bam \
 -o       $OX/GATK_${sampleID}.vcf \
 --genotyping_mode DISCOVERY -stand_call_conf 30 -stand_emit_conf 10
