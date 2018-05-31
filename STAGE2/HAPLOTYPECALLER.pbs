@@ -9,7 +9,7 @@ module load gatk
 
 DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/6'
-REF='/scratch/RDS-FMH-CWGS-RW/combined.fasta'
+REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 
 echo $sampleID $PBS_JOBID $PBS_JOBNAME
 
