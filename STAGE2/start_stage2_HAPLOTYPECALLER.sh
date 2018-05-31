@@ -1,6 +1,5 @@
 #!/bin/bash 
 
-
 my_file='/project/RDS-SMS-WGS22-RW/haplotype_input_file_names.txt'
 END=$(cat $my_file | wc -l)
 START=1
