@@ -7,9 +7,9 @@
 
 module load mutect
 
-DS='/scratch/RDS-FMH-CWGS-RW/RDAGG'
-REF='/project/RDS-FMH-CWGS-RW/broad_hg38_canonical_pBABE_puro.fasta'
-OT='/scratch/RDS-FMH-CWGS-RW/RDAGG/MUTECT'
+DS='/scratch/RDS-FMH-CWGS-RW/5'
+REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
+OT='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 
 echo $sampleID $controlID $PBS_JOBID $PBS_JOBNAME
 
