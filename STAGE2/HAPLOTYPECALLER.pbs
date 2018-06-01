@@ -13,7 +13,7 @@ REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 
 echo $sampleID
 
-java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller -nct 32 --dbsnp 00-common_all.vcf \
+java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller -nct 32 --dbsnp 00-common_all.vcf.gz \
 -R       $REF \
 -I       $DS/REALIGNED_RG_DEDUP_SORTED_HG19_${sampleID}.bam \
 -o       $OX/GATK_${sampleID}.vcf \
