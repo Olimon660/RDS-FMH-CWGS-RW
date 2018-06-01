@@ -1,26 +1,19 @@
-
 #!/bin/bash
-# Author: Erdahl Teber
-# Task: carry out MUTECT
 
-#PBS -N MUTECT_TN
 #PBS -l walltime=100:0:0
-#PBS -P RDS-SMS-CMRIWGS-RW
+#PBS -P RDS-FMH-CWGS-RW
 #PBS -l select=1:ncpus=2:mem=64GB
 #PBS -q defaultQ
 
 module load mutect
 
-cd /project/RDS-SMS-WGS22-RW
-
-
-DS='/scratch/RDS-SMS-WGS22-RW/RDAGG'
-REF='/project/RDS-SMS-WGS22-RW/broad_hg38_canonical_pBABE_puro.fasta'
-OT='/scratch/RDS-SMS-WGS22-RW/RDAGG/MUTECT'
+DS='/scratch/RDS-FMH-CWGS-RW/RDAGG'
+REF='/project/RDS-FMH-CWGS-RW/broad_hg38_canonical_pBABE_puro.fasta'
+OT='/scratch/RDS-FMH-CWGS-RW/RDAGG/MUTECT'
 
 echo $sampleID $controlID $PBS_JOBID $PBS_JOBNAME
 
-time  /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.34.x86_64/bin/java -jar /usr/local/mutect/1.1.4/muTect-1.1.4.jar --analysis_type MuTect \
+/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.34.x86_64/bin/java -jar /usr/local/mutect/1.1.4/muTect-1.1.4.jar --analysis_type MuTect \
 --reference_sequence  $REF \
 --input_file:tumor  $DS/$sampleID.bam \
 --input_file:normal $DS/$controlID.bam \
@@ -28,4 +21,3 @@ time  /usr/lib/jvm/java-1.6.0-openjdk-1.6.0.34.x86_64/bin/java -jar /usr/local/m
 --coverage_file  $OT/MUTECT_${sampleID}.coverages.wig.txt \
 --enable_extended_output \
 --vcf    $OT/MUTECT_${sampleID}.vcf 
-
