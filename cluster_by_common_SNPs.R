@@ -1,6 +1,5 @@
-library(VariantAnnotation)
 library(stringr)
-
+library(VariantAnnotation)
 
 dir='/home/CMRI/eteber/WORKING_DIR/TEMP'
 
