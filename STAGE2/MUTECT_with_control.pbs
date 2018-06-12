@@ -11,7 +11,10 @@ OT='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 
 echo $normalID $tumorID $PBS_JOBID $PBS_JOBNAME
 
-/scratch/RDS-FMH-CWGS-RW/softwares/gatk-4.0.4.0/gatk Mutect2 -R $REF \
--I $DS/RG_DEDUP_SORTED_HG19_$tumorID.bam -tumor $tumorID \
--I $DS/RG_DEDUP_SORTED_HG19_$normalID.bam -normal $normalID \
---native-pair-hmm-threads 32 -O $OT/MUTECT_${tumorID}.vcf
+#/scratch/RDS-FMH-CWGS-RW/softwares/gatk-4.0.4.0/gatk Mutect2 -R $REF \
+#-I $DS/RG_DEDUP_SORTED_HG19_$tumorID.bam -tumor $tumorID \
+#-I $DS/RG_DEDUP_SORTED_HG19_$normalID.bam -normal $normalID \
+#--native-pair-hmm-threads 32 -O $OT/MUTECT_${tumorID}.vcf
+
+ls -la $DS/RG_DEDUP_SORTED_HG19_$tumorID.bam
+ls -la $DS/RG_DEDUP_SORTED_HG19_$normalID.bam
