@@ -9,7 +9,7 @@ DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 OT='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 
-echo $sampleID $controlID $PBS_JOBID $PBS_JOBNAME
+echo $normalID $tumorID $PBS_JOBID $PBS_JOBNAME
 
 /scratch/RDS-FMH-CWGS-RW/softwares/gatk-4.0.4.0/gatk Mutect2 -R $REF \
 -I $DS/RG_DEDUP_SORTED_HG19_$tumorID.bam -tumor $tumorID \
