@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#PBS -l walltime=50:00:00
+#PBS -l walltime=48:00:00
 #PBS -P RDS-FMH-CWGS-RW
 #PBS -l select=4:ncpus=8:mem=16GB
 #PBS -q defaultQ
