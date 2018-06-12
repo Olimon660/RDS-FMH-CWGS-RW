@@ -2,7 +2,7 @@
 
 #PBS -l walltime=100:0:0
 #PBS -P RDS-FMH-CWGS-RW
-#PBS -l select=1:ncpus=2:mem=64GB
+#PBS -l select=4:ncpus=8:mem=16GB
 #PBS -q defaultQ
 
 module load mutect
@@ -13,11 +13,7 @@ OT='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 
 echo $sampleID $controlID $PBS_JOBID $PBS_JOBNAME
 
-/usr/lib/jvm/java-1.6.0-openjdk-1.6.0.34.x86_64/bin/java -jar /usr/local/mutect/1.1.4/muTect-1.1.4.jar --analysis_type MuTect \
---reference_sequence  $REF \
---input_file:tumor  $DS/$sampleID.bam \
---input_file:normal $DS/$controlID.bam \
---out    $OT/MUTECT_${sampleID}.call_out \
---coverage_file  $OT/MUTECT_${sampleID}.coverages.wig.txt \
---enable_extended_output \
---vcf    $OT/MUTECT_${sampleID}.vcf 
+/scratch/RDS-FMH-CWGS-RW/softwares/gatk-4.0.4.0/gatk Mutect2 -R $REF \
+-I $DS/RG_DEDUP_SORTED_HG19_$tumorID.bam -tumor $tumorID \
+-I $DS/RG_DEDUP_SORTED_HG19_$normalID.bam -normal $normalID \
+--native-pair-hmm-threads 32 -O $OT/MUTECT_${tumorID}.vcf
