@@ -11,8 +11,8 @@ OT='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 
 echo $normalID $tumorID $PBS_JOBID $PBS_JOBNAME
 
-ls -la $DS/RG_DEDUP_SORTED_HG19_$tumorID.bam
 ls -la $DS/RG_DEDUP_SORTED_HG19_$normalID.bam
+ls -la $DS/RG_DEDUP_SORTED_HG19_$tumorID.bam
 
 /scratch/RDS-FMH-CWGS-RW/softwares/gatk-4.0.4.0/gatk Mutect2 -R $REF \
 -I $DS/RG_DEDUP_SORTED_HG19_$tumorID.bam -tumor $tumorID \
