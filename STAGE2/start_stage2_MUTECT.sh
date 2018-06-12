@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-my_file='/project/RDS-SMS-WGS22-RW/case_control_input_files.txt'
+my_file='/scratch/RDS-FMH-CWGS-RW/Sources/STAGE2/case_control_input_files.txt'
 END=$(cat $my_file | wc -l)
 START=1
 
