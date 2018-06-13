@@ -1,5 +1,5 @@
 #
-# python3 parseVCF.py clusters A.vcf 6
+# python3 parseVCF.py vcfs A.vcf 6
 #
 
 import os
