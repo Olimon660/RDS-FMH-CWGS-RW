@@ -1,7 +1,7 @@
 library(VariantAnnotation)
 
-path <- '/Users/twong/Sources/RDS-FMH-CWGS-RW/6'
-#path <- '/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/6'
+#path <- '/Users/twong/Sources/RDS-FMH-CWGS-RW/6'
+path <- '/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/6'
 
 setwd(path)
 files <- list.files(path, pattern = "\\vcf$")
@@ -9,6 +9,7 @@ data <- data.frame()
 
 for (file in files)
 {
+    print(file)
     vcf <- readVcf(file, "hg19")
     CHR <- as.character(seqnames(vcf))
     POS <- start(ranges(vcf))
@@ -16,7 +17,6 @@ for (file in files)
     ALT <- as.character(unlist(alt(vcf)))
     key <- paste(CHR, POS, REF, ALT, sep='_')
     data  <- rbind(data, data.frame(Key=key, Sample=file))
-    print(file)
 }
 
 uniq <- unique(sort(data$Key))
