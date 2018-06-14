@@ -26,6 +26,7 @@ m <- matrix(data=0, nrow=length(files), ncol=length(uniq))
 rownames(m) <- files
 colnames(m) <- uniq
 
+# Set 1 if the SNP appears in the sample (otherwise the matrix is 0)
 ix <- unique(cbind(as.character(data$Sample), as.character(data$Key)))
 m[ix] <- 1
 
