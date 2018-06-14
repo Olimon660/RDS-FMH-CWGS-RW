@@ -1,3 +1,4 @@
+library(proxy)
 library(VariantAnnotation)
 
 #path <- '/Users/twong/Sources/RDS-FMH-CWGS-RW/6'
