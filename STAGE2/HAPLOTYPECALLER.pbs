@@ -13,6 +13,7 @@ REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 
 echo $sampleID
 
+# Input BAM has been indel realigned
 java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller -nct 32 --dbsnp /scratch/RDS-FMH-CWGS-RW/Sources/00-common_all.vcf.gz \
 -R       $REF \
 -I       $DS/REALIGNED_RG_DEDUP_SORTED_HG19_${sampleID}.bam \
