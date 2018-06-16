@@ -4,11 +4,11 @@
 #
 NORMAL=normal.bam
 TUMOUR=tumour.bam
-BLACKLIST=wgEncodeDacMapabilityConsensusExcludable.bed
-REFERENCE=~/reference_genomes/human/hg19.fa
-OUTPUT=somatic.sv.vcf
+#BLACKLIST=wgEncodeDacMapabilityConsensusExcludable.bed
+REFERENCE=combined.fasta
+OUTPUT=testSomaticSV.vcf
 ASSEMBLY=${OUTPUT/.sv.vcf/.gridss.assembly.bam}
-GRIDSS_JAR=~/bin/gridss-1.3.0-jar-with-dependencies.jar
+GRIDSS_JAR=gridss-1.7.2-gridss-jar-with-dependencies.jar
 
 if [[ ! -f "$NORMAL" ]] ; then
 	echo "Missing $NORMAL input file."
@@ -58,7 +58,7 @@ java -ea -Xmx31g \
 	INPUT="$TUMOUR" \
 	OUTPUT="$OUTPUT" \
 	ASSEMBLY="$ASSEMBLY" \
-	BLACKLIST="$BLACKLIST" \
+	#BLACKLIST="$BLACKLIST" \
 	2>&1 | tee -a gridss.$HOSTNAME.$$.log
 
 #Rscript somatic.R
