@@ -53,6 +53,7 @@ java -ea -Xmx31g \
 	-cp $GRIDSS_JAR gridss.CallVariants \
 	TMP_DIR=. \
 	WORKING_DIR=. \
+	WORKER_THREADS=15 \
 	REFERENCE_SEQUENCE="$REFERENCE" \
 	INPUT="$NORMAL" \
 	INPUT="$TUMOUR" \
