@@ -2,8 +2,8 @@
 #
 # Example gridss pipeline for somatic tumour/normal analysis
 #
-NORMAL=normal.bam
-TUMOUR=tumour.bam
+NORMAL=REALIGNED_RG_DEDUP_SORTED_HG19_JFCF6_P12_H06L4ALXX_6.bam
+TUMOUR=REALIGNED_RG_DEDUP_SORTED_HG19_JFCF6_T_1J_1-3C_H06L4ALXX_3.bam # The one Erdhal asked for
 #BLACKLIST=wgEncodeDacMapabilityConsensusExcludable.bed
 REFERENCE=combined.fasta
 OUTPUT=testSomaticSV.vcf
