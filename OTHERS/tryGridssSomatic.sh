@@ -7,7 +7,8 @@ java -jar gridss-1.7.2-gridss-jar-with-dependencies.jar \
 	-Dsamjdk.use_async_io_read_samtools=true \
 	-Dsamjdk.use_async_io_write_samtools=true \
 	-Dsamjdk.use_async_io_write_tribble=true \
-	-Dsamjdk.compression_level=1 \WORKER_THREADS=15 \
+	-Dsamjdk.compression_level=1 \
+	WORKER_THREADS=15 \
 	ASSEMBLY=gridss_JFCF6_SV.bam \
 	INPUT="$NORMAL" \
 	INPUT="$TUMOUR" \
