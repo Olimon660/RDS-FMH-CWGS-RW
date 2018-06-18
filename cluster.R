@@ -1,8 +1,9 @@
 library(proxy)
+library(corrplot)
 library(VariantAnnotation)
 
-#path <- '/Users/twong/Sources/RDS-FMH-CWGS-RW/6'
-path <- '/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/6'
+path <- '/Users/twong/Sources/RDS-FMH-CWGS-RW/6'
+#path <- '/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/6'
 
 setwd(path)
 files <- list.files(path, pattern = "\\vcf$")
@@ -23,7 +24,7 @@ for (file in files)
 uniq <- unique(sort(data$Key))
 print(paste(c('There are'), length(uniq), 'unique variants'))
 
-m <- matrix(data=0, nrow=length(files), ncol=length(uniq))
+m <- matrix(data=0, nrow=length(files), ncol=length(uniq)) # Samples vs loci
 rownames(m) <- files
 colnames(m) <- uniq
 
@@ -34,3 +35,6 @@ m[ix] <- 1
 d <- proxy::dist(m, method='Jaccard')
 h = hclust(d)
 plot(h)
+
+corrplot(as.matrix(d), method = 'number')
+corrplot(as.matrix(d), method = 'pie')
