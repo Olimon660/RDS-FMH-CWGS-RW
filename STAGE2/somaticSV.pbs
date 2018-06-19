@@ -20,18 +20,18 @@ echo $sampleID
 cd /scratch/RDS-FMH-CWGS-RW/Sources/9
 
 java -ea -Xmx31g \
-	-Dreference_fasta="$REFERENCE" \
 	-Dsamjdk.create_index=true \
 	-Dsamjdk.use_async_io_read_samtools=true \
 	-Dsamjdk.use_async_io_write_samtools=true \
 	-Dsamjdk.use_async_io_write_tribble=true \
-	-Dgridss.gridss.output_to_temp_file=true \
+	-Dsamjdk.compression_level=1 \
 	-cp /scratch/RDS-FMH-CWGS-RW/softwares/gridss-1.7.2-gridss-jar-with-dependencies.jar gridss.CallVariants \
 	TMP_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/9 \
 	WORKER_THREADS=16 \
 	WORKING_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/9 \
 	REFERENCE_SEQUENCE="$REFERENCE" \
-	INPUT="$INPUT" \
+	INPUT="$NORMAL" \
+	INPUT="$TUMOUR" \
 	OUTPUT="$OUTPUT" \
 	ASSEMBLY="$ASSEMBLY" \
-	2>&1 | tee -a gridss.$HOSTNAME.$$.log
+	2>&1 | tee -a gridss.somatic.$HOSTNAME.$$.log
