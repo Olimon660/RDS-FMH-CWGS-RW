@@ -15,6 +15,7 @@ with open(sys.argv[1]) as r:
         normal = toks[1]
         
         cmd = 'qsub -v normalID=' + normal + ',tumorID=' + tumor + ' STAGE2/somaticSV.pbs'
+        print(cmd)
         #cmd = 'qsub -v normalID=' + normal + ',tumorID=' + tumor + ' STAGE2/TEST.pbs'        
 
         #os.system(cmd)
