@@ -47,9 +47,9 @@ data <- as.matrix(data)
 
 fixNames <- function(x)
 {
-    x <- gsub(".vcf", "", gsub("GATK_", "", colnames(data)))
-    x <- gsub("_H06L4ALXX_3", "", colnames(data))
-    x <- gsub("_H06L4ALXX_6", "", colnames(data))
+    x <- gsub(".vcf", "", gsub("GATK_", "", colnames(x)))
+    x <- gsub("_H06L4ALXX_3", "", colnames(x))
+    x <- gsub("_H06L4ALXX_6", "", colnames(x))
     x
 }
                      
