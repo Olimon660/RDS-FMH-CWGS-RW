@@ -24,7 +24,7 @@ for (file in files)
 uniq <- unique(sort(data$Key))
 print(paste(c('There are'), length(uniq), 'unique variants'))
 
-m <- matrix(data=0, nrow=length(files), ncol=length(uniq)) # Samples vs loci
+m <- matrix(data=0, nrow=length(files), ncol=length(uniq)) # Samples vs SNPs
 rownames(m) <- files
 colnames(m) <- uniq
 
