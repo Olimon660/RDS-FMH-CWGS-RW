@@ -60,13 +60,9 @@ for (i in rownames(jaccard_index))
     }
 }
 
-
-
-
-
-
+png('hclust.png')
 plot(hclust(dist(jaccard_index)), xlab='')
-
+dev.off()
 
 
 
