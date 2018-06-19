@@ -7,14 +7,19 @@
 
 module load gatk
 
+DS='/scratch/RDS-FMH-CWGS-RW/Sources/6'
+OX='/scratch/RDS-FMH-CWGS-RW/Sources/6'
+REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
+
 java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar \
--T SelectVariants -R ref.fasta \
--V WI38.vcf -o RAW_SNV_WI38.vcf
+-T SelectVariants -R $REF \
+-V $OX/GATK_${sampleID}.vcf
+-o $OX/SNP_GATK_${sampleID}.vcf \
 -selectType SNP \
 --disable_auto_index_creation_and_locking_when_reading_rods
 
 java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar \
--T VariantFiltration -R ref.fasta \
--V RAW_SNV_WI38.vcf \
--o FILTERED_SNV_WI38.vcf \
+-T VariantFiltration -R $REF \
+-V $OX/SNP_GATK_${sampleID}.vcf \
+-o $OX/FILTERED_SNP_GATK_${sampleID}.vcf \
 --filterExpression "QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0" --filterName "my_snp_filter"
