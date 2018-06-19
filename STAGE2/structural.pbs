@@ -33,7 +33,7 @@ java -ea -Xmx31g \
 	WORKING_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/8 \
 	REFERENCE_SEQUENCE="$REFERENCE" \
 	INPUT="$NORMAL" \
-	INPUT="$TUMOUR" \
+	INPUT="$TUMOR" \
 	OUTPUT="$OUTPUT" \
 	ASSEMBLY="$ASSEMBLY" \
 	2>&1 | tee -a gridss.somatic.$HOSTNAME.$$.log
