@@ -36,5 +36,4 @@ d <- proxy::dist(m, method='Jaccard')
 h = hclust(d)
 plot(h)
 
-corrplot(as.matrix(d), method = 'number')
-corrplot(as.matrix(d), method = 'pie')
+saveRDS(d, 'dist.rds')
