@@ -1,1 +1,21 @@
+#!/bin/bash
 
+#PBS -l walltime=35:00:00
+#PBS -P RDS-FMH-CWGS-RW
+#PBS -l select=4:ncpus=8:mem=16GB
+#PBS -q defaultQ
+
+module load gatk
+
+DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
+OX='/scratch/RDS-FMH-CWGS-RW/Sources/6'
+REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
+
+echo $sampleID
+
+# Input BAM has been indel realigned
+java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller -nct 32 --dbsnp /scratch/RDS-FMH-CWGS-RW/Sources/00-common_all.vcf.gz \
+-R       $REF \
+-I       $DS/REALIGNED_RG_DEDUP_SORTED_HG19_${sampleID}.bam \
+-o       $OX/GATK_${sampleID}.vcf \
+--genotyping_mode DISCOVERY -stand_call_conf 30 -stand_emit_conf 10
