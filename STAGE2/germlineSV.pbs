@@ -11,11 +11,26 @@ DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/6'
 REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 
+INPUT=chr12.1527326.DEL1024.bam
+REFERENCE=hg19.fa
+OUTPUT=${INPUT/.bam/.sv.vcf}
+ASSEMBLY=${OUTPUT/.sv.vcf/.gridss.assembly.bam}
+
 echo $sampleID
 
-# Input BAM has been indel realigned
-java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar -T HaplotypeCaller -nct 32 --dbsnp /scratch/RDS-FMH-CWGS-RW/Sources/00-common_all.vcf.gz \
--R       $REF \
--I       $DS/REALIGNED_RG_DEDUP_SORTED_HG19_${sampleID}.bam \
--o       $OX/GATK_${sampleID}.vcf \
---genotyping_mode DISCOVERY -stand_call_conf 30 -stand_emit_conf 10
+java -ea -Xmx31g \
+	-Dreference_fasta="$REFERENCE" \
+	-Dsamjdk.create_index=true \
+	-Dsamjdk.use_async_io_read_samtools=true \
+	-Dsamjdk.use_async_io_write_samtools=true \
+	-Dsamjdk.use_async_io_write_tribble=true \
+	-Dgridss.gridss.output_to_temp_file=true \
+	-Dgridss.keepTempFiles=true \
+	-cp /scratch/RDS-FMH-CWGS-RW/softwares/gridss-1.7.2-gridss-jar-with-dependencies.jar gridss.CallVariants \
+	TMP_DIR=. \
+	WORKING_DIR=. \
+	REFERENCE_SEQUENCE="$REFERENCE" \
+	INPUT="$INPUT" \
+	OUTPUT="$OUTPUT" \
+	ASSEMBLY="$ASSEMBLY" \
+	2>&1 | tee -a gridss.$HOSTNAME.$$.log
