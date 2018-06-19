@@ -16,6 +16,4 @@ with open(sys.argv[1]) as r:
         
         cmd = 'qsub -v normalID=' + normal + ',tumorID=' + tumor + ' STAGE2/gridss.pbs'
         print(cmd)
-        #cmd = 'qsub -v normalID=' + normal + ',tumorID=' + tumor + ' STAGE2/TEST.pbs'        
-
-        #os.system(cmd)
+        os.system(cmd)
