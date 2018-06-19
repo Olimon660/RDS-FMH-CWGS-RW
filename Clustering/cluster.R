@@ -12,7 +12,7 @@ data <- data.frame()
 for (file in files)
 {
     print(file)
-    vcf <- readVcf(file, "hg19")
+    vcf <- readVcf(file, 'hg19')
     CHR <- as.character(seqnames(vcf))
     POS <- start(ranges(vcf))
     REF <- as.character(ref(vcf))
