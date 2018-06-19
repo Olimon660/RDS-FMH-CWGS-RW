@@ -15,6 +15,7 @@ OUTPUT=${OX}/GERMLINE_GRIDSS_${sampleID}.vcf
 ASSEMBLY=${OX}/GERMLINE_GRIDSS_${sampleID}.bam
 
 echo $sampleID
+cd /scratch/RDS-FMH-CWGS-RW/Sources/8
 
 java -ea -Xmx31g \
 	-Dreference_fasta="$REFERENCE" \
