@@ -5,16 +5,14 @@
 #PBS -l select=4:ncpus=8:mem=16GB
 #PBS -q defaultQ
 
-module load gatk
-
 DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
-OX='/scratch/RDS-FMH-CWGS-RW/Sources/6'
+OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
 REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 
-INPUT=chr12.1527326.DEL1024.bam
-REFERENCE=hg19.fa
-OUTPUT=${INPUT/.bam/.sv.vcf}
-ASSEMBLY=${OUTPUT/.sv.vcf/.gridss.assembly.bam}
+INPUT=REALIGNED_RG_DEDUP_SORTED_HG19_${sampleID}.bam
+REFERENCE=$REF
+OUTPUT=${OX}/GERMLINE_GRIDSS_${sampleID}.vcf
+ASSEMBLY=${OX}/GERMLINE_GRIDSS_${sampleID}.bam
 
 echo $sampleID
 
