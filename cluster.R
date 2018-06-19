@@ -41,3 +41,4 @@ data <- readRDS('dist.rds')
 
 data <- as.matrix(data)
 colnames(data) <- gsub(".vcf", "", gsub("GATK_", "", colnames(data)))
+rownames(data) <- gsub(".vcf", "", gsub("GATK_", "", rownames(data)))
