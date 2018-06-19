@@ -6,16 +6,18 @@
 #PBS -q defaultQ
 
 DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
-OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
+OX='/scratch/RDS-FMH-CWGS-RW/Sources/9'
 REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 
-INPUT=${DS}/REALIGNED_RG_DEDUP_SORTED_HG19_${sampleID}.bam
+NORMAL=${DS}/REALIGNED_RG_DEDUP_SORTED_HG19_${normalID}.bam
+TUMOR=${DS}/REALIGNED_RG_DEDUP_SORTED_HG19_${tumorID}.bam
+
 REFERENCE=$REF
-OUTPUT=${OX}/GERMLINE_GRIDSS_${sampleID}.vcf
-ASSEMBLY=${OX}/GERMLINE_GRIDSS_${sampleID}.bam
+OUTPUT=${OX}/SOMATIC_GRIDSS_${sampleID}.vcf
+ASSEMBLY=${OX}/SOMATIC_GRIDSS_${sampleID}.bam
 
 echo $sampleID
-cd /scratch/RDS-FMH-CWGS-RW/Sources/8
+cd /scratch/RDS-FMH-CWGS-RW/Sources/9
 
 java -ea -Xmx31g \
 	-Dreference_fasta="$REFERENCE" \
@@ -25,9 +27,9 @@ java -ea -Xmx31g \
 	-Dsamjdk.use_async_io_write_tribble=true \
 	-Dgridss.gridss.output_to_temp_file=true \
 	-cp /scratch/RDS-FMH-CWGS-RW/softwares/gridss-1.7.2-gridss-jar-with-dependencies.jar gridss.CallVariants \
-	TMP_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/8 \
+	TMP_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/9 \
 	WORKER_THREADS=16 \
-	WORKING_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/8 \
+	WORKING_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/9 \
 	REFERENCE_SEQUENCE="$REFERENCE" \
 	INPUT="$INPUT" \
 	OUTPUT="$OUTPUT" \
