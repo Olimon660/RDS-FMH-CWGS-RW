@@ -28,7 +28,7 @@ java -ea -Xmx31g \
 	-cp /scratch/RDS-FMH-CWGS-RW/softwares/gridss-1.7.2-gridss-jar-with-dependencies.jar gridss.CallVariants \
 	TMP_DIR=. \
 	WORKER_THREADS=16 \
-	WORKING_DIR=/scratch/RDS-FMH-CWGS-RW/Sources \
+	WORKING_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/8 \
 	REFERENCE_SEQUENCE="$REFERENCE" \
 	INPUT="$INPUT" \
 	OUTPUT="$OUTPUT" \
