@@ -3,7 +3,8 @@
 #
 
 library(proxy)
-library(corrplot)
+library(circlize)
+library(ComplexHeatmap)
 library(VariantAnnotation)
 
 path <- '/Users/twong/Sources/RDS-FMH-CWGS-RW/6'
@@ -36,24 +37,82 @@ colnames(m) <- uniq
 ix <- unique(cbind(as.character(data$Sample), as.character(data$Key)))
 m[ix] <- 1
 
-saveRDS(d, 'd.rds')
-saveRDS(m, 'm.rds')
+jaccard <- function(M, samp1, samp2) {
+    sums = rowSums(M[,c(samp1, samp2)])
+    similarity = length(sums[sums==2])
+    total = length(sums[sums==1]) + similarity
+    similarity/total
+}
+
+jaccard_index<-matrix(data=0, nrow=length(files), ncol=length(uniq)) # Samples vs SNPs
+rownames(jaccard_index) <- files
+colnames(jaccard_index) <- uniq
+
+for (i in files)
+{
+    for (j in uniq)
+    {
+        jaccard_index[i,j] <- jaccard(m, i,j)
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 d <- proxy::dist(m, method='Jaccard')
-h = hclust(d)
-plot(h)
+saveRDS(d, 'd.rds')
+plot(hclust(d), xlab='')
 
-data <- readRDS('dist.rds')
-
-data <- as.matrix(data)
+d <- readRDS('d.rds')
+d.m <- as.matrix(d)
 
 fixNames <- function(x)
 {
-    x <- gsub(".vcf", "", gsub("GATK_", "", x))
-    x <- gsub("_H06L4ALXX_3", "", x)
-    x <- gsub("_H06L4ALXX_6", "", x)
+    x <- gsub('.vcf', '', gsub('GATK_', '', x))
+    x <- gsub('_H06L4ALXX_3', '', x)
+    x <- gsub('_H06L4ALXX_6', '', x)
+    x <- gsub('_H06L4ALXX_4', '', x)
     x
 }
                      
-colnames(data) <- fixNames(colnames(data))
-rownames(data) <- fixNames(rownames(data))
+colnames(d.m) <- fixNames(colnames(d.m))
+rownames(d.m) <- fixNames(rownames(d.m))
+
+col_text <- function(x) {
+    if (x == 0) { y<-'' }
+    else        { y<-x }
+    return(y)
+}
+
+drawHeat <- function(m)
+{
+    Heatmap(m, name = "Jaccard index", cluster_rows = FALSE, cluster_columns = FALSE, rect_gp = gpar(col = "white", lwd = 2, type = "none"), 
+            col=colorRamp2(c(min(m), max(m)), c('white','red')), show_heatmap_legend = TRUE, 
+            column_title = "SNV Indel similarity across immortal samples",
+            cell_fun = function(j, i, x, y, width, height, fill) {
+                grid.rect(x = x, y = y, width = width*0.90, height = height*0.90,gp = gpar(fill = fill))
+                grid.text(col_text(round(m[i, j],2)), vjust=1, hjust=0.50, x, y, gp = gpar(fontsize = 8, col='black'))
+            })
+}
+
+fixMatrix <- function(m, x)
+{
+    m <- m[!rownames(m) %in% x,]
+    m <- m[,!colnames(m) %in% x]    
+    m
+}
+
+drawHeat(1 - fixMatrix(d.m, c('ZK-58', 'VA13', 'KPD')))
