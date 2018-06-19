@@ -44,5 +44,13 @@ saveRDS(d, 'dist.rds')
 data <- readRDS('dist.rds')
 
 data <- as.matrix(data)
-colnames(data) <- gsub(".vcf", "", gsub("GATK_", "", colnames(data)))
-rownames(data) <- gsub(".vcf", "", gsub("GATK_", "", rownames(data)))
+
+fixNames <- function(x)
+{
+    x <- gsub(".vcf", "", gsub("GATK_", "", colnames(data)))
+    x <- gsub("_H06L4ALXX_3", "", colnames(data))
+    x <- gsub("_H06L4ALXX_6", "", colnames(data))
+}
+                     
+colnames(data) <- fixNames(colnames(data))
+rownames(data) <- fixNames(rownames(data))
