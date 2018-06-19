@@ -37,3 +37,7 @@ h = hclust(d)
 plot(h)
 
 saveRDS(d, 'dist.rds')
+data <- readRDS('dist.rds')
+
+data <- as.matrix(data)
+colnames(data) <- gsub(".vcf", "", gsub("GATK_", "", colnames(data)))
