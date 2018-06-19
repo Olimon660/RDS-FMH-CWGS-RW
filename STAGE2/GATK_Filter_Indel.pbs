@@ -22,4 +22,4 @@ java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar \
 -T VariantFiltration -R $REF \
 -V $OX/INDEL_GATK_${sampleID}.vcf \
 -o $OX/FILTERED_INDEL_GATK_${sampleID}.vcf \
---filterExpression "QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0" --filterName "my_indel_filter"
+--filterExpression "QD < 2.0 || FS > 200.0 || ReadPosRankSum < -20.0" --filterName "my_indel_filter"
