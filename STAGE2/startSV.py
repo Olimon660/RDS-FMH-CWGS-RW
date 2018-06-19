@@ -14,7 +14,7 @@ with open(sys.argv[1]) as r:
         tumor  = toks[0]
         normal = toks[1]
         
-        cmd = 'qsub -v normalID=' + normal + ',tumorID=' + tumor + ' STAGE2/gridss.pbs.pbs'
+        cmd = 'qsub -v normalID=' + normal + ',tumorID=' + tumor + ' STAGE2/gridss.pbs'
         print(cmd)
         #cmd = 'qsub -v normalID=' + normal + ',tumorID=' + tumor + ' STAGE2/TEST.pbs'        
 
