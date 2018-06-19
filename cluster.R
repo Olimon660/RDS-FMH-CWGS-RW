@@ -6,8 +6,8 @@ library(circlize)
 library(ComplexHeatmap)
 library(VariantAnnotation)
 
-path <- '/Users/twong/Sources/RDS-FMH-CWGS-RW/6'
-#path <- '/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/6'
+#path <- '/Users/twong/Sources/RDS-FMH-CWGS-RW/6'
+path <- '/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/6'
 
 setwd(path)
 files <- list.files(path, pattern = "\\vcf$")
@@ -49,10 +49,13 @@ jaccard_index<-matrix(data=0, nrow=length(files), ncol=length(files))
 rownames(jaccard_index) <- files
 colnames(jaccard_index) <- files
 
+n <- 0
 for (i in rownames(jaccard_index))
 {
     for (j in rownames(jaccard_index))
     {
+        print(n)
+        n <- n + 1
         jaccard_index[i,j] <- jaccard(m,i,j)
     }
 }
@@ -62,6 +65,7 @@ for (i in rownames(jaccard_index))
 
 
 
+plot(hclust(dist(jaccard_index)), xlab='')
 
 
 
@@ -89,8 +93,9 @@ for (i in rownames(jaccard_index))
 
 
 
-#saveRDS(d, 'd.rds')
-#plot(hclust(d), xlab='')
+
+
+
 
 #d <- readRDS('d.rds')
 #d.m <- as.matrix(d)
