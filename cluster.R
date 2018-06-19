@@ -36,11 +36,13 @@ colnames(m) <- uniq
 ix <- unique(cbind(as.character(data$Sample), as.character(data$Key)))
 m[ix] <- 1
 
+saveRDS(d, 'd.rds')
+saveRDS(m, 'm.rds')
+
 d <- proxy::dist(m, method='Jaccard')
 h = hclust(d)
 plot(h)
 
-saveRDS(d, 'dist.rds')
 data <- readRDS('dist.rds')
 
 data <- as.matrix(data)
