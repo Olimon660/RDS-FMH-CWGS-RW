@@ -13,13 +13,13 @@ REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 
 java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar \
 -T SelectVariants -R $REF \
--V $OX/GATK_${sampleID}.vcf \
--o $OX/INDEL_GATK_${sampleID}.vcf \
+-V $OX/NORM_DECOM_GATK_${sampleID}.vcf \
+-o $OX/INDEL_NORM_DECOM_GATK_${sampleID}.vcf \
 -selectType INDEL \
 --disable_auto_index_creation_and_locking_when_reading_rods
 
 java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar \
 -T VariantFiltration -R $REF \
--V $OX/INDEL_GATK_${sampleID}.vcf \
--o $OX/FILTERED_INDEL_GATK_${sampleID}.vcf \
+-V $OX/INDEL_NORM_DECOM_GATK_${sampleID}.vcf \
+-o $OX/FILTERED_INDEL_NORM_DECOM_GATK_${sampleID}.vcf \
 --filterExpression "QD < 2.0 || FS > 200.0 || ReadPosRankSum < -20.0" --filterName "my_indel_filter"
