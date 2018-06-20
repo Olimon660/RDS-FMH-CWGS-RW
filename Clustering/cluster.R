@@ -2,7 +2,6 @@ library(circlize)
 library(ComplexHeatmap)
 library(VariantAnnotation)
 
-#path <- '/Users/twong/Desktop/6'
 path <- '/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/6'
 
 setwd(path)
@@ -63,13 +62,9 @@ for (i in rownames(jaccard_index))
 saveRDS(jaccard_index, 'jaccard_index.rds')
 jaccard_index <- readRDS('jaccard_index.rds')
 
-png('hclust.png')
-plot(hclust(dist(jaccard_index)), xlab='')
-dev.off()
-
 fixNames <- function(x)
 {
-    x <- gsub('.vcf', '', gsub('GATK_', '', x))
+    x <- gsub('.vcf', '', gsub('DECOMPOSED_SNP_GATK_', '', x))
     x <- gsub('_H06L4ALXX_3', '', x)
     x <- gsub('_H06L4ALXX_6', '', x)
     x <- gsub('_H06L4ALXX_4', '', x)
@@ -102,4 +97,8 @@ fixMatrix <- function(m, x)
     m
 }
 
+colnames(jaccard_index) <- fixNames(colnames(jaccard_index))
+rownames(jaccard_index) <- fixNames(rownames(jaccard_index))
+
+plot(hclust(dist(jaccard_index)), xlab='')
 drawHeat(fixMatrix(as.matrix(jaccard_index), c('ZK-58', 'VA13', 'KPD')))
