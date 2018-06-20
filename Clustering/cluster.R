@@ -16,7 +16,7 @@ for (file in files)
     CHR <- as.character(seqnames(vcf))
     POS <- start(ranges(vcf))
     REF <- as.character(ref(vcf))
-    ALT <- as.character(unlist(lapply(sort(alt(vcf)), paste0, collapse=',')))
+    ALT <- as.character(unlist(alt(vcf))) # Assume no multi-allele (decomposed)
     key <- paste(CHR, POS, REF, ALT, sep='_')
     data  <- rbind(data, data.frame(Key=key, Sample=file))
 }
