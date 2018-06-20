@@ -1,6 +1,6 @@
 #!/bin/bash 
 
-REF=
+REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 OUT='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/6'
 
 for file in $OUT/SNP_*.vcf; do
