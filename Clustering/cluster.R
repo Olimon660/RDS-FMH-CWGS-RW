@@ -6,7 +6,7 @@ library(VariantAnnotation)
 path <- '/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/6'
 
 setwd(path)
-files <- list.files(path, pattern = "\\vcf$")
+files <- list.files(path, pattern = "^DECOMPOSED_SNP_GATK_.*vcf$") # Only SNPs
 data <- data.frame()
 
 for (file in files)
