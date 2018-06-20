@@ -6,6 +6,8 @@ OUT='/scratch/RDS-FMH-CWGS-RW/Sources/6'
 module load vt
 
 for file in $OUT/*.vcf; do
-    vt decompose -s $file -o $OUT/DECOM_$(basename "$file")
-    vt normalize $OUT/DECOM_$(basename "$file") -r $REF -o $OUT/NORM_DECOM_$(basename "$file")
+    echo 'vt decompose -s $file -o $OUT/DECOM_$(basename "$file")'
+    #vt decompose -s $file -o $OUT/DECOM_$(basename "$file")
+    echo 'vt normalize $OUT/DECOM_$(basename "$file") -r $REF -o $OUT/NORM_DECOM_$(basename "$file")'
+    #vt normalize $OUT/DECOM_$(basename "$file") -r $REF -o $OUT/NORM_DECOM_$(basename "$file")
 done
