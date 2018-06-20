@@ -13,13 +13,13 @@ REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 
 java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar \
 -T SelectVariants -R $REF \
--V $OX/GATK_${sampleID}.vcf \
--o $OX/SNP_GATK_${sampleID}.vcf \
+-V $OX/NORM_DECOM_GATK_${sampleID}.vcf \
+-o $OX/SNP_NORM_DECOM_GATK_${sampleID}.vcf \
 -selectType SNP \
 --disable_auto_index_creation_and_locking_when_reading_rods
 
 java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar \
 -T VariantFiltration -R $REF \
--V $OX/SNP_GATK_${sampleID}.vcf \
--o $OX/FILTERED_SNP_GATK_${sampleID}.vcf \
+-V $OX/SNP_NORM_DECOM_GATK_${sampleID}.vcf \
+-o $OX/FILTERED_SNP_NORM_DECOM_GATK_${sampleID}.vcf \
 --filterExpression "QD < 2.0 || FS > 60.0 || MQ < 40.0 || MQRankSum < -12.5 || ReadPosRankSum < -8.0" --filterName "my_snp_filter"
