@@ -49,11 +49,13 @@ jaccard_index<-matrix(data=0, nrow=length(files), ncol=length(files))
 rownames(jaccard_index) <- files
 colnames(jaccard_index) <- files
 
+n <- 0
 for (i in rownames(jaccard_index))
 {
     for (j in rownames(jaccard_index))
     {
         n <- n + 1
+        print(n)
         jaccard_index[i,j] <- jaccard(m,i,j)
     }
 }
