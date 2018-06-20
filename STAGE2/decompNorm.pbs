@@ -5,7 +5,7 @@ OUT='/scratch/RDS-FMH-CWGS-RW/Sources/6'
 
 module load vt
 
-for file in $OUT/SNP_*.vcf; do
-    vt decompose -s $file -o $OUT/DECOMPOSED_$(basename "$file")
-    vt normalize $D_VCF -r $REF -o $N_VCF
+for file in $OUT/*.vcf; do
+    vt decompose -s $file -o $OUT/DECOM_$(basename "$file")
+    vt normalize $OUT/DECOM_$(basename "$file") -r $REF -o $OUT/NORM_DECOM_$(basename "$file")
 done
