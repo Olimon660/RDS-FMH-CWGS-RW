@@ -1,1 +1,9 @@
+#!/bin/bash 
 
+REF=
+OUT='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/6'
+
+for file in $OUT/SNP_*.vcf; do
+    vt decompose -s $file -o $OUT/DECOMPOSED_$(basename "$file")
+    vt normalize $D_VCF -r $REF -o $N_VCF
+done
