@@ -10,7 +10,7 @@ IX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 
 for file in $IX/NORM_MUTECT_*.vcf; do
-    java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar VariantFiltration \
+    /scratch/RDS-FMH-CWGS-RW/softwares/gatk-4.0.4.0/gatk VariantFiltration \
          -V $OX/INDEL_NORM_DECOM_GATK_${sampleID}.vcf \
          -O $OX/FILTERED_INDEL_NORM_DECOM_GATK_${sampleID}.vcf \
          --filter-expression "DP >= 10" --filter-name "MuTectFilter" -O FILTERED_MUTECT_IIICF_d2.vcf         
