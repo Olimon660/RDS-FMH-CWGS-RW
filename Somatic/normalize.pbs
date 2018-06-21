@@ -1,0 +1,17 @@
+#!/bin/bash 
+
+#PBS -l walltime=10:00:00
+#PBS -P RDS-FMH-CWGS-RW
+#PBS -l select=1:ncpus=1:mem=32GB
+#PBS -q defaultQ
+
+REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
+IX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
+OX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
+
+module load vt
+
+for file in $IX/MUTECT_*.vcf; do
+    echo 'vt normalize $IX/MUTECT_$(basename "$file") -r $REF -o $IX/MUTECT_$(basename "$file")'
+    #vt normalize $OUT/DECOM_$(basename "$file") -r $REF -o $OUT/NORM_DECOM_$(basename "$file")
+done
