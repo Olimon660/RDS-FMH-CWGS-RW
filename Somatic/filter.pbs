@@ -10,6 +10,6 @@ IX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 
 for file in $IX/NORM_MUTECT_*.vcf; do
-    /scratch/RDS-FMH-CWGS-RW/softwares/gatk-4.0.4.0/gatk VariantFiltration \
-         -V $IX/$file -O OX/FILTERED_$file --filter-expression "DP <= 10" --filter-name "MuTectFilter"      
+    /scratch/RDS-FMH-CWGS-RW/softwares/gatk-4.0.4.0/gatk FilterMutectCalls \
+         -V $IX/$(basename "$file") -O $OX/FILTERED_$(basename "$file")     
 done
