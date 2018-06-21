@@ -13,5 +13,5 @@ module load vt
 
 for file in $IX/MUTECT_*.vcf; do
     echo 'vt normalize $IX/MUTECT_$(basename "$file") -r $REF -o $OX/NORM_MUTECT_$(basename "$file")'
-    #vt normalize $IX/MUTECT_$(basename "$file") -r $REF -o $OX/NORM_MUTECT_$(basename "$file")
+    vt normalize $IX/MUTECT_$(basename "$file") -r $REF -o $OX/NORM_MUTECT_$(basename "$file")
 done
