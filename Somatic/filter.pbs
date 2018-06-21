@@ -1,5 +1,18 @@
-java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar \
--T VariantFiltration -R $REF \
--V $OX/INDEL_NORM_DECOM_GATK_${sampleID}.vcf \
--o $OX/FILTERED_INDEL_NORM_DECOM_GATK_${sampleID}.vcf \
---filterExpression "QD < 2.0 || FS > 200.0 || ReadPosRankSum < -20.0" --filterName "my_indel_filter"
+#!/bin/bash
+
+#PBS -l walltime=10:00:00
+#PBS -P RDS-FMH-CWGS-RW
+#PBS -l select=1:ncpus=1:mem=32GB
+#PBS -q defaultQ
+
+REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
+IX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
+OX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
+
+for file in $IX/NORM_MUTECT_*.vcf; do
+    java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar \
+         -T VariantFiltration \
+         -V $OX/INDEL_NORM_DECOM_GATK_${sampleID}.vcf \
+         -O $OX/FILTERED_INDEL_NORM_DECOM_GATK_${sampleID}.vcf \
+         --filter-expression "DP >= 10" --filter-name "MuTectFilter" -O FILTERED_MUTECT_IIICF_d2.vcf         
+done
