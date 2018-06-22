@@ -6,4 +6,4 @@
 #PBS -q defaultQ
 
 module load perl
-perl INSTALL.pl --AUTO aflc --SPECIES homo_sapiens --ASSEMBLY GRCh37 --DESTDIR /scratch/RDS-FMH-CWGS-RW/softwares/vep-cache
+perl /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep/INSTALL.pl --AUTO aflc --SPECIES homo_sapiens --ASSEMBLY GRCh37 --DESTDIR /scratch/RDS-FMH-CWGS-RW/softwares/vep-cache
