@@ -1,0 +1,2392 @@
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_GM02063.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_GM02063.vcf
+
+
+stats: no. variants                 : 5722241
+       no. biallelic variants       : 5676111
+       no. multiallelic variants    : 46130
+
+       no. additional biallelics    : 46130
+       total no. of biallelics      : 5768371
+
+Time elapsed: 29.88s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_GM02063.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_GM02063.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 27782
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 27782
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 27782
+       total no. variants observed              : 5768371
+       total no. reference observed             : 0
+
+Time elapsed: 50.53s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_GM847.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_GM847.vcf
+
+
+stats: no. variants                 : 5412344
+       no. biallelic variants       : 5379519
+       no. multiallelic variants    : 32825
+
+       no. additional biallelics    : 32825
+       total no. of biallelics      : 5445169
+
+Time elapsed: 27.14s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_GM847.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_GM847.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 19556
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 19556
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 19556
+       total no. variants observed              : 5445169
+       total no. reference observed             : 0
+
+Time elapsed: 47.26s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF-402DE_D2.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-402DE_D2.vcf
+
+
+stats: no. variants                 : 4623616
+       no. biallelic variants       : 4575945
+       no. multiallelic variants    : 47671
+
+       no. additional biallelics    : 47671
+       total no. of biallelics      : 4671287
+
+Time elapsed: 22.78s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-402DE_D2.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF-402DE_D2.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 28051
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 1
+
+       total no. biallelic normalized           : 28052
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 28052
+       total no. variants observed              : 4671287
+       total no. reference observed             : 0
+
+Time elapsed: 41.25s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF_a2.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF_a2.vcf
+
+
+stats: no. variants                 : 4181881
+       no. biallelic variants       : 4167004
+       no. multiallelic variants    : 14877
+
+       no. additional biallelics    : 14877
+       total no. of biallelics      : 4196758
+
+Time elapsed: 20.49s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF_a2.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF_a2.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 8160
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 1
+
+       total no. biallelic normalized           : 8161
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 8161
+       total no. variants observed              : 4196758
+       total no. reference observed             : 0
+
+Time elapsed: 34.32s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF_c.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF_c.vcf
+
+
+stats: no. variants                 : 4559798
+       no. biallelic variants       : 4537051
+       no. multiallelic variants    : 22747
+
+       no. additional biallelics    : 22747
+       total no. of biallelics      : 4582545
+
+Time elapsed: 23.42s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF_c.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF_c.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 13043
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 13043
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 13043
+       total no. variants observed              : 4582545
+       total no. reference observed             : 0
+
+Time elapsed: 38.58s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF_d2.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF_d2.vcf
+
+
+stats: no. variants                 : 4543895
+       no. biallelic variants       : 4513574
+       no. multiallelic variants    : 30321
+
+       no. additional biallelics    : 30321
+       total no. of biallelics      : 4574216
+
+Time elapsed: 22.25s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF_d2.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF_d2.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 17758
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 17758
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 17758
+       total no. variants observed              : 4574216
+       total no. reference observed             : 0
+
+Time elapsed: 39.96s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF-E6_A1.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-E6_A1.vcf
+
+
+stats: no. variants                 : 4754564
+       no. biallelic variants       : 4712025
+       no. multiallelic variants    : 42539
+
+       no. additional biallelics    : 42539
+       total no. of biallelics      : 4797103
+
+Time elapsed: 24.01s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-E6_A1.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF-E6_A1.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 25017
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 25017
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 25017
+       total no. variants observed              : 4797103
+       total no. reference observed             : 0
+
+Time elapsed: 42.35s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF-E6_A2.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-E6_A2.vcf
+
+
+stats: no. variants                 : 4930073
+       no. biallelic variants       : 4872657
+       no. multiallelic variants    : 57416
+
+       no. additional biallelics    : 57416
+       total no. of biallelics      : 4987489
+
+Time elapsed: 25.79s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-E6_A2.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF-E6_A2.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 34058
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 34058
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 34058
+       total no. variants observed              : 4987489
+       total no. reference observed             : 0
+
+Time elapsed: 44.59s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF-E6E7_A1.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-E6E7_A1.vcf
+
+
+stats: no. variants                 : 4684716
+       no. biallelic variants       : 4636958
+       no. multiallelic variants    : 47758
+
+       no. additional biallelics    : 47758
+       total no. of biallelics      : 4732474
+
+Time elapsed: 23.86s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-E6E7_A1.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF-E6E7_A1.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 27851
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 27851
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 27851
+       total no. variants observed              : 4732474
+       total no. reference observed             : 0
+
+Time elapsed: 42.02s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICFE6E7C4post.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICFE6E7C4post.vcf
+
+
+stats: no. variants                 : 4312097
+       no. biallelic variants       : 4295392
+       no. multiallelic variants    : 16705
+
+       no. additional biallelics    : 16705
+       total no. of biallelics      : 4328802
+
+Time elapsed: 21.44s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICFE6E7C4post.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICFE6E7C4post.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 9326
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 9326
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 9326
+       total no. variants observed              : 4328802
+       total no. reference observed             : 0
+
+Time elapsed: 36.00s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICFE6E7C4pre.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICFE6E7C4pre.vcf
+
+
+stats: no. variants                 : 4658441
+       no. biallelic variants       : 4632687
+       no. multiallelic variants    : 25754
+
+       no. additional biallelics    : 25754
+       total no. of biallelics      : 4684195
+
+Time elapsed: 23.94s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICFE6E7C4pre.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICFE6E7C4pre.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 14580
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 14580
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 14580
+       total no. variants observed              : 4684195
+       total no. reference observed             : 0
+
+Time elapsed: 40.21s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF-T_A6.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-T_A6.vcf
+
+
+stats: no. variants                 : 4349588
+       no. biallelic variants       : 4330766
+       no. multiallelic variants    : 18822
+
+       no. additional biallelics    : 18822
+       total no. of biallelics      : 4368410
+
+Time elapsed: 21.26s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-T_A6.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF-T_A6.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 10547
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 10547
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 10547
+       total no. variants observed              : 4368410
+       total no. reference observed             : 0
+
+Time elapsed: 36.41s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF-T_B1.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-T_B1.vcf
+
+
+stats: no. variants                 : 4741087
+       no. biallelic variants       : 4688305
+       no. multiallelic variants    : 52782
+
+       no. additional biallelics    : 52782
+       total no. of biallelics      : 4793869
+
+Time elapsed: 23.74s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-T_B1.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF-T_B1.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 30964
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 30964
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 30964
+       total no. variants observed              : 4793869
+       total no. reference observed             : 0
+
+Time elapsed: 42.42s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF-T_B3.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-T_B3.vcf
+
+
+stats: no. variants                 : 4639175
+       no. biallelic variants       : 4592116
+       no. multiallelic variants    : 47059
+
+       no. additional biallelics    : 47059
+       total no. of biallelics      : 4686234
+
+Time elapsed: 23.35s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-T_B3.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF-T_B3.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 27327
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 27327
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 27327
+       total no. variants observed              : 4686234
+       total no. reference observed             : 0
+
+Time elapsed: 41.34s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF-T_C3.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-T_C3.vcf
+
+
+stats: no. variants                 : 4848334
+       no. biallelic variants       : 4799572
+       no. multiallelic variants    : 48762
+
+       no. additional biallelics    : 48762
+       total no. of biallelics      : 4897096
+
+Time elapsed: 25.08s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-T_C3.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF-T_C3.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 28625
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 28625
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 28625
+       total no. variants observed              : 4897096
+       total no. reference observed             : 0
+
+Time elapsed: 44.15s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF-T_C4.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-T_C4.vcf
+
+
+stats: no. variants                 : 4898484
+       no. biallelic variants       : 4841115
+       no. multiallelic variants    : 57369
+
+       no. additional biallelics    : 57369
+       total no. of biallelics      : 4955853
+
+Time elapsed: 27.02s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF-T_C4.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF-T_C4.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 33593
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 33593
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 33593
+       total no. variants observed              : 4955853
+       total no. reference observed             : 0
+
+Time elapsed: 44.95s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IIICF.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF.vcf
+
+
+stats: no. variants                 : 4904295
+       no. biallelic variants       : 4870406
+       no. multiallelic variants    : 33889
+
+       no. additional biallelics    : 33889
+       total no. of biallelics      : 4938184
+
+Time elapsed: 26.68s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IIICF.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IIICF.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 19814
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 19814
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 19814
+       total no. variants observed              : 4938184
+       total no. reference observed             : 0
+
+Time elapsed: 44.01s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IVG_BF_LXSNpost.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IVG_BF_LXSNpost.vcf
+
+
+stats: no. variants                 : 4225008
+       no. biallelic variants       : 4209655
+       no. multiallelic variants    : 15353
+
+       no. additional biallelics    : 15353
+       total no. of biallelics      : 4240361
+
+Time elapsed: 20.75s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IVG_BF_LXSNpost.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IVG_BF_LXSNpost.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 8598
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 8598
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 8598
+       total no. variants observed              : 4240361
+       total no. reference observed             : 0
+
+Time elapsed: 35.28s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_IVG_BF_LXSNpre.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IVG_BF_LXSNpre.vcf
+
+
+stats: no. variants                 : 4523748
+       no. biallelic variants       : 4502650
+       no. multiallelic variants    : 21098
+
+       no. additional biallelics    : 21098
+       total no. of biallelics      : 4544846
+
+Time elapsed: 23.02s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_IVG_BF_LXSNpre.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_IVG_BF_LXSNpre.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 12068
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 12068
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 12068
+       total no. variants observed              : 4544846
+       total no. reference observed             : 0
+
+Time elapsed: 38.79s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF_61M.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF_61M.vcf
+
+
+stats: no. variants                 : 4369446
+       no. biallelic variants       : 4351755
+       no. multiallelic variants    : 17691
+
+       no. additional biallelics    : 17691
+       total no. of biallelics      : 4387137
+
+Time elapsed: 22.07s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF_61M.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF_61M.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 10049
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 10049
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 10049
+       total no. variants observed              : 4387137
+       total no. reference observed             : 0
+
+Time elapsed: 36.74s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF_61Q.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF_61Q.vcf
+
+
+stats: no. variants                 : 4502659
+       no. biallelic variants       : 4480995
+       no. multiallelic variants    : 21664
+
+       no. additional biallelics    : 21664
+       total no. of biallelics      : 4524323
+
+Time elapsed: 23.64s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF_61Q.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF_61Q.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 12357
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 12357
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 12357
+       total no. variants observed              : 4524323
+       total no. reference observed             : 0
+
+Time elapsed: 38.67s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF6_P12_H06L4ALXX_6.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF6_P12_H06L4ALXX_6.vcf
+
+
+stats: no. variants                 : 4904569
+       no. biallelic variants       : 4864028
+       no. multiallelic variants    : 40541
+
+       no. additional biallelics    : 40541
+       total no. of biallelics      : 4945110
+
+Time elapsed: 27.11s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF6_P12_H06L4ALXX_6.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF6_P12_H06L4ALXX_6.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 23609
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 23609
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 23609
+       total no. variants observed              : 4945110
+       total no. reference observed             : 0
+
+Time elapsed: 44.25s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF_6_P_pLKO_5.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF_6_P_pLKO_5.vcf
+
+
+stats: no. variants                 : 4836164
+       no. biallelic variants       : 4796436
+       no. multiallelic variants    : 39728
+
+       no. additional biallelics    : 39728
+       total no. of biallelics      : 4875892
+
+Time elapsed: 25.24s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF_6_P_pLKO_5.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF_6_P_pLKO_5.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 22941
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 22941
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 22941
+       total no. variants observed              : 4875892
+       total no. reference observed             : 0
+
+Time elapsed: 43.79s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_1_C.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_C.vcf
+
+
+stats: no. variants                 : 4853523
+       no. biallelic variants       : 4808195
+       no. multiallelic variants    : 45328
+
+       no. additional biallelics    : 45328
+       total no. of biallelics      : 4898851
+
+Time elapsed: 25.13s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_C.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_1_C.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 26941
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 26941
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 26941
+       total no. variants observed              : 4898851
+       total no. reference observed             : 0
+
+Time elapsed: 44.11s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_1_D.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_D.vcf
+
+
+stats: no. variants                 : 4684678
+       no. biallelic variants       : 4644119
+       no. multiallelic variants    : 40559
+
+       no. additional biallelics    : 40559
+       total no. of biallelics      : 4725237
+
+Time elapsed: 24.73s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_D.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_1_D.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 24114
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 24114
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 24114
+       total no. variants observed              : 4725237
+       total no. reference observed             : 0
+
+Time elapsed: 42.16s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_1_F.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_F.vcf
+
+
+stats: no. variants                 : 4766412
+       no. biallelic variants       : 4721185
+       no. multiallelic variants    : 45227
+
+       no. additional biallelics    : 45227
+       total no. of biallelics      : 4811639
+
+Time elapsed: 24.50s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_F.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_1_F.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 26798
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 1
+
+       total no. biallelic normalized           : 26799
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 26799
+       total no. variants observed              : 4811639
+       total no. reference observed             : 0
+
+Time elapsed: 43.10s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_1_G.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_G.vcf
+
+
+stats: no. variants                 : 4775506
+       no. biallelic variants       : 4733817
+       no. multiallelic variants    : 41689
+
+       no. additional biallelics    : 41689
+       total no. of biallelics      : 4817195
+
+Time elapsed: 24.53s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_G.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_1_G.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 24868
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 24868
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 24868
+       total no. variants observed              : 4817195
+       total no. reference observed             : 0
+
+Time elapsed: 42.94s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_1_H.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_H.vcf
+
+
+stats: no. variants                 : 4815930
+       no. biallelic variants       : 4763009
+       no. multiallelic variants    : 52921
+
+       no. additional biallelics    : 52921
+       total no. of biallelics      : 4868851
+
+Time elapsed: 24.98s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_H.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_1_H.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 31258
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 31258
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 31258
+       total no. variants observed              : 4868851
+       total no. reference observed             : 0
+
+Time elapsed: 43.84s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_1J_11C.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1J_11C.vcf
+
+
+stats: no. variants                 : 4833061
+       no. biallelic variants       : 4774908
+       no. multiallelic variants    : 58153
+
+       no. additional biallelics    : 58153
+       total no. of biallelics      : 4891214
+
+Time elapsed: 24.85s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1J_11C.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_1J_11C.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 34229
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 34229
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 34229
+       total no. variants observed              : 4891214
+       total no. reference observed             : 0
+
+Time elapsed: 44.13s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_1J_11E.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1J_11E.vcf
+
+
+stats: no. variants                 : 4759549
+       no. biallelic variants       : 4707836
+       no. multiallelic variants    : 51713
+
+       no. additional biallelics    : 51713
+       total no. of biallelics      : 4811262
+
+Time elapsed: 24.36s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1J_11E.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_1J_11E.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 30102
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 30102
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 30102
+       total no. variants observed              : 4811262
+       total no. reference observed             : 0
+
+Time elapsed: 43.06s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF6_T_1J_1-3C_H06L4ALXX_3.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF6_T_1J_1-3C_H06L4ALXX_3.vcf
+
+
+stats: no. variants                 : 4649497
+       no. biallelic variants       : 4612812
+       no. multiallelic variants    : 36685
+
+       no. additional biallelics    : 36685
+       total no. of biallelics      : 4686182
+
+Time elapsed: 24.55s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF6_T_1J_1-3C_H06L4ALXX_3.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF6_T_1J_1-3C_H06L4ALXX_3.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 21210
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 21210
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 21210
+       total no. variants observed              : 4686182
+       total no. reference observed             : 0
+
+Time elapsed: 41.92s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF6_T_1J_6B_H06L4ALXX_4.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF6_T_1J_6B_H06L4ALXX_4.vcf
+
+
+stats: no. variants                 : 4698045
+       no. biallelic variants       : 4660408
+       no. multiallelic variants    : 37637
+
+       no. additional biallelics    : 37637
+       total no. of biallelics      : 4735682
+
+Time elapsed: 25.07s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF6_T_1J_6B_H06L4ALXX_4.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF6_T_1J_6B_H06L4ALXX_4.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 21707
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 21707
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 21707
+       total no. variants observed              : 4735682
+       total no. reference observed             : 0
+
+Time elapsed: 42.43s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_1_L.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_L.vcf
+
+
+stats: no. variants                 : 4690752
+       no. biallelic variants       : 4649197
+       no. multiallelic variants    : 41555
+
+       no. additional biallelics    : 41555
+       total no. of biallelics      : 4732307
+
+Time elapsed: 23.81s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_L.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_1_L.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 24585
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 24585
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 24585
+       total no. variants observed              : 4732307
+       total no. reference observed             : 0
+
+Time elapsed: 42.24s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_1_PALT.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_PALT.vcf
+
+
+stats: no. variants                 : 4864354
+       no. biallelic variants       : 4815468
+       no. multiallelic variants    : 48886
+
+       no. additional biallelics    : 48886
+       total no. of biallelics      : 4913240
+
+Time elapsed: 25.15s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_PALT.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_1_PALT.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 28818
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 28818
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 28818
+       total no. variants observed              : 4913240
+       total no. reference observed             : 0
+
+Time elapsed: 44.19s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_1_P.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_P.vcf
+
+
+stats: no. variants                 : 4888369
+       no. biallelic variants       : 4826632
+       no. multiallelic variants    : 61737
+
+       no. additional biallelics    : 61737
+       total no. of biallelics      : 4950106
+
+Time elapsed: 25.37s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_P.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_1_P.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 36397
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 36397
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 36397
+       total no. variants observed              : 4950106
+       total no. reference observed             : 0
+
+Time elapsed: 44.83s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_1_R.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_R.vcf
+
+
+stats: no. variants                 : 4753216
+       no. biallelic variants       : 4710836
+       no. multiallelic variants    : 42380
+
+       no. additional biallelics    : 42380
+       total no. of biallelics      : 4795596
+
+Time elapsed: 24.34s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_1_R.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_1_R.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 25090
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 1
+
+       total no. biallelic normalized           : 25091
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 25091
+       total no. variants observed              : 4795596
+       total no. reference observed             : 0
+
+Time elapsed: 42.87s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_2H.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_2H.vcf
+
+
+stats: no. variants                 : 4871203
+       no. biallelic variants       : 4827238
+       no. multiallelic variants    : 43965
+
+       no. additional biallelics    : 43965
+       total no. of biallelics      : 4915168
+
+Time elapsed: 25.24s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_2H.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_2H.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 26307
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 26307
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 26307
+       total no. variants observed              : 4915168
+       total no. reference observed             : 0
+
+Time elapsed: 43.89s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_JFCF-6_T_5K.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_5K.vcf
+
+
+stats: no. variants                 : 4792379
+       no. biallelic variants       : 4747083
+       no. multiallelic variants    : 45296
+
+       no. additional biallelics    : 45296
+       total no. of biallelics      : 4837675
+
+Time elapsed: 25.61s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_JFCF-6_T_5K.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_JFCF-6_T_5K.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 26819
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 26819
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 26819
+       total no. variants observed              : 4837675
+       total no. reference observed             : 0
+
+Time elapsed: 43.46s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_KPD.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_KPD.vcf
+
+
+stats: no. variants                 : 4607273
+       no. biallelic variants       : 4559227
+       no. multiallelic variants    : 48046
+
+       no. additional biallelics    : 48046
+       total no. of biallelics      : 4655319
+
+Time elapsed: 23.21s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_KPD.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_KPD.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 28092
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 28092
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 28092
+       total no. variants observed              : 4655319
+       total no. reference observed             : 0
+
+Time elapsed: 41.62s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_LFS05F24post.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_LFS05F24post.vcf
+
+
+stats: no. variants                 : 4389161
+       no. biallelic variants       : 4368852
+       no. multiallelic variants    : 20309
+
+       no. additional biallelics    : 20309
+       total no. of biallelics      : 4409470
+
+Time elapsed: 22.71s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_LFS05F24post.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_LFS05F24post.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 11486
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 2
+
+       total no. biallelic normalized           : 11488
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 11488
+       total no. variants observed              : 4409470
+       total no. reference observed             : 0
+
+Time elapsed: 37.73s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_LFS05F24pre.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_LFS05F24pre.vcf
+
+
+stats: no. variants                 : 4816767
+       no. biallelic variants       : 4785790
+       no. multiallelic variants    : 30977
+
+       no. additional biallelics    : 30977
+       total no. of biallelics      : 4847744
+
+Time elapsed: 25.20s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_LFS05F24pre.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_LFS05F24pre.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 17677
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 17677
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 17677
+       total no. variants observed              : 4847744
+       total no. reference observed             : 0
+
+Time elapsed: 42.54s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_MeT_4Apost.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_MeT_4Apost.vcf
+
+
+stats: no. variants                 : 4537579
+       no. biallelic variants       : 4514622
+       no. multiallelic variants    : 22957
+
+       no. additional biallelics    : 22957
+       total no. of biallelics      : 4560536
+
+Time elapsed: 23.11s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_MeT_4Apost.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_MeT_4Apost.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 13001
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 1
+
+       total no. biallelic normalized           : 13002
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 13002
+       total no. variants observed              : 4560536
+       total no. reference observed             : 0
+
+Time elapsed: 39.28s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_MeT_4Apre.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_MeT_4Apre.vcf
+
+
+stats: no. variants                 : 4695926
+       no. biallelic variants       : 4668679
+       no. multiallelic variants    : 27247
+
+       no. additional biallelics    : 27247
+       total no. of biallelics      : 4723173
+
+Time elapsed: 24.32s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_MeT_4Apre.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_MeT_4Apre.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 15561
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 15561
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 15561
+       total no. variants observed              : 4723173
+       total no. reference observed             : 0
+
+Time elapsed: 41.15s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_VA13.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_VA13.vcf
+
+
+stats: no. variants                 : 4470702
+       no. biallelic variants       : 4452679
+       no. multiallelic variants    : 18023
+
+       no. additional biallelics    : 18023
+       total no. of biallelics      : 4488725
+
+Time elapsed: 22.61s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_VA13.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_VA13.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 10163
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 10163
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 10163
+       total no. variants observed              : 4488725
+       total no. reference observed             : 0
+
+Time elapsed: 38.27s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_WI38.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_WI38.vcf
+
+
+stats: no. variants                 : 4704442
+       no. biallelic variants       : 4678276
+       no. multiallelic variants    : 26166
+
+       no. additional biallelics    : 26166
+       total no. of biallelics      : 4730608
+
+Time elapsed: 24.35s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_WI38.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_WI38.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 14998
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 14998
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 14998
+       total no. variants observed              : 4730608
+       total no. reference observed             : 0
+
+Time elapsed: 40.90s
+
+decompose v0.5
+
+options:     input VCF file        /scratch/RDS-FMH-CWGS-RW/Sources/6/GATK_ZK-58.vcf
+         [s] smart decomposition   true (experimental)
+         [o] output VCF file       /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_ZK-58.vcf
+
+
+stats: no. variants                 : 4347648
+       no. biallelic variants       : 4317237
+       no. multiallelic variants    : 30411
+
+       no. additional biallelics    : 30411
+       total no. of biallelics      : 4378059
+
+Time elapsed: 20.95s
+
+normalize v0.5
+
+options:     input VCF file                                  /scratch/RDS-FMH-CWGS-RW/Sources/6/DECOM_GATK_ZK-58.vcf
+         [o] output VCF file                                 /scratch/RDS-FMH-CWGS-RW/Sources/6/NORM_DECOM_GATK_ZK-58.vcf
+         [w] sorting window size                             10000
+         [m] no fail on masked reference inconsistency       false
+         [n] no fail on reference inconsistency              false
+         [q] quiet                                           false
+         [d] debug                                           false
+         [r] reference FASTA file                            /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta
+
+
+stats: biallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 17611
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. biallelic normalized           : 17611
+
+       multiallelic
+          no. left trimmed                      : 0
+          no. right trimmed                     : 0
+          no. left and right trimmed            : 0
+          no. right trimmed and left aligned    : 0
+          no. left aligned                      : 0
+
+       total no. multiallelic normalized        : 0
+
+       total no. variants normalized            : 17611
+       total no. variants observed              : 4378059
+       total no. reference observed             : 0
+
+Time elapsed: 37.95s
+
