@@ -11,6 +11,7 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/6'
 for file in $IX/FILTERED_*vcf; do
     java -jar /usr/local/gatk/3.3.0/GenomeAnalysisTK.jar \
          -T SelectVariants \
+         -R /scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta \
          -V $IX/$(basename "$file") \
          -o $OX/REMOVED_$(basename "$file") \
          --excludeFiltered
