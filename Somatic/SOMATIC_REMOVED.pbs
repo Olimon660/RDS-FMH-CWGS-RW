@@ -1,1 +1,14 @@
+#!/bin/bash
 
+#PBS -l walltime=10:00:00
+#PBS -P RDS-FMH-CWGS-RW
+#PBS -l select=1:ncpus=1:mem=32GB
+#PBS -q defaultQ
+
+IX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
+OX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
+
+for file in $IX/FILTERED_NORM_MUTECT_*.vcf; do
+    /scratch/RDS-FMH-CWGS-RW/softwares/gatk-4.0.4.0/gatk SelectVariants \
+         -V $IX/$(basename "$file") -select "FILTER == 'PASS'" -O $OX/REMOVED_FILTERED_$(basename "$file")     
+done
