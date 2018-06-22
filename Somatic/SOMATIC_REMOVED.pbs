@@ -10,5 +10,5 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 
 for file in $IX/FILTERED_NORM_MUTECT_*.vcf; do
     /scratch/RDS-FMH-CWGS-RW/softwares/gatk-4.0.4.0/gatk SelectVariants \
-         -V $IX/$(basename "$file") --exclude-filtered -O $OX/REMOVED_FILTERED_$(basename "$file")     
+         -V $IX/$(basename "$file") --exclude-filtered -O $OX/REMOVED_$(basename "$file")     
 done
