@@ -2,7 +2,7 @@
 
 #PBS -l walltime=35:00:00
 #PBS -P RDS-FMH-CWGS-RW
-#PBS -l select=4:ncpus=8:mem=64GB
+#PBS -l select=4:ncpus=4:mem=64GB
 #PBS -q defaultQ
 
 module load bwa
