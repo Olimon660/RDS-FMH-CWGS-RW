@@ -5,8 +5,6 @@
 #PBS -l select=4:ncpus=8:mem=16GB
 #PBS -q defaultQ
 
-module load R
-
 DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
 REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
