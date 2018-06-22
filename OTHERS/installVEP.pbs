@@ -5,6 +5,8 @@
 #PBS -l select=1:ncpus=1:mem=16GB
 #PBS -q defaultQ
 
+module load gcc
+module load g++
 module load perl
 module load samtools
 
