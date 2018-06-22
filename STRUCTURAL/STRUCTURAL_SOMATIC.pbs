@@ -2,7 +2,7 @@
 
 #PBS -l walltime=35:00:00
 #PBS -P RDS-FMH-CWGS-RW
-#PBS -l select=4:ncpus=8:mem=16GB
+#PBS -l select=4:ncpus=8:mem=32GB
 #PBS -q defaultQ
 
 DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
@@ -27,7 +27,7 @@ java -ea -Xmx31g \
 	-Dsamjdk.compression_level=1 \
 	-cp /scratch/RDS-FMH-CWGS-RW/softwares/gridss-1.7.2-gridss-jar-with-dependencies.jar gridss.CallVariants \
 	TMP_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/8 \
-	WORKER_THREADS=8 \
+	WORKER_THREADS=4 \
 	WORKING_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/8 \
 	REFERENCE_SEQUENCE="$REFERENCE" \
 	INPUT="$NORMAL" \
