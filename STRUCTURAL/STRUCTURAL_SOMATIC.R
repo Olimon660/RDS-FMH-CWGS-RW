@@ -1,6 +1,3 @@
-# example sciprt performing simple filtering of variants to somatic calls
-#source("https://bioconductor.org/biocLite.R")
-#biocLite("VariantAnnotation")
 library(stringr)
 library(VariantAnnotation)
 library(devtools)
