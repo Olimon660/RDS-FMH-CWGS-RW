@@ -14,6 +14,6 @@ with open(sys.argv[1]) as r:
         tumor  = toks[0]
         normal = toks[1]
         
-        cmd = 'qsub -v normalID=' + normal + ',tumorID=' + tumor + ' STAGE2/gridss.pbs'
+        cmd = 'qsub -v normalID=' + normal + ',tumorID=' + tumor + ' STRUCTURAL/STRUCTURAL_SOMATIC.pbs'
         print(cmd)
         os.system(cmd)
