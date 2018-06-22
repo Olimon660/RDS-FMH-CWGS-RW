@@ -5,8 +5,8 @@
 #PBS -l select=1:ncpus=1:mem=32GB
 #PBS -q defaultQ
 
-IX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
-OX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
+IX='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/7'
+OX='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/7'
 
 for file in $IX/NORM_MUTECT_*.vcf; do
     /scratch/RDS-FMH-CWGS-RW/softwares/gatk-4.0.4.0/gatk FilterMutectCalls \
