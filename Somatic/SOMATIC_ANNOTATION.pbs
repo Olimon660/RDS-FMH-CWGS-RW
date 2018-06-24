@@ -11,9 +11,9 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 module load perl
 module load tabix
 
-for file in $IX/NORM_MUTECT_*.vcf; do
+for file in $IX/REMOVED_FILTERED_*.vcf; do
     /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep \
-    -i $IX/$(basename "$file") \
-    --assembly GRCh37 --cache --offline \
-    --output_file $(basename "$file").txt
+        -i $IX/$(basename "$file") \
+        --assembly GRCh37 --cache --offline \
+        --output_file $(basename "$file").txt
 done
