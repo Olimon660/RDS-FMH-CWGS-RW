@@ -12,7 +12,7 @@ module load perl
 module load tabix
 
 for file in $IX/REMOVED_FILTERED_*.vcf; do
-    /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep \
+    /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep/vep \
         -i $IX/$(basename "$file") \
         --assembly GRCh37 --cache --offline \
         --output_file $OX/ANNOTATED_$(basename "$file")
