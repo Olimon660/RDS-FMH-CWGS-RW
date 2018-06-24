@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#PBS -l walltime=10:00:00
+#PBS -l walltime=48:00:00
 #PBS -P RDS-FMH-CWGS-RW
 #PBS -l select=1:ncpus=1:mem=32GB
 #PBS -q defaultQ
@@ -9,6 +9,8 @@ IX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 
 for file in $IX/NORM_MUTECT_*.vcf; do
-    /scratch/RDS-FMH-CWGS-RW/softwares/gatk-4.0.4.0/gatk FilterMutectCalls \
-         -V $IX/$(basename "$file") -O $OX/FILTERED_$(basename "$file")     
+    /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep \
+    -i $IX/$(basename "$file") \
+    --assembly GRCh37 --cache --offline \
+    --output_file $(basename "$file").txt
 done
