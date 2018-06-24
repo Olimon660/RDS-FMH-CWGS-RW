@@ -15,5 +15,5 @@ for file in $IX/REMOVED_FILTERED_*.vcf; do
     /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep \
         -i $IX/$(basename "$file") \
         --assembly GRCh37 --cache --offline \
-        --output_file $(basename "$file").txt
+        --output_file $OX/$(basename "$file").txt
 done
