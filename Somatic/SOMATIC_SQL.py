@@ -1,5 +1,5 @@
 #
-# python3 Somatic/SOMATIC_SQL.py 7/schema.sql 7 somatic.bin
+# python3 Somatic/SOMATIC_SQL.py 7 somaticAnnotated.bin
 #
 
 import os
@@ -34,7 +34,7 @@ SQL = """CREATE TABLE Variants (
             Info    varchar(255)
        );"""
 
-os.system('rm ' + sys.argv[2])
+os.system('rm -f ' + sys.argv[2])
 conn = sqlite3.connect(sys.argv[2])
 c = conn.cursor()
 c.execute(SQL)
@@ -52,5 +52,3 @@ for (dirpath, dirs, files) in os.walk(sys.argv[1]):
             
             txt = parseTxt(txt, file, c)            
             conn.commit()
-            
-            break
