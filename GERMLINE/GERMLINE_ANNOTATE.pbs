@@ -1,1 +1,20 @@
+#!/bin/bash
 
+#PBS -l walltime=48:00:00
+#PBS -P RDS-FMH-CWGS-RW
+#PBS -l select=1:ncpus=1:mem=32GB
+#PBS -q defaultQ
+
+IX='/scratch/RDS-FMH-CWGS-RW/Sources/6'
+OX='/scratch/RDS-FMH-CWGS-RW/Sources/6'
+
+module load perl
+module load tabix
+
+for file in $IX/REMOVED_FILTERED_*.vcf; do
+    /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep/vep \
+        -i $IX/$(basename "$file") \
+        --assembly GRCh37 --cache --offline \
+        --dir_cache /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep/cache \
+        --output_file $OX/ANNOTATED_$(basename "$file")
+done
