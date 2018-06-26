@@ -19,7 +19,7 @@ for file in $IX/REMOVED_FILTERED_*.vcf; do
     /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep/vep \
         -i $IX/$(basename "$file") \
         --assembly GRCh37 --cache --offline --everything \
-        --humdiv \
+        --humdiv --nearest \
         --force_overwrite \
         --dir_cache /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep/cache \
         --output_file $OX/ANNOTATED_$(basename "$file")
