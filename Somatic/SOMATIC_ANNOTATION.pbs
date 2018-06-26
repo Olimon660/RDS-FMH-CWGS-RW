@@ -11,6 +11,10 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/7'
 module load perl
 module load tabix
 
+#
+# https://asia.ensembl.org/info/docs/tools/vep/script/vep_options.html
+#
+
 for file in $IX/REMOVED_FILTERED_*.vcf; do
     /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep/vep \
         -i $IX/$(basename "$file") \
