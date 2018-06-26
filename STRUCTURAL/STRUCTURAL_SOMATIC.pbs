@@ -5,7 +5,7 @@
 #PBS -l select=4:ncpus=4:mem=64GB
 #PBS -q defaultQ
 
-module load Rscript
+module load R
 module load bwa
 which bwa
 
