@@ -99,5 +99,6 @@ cols = parseSQL(sys.argv[3])
 for (dirpath, dirs, files) in os.walk(sys.argv[1]):    
     for file in files:
         if 'ANNOTATED_REMOVED' in file and file.endswith('.vcf'):
+            print(file)
             insert(c, parseVCF(sys.argv[1] + os.sep + file, cols), cols)
             conn.commit()
