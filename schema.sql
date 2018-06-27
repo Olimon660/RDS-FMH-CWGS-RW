@@ -1,35 +1,30 @@
-CREATE TABLE Variant (
-	Name   VARCHAR(50)  NOT NULL PRIMARY KEY,
-    File   VARCHAR(100) NOT NULL,
-    Chrom  VARCHAR(50)  NOT NULL,
-    Start  VARCHAR(50)  NOT NULL,
-    REF    VARCHAR(50)  NOT NULL,
-    ALT    VARCHAR(50)  NOT NULL,
-	iSSNP  VARCHAR(1)   NOT NULL
+
+CREATE TABLE Annotation (
+	Key     	   	  VARCHAR(50) NOT NULL,
+	File     		  VARCHAR(50) NOT NULL,
+    Chrom    		  VARCHAR(50) NOT NULL,
+    Start    	      VARCHAR(50) NOT NULL,
+    REF      		  VARCHAR(50) NOT NULL,
+    ALT     		  VARCHAR(50) NOT NULL,
+	Type    		  VARCHAR(10) NOT NULL,
+    Gene     		  VARCHAR(50) NOT NULL,
+    Feature  	      VARCHAR(50) NOT NULL,
+    FeatureType       VARCHAR(50) NOT NULL,
+    Consequence       VARCHAR(100),
+    cDNAPosition      VARCHAR(100),
+    CDSPosition       VARCHAR(100),
+    ProteinPosition   VARCHAR(100),
+    AminoAcids 	      VARCHAR(100),
+    Codons  		  VARCHAR(100),
+    ExistingVariation VARCHAR(100),
+	Extra			  VARCHAR(500)
 );
 
-CREATE TABLE Gene (
-	Name    VARCHAR(50) NOT NULL PRIMARY KEY,
-	VarName VARCHAR(50),
-    FOREIGN KEY (VarName) REFERENCES Variant(Name)
-);
 
-CREATE TABLE Transcript (
-	Name     VARCHAR(50) NOT NULL PRIMARY KEY,
-	VarName  VARCHAR(50) NOT NULL,
-	GeneName VARCHAR(50) NOT NULL,
-	IsIntron VARCHAR(1)  NOT NULL,
-	IsCode   VARCHAR(1)  NOT NULL,
-	Strabd   VARCHAR(1)  NOT NULL,
-    FOREIGN KEY (VarName)  REFERENCES Variant(Name),
-    FOREIGN KEY (GeneName) REFERENCES Gene(Name)
-);
 
-CREATE TABLE IntergenicVariant (
-	Name     VARCHAR(50) NOT NULL PRIMARY KEY,
-	VarName  VARCHAR(50) NOT NULL,
-    FOREIGN KEY (VarName)  REFERENCES Variant(Name)
-);
+
+
+/*
 
 CREATE TABLE Details (
 	TransName     VARCHAR(50) NOT NULL,
@@ -82,3 +77,5 @@ CREATE TABLE Details (
 	
     FOREIGN KEY (TransName)  REFERENCES Transcript(Name)
 );
+*/
+
