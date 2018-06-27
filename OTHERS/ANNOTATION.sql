@@ -3,13 +3,13 @@ CREATE TABLE Annotation (
 	File  			   VARCHAR(50) NOT NULL,
 	DP    			   VARCHAR(50) NOT NULL,
 	AD_1  			   VARCHAR(50) NOT NULL,
-	AD_2  			   VARCHAR(50),
+	AD_2  			   VARCHAR(50), -- NULL if not two samples
 	AF_1  			   VARCHAR(50) NOT NULL,
-	AF_2  			   VARCHAR(50),
+	AF_2  			   VARCHAR(50), -- NULL if not two samples
 	GT_1  			   VARCHAR(50) NOT NULL,
-	GT_2  			   VARCHAR(50),
+	GT_2  			   VARCHAR(50), -- NULL if not two samples
 	QL_1  			   VARCHAR(50) NOT NULL,
-	QL_2  			   VARCHAR(50),
+	QL_2  			   VARCHAR(50), -- NULL if not two samples
     Chrom 			   VARCHAR(50) NOT NULL,
     POS  			   VARCHAR(50) NOT NULL,
     REF   			   VARCHAR(50) NOT NULL,

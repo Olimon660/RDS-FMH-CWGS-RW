@@ -19,10 +19,9 @@ def insert(c, vs, cols):
         SQL = 'INSERT INTO Annotation VALUES('
         for j in range(len(cols)):
             SQL = SQL + ' "' + str(i[cols[j]]) + '",'
-    SQL += (')')
-    SQL = SQL.replace(",)", ')').replace(' "', '"')
-
-    c.execute(SQL)
+        SQL += (')')
+        SQL = SQL.replace(",)", ')').replace(' "', '"')
+        c.execute(SQL)
 
 def parseHead(file):
     with open(file) as r:
