@@ -55,7 +55,7 @@ def parse(file, name):
 os.system('rm -f ' + sys.argv[2])
 conn = sqlite3.connect(sys.argv[2])
 c = conn.cursor()
-with open('schema.sql', 'r') as myfile:
+with open('OTHERS/ANNOTATION.sql', 'r') as myfile:
     data=myfile.read()   
     c.executescript(data)
 
