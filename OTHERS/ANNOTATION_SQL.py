@@ -136,4 +136,3 @@ for (dirpath, dirs, files) in os.walk(sys.argv[2]):
         if 'ANNOTATED_REMOVED' in file and file.endswith('.vcf'):
             print(file)
             parseVCF(sys.argv[2] + os.sep + file, csv, cols)
-            break
