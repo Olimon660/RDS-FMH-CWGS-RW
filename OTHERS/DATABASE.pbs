@@ -8,6 +8,7 @@
 IX='/scratch/RDS-FMH-CWGS-RW/Sources/6'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/6'
 
+module load python
 cd /scratch/RDS-FMH-CWGS-RW/Sources
 
 python OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql ${file} ${file}.bin
