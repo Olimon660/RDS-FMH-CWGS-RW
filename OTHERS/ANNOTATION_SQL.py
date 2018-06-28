@@ -1,6 +1,5 @@
 #
-# python3 OTHERS/ANNOTATION_SQL.py 6 germline.bin OTHERS/ANNOTATION.sql 
-# python3 OTHERS/ANNOTATION_SQL.py 7 somatic.bin OTHERS/ANNOTATION.sql 
+# python3 OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql <Input File> <Output Database>
 #
 
 import os
@@ -17,13 +16,19 @@ def insert(c, conn, vs, cols):
             VAL = VAL + '\'%s' + '\','
         else:
             VAL = VAL + '\'%s' + '\''
+            
     for i in vs:
         SQL = 'INSERT INTO Annotation VALUES('
         for j in range(len(cols)):
-            SQL = SQL + ' "' + str(i[cols[j]]) + '",'
+            x = i[cols[j]]
+            if x is None:
+                SQL = SQL + ' NULL' + ','
+            else:            
+                SQL = SQL + ' "' + str(x) + '",'
         SQL += (')')
         SQL = SQL.replace(",)", ')').replace(' "', '"')
         c.execute(SQL)
+
     conn.commit()
 
 def parseHead(file):
@@ -36,10 +41,9 @@ def parseHead(file):
                 toks = line.split('. Format: ')
                 return toks[1].replace('">', '').split('|')
 
-def parseVCF(file, cols):
+def parseVCF(file, c, con, cols):
     h = parseHead(file)
     assert(len(h) > 0)
-    x = []
     r = vcf.Reader(open(file, 'r'))
 
     n = 0
@@ -99,23 +103,22 @@ def parseVCF(file, cols):
         GT_2 = GT2()        
         QL_1 = QUAL1() # Quality for sample 1 (could be multi-string)
         QL_2 = QUAL2() # Quality for sample 2 (could be multi-string)
-        
-        CSQ = i.INFO['CSQ'][0]
-        toks = CSQ.split('|')
-        assert(len(h) == len(toks))
-        
-        v = { 'File':file,          \
+
+        x = { 'File':file,          \
               'Chrom':str(i.CHROM), \
               'POS':str(i.POS),     \
               'REF':i.REF,          \
               'ALT':i.ALT[0],       \
               'Key':key, 'DP':DP, 'AD_1':AD_1, 'AD_2':AD_2, 'AF_1':AF_1, 'AF_2':AF_2, 'GT_1':GT_1, 'GT_2':GT_2, 'QL_1':QL_1, 'QL_2':QL_2 }
 
-        for j in range(len(toks)):
-            v[h[j]] = toks[j]
-        x.append(v)
-
-    return x
+        for j in range(len(i.INFO['CSQ'])):
+            CSQ = i.INFO['CSQ'][j]
+            toks = CSQ.split('|')
+            assert(len(h) == len(toks))        
+            for k in range(len(toks)):
+                x[h[k]] = toks[k]        
+            insert(c, con, [x], cols) # Insert for each CSQ combination
+        return
     
 def parseSQL(file):
     x = []
@@ -129,8 +132,8 @@ def parseSQL(file):
     return x
 
 os.system('rm -f ' + sys.argv[2])
-conn = sqlite3.connect(sys.argv[2])
-c = conn.cursor()
+con = sqlite3.connect(sys.argv[2])
+c = con.cursor()
 with open(sys.argv[3], 'r') as f:
     c.executescript(f.read())
 cols = parseSQL(sys.argv[3])
@@ -139,5 +142,6 @@ for (dirpath, dirs, files) in os.walk(sys.argv[1]):
     for file in files:
         if 'ANNOTATED_REMOVED' in file and file.endswith('.vcf'):
             print(file)
-            insert(c, conn, parseVCF(sys.argv[1] + os.sep + file, cols), cols)
+            #insert(c, conn, parseVCF(sys.argv[1] + os.sep + file, cols), cols)
+            parseVCF(sys.argv[1] + os.sep + file, c, con, cols)
             break # ????
