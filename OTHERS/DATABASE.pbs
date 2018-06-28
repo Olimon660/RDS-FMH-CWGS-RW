@@ -8,4 +8,5 @@
 module load python
 cd /scratch/RDS-FMH-CWGS-RW/Sources
 
-python OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql ${file} ${file}.bin
+echo ${file}.bin
+#python OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql ${file} ${file}.bin
