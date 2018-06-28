@@ -23,7 +23,7 @@ ASSEMBLY=${OX}/SOMATIC_GRIDSS_${tumorID}.bam
 echo $tumorID
 cd /scratch/RDS-FMH-CWGS-RW/Sources/8
 
-java -ea -Xmx256g \
+java -ea -Xmx128g \
 	-Dsamjdk.create_index=true \
 	-Dsamjdk.use_async_io_read_samtools=true \
 	-Dsamjdk.use_async_io_write_samtools=true \
