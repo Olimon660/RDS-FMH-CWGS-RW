@@ -6,4 +6,4 @@
 #PBS -q defaultQ
 
 module load python
-python OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql 6 6/6.csv
+python OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql 7 7/7.csv
