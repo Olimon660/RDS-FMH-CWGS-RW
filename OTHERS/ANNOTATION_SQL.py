@@ -10,6 +10,7 @@ import json
 import sqlite3
 
 def insert(c, conn, vs, cols):
+    assert(len(vs) > 0)
     VAL = ''
     for i in range(len(cols)):
         if i != len(cols) - 1:
@@ -41,8 +42,12 @@ def parseVCF(file, cols):
     x = []
     r = vcf.Reader(open(file, 'r'))
 
+    n = 0
     for i in r:
         key = str(i.CHROM) + '_' + str(i.POS) + '_' + str(i.REF) + '/' + str(i.ALT[0])
+        n = n + 1
+        if (n % 10000) == 0:
+            print(n)
 
         DP = i.INFO['DP'] # Total read depth
 
@@ -81,7 +86,7 @@ def parseVCF(file, cols):
         
         def QUAL1():
             if 'NLOD' in i.INFO:
-                return str(i.INFO['NLOD'][0]) + ':' + str(i.INFO['N_ART_LOD'][0])
+                return str(i.INFO['NLOD'][0]) + ':' + str(i.INFO['N_ART_LOD'][0]) # Somatic analysis
             else:
                 return i.QUAL                
 
@@ -94,7 +99,6 @@ def parseVCF(file, cols):
         GT_2 = GT2()        
         QL_1 = QUAL1() # Quality for sample 1 (could be multi-string)
         QL_2 = QUAL2() # Quality for sample 2 (could be multi-string)
-        continue # HACK!!!!
         
         CSQ = i.INFO['CSQ'][0]
         toks = CSQ.split('|')
