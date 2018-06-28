@@ -6,6 +6,5 @@
 #PBS -q defaultQ
 
 module load python
-cd /scratch/RDS-FMH-CWGS-RW/Sources
 
-#python OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql /scratch/RDS-FMH-CWGS-RW/Sources/6 /scratch/RDS-FMH-CWGS-RW/Sources/6/germline.bin
+python OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql 6 6/6.csv
