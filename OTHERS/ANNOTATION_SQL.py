@@ -21,7 +21,7 @@ def insert(c, conn, vs, cols):
         SQL = 'INSERT INTO Annotation VALUES('
         for j in range(len(cols)):
             x = i[cols[j]]
-            if x is None:
+            if x is None or str(x) == '':
                 SQL = SQL + ' NULL' + ','
             else:            
                 SQL = SQL + ' "' + str(x) + '",'
@@ -30,6 +30,17 @@ def insert(c, conn, vs, cols):
         c.execute(SQL)
 
     conn.commit()
+
+def parseSQL(file):
+    x = []
+    with open(file, 'r') as f:
+        for line in f:
+            line = line.strip()
+            if 'VARCHAR' in line:
+                toks = [i for i in line.replace('\t', ' ').split(' ') if i != '']
+                assert('VARCHAR' in toks[1])
+                x.append(toks[0])
+    return x
 
 def parseHead(file):
     with open(file) as r:
@@ -118,30 +129,22 @@ def parseVCF(file, c, con, cols):
             for k in range(len(toks)):
                 x[h[k]] = toks[k]        
             insert(c, con, [x], cols) # Insert for each CSQ combination
-        return
     
-def parseSQL(file):
-    x = []
-    with open(file, 'r') as f:
-        for line in f:
-            line = line.strip()
-            if 'VARCHAR' in line:
-                toks = [i for i in line.replace('\t', ' ').split(' ') if i != '']
-                assert('VARCHAR' in toks[1])
-                x.append(toks[0])
-    return x
-
-os.system('rm -f ' + sys.argv[2])
-con = sqlite3.connect(sys.argv[2])
+os.system('rm -f ' + sys.argv[3])
+con = sqlite3.connect(sys.argv[3])
 c = con.cursor()
-with open(sys.argv[3], 'r') as f:
+with open(sys.argv[1], 'r') as f:
     c.executescript(f.read())
-cols = parseSQL(sys.argv[3])
 
-for (dirpath, dirs, files) in os.walk(sys.argv[1]):    
-    for file in files:
-        if 'ANNOTATED_REMOVED' in file and file.endswith('.vcf'):
-            print(file)
-            #insert(c, conn, parseVCF(sys.argv[1] + os.sep + file, cols), cols)
-            parseVCF(sys.argv[1] + os.sep + file, c, con, cols)
-            break # ????
+# Columns from schema
+cols = parseSQL(sys.argv[1])
+
+if os.path.isdir(sys.argv[2]):
+    for (dirpath, dirs, files) in os.walk(sys.argv[2]):
+        for file in files:
+            if 'ANNOTATED_REMOVED' in file and file.endswith('.vcf'):
+                print(file)
+                parseVCF(sys.argv[1] + os.sep + file, c, con, cols)
+else:
+    parseVCF(sys.argv[2], c, con, cols)
+
