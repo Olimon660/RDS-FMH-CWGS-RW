@@ -6,4 +6,6 @@
 #PBS -q defaultQ
 
 module load python
+
+cd /scratch/RDS-FMH-CWGS-RW/Sources
 python OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql 7 7/7.csv
