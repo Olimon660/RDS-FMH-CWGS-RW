@@ -1,10 +1,11 @@
 #
-# python3 OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql <Input File> <Output Database>
+# python3 OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql <Input File> <Output CSV>
 #
 
 import os
 import sys
 import vcf
+import csv
 import json
 import sqlite3
 
@@ -30,7 +31,7 @@ def insert(c, conn, vs, cols):
         c.execute(SQL)
 
     conn.commit()
-
+    
 def parseSQL(file):
     x = []
     with open(file, 'r') as f:
@@ -52,12 +53,13 @@ def parseHead(file):
                 toks = line.split('. Format: ')
                 return toks[1].replace('">', '').split('|')
 
-def parseVCF(file, c, con, cols):
+def parseVCF(file, csv, cols):
     h = parseHead(file)
     assert(len(h) > 0)
-    r = vcf.Reader(open(file, 'r'))
 
+    r = vcf.Reader(open(file, 'r'))
     n = 0
+
     for i in r:
         key = str(i.CHROM) + '_' + str(i.POS) + '_' + str(i.REF) + '/' + str(i.ALT[0])
         n = n + 1
@@ -115,36 +117,23 @@ def parseVCF(file, c, con, cols):
         QL_1 = QUAL1() # Quality for sample 1 (could be multi-string)
         QL_2 = QUAL2() # Quality for sample 2 (could be multi-string)
 
-        x = { 'File':file,          \
-              'Chrom':str(i.CHROM), \
-              'POS':str(i.POS),     \
-              'REF':i.REF,          \
-              'ALT':i.ALT[0],       \
-              'Key':key, 'DP':DP, 'AD_1':AD_1, 'AD_2':AD_2, 'AF_1':AF_1, 'AF_2':AF_2, 'GT_1':GT_1, 'GT_2':GT_2, 'QL_1':QL_1, 'QL_2':QL_2 }
-
         for j in range(len(i.INFO['CSQ'])):
             CSQ = i.INFO['CSQ'][j]
             toks = CSQ.split('|')
-            assert(len(h) == len(toks))        
+            assert(len(h) == len(toks))
+            x = [ key, file, DP, AD_1, AD_2, AF_1, AF_2, GT_1, GT_2, QL_1, QL_2, str(i.CHROM), str(i.POS), i.REF, i.ALT[0]]
             for k in range(len(toks)):
-                x[h[k]] = toks[k]        
-            insert(c, con, [x], cols) # Insert for each CSQ combination
-    
-os.system('rm -f ' + sys.argv[3])
-con = sqlite3.connect(sys.argv[3])
-c = con.cursor()
-with open(sys.argv[1], 'r') as f:
-    c.executescript(f.read())
+                x.append(toks[k])
+            assert(len(x) == len(cols))
+            csv.writerow(x)
 
-# Columns from schema
 cols = parseSQL(sys.argv[1])
+csv  = csv.writer(open(sys.argv[3], 'w'), delimiter=';', quoting=csv.QUOTE_MINIMAL)
 
-if os.path.isdir(sys.argv[2]):
-    for (dirpath, dirs, files) in os.walk(sys.argv[2]):
-        for file in files:
-            if 'ANNOTATED_REMOVED' in file and file.endswith('.vcf'):
-                print(file)
-                parseVCF(sys.argv[1] + os.sep + file, c, con, cols)
-else:
-    parseVCF(sys.argv[2], c, con, cols)
-
+# Directory of annotated and filtered VCF files?
+for (dirpath, dirs, files) in os.walk(sys.argv[2]):
+    for file in files:
+        if 'ANNOTATED_REMOVED' in file and file.endswith('.vcf'):
+            print(file)
+            parseVCF(sys.argv[2] + os.sep + file, csv, cols)
+            break
