@@ -27,8 +27,6 @@ with open(sys.argv[1]) as r:
         OUTPUT   = '8/SOMATIC_GRIDSS_' + tumor + '.vcf'
         ASSEMBLY = '8/SOMATIC_GRIDSS_' + tumor + '.bam'
         
-        print(TUMOR)
-        
         assert(os.path.exists(NORMAL))
         assert(os.path.exists(TUMOR))        
         
