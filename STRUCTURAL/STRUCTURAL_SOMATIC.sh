@@ -1,5 +1,4 @@
-module load R
-module load bwa
+#!/bin/bash
 
 DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
