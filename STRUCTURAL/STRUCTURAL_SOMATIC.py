@@ -1,3 +1,7 @@
+#
+# python STRUCTURAL/STRUCTURAL_SOMATIC.py STAGE2/case_control_input_files.txt
+#
+
 import os
 import sys
 
