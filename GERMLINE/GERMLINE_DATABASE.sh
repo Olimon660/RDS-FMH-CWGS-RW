@@ -8,3 +8,4 @@
 cd /scratch/RDS-FMH-CWGS-RW/Sources
 module load python
 python OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql 6 6/6.csv
+zip 6/6.zip 6/6.csv
