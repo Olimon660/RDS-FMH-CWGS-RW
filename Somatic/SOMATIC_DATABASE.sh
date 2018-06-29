@@ -9,3 +9,4 @@ module load python
 
 cd /scratch/RDS-FMH-CWGS-RW/Sources
 python OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql 7 7/7.csv
+sqlite3 /scratch/RDS-FMH-CWGS-RW/Sources/7/7.db < /scratch/RDS-FMH-CWGS-RW/Sources/Somatic/SOMATIC_SQLLITE.sh
