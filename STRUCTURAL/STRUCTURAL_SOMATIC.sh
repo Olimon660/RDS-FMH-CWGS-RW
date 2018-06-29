@@ -23,9 +23,9 @@ echo 'java -ea -Xmx128g \
 	-Dsamjdk.use_async_io_write_tribble=true \
 	-Dsamjdk.compression_level=1 \
 	-cp gridss-1.7.2-gridss-jar-with-dependencies.jar gridss.CallVariants \
-	TMP_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/8 \
+	TMP_DIR=8 \
 	WORKER_THREADS=2 \
-	WORKING_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/8 \
+	WORKING_DIR=8 \
 	REFERENCE_SEQUENCE="$REFERENCE" \
 	INPUT=$NORMAL \
 	INPUT=$TUMOR \
