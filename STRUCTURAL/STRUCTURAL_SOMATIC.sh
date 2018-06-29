@@ -2,15 +2,15 @@
 
 IS='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/5'
 OX='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/8'
-REF='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/combined.fasta'
 
 NORM="$1"
 TUMO="$2"
-echo $NORM
-echo $TUMO
 
 NORMAL=${IS}/REALIGNED_RG_DEDUP_SORTED_HG19_$NORM.bam
 TUMOR=${IS}/REALIGNED_RG_DEDUP_SORTED_HG19_$TUMO.bam
+
+echo $NORMAL
+echo $TUMOR
 
 OUTPUT=${OX}/SOMATIC_GRIDSS_$TUMO.vcf
 ASSEMBLY=${OX}/SOMATIC_GRIDSS_$TUMO.bam
