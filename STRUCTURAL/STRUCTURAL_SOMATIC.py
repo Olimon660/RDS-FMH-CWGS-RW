@@ -22,4 +22,5 @@ with open(sys.argv[1]) as r:
         cmd = './STRUCTURAL/STRUCTURAL_SOMATIC.sh -normalID=' + normal + ' -tumorID=' + tumor
         
         print(cmd)
-        #os.system(cmd)
+        os.system(cmd)
+        break
