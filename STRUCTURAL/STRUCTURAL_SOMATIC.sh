@@ -1,8 +1,8 @@
 #!/bin/bash
 
-DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
-OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
-REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
+DS='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/5'
+OX='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/8'
+REF='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/combined.fasta'
 
 NORMAL=${DS}/REALIGNED_RG_DEDUP_SORTED_HG19_${normalID}.bam
 TUMOR=${DS}/REALIGNED_RG_DEDUP_SORTED_HG19_${tumorID}.bam
