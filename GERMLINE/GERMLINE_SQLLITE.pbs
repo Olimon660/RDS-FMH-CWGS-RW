@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#PBS -l walltime=48:00:00
+#PBS -l walltime=24:00:00
 #PBS -P RDS-FMH-CWGS-RW
-#PBS -l select=1:ncpus=1:mem=128GB
+#PBS -l select=1:ncpus=1:mem=64GB
 #PBS -q defaultQ
 
 sqlite3 /scratch/RDS-FMH-CWGS-RW/Sources/6/6.db < /scratch/RDS-FMH-CWGS-RW/Sources/GERMLINE/GERMLINE_SQLLITE.sh
