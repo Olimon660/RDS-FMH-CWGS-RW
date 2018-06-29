@@ -1,20 +1,22 @@
 #!/bin/bash
 
-DS='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/5'
+IS='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/5'
 OX='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/8'
 REF='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/combined.fasta'
 
-NORMAL=${DS}/REALIGNED_RG_DEDUP_SORTED_HG19_${normalID}.bam
-TUMOR=${DS}/REALIGNED_RG_DEDUP_SORTED_HG19_${tumorID}.bam
+NORM="$1"
+TUMO="$2"
 
-REFERENCE=$REF
-OUTPUT=${OX}/SOMATIC_GRIDSS_${tumorID}.vcf
-ASSEMBLY=${OX}/SOMATIC_GRIDSS_${tumorID}.bam
+NORMAL=${IS}/REALIGNED_RG_DEDUP_SORTED_HG19_"$(NORM)".bam
+TUMOR=${DS}/REALIGNED_RG_DEDUP_SORTED_HG19_"${TUMO}".bam
 
-echo $tumorID
+REFERENCE="$(REF)"
+OUTPUT=${OX}/SOMATIC_GRIDSS_"${TUMO}".vcf
+ASSEMBLY=${OX}/SOMATIC_GRIDSS_"${TUMO}".bam
+
 cd /scratch/RDS-FMH-CWGS-RW/Sources/8
 
-java -ea -Xmx128g \
+echo 'java -ea -Xmx128g \
 	-Dsamjdk.create_index=true \
 	-Dsamjdk.use_async_io_read_samtools=true \
 	-Dsamjdk.use_async_io_write_samtools=true \
@@ -29,4 +31,4 @@ java -ea -Xmx128g \
 	INPUT="$TUMOR" \
 	OUTPUT="$OUTPUT" \
 	ASSEMBLY="$ASSEMBLY" \
-	2>&1 | tee -a gridss.somatic.$HOSTNAME.$$.log
+	2>&1 | tee -a gridss.somatic."${TUMO}".$$.log'
