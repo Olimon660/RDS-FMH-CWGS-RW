@@ -35,5 +35,5 @@ with open(sys.argv[1]) as r:
         #cmd = 'qsub -v normalID=' + normal + ',tumorID=' + tumor + ' STRUCTURAL/STRUCTURAL_SOMATIC.pbs'
         cmd = GRIDSS(NORMAL, TUMOR, OUTPUT, ASSEMBLY, tumor)        
 
-        #print(cmd)
-        #os.system(cmd)
+        print(cmd)
+        os.system(cmd)
