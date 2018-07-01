@@ -6,7 +6,7 @@ import os
 import sys
 
 def GRIDSS(normal, tumor, out, ass, mod):
-    str = 'java -ea -Xmx128g -Dsamjdk.create_index=true -Dgridss.defensiveGC=true -Dsamjdk.use_async_io_read_samtools=true -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=true -Dsamjdk.compression_level=1 -cp gridss-1.7.2-gridss-jar-with-dependencies.jar gridss.CallVariants TMP_DIR=8 WORKER_THREADS=2 WORKING_DIR=8 REFERENCE_SEQUENCE=combined.fasta INPUT=%s INPUT=%s OUTPUT=%s ASSEMBLY=%s 2>&1 | tee -a 8/gridss.somatic.%s.log\n'
+    str = 'java -ea -Xmx128g -Dsamjdk.create_index=true -Dgridss.defensiveGC=true -Dsamjdk.use_async_io_read_samtools=true -Dsamjdk.use_async_io_write_samtools=true -Dsamjdk.use_async_io_write_tribble=true -Dsamjdk.compression_level=1 -cp gridss-1.7.2-gridss-jar-with-dependencies.jar gridss.CallVariants TMP_DIR=8 WORKER_THREADS=1 WORKING_DIR=8 REFERENCE_SEQUENCE=combined.fasta INPUT=%s INPUT=%s OUTPUT=%s ASSEMBLY=%s 2>&1 | tee -a 8/gridss.somatic.%s.log\n'
     return (str % (normal, tumor, out, ass, mod))
 
 with open(sys.argv[1]) as r:
