@@ -7,7 +7,7 @@ import sys
 
 with open(sys.argv[1]) as r:
     for line in r:
-        sample = line
+        sample = line.strip()
         
         cmd = 'qsub -v sample=' + sample + ' STRUCTURAL/STRUCTURAL_SOMATIC.pbs'
         print(cmd)
