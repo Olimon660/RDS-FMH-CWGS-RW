@@ -23,4 +23,4 @@ with open(sys.argv[1]) as r:
         cmd = GRIDSS(NORMAL, TUMOR, OUTPUT, ASSEMBLY, tumor)        
 
         print(cmd)
-        os.system(cmd)
+        #os.system(cmd)
