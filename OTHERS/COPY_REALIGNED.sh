@@ -1,9 +1,9 @@
-#!/bin/bash 
+#!/bin/bash
 
-OUT='/scratch/RDS-FMH-CWGS-RW/Sources/5'
+#PBS -l walltime=96:00:00
+#PBS -P RDS-FMH-CWGS-RW
+#PBS -l select=1:ncpus=1:mem=16GB
+#PBS -q defaultQ
 
-for file in $OUT/REALIGNED_RG_DEDUP_SORTED_HG19_*.bam; do    
-    #qsub -v file=$file OTHERS/COPY_REALIGNED.pbs
-    cmd = "qsub -v file=$file OTHERS/COPY_REALIGNED.pbs"    
-    echo $cmd
-done
+cd /scratch/RDS-FMH-CWGS-RW/Sources
+scp 5/REALIGNED_RG_DEDUP_SORTED_HG19_*bam ubuntu@43.241.202.39:/home/ubuntu/keep1/8/
