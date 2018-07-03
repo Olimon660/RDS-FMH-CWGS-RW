@@ -17,8 +17,8 @@ REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
 SAMPLE=${DS}/REALIGNED_RG_DEDUP_SORTED_HG19_${sample}.bam
 
 REFERENCE=$REF
-OUTPUT=${OX}/SOMATIC_GRIDSS_${tumorID}.vcf
-ASSEMBLY=${OX}/SOMATIC_GRIDSS_${tumorID}.bam
+OUTPUT=${OX}/SOMATIC_GRIDSS_${sample}.vcf
+ASSEMBLY=${OX}/SOMATIC_GRIDSS_${sample}.bam
 
 echo $tumorID
 cd /scratch/RDS-FMH-CWGS-RW/Sources/8
