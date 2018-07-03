@@ -21,4 +21,4 @@ with open(sys.argv[1]) as r:
         cmd = GRIDSS(SAMPLE, OUTPUT, ASSEMBLY, sample)        
 
         print(cmd)
-        #os.system(cmd)
+        os.system(cmd)
