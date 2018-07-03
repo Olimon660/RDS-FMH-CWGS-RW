@@ -3,14 +3,12 @@ library(GenomicFeatures)
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
-
 seqlevels(txdb)
 
 ##################################################################
 
 #generate transcript list by gene - GRange
 gene_intervals <- transcriptsBy(TxDb.Hsapiens.UCSC.hg19.knownGene, by= "gene")
-
 
 gr_gene_intervals<-unlist(gene_intervals)
 gr_gene_intervals$GENEID<-names(gr_gene_intervals)
@@ -24,24 +22,13 @@ length(gr_gene_intervals)
 library(plyr)
 
 df_gene_transcripts<-data.frame(TXCHR=seqnames(gr_gene_intervals), ranges(gr_gene_intervals), strand=strand(gr_gene_intervals), values(gr_gene_intervals))
-
 colnames(df_gene_transcripts)[which(names(df_gene_transcripts) == "start")]  <- "TXSTART"
-
 colnames(df_gene_transcripts)[which(names(df_gene_transcripts) == "end")]    <- "TXEND"
-
 colnames(df_gene_transcripts)[which(names(df_gene_transcripts) == "strand")] <- "TXSTRAND"
-
 colnames(df_gene_transcripts)[which(names(df_gene_transcripts) == "width")] <-  "TXWIDTH"
-
 colnames(df_gene_transcripts)[which(names(df_gene_transcripts) == "GENEID")] <-  "TXGENEID"
-
 colnames(df_gene_transcripts)[which(names(df_gene_transcripts) == "tx_name")] <-  "TX_NAME"
-
 colnames(df_gene_transcripts)[which(names(df_gene_transcripts) == "tx_id")]   <-  "TX_ID"
-
- 
-
- 
 
 #clean up
 
@@ -53,42 +40,22 @@ df_gene_transcripts<-df_gene_transcripts[,KEEP]
 
 head(df_gene_transcripts)
 
- 
-
- 
 
 library(org.Hs.eg.db)
-
 library(annotate)
-
- 
 
 e2s = toTable(org.Hs.egSYMBOL)
 
- 
-
- 
-
 # extract the longest transcript per gene
-
 library(plyr)
 
 db_longest_transcripts<-ddply(df_gene_transcripts,~TXGENEID,function(x){x[which.max(x$TXWIDTH),]})
-
- 
-
 head(db_longest_transcripts)
-
 dim(db_longest_transcripts)
 
- 
-
 #clean up
-
 DROP <- c("names")
-
 KEEP <- !(colnames(db_longest_transcripts) %in% DROP)
-
 db_longest_transcripts<-db_longest_transcripts[,KEEP]
 
  
