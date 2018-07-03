@@ -177,73 +177,38 @@ my_class_A_results <- function(x, txdb, df_gene_transcripts, e2s, outDir) {
  
 
   first_breakpoint <-with(db_vcf_entries, GRanges(seqnames = chr1,
-
                                                   ranges = IRanges(start=start, end=start),
-
                                                   strand = NULL,
-
                                                   SVID,
-
                                                   SVSIZE,
-
                                                   REF,
-
                                                   ALT,
-
                                                   SVTYPE,
-
                                                   resolution,
-
                                                   connection_type,
-
                                                   read_pairs_support,
-
                                                   soft_reads_support,
-
                                                   soft_read_consensus_aln_qty,
-
                                                   median_map_quality,
-
                                                   RDRATIO))
 
- 
-
   second_breakpoint <- with(db_vcf_entries, GRanges(seqnames = chr2,
-
                                                     ranges = IRanges(start=end, end=end),
-
                                                     strand = NULL,
-
-                                                    SVID,   
-
+                                                    SVID,
                                                     SVSIZE,
-
                                                     REF,
-
                                                     ALT,
-
                                                     SVTYPE,
-
                                                     resolution,
-
                                                     connection_type,
-
                                                     read_pairs_support,
-
                                                     soft_reads_support,
-
                                                     soft_read_consensus_aln_qty,
-
                                                     median_map_quality,
-
                                                     RDRATIO))
 
- 
-
-  
-
   #set up CLASS_A GRANGES OBJECT
-
   tmp<-GRangesList(first_breakpoint, second_breakpoint)
 
   CLASS_A<-unlist(tmp)
@@ -254,27 +219,18 @@ my_class_A_results <- function(x, txdb, df_gene_transcripts, e2s, outDir) {
 
   #CLASS_A<-CLASS_A[ord]
 
- 
-
   db_CLASS_A<-data.frame(SVCHR=seqnames(CLASS_A), ranges(CLASS_A), mcols(CLASS_A))
-
   db_CLASS_A$QUERY_NO<-c(1:length(CLASS_A))
 
   colnames(db_CLASS_A)[which(names(db_CLASS_A) == "start")] <- "SVSTART"
-
   colnames(db_CLASS_A)[which(names(db_CLASS_A) == "end")]   <- "SVEND"
 
   #clean up
 
   DROP <- c("width")
-
   KEEP <- !(colnames(db_CLASS_A) %in% DROP)
 
   db_CLASS_A<-db_CLASS_A[,KEEP]
-
- 
-
-  
 
   ########################################
 
@@ -282,9 +238,6 @@ my_class_A_results <- function(x, txdb, df_gene_transcripts, e2s, outDir) {
 
   ###############################################################
 
- 
-
-  
 
   AllVariants(intergenic=IntergenicVariants(2000, 2000))
 
