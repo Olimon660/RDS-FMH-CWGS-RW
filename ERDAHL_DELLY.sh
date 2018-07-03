@@ -95,86 +95,44 @@ my_class_A_results <- function(x, txdb, df_gene_transcripts, e2s, outDir) {
  
 
   vchr1                        <-as.character(seqnames(vcf))
-
   vchr2                        <-info(vcf)['CHR2']$CHR2
-
   vstart                       <-start(vcf)
-
   vend                         <-info(vcf)['END']$END
-
   vSVTYPE                      <-info(vcf)['SVTYPE']$SVTYPE
-
- 
-
-  
 
   ##############################################
 
   vID                          <-names(rowRanges(vcf))
-
   vQUAL                        <-qual(vcf)
-
   vREF                         <-as.character(ref(vcf))
-
   vALT                         <-as.character(alt(vcf))
-
   #ALT                         <-CharacterList(ALT)
-
   vconnection_type             <-info(vcf)['CT']$CT
-
- 
-
   vread_pairs_support          <-info(vcf)['PE']$PE
-
   vsoft_reads_support          <- info(vcf)['SR']$SR
-
   vsoft_read_consensus_aln_qty <- info(vcf)['SRQ']$SRQ
-
   vmap_quality                 <- info(vcf)['MAPQ']$MAPQ
-
   pre                         <- info(vcf)['PRECISE']
-
   im                          <- info(vcf)['IMPRECISE']
-
   vresolution                  <- ifelse(pre$PRECISE==TRUE, 'PRECISE', 'IMPRECISE')
-
   diff                        <-vend - vstart + 1
-
   vsize                        <- ifelse(vSVTYPE=='TRA',NA,diff)
 
   # when there is a control DELLY prodcues an RDRATIO
 
- 
-
   my_function <-function(x, colnames) {
-
     rdratio_idx<-which(colnames=='RDRATIO')
-
     if (!is.null(rdratio_idx)) {return(info(x)[['RDRATIO']])}
-
     else {return}
-
   }
-
- 
 
   rdratio_idx<-which(info_columns=='RDRATIO')
 
- 
-
   if (length(rdratio_idx) > 0) {
-
     vRDRATIO<-info(vcf)[['RDRATIO']]
-
   } else  { vRDRATIO<-rep(NA, length(vcf))}
 
-   
-
-    
-
   db_vcf_entries<-data.frame(chr1=vchr1, start=vstart, chr2=vchr2, end=vend, SVID=vID, SVSIZE = vsize, REF = vREF, ALT = vALT, SVTYPE = vSVTYPE, resolution  = vresolution , connection_type = vconnection_type, read_pairs_support =vread_pairs_support, soft_reads_support =vsoft_reads_support, soft_read_consensus_aln_qty=vsoft_read_consensus_aln_qty,  median_map_quality = vmap_quality, RDRATIO=vRDRATIO)
-
- 
 
   first_breakpoint <-with(db_vcf_entries, GRanges(seqnames = chr1,
                                                   ranges = IRanges(start=start, end=start),
