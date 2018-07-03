@@ -18,7 +18,7 @@ with open(sys.argv[1]) as r:
         ASSEMBLY = '8/SOMATIC_GRIDSS_' + sample + '.bam'
         
         assert(os.path.exists(SAMPLE))
-        cmd = GRIDSS(NORMAL, SAMPLE, OUTPUT, ASSEMBLY, sample)        
+        cmd = GRIDSS(SAMPLE, OUTPUT, ASSEMBLY, sample)        
 
         print(cmd)
         #os.system(cmd)
