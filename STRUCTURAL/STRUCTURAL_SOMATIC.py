@@ -14,13 +14,11 @@ with open(sys.argv[1]) as r:
         sample = line.strip()
         
         SAMPLE   = '5/REALIGNED_RG_DEDUP_SORTED_HG19_' + sample + '.bam'
-        OUTPUT   = '8/SOMATIC_GRIDSS_' + tumor + '.vcf'
-        ASSEMBLY = '8/SOMATIC_GRIDSS_' + tumor + '.bam'
+        OUTPUT   = '8/SOMATIC_GRIDSS_' + sample + '.vcf'
+        ASSEMBLY = '8/SOMATIC_GRIDSS_' + sample + '.bam'
         
         assert(os.path.exists(SAMPLE))
-        
-        #cmd = 'qsub -v normalID=' + normal + ',tumorID=' + tumor + ' STRUCTURAL/STRUCTURAL_SOMATIC.pbs'
-        cmd = GRIDSS(NORMAL, TUMOR, OUTPUT, ASSEMBLY, tumor)        
+        cmd = GRIDSS(NORMAL, SAMPLE, OUTPUT, ASSEMBLY, sample)        
 
         print(cmd)
         #os.system(cmd)
