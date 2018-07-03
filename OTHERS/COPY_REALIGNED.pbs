@@ -6,4 +6,6 @@
 #PBS -q defaultQ
 
 cd /scratch/RDS-FMH-CWGS-RW/Sources
-scp 5/REALIGNED_RG_DEDUP_SORTED_HG19_*bam ubuntu@43.241.202.39:/home/ubuntu/keep1/8/
+
+file=$file
+scp 5/REALIGNED_RG_DEDUP_SORTED_HG19_${file}.bam ubuntu@43.241.202.39:/home/ubuntu/keep1/8/
