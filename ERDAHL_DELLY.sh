@@ -422,39 +422,17 @@ my_class_A_results <- function(x, txdb, df_gene_transcripts, e2s, outDir) {
   outname<-gsub('.vcf', '',basename(x))
 
   output_filename<-file.path(outDir,paste('CLASS_A_ANNOTATIONS_', outname, '.txt', sep=''))
-
- 
-
-  
-
   write.table(db_SV_RESULTS.CLASS_A, output_filename , sep='\t', col.names = TRUE, row.names = FALSE, quote=FALSE)
-
- 
-
 }
-
- 
-
- 
 
 dellyFileList <- list.files(dataDir, full.names = T)
 
- 
-
- 
-
 for (item in dellyFileList)
-
 {
-
   print (item)
-
   print (gsub('.FILTERED.vcf', '',basename(item)))
-
   my_class_A_results(item, txdb, df_gene_transcripts, e2s, outDir)
-
 }
 
- 
 
 head(df_gene_transcripts)
