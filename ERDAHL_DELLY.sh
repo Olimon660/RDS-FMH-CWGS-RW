@@ -1,46 +1,25 @@
 library(VariantAnnotation)
-
 library(GenomicFeatures)
-
- 
-
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 
 seqlevels(txdb)
 
- 
-
- 
-
 ##################################################################
 
- 
-
 #generate transcript list by gene - GRange
-
- 
-
 gene_intervals <- transcriptsBy(TxDb.Hsapiens.UCSC.hg19.knownGene, by= "gene")
 
- 
 
 gr_gene_intervals<-unlist(gene_intervals)
-
 gr_gene_intervals$GENEID<-names(gr_gene_intervals)
 
 length(gr_gene_intervals)
 
- 
-
 #############
 
- 
-
 #pull out all transcripts and create data.frame
-
- 
 
 library(plyr)
 
