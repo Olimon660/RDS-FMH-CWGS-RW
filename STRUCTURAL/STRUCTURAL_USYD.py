@@ -11,4 +11,4 @@ with open(sys.argv[1]) as r:
         
         cmd = 'qsub -v sample=' + sample + ' STRUCTURAL/STRUCTURAL_SOMATIC.pbs'
         print(cmd)
-        #os.system(cmd)
+        os.system(cmd)
