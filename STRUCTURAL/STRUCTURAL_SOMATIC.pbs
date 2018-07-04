@@ -2,12 +2,11 @@
 
 #PBS -l walltime=48:00:00
 #PBS -P RDS-FMH-CWGS-RW
-#PBS -l select=4:ncpus=4:mem=32GB
+#PBS -l select=4:ncpus=4:mem=16GB
 #PBS -q defaultQ
 
 module load R
 module load bwa
-which bwa
 
 DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
