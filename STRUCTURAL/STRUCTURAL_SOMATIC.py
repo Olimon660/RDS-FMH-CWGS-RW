@@ -11,13 +11,25 @@ def GRIDSS(sample, out, ass, mod):
 
 with open(sys.argv[1]) as r:
     for line in r:
-        sample = line.strip()
+	    toks = line.strip().split('\t') 
+        assert(len(toks) == 2)
         
-        SAMPLE   = '5/REALIGNED_RG_DEDUP_SORTED_HG19_' + sample + '.bam'
-        OUTPUT   = '8/SOMATIC_GRIDSS_' + sample + '.vcf'
-        ASSEMBLY = '8/SOMATIC_GRIDSS_' + sample + '.bam'
+        #
+        # The file follows Erdahl's Excel. IMMORTAL is on first column and is tumor, while MORTAL is normal on the
+        # second column.
+        #
         
-        assert(os.path.exists(SAMPLE))
+        tumor  = toks[0]
+        normal = toks[1]
+        
+        NORMAL   = '5/REALIGNED_RG_DEDUP_SORTED_HG19_' + normal + '.bam'
+        TUMOR    = '5/REALIGNED_RG_DEDUP_SORTED_HG19_' + tumor  + '.bam'
+        OUTPUT   = '8/SOMATIC_GRIDSS_' + tumor + '.vcf'
+        ASSEMBLY = '8/SOMATIC_GRIDSS_' + tumor + '.bam'
+        
+        assert(os.path.exists(NORMAL))
+        assert(os.path.exists(TUMOR))
+        
         cmd = GRIDSS(SAMPLE, OUTPUT, ASSEMBLY, sample)        
 
         print(cmd)
