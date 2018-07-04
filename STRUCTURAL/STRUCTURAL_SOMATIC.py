@@ -30,7 +30,7 @@ with open(sys.argv[1]) as r:
         assert(os.path.exists(NORMAL))
         assert(os.path.exists(TUMOR))
         
-        cmd = GRIDSS(SAMPLE, OUTPUT, ASSEMBLY, sample)        
+        cmd = GRIDSS(NORMAL, TUMOR, OUTPUT, ASSEMBLY, sample)        
 
         print(cmd)
         os.system(cmd)
