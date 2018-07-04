@@ -1,5 +1,5 @@
 #
-# python STRUCTURAL/STRUCTURAL_SOMATIC.py samples.txt
+# python STRUCTURAL/STRUCTURAL_SOMATIC.py STAGE2/case_control_input_files_2.txt
 #
 
 import os
