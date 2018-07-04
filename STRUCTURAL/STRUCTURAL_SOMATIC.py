@@ -11,7 +11,7 @@ def GRIDSS(normal, tumor, out, ass, mod):
 
 with open(sys.argv[1]) as r:
     for line in r:
-	    toks = line.strip().split('\t') 
+	toks = line.strip().split('\t') 
         assert(len(toks) == 2)
         
         #
