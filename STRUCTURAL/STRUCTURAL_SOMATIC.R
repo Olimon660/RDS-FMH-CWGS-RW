@@ -1,3 +1,6 @@
+# example sciprt performing simple filtering of variants to somatic calls
+#source("https://bioconductor.org/biocLite.R")
+#biocLite("VariantAnnotation")
 library(stringr)
 library(VariantAnnotation)
 library(devtools)
@@ -25,7 +28,8 @@ bedpe <- data.frame(
     score=gr$QUAL,
     strand1=strand(gr),
     strand2=strand(partner(gr))
-    )
+)
+
 # Just the lower of the two breakends so we don't output everything twice
 bedpe <- bedpe[str_detect(bedpe$name, "gridss.+o"),]
 write.table(bedpe, "somatic.gridss.hq.somatic.bedpe", quote=FALSE, sep='\t', row.names=FALSE, col.names=FALSE)
