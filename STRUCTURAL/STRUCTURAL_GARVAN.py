@@ -15,4 +15,4 @@ with open(sys.argv[1]) as r:
         
         cmd = 'qsub -pe smp 4 -l mem_requested=16G,tmp_requested=16G -q long.q STRUCTURAL_GARVAN.pbs ' + normal + ' ' + tumor
         print(cmd)
-        #os.system(cmd)
+        os.system(cmd)
