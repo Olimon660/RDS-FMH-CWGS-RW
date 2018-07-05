@@ -1,1 +1,9 @@
 
+scp twon2259@hpc:/scratch/RDS-FMH-CWGS-RW/Sources/5/REALIGNED_*JFCF_61M* 5/
+scp twon2259@hpc:/scratch/RDS-FMH-CWGS-RW/Sources/5/REALIGNED_*JFCF_6_P_pLKO_5* 5/
+scp twon2259@hpc:/scratch/RDS-FMH-CWGS-RW/Sources/5/REALIGNED_*JFCF_61Q* 5/
+scp twon2259@hpc:/scratch/RDS-FMH-CWGS-RW/Sources/5/REALIGNED_*JFCF6_T_1J_1-3C_H06L4ALXX_3* 5/
+scp twon2259@hpc:/scratch/RDS-FMH-CWGS-RW/Sources/5/REALIGNED_*JFCF6_T_1J_6B_H06L4ALXX_4* 5/
+scp twon2259@hpc:/scratch/RDS-FMH-CWGS-RW/Sources/5/REALIGNED_RG_DEDUP_SORTED_HG19_IIICF.bam 5/
+scp twon2259@hpc:/scratch/RDS-FMH-CWGS-RW/Sources/5/REALIGNED_RG_DEDUP_SORTED_HG19_JFCF_61Q.bam 5/
+scp twon2259@hpc:/scratch/RDS-FMH-CWGS-RW/Sources/5/REALIGNED_RG_DEDUP_SORTED_HG19_JFCF6_P12_H06L4ALXX_6.bam 5/
