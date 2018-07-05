@@ -3,9 +3,9 @@
 module load gi/java
 module load gi/R
 
-DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
-OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
-REF='/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta'
+DS="/scratch/RDS-FMH-CWGS-RW/Sources/5"
+OX="/scratch/RDS-FMH-CWGS-RW/Sources/8"
+REF="/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta"
 
 NORMAL=${DS}/REALIGNED_RG_DEDUP_SORTED_HG19_${normalID}.bam
 TUMOR=${DS}/REALIGNED_RG_DEDUP_SORTED_HG19_${tumorID}.bam
@@ -23,9 +23,9 @@ java -ea -Xmx64g \
 	-Dsamjdk.use_async_io_write_samtools=true \
 	-Dsamjdk.use_async_io_write_tribble=true \
 	-Dsamjdk.compression_level=1 \
-	-cp /scratch/RDS-FMH-CWGS-RW/softwares/gridss-1.7.2-gridss-jar-with-dependencies.jar gridss.CallVariants \
-	TMP_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/8 \
-	WORKING_DIR=/scratch/RDS-FMH-CWGS-RW/Sources/8 \
+	-cp gridss-1.7.2-gridss-jar-with-dependencies.jar gridss.CallVariants \
+	TMP_DIR=/share/ScratchGeneral/tedwon/RDS-FMH-CWGS-RW/8 \
+	WORKING_DIR=/share/ScratchGeneral/tedwon/RDS-FMH-CWGS-RW/8 \
 	REFERENCE_SEQUENCE="$REFERENCE" \
 	INPUT="$NORMAL" \
 	INPUT="$TUMOR" \
