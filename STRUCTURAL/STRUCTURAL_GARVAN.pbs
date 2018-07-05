@@ -14,6 +14,11 @@ REFERENCE=$REF
 OUTPUT=${OX}/SOMATIC_GRIDSS_$2.vcf
 ASSEMBLY=${OX}/SOMATIC_GRIDSS_$2.bam
 
+echo ${DS}
+echo ${OS}
+echo ${OUTPUT}
+echo ${ASSEMBLY}
+
 cd /share/ScratchGeneral/tedwon/RDS-FMH-CWGS-RW
 
 java -ea -Xmx64g \
