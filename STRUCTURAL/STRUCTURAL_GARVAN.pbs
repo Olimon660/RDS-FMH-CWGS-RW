@@ -21,7 +21,7 @@ echo ${ASSEMBLY}
 
 cd /share/ScratchGeneral/tedwon/RDS-FMH-CWGS-RW
 
-java -ea -Xmx64g \
+java -ea -Xmx32g \
 	-Dsamjdk.create_index=true \
 	-Dgridss.defensiveGC=true \
 	-Dsamjdk.use_async_io_read_samtools=true \
