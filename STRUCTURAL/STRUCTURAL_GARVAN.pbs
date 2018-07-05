@@ -3,6 +3,8 @@
 module load gi/R
 module load gi/java
 
+bwa
+
 DS="/share/ScratchGeneral/tedwon/RDS-FMH-CWGS-RW/5"
 OX="/share/ScratchGeneral/tedwon/RDS-FMH-CWGS-RW/8"
 REF="/share/ScratchGeneral/tedwon/RDS-FMH-CWGS-RW/combined.fasta"
