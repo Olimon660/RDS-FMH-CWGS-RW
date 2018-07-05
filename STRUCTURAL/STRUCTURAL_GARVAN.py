@@ -13,6 +13,6 @@ with open(sys.argv[1]) as r:
         tumor  = toks[0]
         normal = toks[1]
         
-        cmd = 'qsub -pe smp 2 -l mem_requested=16G,tmp_requested=16G -q short.q	STRUCTURAL/STRUCTURAL_GARVAN.pbs ' + normal + ' ' + tumor
+        cmd = 'qsub -pe smp 2 -l mem_requested=16G,tmp_requested=16G -q short.q STRUCTURAL/STRUCTURAL_GARVAN.pbs ' + normal + ' ' + tumor
         print(cmd)
         os.system(cmd)
