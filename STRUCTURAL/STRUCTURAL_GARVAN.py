@@ -1,5 +1,5 @@
 #
-# python STRUCTURAL/STRUCTURAL_USYD.py STAGE2/case_control_input_files.txt
+# python STRUCTURAL/STRUCTURAL_GARVAN.py STRUCTURAL/GARVAN.txt
 #
 
 import os
