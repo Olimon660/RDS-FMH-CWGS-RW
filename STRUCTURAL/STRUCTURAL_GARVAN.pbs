@@ -14,8 +14,7 @@ REFERENCE=$REF
 OUTPUT=${OX}/SOMATIC_GRIDSS_${tumorID}.vcf
 ASSEMBLY=${OX}/SOMATIC_GRIDSS_${tumorID}.bam
 
-echo $tumorID
-cd /scratch/RDS-FMH-CWGS-RW/Sources/8
+cd /share/ScratchGeneral/tedwon/RDS-FMH-CWGS-RW
 
 java -ea -Xmx64g \
 	-Dsamjdk.create_index=true \
