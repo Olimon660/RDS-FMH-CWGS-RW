@@ -7,12 +7,14 @@ library(devtools)
 install_github("PapenfussLab/StructuralVariantAnnotation")
 library(StructuralVariantAnnotation)
 
-vcf <- readVcf("somatic.sv.vcf", "hg19")
-# filter out low quality calls
+vcf <- readVcf("/Users/twong/Sources/RDS-FMH-CWGS-RW/8/SOMATIC_GRIDSS_IIICF-E6_A1.vcf", "hg19")
+
+# Filter out low quality calls
 vcf <- vcf[rowRanges(vcf)$FILTER %in% c(".", "PASS"),]
-# somatic calls have no support in the normal
-somatic_vcf <- vcf[geno(vcf)$QUAL[,"normal.bam"] == 0,]
-# somatic loss of heterozygosity has no support in the tumour
+
+# Somatic calls have no support in the normal
+somatic_vcf <- vcf[geno(vcf)$QUAL[,"SAMPLE_IIICF"] == 0,]
+
 loh_vcf <- vcf[geno(vcf)$QUAL[,"tumour.bam"] == 0,]
 
 # Output BEDPE for use by circos
