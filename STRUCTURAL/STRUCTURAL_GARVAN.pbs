@@ -1,12 +1,7 @@
 #!/bin/bash
 
-#PBS -l walltime=48:00:00
-#PBS -P RDS-FMH-CWGS-RW
-#PBS -l select=1:ncpus=1:mem=16GB
-#PBS -q defaultQ
-
-module load R
-module load bwa
+module load gi/java
+module load gi/R
 
 DS='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
