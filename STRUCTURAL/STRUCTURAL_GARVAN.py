@@ -8,7 +8,6 @@ import sys
 with open(sys.argv[1]) as r:
     for line in r:
         toks = line.strip().split('\t') 
-        print(toks)
         assert(len(toks) == 2)
         
         tumor  = toks[0]
