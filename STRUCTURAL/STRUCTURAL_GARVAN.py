@@ -14,7 +14,7 @@ with open(sys.argv[1]) as r:
         normal = toks[1]
         
         cmd = "/bin/sh STRUCTURAL/STRUCTURAL_GARVAN.pbs " + normal + " " + tumor
-        cmd = "qsub -q short.q -m beas -pe smp 2 -l mem_requested=32G,tmp_requested=32G -V -cwd -j y -S " + cmd
+        cmd = "qsub -q short.q -m beas -pe smp 4 -l mem_requested=16G,tmp_requested=16G -V -cwd -j y -S " + cmd
         
         print(cmd)
         os.system(cmd)
