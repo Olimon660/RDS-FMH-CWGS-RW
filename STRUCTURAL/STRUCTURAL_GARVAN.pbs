@@ -34,6 +34,7 @@ java -ea -Xmx32g \
 	TMP_DIR=/share/ScratchGeneral/tedwon/RDS-FMH-CWGS-RW/8 \
 	WORKING_DIR=/share/ScratchGeneral/tedwon/RDS-FMH-CWGS-RW/8 \
 	REFERENCE_SEQUENCE="$REFERENCE" \
+	WORKER_THREADS=4 \
 	INPUT="$NORMAL" \
 	INPUT="$TUMOR" \
 	OUTPUT="$OUTPUT" \
