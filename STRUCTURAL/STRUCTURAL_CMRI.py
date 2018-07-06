@@ -1,5 +1,5 @@
 #
-# python STRUCTURAL/STRUCTURAL_SOMATIC.py STAGE2/case_control_input_files_2.txt
+# python STRUCTURAL/STRUCTURAL_CMRI.py STRUCTURAL/CMRI1.txt
 #
 
 import os
