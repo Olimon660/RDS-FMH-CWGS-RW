@@ -15,4 +15,4 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/9'
 java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectMultipleMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=$IX/${file} O=$OX/COLLECT_MULTIPLE_METRICS_${file}
 
 # Running Picard CollectWgsMetrics
-
+java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectWgsMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=$IX/${file} O=$OX/COLLECT_WGS_METRICS_${file}.txt
