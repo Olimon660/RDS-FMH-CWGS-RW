@@ -8,6 +8,8 @@
 module load R
 module load samtools
 
+mkdir -p /tmp/twon2259
+
 IX='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/9'
 
