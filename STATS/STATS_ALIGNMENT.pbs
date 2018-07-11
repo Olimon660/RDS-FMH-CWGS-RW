@@ -13,7 +13,7 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/9'
 cd /scratch/RDS-FMH-CWGS-RW/Sources
 
 # Runing SAMtools flagstat
-samtools flagstat $IX/${file} > 9/SAMTOOLS_FLAGSTAT_${file}.txt
+samtools flagstat ${file} > 9/SAMTOOLS_FLAGSTAT_$(basename ${file}.txt
 
 # Running Picard CollectMultipleMetrics
 java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectMultipleMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=${file} O=$OX/COLLECT_MULTIPLE_METRICS_$(basename ${file}
