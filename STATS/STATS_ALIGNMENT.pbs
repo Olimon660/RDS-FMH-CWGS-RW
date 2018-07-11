@@ -10,11 +10,13 @@ module load samtools
 IX='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/9'
 
+cd /scratch/RDS-FMH-CWGS-RW/Sources
+
 # Runing SAMtools flagstat
 samtools flagstat $IX/${file} > 9/SAMTOOLS_FLAGSTAT_${file}.txt
 
 # Running Picard CollectMultipleMetrics
-java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectMultipleMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=$IX/${file} O=$OX/COLLECT_MULTIPLE_METRICS_${file}
+java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectMultipleMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=${file} O=$OX/COLLECT_MULTIPLE_METRICS_$(basename ${file}
 
 # Running Picard CollectWgsMetrics
-java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectWgsMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=$IX/${file} O=$OX/COLLECT_WGS_METRICS_${file}.txt
+java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectWgsMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=${file} O=$OX/COLLECT_WGS_METRICS_$(basename ${file}.txt
