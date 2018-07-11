@@ -5,11 +5,13 @@
 #PBS -l select=1:ncpus=1:mem=32GB
 #PBS -q defaultQ
 
+module load samtools
+
 IX='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/9'
 
 # Runing SAMtools flagstat
-/scratch/RDS-FMH-CWGS-RW/softwares/samtools-1.8 flagstat ${file} > 9/SAMTOOLS_FLAGSTAT_${file}.txt
+samtools flagstat ${file} > 9/SAMTOOLS_FLAGSTAT_${file}.txt
 
 # Running Picard CollectMultipleMetrics
 java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectMultipleMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=$IX/${file} O=$OX/COLLECT_MULTIPLE_METRICS_${file}
