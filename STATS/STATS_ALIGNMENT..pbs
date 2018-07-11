@@ -6,16 +6,14 @@
 #PBS -q defaultQ
 
 IX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
-OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
+OX='/scratch/RDS-FMH-CWGS-RW/Sources/9'
 
-module load perl
-module load tabix
+# Runing SAMtools flagstat
+/scratch/RDS-FMH-CWGS-RW/softwares/samtools-1.8 flagstat ${file} > 9/SAMTOOLS_FLAGSTAT_${file}.txt
 
-/scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep/vep \
-    -i $IX/$(basename ${file}) \
-    --assembly GRCh37 --cache --offline --everything \
-    --humdiv \
-    --vcf \
-    --force_overwrite \
-    --dir_cache /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep/cache \
-    --output_file $OX/ANNOTATED_$(basename ${file})
+# Running Picard CollectMultipleMetrics
+java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectMultipleMetrics INPUT=$IX/${file} OUTPUT=$OX/COLLECT_MULTIPLE_METRICS_${file}
+
+# Running Picard CollectWgsMetrics
+
+# Running Picard CollectAlignmentSummaryMetrics
