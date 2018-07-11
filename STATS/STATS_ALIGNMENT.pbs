@@ -12,8 +12,7 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/9'
 /scratch/RDS-FMH-CWGS-RW/softwares/samtools-1.8 flagstat ${file} > 9/SAMTOOLS_FLAGSTAT_${file}.txt
 
 # Running Picard CollectMultipleMetrics
-java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectMultipleMetrics INPUT=$IX/${file} OUTPUT=$OX/COLLECT_MULTIPLE_METRICS_${file}
+java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectMultipleMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=$IX/${file} O=$OX/COLLECT_MULTIPLE_METRICS_${file}
 
 # Running Picard CollectWgsMetrics
 
-# Running Picard CollectAlignmentSummaryMetrics
