@@ -5,7 +5,7 @@
 #PBS -l select=1:ncpus=1:mem=32GB
 #PBS -q defaultQ
 
-IX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
+IX='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/9'
 
 # Runing SAMtools flagstat
