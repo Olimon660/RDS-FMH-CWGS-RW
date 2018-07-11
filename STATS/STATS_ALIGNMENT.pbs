@@ -16,7 +16,7 @@ cd /scratch/RDS-FMH-CWGS-RW/Sources
 samtools flagstat ${file} > 9/SAMTOOLS_FLAGSTAT_$(basename ${file}.txt
 
 # Running Picard CollectMultipleMetrics
-java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectMultipleMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=${file} O=$OX/COLLECT_MULTIPLE_METRICS_$(basename ${file}
+java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectMultipleMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=${file} O=$OX/COLLECT_MULTIPLE_METRICS_$(basename ${file})
 
 # Running Picard CollectWgsMetrics
-java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectWgsMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=${file} O=$OX/COLLECT_WGS_METRICS_$(basename ${file}.txt
+java -jar /scratch/RDS-FMH-CWGS-RW/softwares/picard.jar CollectWgsMetrics R=/scratch/RDS-FMH-CWGS-RW/Sources/combined.fasta I=${file} O=$OX/COLLECT_WGS_METRICS_$(basename ${file}).txt
