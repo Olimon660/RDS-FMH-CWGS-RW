@@ -1,7 +1,7 @@
 #!/bin/bash 
 
-IX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
+IX='/scratch/RDS-FMH-CWGS-RW/Sources/5'
 
-for file in $IX/SOMATIC_GRIDSS_*.vcf; do
-    qsub -v file=$file STRUCTURAL/STRUCTURAL_ANNOTATION.pbs
+for file in $IX/REALIGNED*.bam; do
+    qsub -v file=$file STATS/STATS_ALIGNMENT.pbs
 done
