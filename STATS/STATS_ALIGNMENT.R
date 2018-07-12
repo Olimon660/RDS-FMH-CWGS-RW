@@ -76,13 +76,26 @@ sort <- function(x) { x[with(x, order(Sample)), ] }
 wgs <- sort(wgs)
 trim <- sort(trim)
 samtools <- sort(samtools)
-collectMultipleMetricsAlign <- sort(collectMultipleMetricsAlign)
+collectMultipleMetricsAlign  <- sort(collectMultipleMetricsAlign)
 collectMultipleMetricsInsert <- sort(collectMultipleMetricsInsert)
 
-colnames(samtools) <- c('Raw Total Individual Reads')
-
-data <- data.frame(SampleName=samtools$Sample, TotalReads=samtools$total_reads)
-
-
-
-
+data <- data.frame(SampleName=samtools$Sample,
+                   TotalReads=samtools$total_reads,
+                   InputReadPairs=trim$InputReadPairs,
+                   BothSurviving=trim$BothSurviving,
+                   PCTBothSurviving=trim$PCTBothSurviving,
+                   TotalR1Reads=fastqc$F1Total,
+                   TotalR2Reads=fastqc$F2Total,
+                   F1Q30=fastqc$F1Q30,
+                   F2Q30=fastqc$F2Q30,
+                   TotalReadsEnteredForMapping=collectMultipleMetricsAlign$AligmentRead.TOTAL_READS,
+                   PCTReadsAligned=collectMultipleMetricsAlign$AligmentRead.PCT_PF_READS_ALIGNED,
+                   ReadsAlignedInPairs=collectMultipleMetricsAlign$AligmentRead.PF_READS_ALIGNED,
+                   PCTReadsAlignedInPairs=collectMultipleMetricsAlign$AligmentRead.PCT_PF_READS_ALIGNED,
+                   MeanCoverage=wgs$MEAN_COVERAGE,
+                   SDCoverage=wgs$SD_COVERAGE,
+                   MeanReadLength=collectMultipleMetricsAlign$AligmentRead.MEAN_READ_LENGTH,
+                   MedianInsertSize=collectMultipleMetricsInsert$InsertSize.MEDIAN_INSERT_SIZE,
+                   MeanInsertSize=collectMultipleMetricsInsert$InsertSize.MEAN_INSERT_SIZE,
+                   InsertSizeStandardDeviation= collectMultipleMetricsInsert$InsertSize.STANDARD_DEVIATION)
+write.table(data, 'stats.tsv', sep='\t', quote=FALSE, row.names=FALSE)
