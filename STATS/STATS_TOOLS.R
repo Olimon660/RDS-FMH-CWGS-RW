@@ -1,17 +1,30 @@
 
-parseFASTQC <- function(file)
+parseFASTQC <- function(sample)
 {
-    F1_sh_string <- paste("awk '/>>Per sequence quality scores/{f=1;next}/>>END_MODULE/{f=0}f'", file)
-    F1_system_out <- system(F1_sh_string,intern = TRUE)
+    f1 <- paste('3/FASTQC_RESULTS/F1_PAIRED_', sample, '_fastqc/fastqc_data.txt', sep='')
+    f2 <- paste('3/FASTQC_RESULTS/F2_PAIRED_', sample, '_fastqc/fastqc_data.txt', sep='')
+    F1_system_out <- system(paste("awk '/>>Per sequence quality scores/{f=1;next}/>>END_MODULE/{f=0}f'", f1), intern = TRUE)
+    F2_system_out <- system(paste("awk '/>>Per sequence quality scores/{f=1;next}/>>END_MODULE/{f=0}f'", f2), intern = TRUE)
     F1_list <- str_split(F1_system_out[-1],"\t") # remove header
-    df <- do.call(rbind.data.frame, F1_list)  
-    colnames(df) <- c('Phred', 'Count')
-    df$Phred <- as.numeric(as.character(df$Phred))
-    df$Count <- as.numeric(as.character(df$Count))
-    Q30_count <- sum(df$Count[df$Phred >= 30])
-    total_reads <- sum(df$Count)
-    percent_Q30 <- Q30_count / total_reads
-    data.frame(File=file, Phred=df$Phred, Count=df$Count, Q30_count, total_reads, percent_Q30)
+    F2_list <- str_split(F2_system_out[-1],"\t") # remove header
+
+    df1 <- do.call(rbind.data.frame, F1_list)
+    df2 <- do.call(rbind.data.frame, F2_list)
+    colnames(df1) <- c('Phred', 'Count')
+    colnames(df2) <- c('Phred', 'Count')
+    df1$Phred <- as.numeric(as.character(df1$Phred))
+    df2$Phred <- as.numeric(as.character(df2$Phred))    
+    df1$Count <- as.numeric(as.character(df1$Count))
+    df2$Count <- as.numeric(as.character(df2$Count))    
+    
+    F1_Total <- sum(df1$Count)
+    F2_Total <- sum(df2$Count)
+    F1_Q30_count <-sum(df1$Count[df1$Phred >=30])
+    F2_Q30_count <-sum(df2$Count[df2$Phred >=30])
+    F1_percent_Q30<- F1_Q30_count/F1_Total
+    F2_percent_Q30<- F2_Q30_count/F2_Total
+    
+    data.frame(Sample=sample, F1Total=F1_Total, F2Total=F2_Total, F1Q30=F1_percent_Q30, F2Q30=F2_percent_Q30)
 }
 
 parseSAMFlag <- function(file)
@@ -46,15 +59,17 @@ parseSAMFlag <- function(file)
 
 parseCollectMultipleMetricsInsertSizeMetrics <- function(file)
 {
-    system(paste('cat', file, '| grep -v "^#" | head -3 > /tmp/A.txt', sep=' '))
-    insert_size_read <- read.table(file.path('/tmp/A.txt'), skip=1, sep="\t", header=TRUE)
+    system(paste('cat', file, '| grep -v "^#" | head -n3 | tail -n2 > /tmp/A.txt', sep=' '))
+    insert_size_read <- read.table(file.path('/tmp/A.txt'), sep="\t", header=TRUE)
     data.frame(File=file, InsertSize=insert_size_read)
 }
 
 parseCollectMultipleMetricsAlign <- function(file)
 {
-    system(paste('cat', file, '| grep -v "^#" > /tmp/A.txt', sep=' '))    
-    data.frame(File=file, AligmentRead=read.table(file.path('/tmp/A.txt'), skip=1, sep="\t", header=TRUE))
+    system(paste('cat', file, '| grep -v "^#" > /tmp/A.txt', sep=' '))
+    x <- read.table(file.path('/tmp/A.txt'), skip=1, sep="\t", header=TRUE)
+    x <- x[x$CATEGORY == 'PAIR',]
+    data.frame(File=file, AligmentRead=x)
 }
 
 parseWGS <- function(file)
@@ -84,9 +99,9 @@ parseTrim <- function(file)
         dropped     <- as.numeric(as.character(array[20]))
         PCT_dropped <- dropped/input_read_pairs 
         
-        data.frame(File=file, InputReadPairs=input_read_pairs, BothSurviving=both_surviving, PCTBothSurviving=PCT_both_surviving, ForwardOnlySurviving=forward_only_surviving,
-                   PCTForwardOnlySurviving=PCT_forward_only_surviving, ReverseOnlySurviving=reverse_only_surviving, PCTReverseOnlySurviving=PCT_reverse_only_surviving, Dropped=dropped, PCTDropped=PCT_dropped)
-    }    
+        x <- data.frame(File=file, InputReadPairs=input_read_pairs, BothSurviving=both_surviving, PCTBothSurviving=PCT_both_surviving, ForwardOnlySurviving=forward_only_surviving,
+                        PCTForwardOnlySurviving=PCT_forward_only_surviving, ReverseOnlySurviving=reverse_only_surviving, PCTReverseOnlySurviving=PCT_reverse_only_surviving, Dropped=dropped, PCTDropped=PCT_dropped)
+    }
 }
 
 
