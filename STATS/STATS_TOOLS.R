@@ -57,6 +57,12 @@ parseCollectMultipleMetricsAlign <- function(file)
     data.frame(File=file, AligmentRead=read.table(file.path('/tmp/A.txt'), skip=1, sep="\t", header=TRUE))
 }
 
+parseWGS <- function(file)
+{
+    system(paste('cat', file, '| grep -v "^#" | head -3 > /tmp/A.txt', sep=' '))    
+    data.frame(File=file, read.table(file.path('/tmp/A.txt'), skip=1, sep="\t", header=TRUE))
+}
+
 parseTrim <- function(file)
 {
     out <- system(paste('cat', file, '| grep \"Input Read Pairs\"', sep=' '), intern=TRUE)

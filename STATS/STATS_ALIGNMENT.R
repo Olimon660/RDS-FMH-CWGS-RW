@@ -2,6 +2,15 @@ library(stringr)
 source("STATS/STATS_TOOLS.R")
 
 #
+# Parse Picard WGSTools
+#
+
+wgs <- data.frame()
+for (file in list.files('9', pattern=glob2rx('*WGS*'))) {
+    wgs <- rbind(wgs, parseWGS(paste('9/', file, sep='')))
+}
+
+#
 # Parse SAMtools files
 #
 
@@ -48,16 +57,17 @@ for (file in list.files('2', pattern=glob2rx('*.log'))) {
 
 sample <- function(x)
 {
-    keys <- c('.alignment_summary_metrics', 'FLAGSTAT_REALIGNED_RG_DEDUP_SORTED_', '3/FASTQC_RESULTS/F1_PAIRED_', '3/FASTQC_RESULTS/F2_PAIRED_', '_fastqc/fastqc_data.txt', '.bam', '.insert_size_metrics', 'SAMTOOLS_FLAGSTAT_REALIGNED_RG_DEDUP_SORTED_HG19_', 'FASTQC_RESULTS/F2_PAIRED_', '.html', '2/TRIMMOMATIC_', '.log', '9/COLLECT_MULTIPLE_METRICS_REALIGNED_RG_DEDUP_SORTED_HG19_', '.bam.alignment_summary_metrics')
+    keys <- c('9/COLLECT_WGS_METRICS_REALIGNED_RG_DEDUP_SORTED_HG19_', '.txt', '.alignment_summary_metrics', 'FLAGSTAT_REALIGNED_RG_DEDUP_SORTED_', '3/FASTQC_RESULTS/F1_PAIRED_', '3/FASTQC_RESULTS/F2_PAIRED_', '_fastqc/fastqc_data.txt', '.bam', '.insert_size_metrics', 'SAMTOOLS_FLAGSTAT_REALIGNED_RG_DEDUP_SORTED_HG19_', 'FASTQC_RESULTS/F2_PAIRED_', '.html', '2/TRIMMOMATIC_', '.log', '9/COLLECT_MULTIPLE_METRICS_REALIGNED_RG_DEDUP_SORTED_HG19_', '.bam.alignment_summary_metrics')
     for (key in keys) { x <- gsub(key, '', x) }
     x
 }
 
+wgs$Sample <- sample(wgs$File)
 trim$Sample <- sample(trim$File)
-collectMultipleMetricsAlign$Sample <- sample(collectMultipleMetricsAlign$File)
-collectMultipleMetricsInsert$Sample <- sample(collectMultipleMetricsInsert$File)
 fastqc$Sample <- sample(fastqc$File)
 samtools$Sample <- sample(samtools$File)
+collectMultipleMetricsAlign$Sample <- sample(collectMultipleMetricsAlign$File)
+collectMultipleMetricsInsert$Sample <- sample(collectMultipleMetricsInsert$File)
 
 
 
