@@ -52,7 +52,7 @@ samtools$Sample <- sample(samtools$File)
 collectMultipleMetricsAlign$Sample <- sample(collectMultipleMetricsAlign$File)
 collectMultipleMetricsInsert$Sample <- sample(collectMultipleMetricsInsert$File)
 
-# No trimming
+# Pooled technical replicates (e.g. "JFCF6_P12_H06L4ALXX_6" and "JFCF6_P12_H06L4ALXX_5" pooled into "JFCF6_P12_H06L4ALXX_5")
 specials1 <- c('H06L4ALXX_2_JFCF6_P-pLKO_5_Human__Reddel_Lab', 'JFCF6_P12_H06L4ALXX_5', 'JFCF6_T_1J_1-3C_H0AF0ALXX_3', 'JFCF6_T_1J_6B_H0AF0ALXX_4')
 
 # No FASTQC
