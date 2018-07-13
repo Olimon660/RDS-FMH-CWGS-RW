@@ -5,4 +5,4 @@
 #PBS -l select=1:ncpus=1:mem=16GB
 #PBS -q defaultQ
 
-cp -rf /scratch/RDS-FMH-CWGS-RW/Sources/6 /project/RDS-FMH-CWGS-RW/6
+cp -rf /scratch/RDS-FMH-CWGS-RW/Sources/3 /project/RDS-FMH-CWGS-RW/3
