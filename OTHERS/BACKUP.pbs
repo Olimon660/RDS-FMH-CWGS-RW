@@ -6,3 +6,6 @@
 #PBS -q defaultQ
 
 cp -rf /scratch/RDS-FMH-CWGS-RW/Sources/3 /project/RDS-FMH-CWGS-RW/3
+cp -rf /scratch/RDS-FMH-CWGS-RW/Sources/6 /project/RDS-FMH-CWGS-RW/6
+cp -rf /scratch/RDS-FMH-CWGS-RW/Sources/7 /project/RDS-FMH-CWGS-RW/7
+cp -rf /scratch/RDS-FMH-CWGS-RW/Sources/9 /project/RDS-FMH-CWGS-RW/9
