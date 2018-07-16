@@ -21,6 +21,14 @@ vcf <- vcf[rowRanges(vcf)$FILTER %in% c(".", "PASS"),]
 # Somatic calls have no support in the normal
 somatic_vcf <- vcf[geno(vcf)$QUAL[, normal] == 0,]
 
+simpleEventType <- function(gr) {
+    return(ifelse(seqnames(gr) != seqnames(partner(gr)), "ITX", # inter-chromosomosal
+                  ifelse(gr$insLen >= abs(gr$svLen) * 0.7, "INS",
+                         ifelse(strand(gr) == strand(partner(gr)), "INV",
+                                ifelse(xor(start(gr) < start(partner(gr)), strand(gr) == "-"), "DEL",
+                                       "DUP")))))
+}
+
 # Extract the breakpoints by the author's package
 gr <- breakpointRanges(somatic_vcf)
 
@@ -32,6 +40,7 @@ bed <- data.frame(chrom1=seqnames(gr),
                   end2=end(partner(gr)),
                   name=names(gr),
                   score=gr$QUAL,
+                  type=simpleEventType(gr),
                   strand1=strand(gr),
                   strand2=strand(partner(gr)))
 
