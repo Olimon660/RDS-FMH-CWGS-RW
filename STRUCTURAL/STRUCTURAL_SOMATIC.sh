@@ -1,10 +1,7 @@
 #!/bin/bash 
 
-IX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
-OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
-
-module load R
+IX='/Users/twong/Sources/RDS-FMH-CWGS-RW/8'
 
 for file in $IX/SOMATIC_GRIDSS_*.vcf; do
-    Rscript STRUCTURAL/STRUCTURAL_SOMATIC.R $file
+    Rscript STRUCTURAL/STRUCTURAL_SOMATIC.R $file $file.bed
 done
