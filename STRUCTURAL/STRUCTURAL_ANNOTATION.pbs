@@ -3,16 +3,12 @@
 #PBS -l walltime=12:00:00
 #PBS -P RDS-FMH-CWGS-RW
 #PBS -l select=1:ncpus=1:mem=32GB
-#PBS -q small-express
-
-#defaultQ
+#PBS -q defaultQ
 
 IX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
 IX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
 
 for file in $IX/SOMATIC_GRIDSS_*.vcf; do
-    echo $file
-    #qsub -v file=$file STRUCTURAL/STRUCTURAL_ANNOTATION.pbs
-    #java -Xmx16g -jar /scratch/RDS-FMH-CWGS-RW/softwares/snpEff/snpEff.jar hg19 $OX/$(basename ${file})
+    java -Xmx16g -jar /scratch/RDS-FMH-CWGS-RW/softwares/snpEff/snpEff.jar hg19 $OX/$(basename ${file})
 done
