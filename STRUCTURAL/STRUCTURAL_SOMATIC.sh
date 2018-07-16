@@ -6,5 +6,5 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
 module load R
 
 for file in $IX/SOMATIC_GRIDSS_*.vcf; do
-    qsub -v file=$file STRUCTURAL/STRUCTURAL_SOMATIC.pbs
+    Rscript STRUCTURAL/STRUCTURAL_SOMATIC.R $file
 done
