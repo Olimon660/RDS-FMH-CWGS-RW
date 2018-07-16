@@ -10,5 +10,5 @@ OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
 IX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
 
 for file in $IX/SOMATIC_GRIDSS_*.vcf; do
-    java -Xmx16g -jar /scratch/RDS-FMH-CWGS-RW/softwares/snpEff/snpEff.jar hg19 $OX/$(basename ${file})
+    java -Xmx16g -jar /home/twong/snpEff/snpEff.jar hg19 $OX/$(basename ${file})
 done
