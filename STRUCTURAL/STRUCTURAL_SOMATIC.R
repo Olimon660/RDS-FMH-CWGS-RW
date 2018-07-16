@@ -36,7 +36,7 @@ bed <- data.frame(chrom1=seqnames(gr),
                   strand2=strand(partner(gr)))
 
 # Just the lower of the two breakends so we don't output everything twice
-bed <- bedpe[str_detect(bedpe$name, "gridss.+o"),]
+bed <- bed[str_detect(bedpe$name, "gridss.+o"),]
 
 print(paste("Writing to", args[[2]]))
 write.table(bed, args[[2]], quote=FALSE, sep='\t', row.names=FALSE, col.names=FALSE)
