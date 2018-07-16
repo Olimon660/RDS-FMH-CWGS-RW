@@ -2,20 +2,10 @@
 
 #PBS -l walltime=02:00:00
 #PBS -P RDS-FMH-CWGS-RW
-#PBS -l select=1:ncpus=1:mem=32GB
+#PBS -l select=1:ncpus=1:mem=64GB
 #PBS -q defaultQ
 
 IX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
 OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
 
-module load perl
-module load tabix
-
-/scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep/vep \
-    -i $IX/$(basename ${file}) \
-    --assembly GRCh37 --cache --offline --everything \
-    --humdiv \
-    --vcf \
-    --force_overwrite \
-    --dir_cache /scratch/RDS-FMH-CWGS-RW/softwares/ensembl-vep/cache \
-    --output_file $OX/ANNOTATED_$(basename ${file})
+java -Xmx32g -jar /scratch/RDS-FMH-CWGS-RW/softwares/snpEff/snpEff.jar hg19 $OX/$(basename ${file})
