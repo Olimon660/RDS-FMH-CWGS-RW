@@ -1,0 +1,35 @@
+-- Job Summary -------------------------------------------------------
+Job Id: 2357532.pbsserver for user twon2259 in queue highmem
+Job Name: STATS_ALIGNMENT.pbs
+Project: RDS-FMH-CWGS-RW
+Exit Status: 0
+Job run as chunks (hpc205:ncpus=1:mem=33554432kb)
+Walltime requested:   24:00:00 :      Walltime used:   04:33:31
+                               :   walltime percent:      19.0%
+-- Nodes Summary -----------------------------------------------------
+-- node hpc205 summary
+    Cpus requested:          1 :          Cpus Used:       0.92
+          Cpu Time:   04:10:46 :        Cpu percent:      91.7%
+     Mem requested:     32.0GB :           Mem used:     32.0GB
+                               :        Mem percent:     100.0%
+
+-- WARNINGS ----------------------------------------------------------
+
+** Low Walltime utilisation.  While this may be normal, it may help to check the
+** following:
+**   Did the job parameters specify more walltime than necessary? Requesting
+**   lower walltime could help your job to start sooner.
+**   Did your analysis complete as expected or did it crash before completing?
+**   Did the application run more quickly than it should have? Is this analysis
+**   the one you intended to run?
+** 
+** Excessive Memory utilisation on hpc205. While this may be normal, it may help to
+** check the following:
+**   Did the job parameters specify enough memory?
+**   Did your analysis complete successfully, or did it run out of RAM?
+**   Did you use MPI and was the work distributed correctly? Correcting this
+**   could allow your job to run using less RAM in each chunk.
+**   Did the application use more memory than it should have? Is this analysis
+**   the one you intended to run?
+**
+-- End of Job Summary ------------------------------------------------
