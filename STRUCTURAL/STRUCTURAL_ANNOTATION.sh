@@ -1,7 +1,7 @@
 #!/bin/bash
 
-IX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
-OX='/scratch/RDS-FMH-CWGS-RW/Sources/8'
+IX='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/8'
+OX='/home/twong/das_manual/Process/Bioinformatics/tedwong/RDS-FMH-CWGS-RW/8'
 
 for file in $IX/SOMATIC_GRIDSS_*.vcf; do
     java -Xmx16g -jar /home/twong/snpEff/snpEff.jar hg19 $OX/$(basename ${file})
