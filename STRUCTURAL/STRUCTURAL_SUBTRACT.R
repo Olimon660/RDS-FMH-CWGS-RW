@@ -58,6 +58,7 @@ for (file in Sys.glob("8/*ANNOTATED_*vcf"))
     i1 <- info(somatic_vcf)
     i1 <- data.frame(Name    = row.names(somatic_vcf),
                      Partner = i1$PARID,
+                     Filter  = filt(somatic_vcf),
                      RP      = i1$RP,
                      RPQ     = i1$RPQ,
                      SR      = i1$SR,
@@ -67,6 +68,7 @@ for (file in Sys.glob("8/*ANNOTATED_*vcf"))
     i2   <- merge(x=i1, y=i1, by.x="Name", by.y="Partner")
     tmp2 <- data.frame(Name     = i2$Name,
                        Partner  = i2$Partner,
+                       Filter   = i2$Filter.x,
                        RP1      = i2$RP.x,
                        RP2      = i2$RP.y,
                        RPQ1     = i2$RPQ.x,
@@ -82,6 +84,9 @@ for (file in Sys.glob("8/*ANNOTATED_*vcf"))
     
     tmp3 <- merge(tmp1, tmp2, by.x="Name", by.y="Name")
     data <- rbind(data, tmp3)
+    break
 }
 
+data$Partner <- data$Partner.x
+data <- data[,!(names(data) %in% c("Partner.x", "Partner.y"))]
 write.table(data, file='8/STRUCTURAL_SUBTRACT.tsv', sep='\t', quote=F, row.names=F)
