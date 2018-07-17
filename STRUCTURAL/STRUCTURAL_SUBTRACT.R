@@ -1,16 +1,15 @@
-#suppressMessages(library(stringr))
-#suppressMessages(library(devtools))
-#suppressMessages(library(VariantAnnotation))
-#suppressMessages(install_github("PapenfussLab/StructuralVariantAnnotation"))
-#suppressMessages(library(StructuralVariantAnnotation))
+suppressMessages(library(stringr))
+suppressMessages(library(devtools))
+suppressMessages(library(VariantAnnotation))
+suppressMessages(install_github("PapenfussLab/StructuralVariantAnnotation"))
+suppressMessages(library(StructuralVariantAnnotation))
 
 sample <- function(x)
 {
     gsub("8/ANNOTATED_SOMATIC_GRIDSS_", "", gsub(".vcf", "", x))
 }
 
-data1 <- NULL
-data2 <- NULL
+data <- NULL
 
 for (file in Sys.glob("8/*ANNOTATED_*vcf"))
 {
@@ -56,31 +55,33 @@ for (file in Sys.glob("8/*ANNOTATED_*vcf"))
                        Sample  = samp)
     tmp1 <- tmp1[str_detect(tmp1$Name, "gridss.+o"),] # Just the lower of the two breakends so we don't output everything twice
     
-    i1 <- info(somatic_vcf[i$PARID %in% row.names(somatic_vcf),])
-
+    i1 <- info(somatic_vcf)
+    i1 <- data.frame(Name    = row.names(somatic_vcf),
+                     Partner = i1$PARID,
+                     RP      = i1$RP,
+                     RPQ     = i1$RPQ,
+                     SR      = i1$SR,
+                     SRQ     = i1$SRQ,
+                     REFC    = i1$REF,
+                     REFPAIR = i1$REFPAIR)
+    i2   <- merge(x=i1, y=i1, by.x="Name", by.y="Partner")
+    tmp2 <- data.frame(Name     = i2$Name,
+                       Partner  = i2$Partner,
+                       RP1      = i2$RP.x,
+                       RP2      = i2$RP.y,
+                       RPQ1     = i2$RPQ.x,
+                       RPQ2     = i2$RPQ.y,
+                       SR1      = i2$SR.x,
+                       SR2      = i2$SR.y,
+                       SRQ1     = i2$SRQ.x,
+                       SRQ2     = i2$SRQ.y,
+                       REFC1    = i2$REFC.x,
+                       REFC2    = i2$REFC.y,
+                       REFPAIR1 = i2$REFPAIR.x,
+                       REFPAIR2 = i2$REFPAIR.y)
     
-    ab <- somatic_vcf[i$PARID %in% row.names(somatic_vcf),]
-    
-    i$PARID
-        i2 <- info(partner(somatic_vcf))
-    
-    tmp2 <- data.frame(Resolution = ifelse(i$IMPRECISE, "imprecise", "precise"),
-                       Chr1       = seqnames(somatic_vcf),
-                       Start1     = start(somatic_vcf),
-                       End1       = end(somatic_vcf),
-                       Chr2       = seqnames(partner(somatic_vcf)),
-                       Start2     = start(partner(somatic_vcf)),
-                       End2       = end(partner(somatic_vcf)),
-                       Ref1       = ref(somatic_vcf),
-                       Alt1       = alt(somatic_vcf),
-                       Ref2       = ref(partner(somatic_vcf)),
-                       Alt2       = alt(partner(somatic_vcf)),
-                       RP1        = i1$RP,
-                       RP2        = somatic_vcf[partner(somatic_vcf) %in% row.names(somatic_vcf),]
-                       
-                       )
-
-    #data1 <- rbind(data1, ) 
+    tmp3 <- merge(tmp1, tmp2, by.x="Name", by.y="Name")
+    data <- rbind(data, tmp3)
 }
 
-write.table(data1, file='8/STRUCTURAL_SUBTRACT.tsv', sep='\t', quote=F, row.names=F)
+write.table(data, file='8/STRUCTURAL_SUBTRACT.tsv', sep='\t', quote=F, row.names=F)
