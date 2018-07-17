@@ -37,6 +37,7 @@ for (file in Sys.glob("8/*ANNOTATED_*vcf"))
     
     suppressWarnings(b <- breakpointRanges(somatic_vcf))
     
+    # Information from the SV package
     tmp1 <- data.frame(SVType  = simpleEventType(b),
                        Chr1    = seqnames(b),
                        Start1  = start(b) - 1,
@@ -56,6 +57,8 @@ for (file in Sys.glob("8/*ANNOTATED_*vcf"))
     tmp1 <- tmp1[str_detect(tmp1$Name, "gridss.+o"),] # Just the lower of the two breakends so we don't output everything twice
     
     i1 <- info(somatic_vcf)
+    
+    # Information from the VCF
     i1 <- data.frame(Name    = row.names(somatic_vcf),
                      Partner = i1$PARID,
                      Filter  = filt(somatic_vcf),
