@@ -57,17 +57,22 @@ for file in os.listdir("8"):
                     if s1 == '':
                         s1 = s1 + b[o]
                     else:
-                        s1 = (s1 + ',' + b[o])                
-                s2 = ''
+                        s1 = (s1 + ';' + b[o])                
+
                 if not 'ANN' in i.INFO:
+                    s2 = ''
                     for o in o2:
-                        s2 = (s2 + ',' + '-')
-                else:                
+                        s2 = (s2 + ';' + '-')
+                    csv.write(s1 + s2 + '\n')                        
+                else:
                     for a in i.INFO['ANN']:
                         ann = a.split('|')
                         assert(len(ann) == 16)
+                        s2 = ''
                         for k in range(0, len(o2)):
-                            s2 = (s2 + ',' + ann[k])
-                csv.write(s1 + s2 + '\n')
+                            s2 = (s2 + ';' + ann[k])
+                        assert(len(s1.split(';')) == len(o1))
+                        assert(len(s2.split(';')) == len(o2) + 1)
+                        csv.write(s1 + s2 + '\n')
             else:
                 raise Exception('Unknown key: ' + key1)
