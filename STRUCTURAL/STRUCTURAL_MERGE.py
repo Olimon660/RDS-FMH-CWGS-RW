@@ -43,6 +43,7 @@ o2 = [ 'Allele', 'Annotation', 'AnnotationImpact', 'GeneName', 'GeneID', 'Featur
 
 for file in os.listdir("8"):
     if file.startswith('SUBTRACTED') and file.endswith(".vcf"):
+        print(file)
         r = vcf.Reader(open(os.path.join("8", file), 'r'))        
         for i in r:
             samp = file.replace('SUBTRACTED_ANNOTATED_SOMATIC_GRIDSS_', '').replace('.vcf', '')
