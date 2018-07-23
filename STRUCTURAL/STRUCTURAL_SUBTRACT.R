@@ -60,8 +60,6 @@ for (file in Sys.glob("8/*ANNOTATED_*vcf"))
     tmp1 <- tmp1[str_detect(tmp1$Name, "gridss.+o"),] # Just the lower of the two breakends so we don't output everything twice
     
     i1 <- info(somatic_vcf)
-    
-    # Information from the VCF
     i1 <- data.frame(Name    = row.names(somatic_vcf),
                      Resolu  = ifelse(i1$IMPRECISE, 'Imprecise', 'Precise'),
                      Partner = i1$PARID,
@@ -71,6 +69,8 @@ for (file in Sys.glob("8/*ANNOTATED_*vcf"))
                      SR      = i1$SR,
                      SRQ     = i1$SRQ,
                      REFC    = i1$REF,
+                     HOMLEN  = as.numeric(i1$HOMLEN),
+                     HOMSEQ  = as.character(i1$HOMSEQ),
                      REFPAIR = i1$REFPAIR)
     i1_ <- i1
     i1_ <- i1_[,!(names(i1_) %in% c("Name"))]
@@ -89,6 +89,10 @@ for (file in Sys.glob("8/*ANNOTATED_*vcf"))
                        SRQ2     = i2$SRQ.y,
                        REFC1    = i2$REFC.x,
                        REFC2    = i2$REFC.y,
+                       HOMLEN1  = i2$HOMLEN.x,
+                       HOMSEQ1  = i2$HOMSEQ.x,
+                       HOMLEN2  = i2$HOMLEN.y,
+                       HOMSEQ2  = i2$HOMSEQ.y,
                        REFPAIR1 = i2$REFPAIR.x,
                        REFPAIR2 = i2$REFPAIR.y)
     
