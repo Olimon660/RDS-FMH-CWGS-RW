@@ -35,18 +35,18 @@ def readTSV(file):
 (b1, b2) = readTSV('8/STRUCTURAL_SUBTRACT.tsv')
 csv = open(sys.argv[1], 'w')
 
-o1 = [ 'Type', 'File', 'Sample', 'Resolu', 'SVType', 'Chr1', 'Start1', 'End1', 'Chr2', 'Start2', 'End2', 'Ref1', 'Alt1',   \
+o1 = [ 'File', 'Sample', 'Type', 'Resolu', 'SVType', 'Chr1', 'Start1', 'End1', 'Chr2', 'Start2', 'End2', 'Ref1', 'Alt1',   \
        'Ref2', 'Alt2', 'SVLen', 'RP1', 'RP2', 'RPQ1', 'RPQ2', 'SR1', 'SR2', 'SRQ1', 'SRQ2', 'REFC1', \
        'REFC2', 'REFPAIR1', 'REFPAIR2', 'HOMLEN1', 'HOMSEQ1', 'HOMLEN2', 'HOMSEQ2' ]
 o2 = [ 'Allele', 'Annotation', 'AnnotationImpact', 'GeneName', 'GeneID', 'FeatureType', 'FeatureID', \
        'TranscriptBioType', 'Rank', 'HGVS.c', 'HGVS.p', 'cDNA', 'CDS', 'AA', 'Distance', 'Status' ]
 
 for file in os.listdir("8"):
-    if file.startswith('SUBTRACTED') and file.endswith(".vcf"):
+    if file.startswith('ANNOTATED') and file.endswith(".vcf"): # Not SUBTRACTED because we have germline variants
         print(file)
         r = vcf.Reader(open(os.path.join("8", file), 'r'))        
         for i in r:
-            samp = file.replace('SUBTRACTED_ANNOTATED_SOMATIC_GRIDSS_', '').replace('.vcf', '')
+            samp = file.replace('ANNOTATED_SOMATIC_GRIDSS_', '').replace('.vcf', '') # Not SUBTRACTED because we have germline variants
             name = i.ID
             key1 = samp + '_' + name
             
@@ -76,4 +76,5 @@ for file in os.listdir("8"):
                         assert(len(s2.split(';')) == len(o2) + 1)
                         csv.write(s1 + s2 + '\n')
             else:
-                raise Exception('Unknown key: ' + key1)
+                pass
+                #raise Exception('Unknown key: ' + key1)
