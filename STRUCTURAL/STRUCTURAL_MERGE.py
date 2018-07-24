@@ -35,7 +35,7 @@ def readTSV(file):
 (b1, b2) = readTSV('8/STRUCTURAL_SUBTRACT.tsv')
 csv = open(sys.argv[1], 'w')
 
-o1 = [ 'File', 'Sample', 'Resolu', 'SVType', 'Chr1', 'Start1', 'End1', 'Chr2', 'Start2', 'End2', 'Ref1', 'Alt1',   \
+o1 = [ 'Type', 'File', 'Sample', 'Resolu', 'SVType', 'Chr1', 'Start1', 'End1', 'Chr2', 'Start2', 'End2', 'Ref1', 'Alt1',   \
        'Ref2', 'Alt2', 'SVLen', 'RP1', 'RP2', 'RPQ1', 'RPQ2', 'SR1', 'SR2', 'SRQ1', 'SRQ2', 'REFC1', \
        'REFC2', 'REFPAIR1', 'REFPAIR2', 'HOMLEN1', 'HOMSEQ1', 'HOMLEN2', 'HOMSEQ2' ]
 o2 = [ 'Allele', 'Annotation', 'AnnotationImpact', 'GeneName', 'GeneID', 'FeatureType', 'FeatureID', \
