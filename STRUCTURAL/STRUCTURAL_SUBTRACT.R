@@ -1,8 +1,8 @@
-suppressMessages(library(stringr))
-suppressMessages(library(devtools))
-suppressMessages(library(VariantAnnotation))
-suppressMessages(install_github("PapenfussLab/StructuralVariantAnnotation"))
-suppressMessages(library(StructuralVariantAnnotation))
+#suppressMessages(library(stringr))
+#suppressMessages(library(devtools))
+#suppressMessages(library(VariantAnnotation))
+#suppressMessages(install_github("PapenfussLab/StructuralVariantAnnotation"))
+#suppressMessages(library(StructuralVariantAnnotation))
 
 sample <- function(x)
 {
@@ -11,7 +11,7 @@ sample <- function(x)
 
 data <- NULL
 
-for (file in Sys.glob("8/*ANNOTATED_*vcf"))
+for (file in Sys.glob("8/ANNOTATED_*vcf"))
 {
     print(paste("Loading", file))
     vcf <- readVcf(file, "hg19")
@@ -22,8 +22,8 @@ for (file in Sys.glob("8/*ANNOTATED_*vcf"))
     print(paste('Normal:', normal))
     print(paste('Tumor:', tumor))
     
-    # Somatic calls have no support in the normal
-    somatic_vcf <- vcf[geno(vcf)$QUAL[,normal] == 0,]
+    gv <- vcf[geno(vcf)$QUAL[,normal] != 0,]
+    sv <- vcf[geno(vcf)$QUAL[,normal] == 0,]
     
     samp <- sample(file)
     
@@ -35,10 +35,10 @@ for (file in Sys.glob("8/*ANNOTATED_*vcf"))
     }
     
     # Remove unpaired breakpoints (e.g. removed by normal)
-    suppressWarnings(b <- breakpointRanges(somatic_vcf))
+    suppressWarnings(b <- breakpointRanges(sv))
     
-    somatic_vcf <- somatic_vcf[row.names(somatic_vcf) %in% names(b) ,]
-    writeVcf(somatic_vcf, filename=paste('8/', 'SUBTRACTED_', basename(file), sep=''))
+    sv <- sv[row.names(sv) %in% names(b) ,]
+    writeVcf(sv, filename=paste('8/', 'SUBTRACTED_', basename(file), sep=''))
 
     # Information from the SV package
     tmp1 <- data.frame(SVType  = simpleEventType(b),
@@ -59,11 +59,11 @@ for (file in Sys.glob("8/*ANNOTATED_*vcf"))
                        Sample  = samp)
     tmp1 <- tmp1[str_detect(tmp1$Name, "gridss.+o"),] # Just the lower of the two breakends so we don't output everything twice
     
-    i1 <- info(somatic_vcf)
-    i1 <- data.frame(Name    = row.names(somatic_vcf),
+    i1 <- info(sv)
+    i1 <- data.frame(Name    = row.names(sv),
                      Resolu  = ifelse(i1$IMPRECISE, 'Imprecise', 'Precise'),
                      Partner = i1$PARID,
-                     Filter  = filt(somatic_vcf),
+                     Filter  = filt(sv),
                      RP      = i1$RP,
                      RPQ     = i1$RPQ,
                      SR      = i1$SR,
