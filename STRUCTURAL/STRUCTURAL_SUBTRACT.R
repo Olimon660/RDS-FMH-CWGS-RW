@@ -1,8 +1,8 @@
-#suppressMessages(library(stringr))
-#suppressMessages(library(devtools))
-#suppressMessages(library(VariantAnnotation))
-#suppressMessages(install_github("PapenfussLab/StructuralVariantAnnotation"))
-#suppressMessages(library(StructuralVariantAnnotation))
+suppressMessages(library(stringr))
+suppressMessages(library(devtools))
+suppressMessages(library(VariantAnnotation))
+suppressMessages(install_github("PapenfussLab/StructuralVariantAnnotation"))
+suppressMessages(library(StructuralVariantAnnotation))
 
 sample <- function(x) {
     gsub("8/ANNOTATED_SOMATIC_GRIDSS_", "", gsub(".vcf", "", x))
