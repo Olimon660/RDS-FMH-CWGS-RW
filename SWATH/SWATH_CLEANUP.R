@@ -81,7 +81,6 @@ dets$SWATH.File.Name <- gsub("Cell study", "Cell_study", dets$SWATH.File.Name)
 
 map <- merge(data.frame(Cols=cols), dets, by.x="Cols", by.y="SWATH.File.Name")
 map <- map[with(map, order(Sample)),]
-
 write.table(map$Sample, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/sample.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
 
 # Run SWATH_CLEANUP.py for mapping the friendly names
@@ -90,6 +89,6 @@ map$Sample <- read.table("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/newSample.t
 # Substitue the intensity table with the samples
 colnames(data) <- as.character(map$Sample[match(colnames(data), map$Cols)])
 
-#
-# We're now ready for SWATH differential analysis!
-#
+sort(colnames(data))
+
+
