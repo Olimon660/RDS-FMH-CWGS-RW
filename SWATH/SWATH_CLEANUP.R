@@ -86,9 +86,10 @@ write.table(map$Sample, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/sample.
 # Run SWATH_CLEANUP.py for mapping the friendly names
 map$Sample <- read.table("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/newSample.txt", header=FALSE, sep="\n")$V1
 
-# Substitue the intensity table with the samples
-colnames(data) <- as.character(map$Sample[match(colnames(data), map$Cols)])
+colnames(data) <- as.character(map$Sample[match(colnames(data), map$Cols)]) # Substitue the intensity table with the samples
+write.table(data, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/data2.txt", quote=FALSE, row.names=TRUE, col.names=TRUE)
 
-sort(colnames(data))
+
+
 
 
