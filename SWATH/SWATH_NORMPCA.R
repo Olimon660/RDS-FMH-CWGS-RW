@@ -1,13 +1,6 @@
 library(ggfortify)
 library(data.table)
-
-normalize <- function(data)
-{
-    x <- normalize.quantiles(as.matrix(data[,c(5:22)]))
-    x <- cbind(data[,c(1:4)], data.frame(x))
-    colnames(x) <- colnames(data)
-    x
-}
+library(preprocessCore)
 
 samples <- function(x)
 {
@@ -60,14 +53,29 @@ info <- read.table("SWATH/nInfo.tsv", header=TRUE, sep='\t')
 data <- data[!is.na(rowSums(data)),] # Should we do imputation?
 data <- log2(data) # The absolute values are quite large ...
 
-png("~/Desktop/Samples.png"); plotPCA(data, info, "Log2 PCA before normalization (colored by samples)", "Samples"); dev.off()
-png("~/Desktop/Instruments.png"); plotPCA(data, info, "Log2 PCA before normalization (colored by instruments)", "Instruments"); dev.off()
-png("~/Desktop/ProcessDate.png"); plotPCA(data, info, "Log2 PCA before normalization (colored by processing date)", "ProcessDate"); dev.off()
-png("~/Desktop/Operator.png"); plotPCA(data, info, "Log2 PCA before normalization (colored by operator)", "Operator"); dev.off()
-png("~/Desktop/RunDate.png"); plotPCA(data, info, "Log2 PCA before normalization (colored by running date)", "RunDate"); dev.off()
-png("~/Desktop/Type.png"); plotPCA(data, info, "Log2 PCA before normalization (colored by type)", "Type"); dev.off()
-png("~/Desktop/MSUsed.png"); plotPCA(data, info, "Log2 PCA before normalization (colored by MSUsed)", "MSUsed"); dev.off()
-png("~/Desktop/MSMethod.png"); plotPCA(data, info, "Log2 PCA before normalization (colored by MSMethod)", "MSMethod"); dev.off()
+png("~/Desktop/BSamples.png");     plotPCA(data, info, "Log2 PCA before normalization (colored by samples)", "Samples");             dev.off()
+png("~/Desktop/BInstruments.png"); plotPCA(data, info, "Log2 PCA before normalization (colored by instruments)", "Instruments");     dev.off()
+png("~/Desktop/BProcessDate.png"); plotPCA(data, info, "Log2 PCA before normalization (colored by processing date)", "ProcessDate"); dev.off()
+png("~/Desktop/BOperator.png");    plotPCA(data, info, "Log2 PCA before normalization (colored by operator)", "Operator");           dev.off()
+png("~/Desktop/BRunDate.png");     plotPCA(data, info, "Log2 PCA before normalization (colored by running date)", "RunDate");        dev.off()
+png("~/Desktop/BType.png");        plotPCA(data, info, "Log2 PCA before normalization (colored by type)", "Type");                   dev.off()
+png("~/Desktop/BMSUsed.png");      plotPCA(data, info, "Log2 PCA before normalization (colored by MSUsed)", "MSUsed");               dev.off()
+png("~/Desktop/BMSMethod.png");    plotPCA(data, info, "Log2 PCA before normalization (colored by MSMethod)", "MSMethod");           dev.off()
 
+normalize <- function(data)
+{
+    x <- normalize.quantiles(as.matrix(data))
+    colnames(x) <- colnames(data)
+    as.data.frame(x)
+}
 
+data.norm <- normalize(data)
 
+png("~/Desktop/ASamples.png");     plotPCA(data.norm, info, "Log2 PCA after normalization (colored by samples)", "Samples");             dev.off()
+png("~/Desktop/AInstruments.png"); plotPCA(data.norm, info, "Log2 PCA after normalization (colored by instruments)", "Instruments");     dev.off()
+png("~/Desktop/AProcessDate.png"); plotPCA(data.norm, info, "Log2 PCA after normalization (colored by processing date)", "ProcessDate"); dev.off()
+png("~/Desktop/AOperator.png");    plotPCA(data.norm, info, "Log2 PCA after normalization (colored by operator)", "Operator");           dev.off()
+png("~/Desktop/ARunDate.png");     plotPCA(data.norm, info, "Log2 PCA after normalization (colored by running date)", "RunDate");        dev.off()
+png("~/Desktop/AType.png");        plotPCA(data.norm, info, "Log2 PCA after normalization (colored by type)", "Type");                   dev.off()
+png("~/Desktop/AMSUsed.png");      plotPCA(data.norm, info, "Log2 PCA after normalization (colored by MSUsed)", "MSUsed");               dev.off()
+png("~/Desktop/AMSMethod.png");    plotPCA(data.norm, info, "Log2 PCA after normalization (colored by MSMethod)", "MSMethod");           dev.off()
