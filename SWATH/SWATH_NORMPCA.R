@@ -31,6 +31,7 @@ plotPCA <- function(data, info, title, mode)
     data$MSUsed <- info$MSUsed
     data$MSMethod <- info$MSMethod
     data$Operator <- info$Operator
+    data$Status   <- info$Status
     
     g <- autoplot(prcomp(data[,1:nc]), data=data, loadings.colour="blue", loadings.label=FALSE, loadings.label.size=0.1, size=1.0)
     
@@ -42,6 +43,7 @@ plotPCA <- function(data, info, title, mode)
     if (mode == "MSUsed")      { g <- g + geom_point(aes(col=MSUsed)) }
     if (mode == "MSMethod")    { g <- g + geom_point(aes(col=MSMethod)) }
     if (mode == "Operator")    { g <- g + geom_point(aes(col=Operator)) }
+    if (mode == "Status")      { g <- g + geom_point(aes(col=Status)) }
     
     g <- g + theme_bw() + theme(legend.position="none")
     g <- g + ggtitle(title) + theme(legend.title=element_blank())
@@ -61,6 +63,7 @@ png("~/Desktop/BRunDate.png");     plotPCA(data, info, "Log2 PCA before normaliz
 png("~/Desktop/BType.png");        plotPCA(data, info, "Log2 PCA before normalization (colored by type)", "Type");                   dev.off()
 png("~/Desktop/BMSUsed.png");      plotPCA(data, info, "Log2 PCA before normalization (colored by MSUsed)", "MSUsed");               dev.off()
 png("~/Desktop/BMSMethod.png");    plotPCA(data, info, "Log2 PCA before normalization (colored by MSMethod)", "MSMethod");           dev.off()
+png("~/Desktop/BStatus.png");      plotPCA(data, info, "Log2 PCA before normalization (colored by status)", "Status");               dev.off()
 
 normalize <- function(data)
 {
@@ -79,3 +82,4 @@ png("~/Desktop/ARunDate.png");     plotPCA(data.norm, info, "Log2 PCA after norm
 png("~/Desktop/AType.png");        plotPCA(data.norm, info, "Log2 PCA after normalization (colored by type)", "Type");                   dev.off()
 png("~/Desktop/AMSUsed.png");      plotPCA(data.norm, info, "Log2 PCA after normalization (colored by MSUsed)", "MSUsed");               dev.off()
 png("~/Desktop/AMSMethod.png");    plotPCA(data.norm, info, "Log2 PCA after normalization (colored by MSMethod)", "MSMethod");           dev.off()
+png("~/Desktop/AStatus.png");      plotPCA(data.norm, info, "Log2 PCA after normalization (colored by Status)", "Status");               dev.off()

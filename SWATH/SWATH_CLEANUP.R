@@ -101,5 +101,17 @@ nInfo <- data.frame(ID=nInfo$ID,
                     MSMethod=nInfo$MS_Method.x,
                     Operator=nInfo$Operator.x)
 
-write.table(data, file="SWATH/data2.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
+noRep <- function(x) { gsub('_r1', '', gsub('_r2', '', gsub('_r3', '', gsub('_r4', '', x)))) }
+nInfo$SampleNR <- noRep(nInfo$Sample)
+nInfo <- nInfo[with(nInfo, order(SampleNR)),]
+nInfo$Status <- "Immortal"
+nInfo[nInfo$SampleNR == "JFCF_6",]$Status            <- "Mortal"
+nInfo[nInfo$SampleNR == "GM02063",]$Status           <- "Mortal"
+nInfo[nInfo$SampleNR == "IIICF_E6E7_C4_pre",]$Status <- "Mortal"
+nInfo[nInfo$SampleNR == "IVG_BF_LXSN_pre",]$Status   <- "Mortal"
+nInfo[nInfo$SampleNR == "LFS_05F_24_pre",]$Status    <- "Mortal"
+nInfo[nInfo$SampleNR == "MeT_4A_pre",]$Status        <- "Mortal"
+nInfo[nInfo$SampleNR == "WI38",]$Status              <- "Mortal"
+
+write.table(data,  file="SWATH/data2.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
 write.table(nInfo, file="SWATH/nInfo.tsv", quote=FALSE, row.names=FALSE, col.names=TRUE, sep="\t")
