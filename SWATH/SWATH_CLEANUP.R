@@ -1,5 +1,5 @@
 
-data <- read.table("/Users/twong/Desktop/SWATH/Cell_Study_SRL_1&3_Re_Analysis_for_ET_180409.csv", row.names=1, header=TRUE, sep=',') # 5854 x 111
+data <- read.table("SWATH/Cell_Study_SRL_1&3_Re_Analysis_for_ET_180409.csv", row.names=1, header=TRUE, sep=',') # 5854 x 111
 cols <- colnames(data) # Sample names for the proteins
 cols <- gsub("..sample.1..", "", cols)
 cols <- gsub(".wiff", "", cols)
@@ -36,11 +36,9 @@ cols <- gsub("Cell study", "Cell_study", cols)
 cols <- unlist(lapply(strsplit(as.character(cols), "..", fixed=TRUE), '[[', 2))
 colnames(data) <- cols
 
-info <- read.table("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/SWATHDetails.csv", row.names=1, header=TRUE, sep=',')
+info <- read.table("SWATH/SWATHDetails.csv", row.names=1, header=TRUE, sep=',')
 info$ID <- row.names(info)
 info <- info[, c("ID", "Sample", "SWATH.Processing.Date", "Acq_Type", "SWATH.Processing.Instrument", "SWATH.File.Name")]
-
-
 info <- info[with(info, order(Sample, SWATH.File.Name)),]
 stopifnot(nrow(info) == length(cols))
 
@@ -84,10 +82,10 @@ info$SWATH.File.Name <- gsub("Cell study", "Cell_study", info$SWATH.File.Name)
 
 map <- merge(data.frame(Cols=cols), info, by.x="Cols", by.y="SWATH.File.Name")
 map <- map[with(map, order(Sample)),]
-write.table(map$Sample, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/sample.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
+write.table(map$Sample, file="SWATH/sample.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
 
 # Run SWATH_CLEANUP.py on Python for mapping the friendly names
-map$NewSample <- read.table("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/newSample.txt", header=FALSE, sep="\n")$V1
+map$NewSample <- read.table("SWATH/newSample.txt", header=FALSE, sep="\n")$V1
 
 # Substitue the intensity table with the samples
 colnames(data) <- as.character(map$NewSample[match(colnames(data), map$Cols)])
@@ -95,5 +93,5 @@ colnames(data) <- as.character(map$NewSample[match(colnames(data), map$Cols)])
 nInfo <- merge(info, map, by.x="ID", by.y="ID")
 nInfo <- data.frame(Sample=nInfo$NewSample, Date=nInfo$SWATH.Processing.Date.x, Type=nInfo$Acq_Type.x, Instrument=nInfo$SWATH.Processing.Instrument.x)
 
-write.table(data, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/data2.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
-write.table(nInfo, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/newSWATHDetails.tsv", quote=FALSE, row.names=FALSE, col.names=TRUE, sep="\t")
+write.table(data, file="SWATH/data2.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
+write.table(nInfo, file="newSWATHDetails.tsv", quote=FALSE, row.names=FALSE, col.names=TRUE, sep="\t")
