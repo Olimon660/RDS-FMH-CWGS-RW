@@ -36,8 +36,8 @@ cols <- gsub("Cell study", "Cell_study", cols)
 cols <- unlist(lapply(strsplit(as.character(cols), "..", fixed=TRUE), '[[', 2))
 colnames(data) <- cols
 
-dets <- read.table("/Users/twong/Desktop/SWATH/SWATHDetails.csv", row.names=1, header=TRUE, sep=',')
-dets <- dets[, c("Sample", "SWATH.Processing.Date", "Acq_Type", "SWATH.Processing.Instrument", "SWATH.File.Name", "SWATH.file.Location")]
+dets <- read.table("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/SWATHDetails.csv", row.names=1, header=TRUE, sep=',')
+dets <- dets[, c("Sample", "SWATH.Processing.Date", "Acq_Type", "SWATH.Processing.Instrument", "SWATH.File.Name")]
 dets <- dets[with(dets, order(Sample, SWATH.File.Name)),]
 stopifnot(nrow(det) == length(cols))
 
@@ -84,11 +84,14 @@ map <- map[with(map, order(Sample)),]
 write.table(map$Sample, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/sample.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
 
 # Run SWATH_CLEANUP.py for mapping the friendly names
-map$Sample <- read.table("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/newSample.txt", header=FALSE, sep="\n")$V1
+map$NewSample <- read.table("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/newSample.txt", header=FALSE, sep="\n")$V1
 
-colnames(data) <- as.character(map$Sample[match(colnames(data), map$Cols)]) # Substitue the intensity table with the samples
+colnames(data) <- as.character(map$NewSample[match(colnames(data), map$Cols)]) # Substitue the intensity table with the samples
 sort(s <- colnames(data))
 print(dim(data))
 
-write.table(data, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/data2.txt", quote=FALSE, row.names=TRUE, col.names=TRUE)
-write.table(dets, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/details.txt", quote=FALSE, row.names=TRUE, col.names=TRUE)
+dets <- merge(dets, map, by.x="Sample", by.y="Sample")
+dets <- data.frame(Sample=dets$NewSample, Date=dets$SWATH.Processing.Date.x, Type=dets$Acq_Type.x, Instrument=dets$SWATH.Processing.Instrument.x)
+
+write.table(data, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/data2.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
+write.table(dets, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/newSWATHDetails.tsv", quote=FALSE, row.names=FALSE, col.names=TRUE, sep="\t")
