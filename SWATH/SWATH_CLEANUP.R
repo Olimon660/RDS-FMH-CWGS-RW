@@ -38,7 +38,7 @@ colnames(data) <- cols
 
 info <- read.table("SWATH/SWATHDetails.csv", row.names=1, header=TRUE, sep=',')
 info$ID <- row.names(info)
-info <- info[, c("ID", "Sample", "SWATH.Processing.Date", "Acq_Type", "SWATH.Processing.Instrument", "SWATH.File.Name")]
+info <- info[, c("ID", "Sample", "SWATH.Processing.Date", "Acq_Type", "SWATH.Processing.Instrument", "SWATH.File.Name", "IDA.run.Date", "MS_used", "Operator", "MS_Method")]
 info <- info[with(info, order(Sample, SWATH.File.Name)),]
 stopifnot(nrow(info) == length(cols))
 
@@ -91,7 +91,15 @@ map$NewSample <- read.table("SWATH/newSample.txt", header=FALSE, sep="\n")$V1
 colnames(data) <- as.character(map$NewSample[match(colnames(data), map$Cols)])
 
 nInfo <- merge(info, map, by.x="ID", by.y="ID")
-nInfo <- data.frame(Sample=nInfo$NewSample, Date=nInfo$SWATH.Processing.Date.x, Type=nInfo$Acq_Type.x, Instrument=nInfo$SWATH.Processing.Instrument.x)
+nInfo <- data.frame(ID=nInfo$ID,
+                    RunDate=nInfo$IDA.run.Date.x,
+                    Sample=nInfo$NewSample,
+                    ProcessDate=nInfo$SWATH.Processing.Date.x,
+                    Type=nInfo$Acq_Type.x,
+                    Instrument=nInfo$SWATH.Processing.Instrument.x,
+                    MSUsed=nInfo$MS_used.x,
+                    MSMethod=nInfo$MS_Method.x,
+                    Operator=nInfo$Operator.x)
 
 write.table(data, file="SWATH/data2.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
-write.table(nInfo, file="newSWATHDetails.tsv", quote=FALSE, row.names=FALSE, col.names=TRUE, sep="\t")
+write.table(nInfo, file="SWATH/nInfo.tsv", quote=FALSE, row.names=FALSE, col.names=TRUE, sep="\t")
