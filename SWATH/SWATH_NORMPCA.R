@@ -18,7 +18,7 @@ samples <- function(x)
     x    
 }
 
-plotPCA <- function(data, dets, title, mode)
+plotPCA <- function(data, info, title, mode)
 { 
     rn <- colnames(data)
     data <- transpose(data)
@@ -47,5 +47,5 @@ info <- read.table("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/newSWATHDetails.t
 data <- data[!is.na(rowSums(data)),] # Should we do imputation?
 data <- log2(data) # The absolute values are quite large ...
 
-plotPCA(data, dets, "PCA before normalization (colored by samples)", "Samples")
-plotPCA(data, dets, "PCA before normalization (colored by instruments)", "Instruments")
+plotPCA(data, info, "PCA before normalization (colored by samples)", "Samples")
+plotPCA(data, info, "PCA before normalization (colored by instruments)", "Instruments")

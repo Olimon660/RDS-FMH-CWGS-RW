@@ -39,6 +39,8 @@ colnames(data) <- cols
 info <- read.table("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/SWATHDetails.csv", row.names=1, header=TRUE, sep=',')
 info$ID <- row.names(info)
 info <- info[, c("ID", "Sample", "SWATH.Processing.Date", "Acq_Type", "SWATH.Processing.Instrument", "SWATH.File.Name")]
+
+
 info <- info[with(info, order(Sample, SWATH.File.Name)),]
 stopifnot(nrow(info) == length(cols))
 
