@@ -37,7 +37,7 @@ cols <- unlist(lapply(strsplit(as.character(cols), "..", fixed=TRUE), '[[', 2))
 colnames(data) <- cols
 
 dets <- read.table("/Users/twong/Desktop/SWATH/SWATHDetails.csv", row.names=1, header=TRUE, sep=',')
-dets <- dets[, c("Sample", "SWATH.File.Name", "SWATH.file.Location")]
+dets <- dets[, c("Sample", "SWATH.Processing.Date", "Acq_Type", "SWATH.Processing.Instrument", "SWATH.File.Name", "SWATH.file.Location")]
 dets <- dets[with(dets, order(Sample, SWATH.File.Name)),]
 stopifnot(nrow(det) == length(cols))
 
@@ -87,6 +87,8 @@ write.table(map$Sample, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/sample.
 map$Sample <- read.table("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/newSample.txt", header=FALSE, sep="\n")$V1
 
 colnames(data) <- as.character(map$Sample[match(colnames(data), map$Cols)]) # Substitue the intensity table with the samples
-write.table(data, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/data2.txt", quote=FALSE, row.names=TRUE, col.names=TRUE)
 sort(s <- colnames(data))
 print(dim(data))
+
+write.table(data, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/data2.txt", quote=FALSE, row.names=TRUE, col.names=TRUE)
+write.table(dets, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/details.txt", quote=FALSE, row.names=TRUE, col.names=TRUE)
