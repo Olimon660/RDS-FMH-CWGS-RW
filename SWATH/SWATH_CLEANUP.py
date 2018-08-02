@@ -22,7 +22,9 @@ def findFri(x):
     assert("_r1" in x or "_r2" in x or "_r3" in x or "_r4" in x)
     rp = onlyRep(x)
 
-    x = noRep(x)
+    x = noRep(x)    
+    if x == "MeT-4A":
+        x = "MeT_4A_post"        
     x = x.replace("/", "_")
     x = x.replace(" ", "_")    
     x = x.replace("GM847DM", "GM847")
@@ -52,8 +54,6 @@ def findFri(x):
         x = "IVG_BF_LXSN_pre"
     elif x == "JFCF_6_T_1_P_sc2":
         x = "JFCF_6_P_pLKO_5"
-    elif x == "MeT_4A":
-        x = "MeT_4A_pre"
     elif x == "WI_38_VA13_2RA":
         x = "VA13"
 

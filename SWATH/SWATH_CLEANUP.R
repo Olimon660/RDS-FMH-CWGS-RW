@@ -88,3 +88,4 @@ map$Sample <- read.table("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/newSample.t
 
 colnames(data) <- as.character(map$Sample[match(colnames(data), map$Cols)]) # Substitue the intensity table with the samples
 write.table(data, file="/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/data2.txt", quote=FALSE, row.names=TRUE, col.names=TRUE)
+sort(s <- colnames(data))
