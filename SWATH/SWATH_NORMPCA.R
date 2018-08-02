@@ -34,8 +34,8 @@ plotPCA <- function(data, dets, title, mode)
     data$Inst <- info$Instrument # Useful for plotting
     
     g <- autoplot(prcomp(data[,1:nc]), data=data, loadings.colour="blue", loadings.label=FALSE, loadings.label.size=0.1, size=1.0)
-    if (mode == "Samples")     { g <- g + geom_point(aes(col=Samples)) }
-    if (mode == "Instruments") { g <- g + geom_point(aes(col=Samples)) }
+    if (mode == "Samples")     { g <- g + geom_point(aes(col=Samp)) }
+    if (mode == "Instruments") { g <- g + geom_point(aes(col=Inst)) }
     g <- g + theme_bw()
     g <- g + ggtitle(title) + guides(fill=FALSE) + theme(legend.title=element_blank())
     print(g)
@@ -48,9 +48,4 @@ data <- data[!is.na(rowSums(data)),] # Should we do imputation?
 data <- log2(data) # The absolute values are quite large ...
 
 plotPCA(data, dets, "PCA before normalization (colored by samples)", "Samples")
-
-
-
-
-
-
+plotPCA(data, dets, "PCA before normalization (colored by instruments)", "Instruments")
