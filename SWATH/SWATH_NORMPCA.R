@@ -2,7 +2,7 @@ library(ggfortify)
 library(data.table)
 library(preprocessCore)
 
-samples <- function(x)
+noRep <- function(x)
 {
     x <- gsub('_r1', '',  x)
     x <- gsub('_r2', '',  x)
@@ -18,7 +18,7 @@ plotPCA <- function(data, info, title, mode)
     nc <- ncol(data)
     
     data$Samp <- rn
-    data$Cond <- samples(rn) # Sample names without replicates
+    data$Cond <- noRep(rn) # Sample names without replicates
     stopifnot(all(sort(data$Samp) == sort(info$Sample)))
     
     # Merge with information such as instruments

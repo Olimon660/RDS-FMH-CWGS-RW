@@ -80,6 +80,9 @@ info$SWATH.File.Name <- gsub("sample90", "sample_90", info$SWATH.File.Name)
 info$SWATH.File.Name <- gsub("Cell.study", "Cell_study", info$SWATH.File.Name)
 info$SWATH.File.Name <- gsub("Cell study", "Cell_study", info$SWATH.File.Name)
 
+# Remove "IIICF/a2_A" (IMPORTANT)
+data <- data[,c(-1)]; stopifnot(!("171230_SM_PC5_S_Cell_Study_Sample_256" %in% colnames(data)))
+
 map <- merge(data.frame(Cols=cols), info, by.x="Cols", by.y="SWATH.File.Name")
 map <- map[with(map, order(Sample)),]
 write.table(map$Sample, file="SWATH/sample.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
@@ -104,14 +107,11 @@ nInfo <- data.frame(ID=nInfo$ID,
 noRep <- function(x) { gsub('_r1', '', gsub('_r2', '', gsub('_r3', '', gsub('_r4', '', x)))) }
 nInfo$SampleNR <- noRep(nInfo$Sample)
 nInfo <- nInfo[with(nInfo, order(SampleNR)),]
+
+mortals <- c("JFCF_6", "GM02063", "IIICF_E6E7_C4_pre", "IVG_BF_LXSN_pre", "LFS_05F_24_pre", "MeT_4A_pre", "WI38", "IIICF_P7", "IIICF_P9")
 nInfo$Status <- "Immortal"
-nInfo[nInfo$SampleNR == "JFCF_6",]$Status            <- "Mortal"
-nInfo[nInfo$SampleNR == "GM02063",]$Status           <- "Mortal"
-nInfo[nInfo$SampleNR == "IIICF_E6E7_C4_pre",]$Status <- "Mortal"
-nInfo[nInfo$SampleNR == "IVG_BF_LXSN_pre",]$Status   <- "Mortal"
-nInfo[nInfo$SampleNR == "LFS_05F_24_pre",]$Status    <- "Mortal"
-nInfo[nInfo$SampleNR == "MeT_4A_pre",]$Status        <- "Mortal"
-nInfo[nInfo$SampleNR == "WI38",]$Status              <- "Mortal"
+nInfo[nInfo$SampleNR %in% mortals,]$Status <- "Mortal"
+nInfo <- nInfo[nInfo$ID != 256,]
 
 write.table(data,  file="SWATH/data2.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
 write.table(nInfo, file="SWATH/nInfo.tsv", quote=FALSE, row.names=FALSE, col.names=TRUE, sep="\t")

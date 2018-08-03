@@ -8,7 +8,6 @@ ID	RunDate	Sample	ProcessDate	Type	Instrument	MSUsed	MSMethod	Operator	SampleNR	
 110		IIICF_a2_r1	14/2/17	SWATH	ProCan 5				IIICF_a2	Immortal
 165		IIICF_a2_r2	17/2/17	SWATH	ProCan 5				IIICF_a2	Immortal
 22	6/1/17	IIICF_a2_r3	19/1/17	SWATH	ProCan 2	ProCan 2	90 Min IDA_06	SM	IIICF_a2	Immortal
-256		IIICF_a2_r4	17/12/17	SWATH	ProCan 5				IIICF_a2	Immortal
 105		IIICF_c_r1	13/2/17	SWATH	ProCan 5				IIICF_c	Immortal
 15	28/12/16	IIICF_c_r3	19/1/17	SWATH	ProCan 2	ProCan 2	90 Min IDA_06	SM	IIICF_c	Immortal
 158		IIICF_c_r2	17/2/17	SWATH	ProCan 5				IIICF_c	Immortal
@@ -18,12 +17,12 @@ ID	RunDate	Sample	ProcessDate	Type	Instrument	MSUsed	MSMethod	Operator	SampleNR	
 340		IIICF_E6E7_C4_pre_r1	7/1/18	SWATH	ProCan 5				IIICF_E6E7_C4_pre	Mortal
 352		IIICF_E6E7_C4_pre_r2	10/1/18	SWATH	ProCan 5				IIICF_E6E7_C4_pre	Mortal
 364		IIICF_E6E7_C4_pre_r3	11/1/18	SWATH	ProCan 5				IIICF_E6E7_C4_pre	Mortal
-337		IIICF_P7_r1	7/1/18	SWATH	ProCan 5				IIICF_P7	Immortal
-348		IIICF_P7_r2	10/1/18	SWATH	ProCan 5				IIICF_P7	Immortal
-360		IIICF_P7_r3	11/1/18	SWATH	ProCan 5				IIICF_P7	Immortal
-341		IIICF_P9_r1	7/1/18	SWATH	ProCan 5				IIICF_P9	Immortal
-353		IIICF_P9_r2	12/1/18	SWATH	ProCan 5				IIICF_P9	Immortal
-365		IIICF_P9_r3	11/1/18	SWATH	ProCan 5				IIICF_P9	Immortal
+337		IIICF_P7_r1	7/1/18	SWATH	ProCan 5				IIICF_P7	Mortal
+348		IIICF_P7_r2	10/1/18	SWATH	ProCan 5				IIICF_P7	Mortal
+360		IIICF_P7_r3	11/1/18	SWATH	ProCan 5				IIICF_P7	Mortal
+341		IIICF_P9_r1	7/1/18	SWATH	ProCan 5				IIICF_P9	Mortal
+353		IIICF_P9_r2	12/1/18	SWATH	ProCan 5				IIICF_P9	Mortal
+365		IIICF_P9_r3	11/1/18	SWATH	ProCan 5				IIICF_P9	Mortal
 160		IIICF_T_A6_r1	17/2/17	SWATH	ProCan 5				IIICF_T_A6	Immortal
 58	17/1/17	IIICF_T_A6_r2	1/2/17	SWATH	ProCan 5	ProCan 2	90 Min IDA_06	SM	IIICF_T_A6	Immortal
 102		IIICF_T_B1_r1	13/2/17	SWATH	ProCan 5				IIICF_T_B1	Immortal

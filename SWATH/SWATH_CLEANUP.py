@@ -1,5 +1,5 @@
 #
-# python3 SWATH_CLEANUP.py
+# python3 SWATH/SWATH_CLEANUP.py
 #
 
 import os
@@ -63,7 +63,7 @@ def findFri(x):
 cns = {}
 new = []
 
-with open("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/sample.txt", "r") as r:
+with open("SWATH/sample.txt", "r") as r:
     for line in r:
         samp = line.strip()
         
@@ -83,7 +83,7 @@ with open("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/sample.txt", "r") as r:
         else:
             new.append(samp + "_r" + str(cns[samp]))
 
-with open("/Users/twong/Sources/RDS-FMH-CWGS-RW/SWATH/newSample.txt", "w") as w:
+with open("SWATH/newSample.txt", "w") as w:
     for samp in new:
         # Make sure it's a user friendly name
         w.write(findFri(samp) + "\n")
