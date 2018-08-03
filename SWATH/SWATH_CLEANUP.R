@@ -109,8 +109,14 @@ nInfo$SampleNR <- noRep(nInfo$Sample)
 nInfo <- nInfo[with(nInfo, order(SampleNR)),]
 
 mortals <- c("JFCF_6", "GM02063", "IIICF_E6E7_C4_pre", "IVG_BF_LXSN_pre", "LFS_05F_24_pre", "MeT_4A_pre", "WI38", "IIICF_P7", "IIICF_P9")
-nInfo$Status <- "Immortal"
-nInfo[nInfo$SampleNR %in% mortals,]$Status <- "Mortal"
+nInfo$Mortality <- "Immortal"
+nInfo[nInfo$SampleNR %in% mortals,]$Mortality <- "Mortal"
+
+nInfo$Cell <- sapply(strsplit(nInfo$SampleNR, "_"), `[`, 1)
+nInfo[nInfo$Cell == "GM02063" | nInfo$Cell == "GM847",]$Cell <- "GM"
+nInfo[nInfo$Cell == "VA13" | nInfo$Cell == "WI38",]$Cell <- "VAWI"
+
+# Remove the sample recommended by Erdahl
 nInfo <- nInfo[nInfo$ID != 256,]
 
 write.table(data,  file="SWATH/data2.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
