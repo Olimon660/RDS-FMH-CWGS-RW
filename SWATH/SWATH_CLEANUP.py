@@ -49,7 +49,7 @@ def findFri(x):
     if x == "JFCF_6_T_1_P":
        x = "JFCF_6_T_1_P_TEL"
     elif x == "IIICF_E6E7_C4":
-        x = "IIICF_E6E7_A1"
+        x = "IIICF_E6E7_C4_post"
     elif x == "IVG_BF_LXSN":
         x = "IVG_BF_LXSN_pre"
     elif x == "JFCF_6_T_1_P_sc2":

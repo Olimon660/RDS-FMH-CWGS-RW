@@ -31,25 +31,30 @@ dim(exprs(protein_level_data_expression))
 
 tests <- read.table("SWATH/contrasts.csv", header=TRUE, sep=',', stringsAsFactors=FALSE)
 tests[tests$Mortal == "IIICF",]$Mortal <- "IIICF_P7" # IIICF_P7 is being used as the reference
+tests[tests$Mortal == "JFCF6_P12",]$Mortal <- "JFCF_6"
 
 runTest <- function(data, test)
 {
     case <- data[, noRep(colnames(data)) == test$Mortal[[1]]]   # Mortal
     cont <- data[, noRep(colnames(data)) == test$Immortal[[1]]] # Immortal
 
-    if (ncol(case) != 3) { return(NULL) }
-    if (ncol(cont) != 3) { return(NULL) }    
+    if (ncol(case) != 2 && ncol(case) != 3) { return(NULL) }
+    if (ncol(cont) != 2 && ncol(cont) != 3) { return(NULL) }    
     
     stopifnot(length(unique(noRep(colnames(case)))) == 1)
     stopifnot(length(unique(noRep(colnames(cont)))) == 1)    
     
-    # Data that used for testing
-    newData <- cbind(case, cont)
+    # Always keep controls before cases
+    newData <- cbind(cont, case)
     
+    #
     # http://www.biostat.jhsph.edu/~kkammers/software/eupa/R_guide.html
-    design <- model.matrix(~factor(c(2,2,2,1,1,1)))
+    #
+
+    if (ncol(cont) == 2) { design <- model.matrix(~factor(c(1,1,2,2,2))) }
+    if (ncol(cont) == 3) { design <- model.matrix(~factor(c(1,1,1,2,2,2))) }
+
     colnames(design) <- c("Intercept", "Diff")
-    
     eb.fit(newData, design)
 }
 
