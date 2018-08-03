@@ -2,7 +2,7 @@ library(ggfortify)
 library(data.table)
 library(preprocessCore)
 
-noRep <- function(x) { gsub('_r1', '', gsub('_r2', '', gsub('_r3', '', gsub('_r4', '', x)))) }
+noRep <- function(x) { gsub('_r1', '', gsub('_r2', '', gsub('_r3', '', x))) }
 
 plotPCA <- function(data, info, title, mode, showShape=FALSE, showLeg=TRUE)
 { 
@@ -68,4 +68,6 @@ normalize <- function(data)
 
 data.norm <- normalize(data)
 plotPCA(data.norm, info, "Log2 PCA after normalization (colored by cells)", "Cell")
-write.table(data.norm,  file="SWATH/data.norm.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
+
+write.table(data, file="SWATH/beforeData.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
+write.table(data.norm, file="SWATH/afterData.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
