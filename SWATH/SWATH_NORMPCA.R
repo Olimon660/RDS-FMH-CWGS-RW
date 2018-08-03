@@ -11,7 +11,7 @@ noRep <- function(x)
     x    
 }
 
-plotPCA <- function(data, info, title, mode)
+plotPCA <- function(data, info, title, mode, showShape=FALSE, showLeg=TRUE)
 { 
     rn <- colnames(data)
     data <- transpose(data)
@@ -33,8 +33,12 @@ plotPCA <- function(data, info, title, mode)
     data$Operator <- info$Operator
     data$Status   <- info$Status
     
-    g <- autoplot(prcomp(data[,1:nc]), data=data, loadings.colour="blue", loadings.label=FALSE, loadings.label.size=0.1, size=1.0)
-    
+    if (showShape) {
+        g <- autoplot(prcomp(data[,1:nc]), data=data, loadings.colour="blue", loadings.label=TRUE, loadings.label.size=0.1, size=1.0, label=TRUE, shape=TRUE)
+    } else {
+        g <- autoplot(prcomp(data[,1:nc]), data=data, loadings.colour="blue", loadings.label=FALSE, loadings.label.size=0.1, size=1.0)
+    }
+
     if (mode == "Samples")     { g <- g + geom_point(aes(col=Samp)) }
     if (mode == "Instruments") { g <- g + geom_point(aes(col=Inst)) }
     if (mode == "RunDate")     { g <- g + geom_point(aes(col=RunDate)) }
@@ -44,9 +48,12 @@ plotPCA <- function(data, info, title, mode)
     if (mode == "MSMethod")    { g <- g + geom_point(aes(col=MSMethod)) }
     if (mode == "Operator")    { g <- g + geom_point(aes(col=Operator)) }
     if (mode == "Status")      { g <- g + geom_point(aes(col=Status)) }
+    if (mode == "Condition")   { g <- g + geom_point(aes(col=Cond)) }
     
-    g <- g + theme_bw() + theme(legend.position="none")
-    g <- g + ggtitle(title) + theme(legend.title=element_blank())
+    g <- g + theme_bw()
+    g <- g + ggtitle(title) +  theme(legend.title=element_blank())
+
+    if (!showLeg) { g <- g + theme(legend.position="none") }
     print(g)
 }
 
@@ -54,6 +61,17 @@ data <- read.table("SWATH/data2.tsv", row.names=1, header=TRUE, sep='\t')
 info <- read.table("SWATH/nInfo.tsv", header=TRUE, sep='\t')
 data <- data[!is.na(rowSums(data)),] # Should we do imputation?
 data <- log2(data) # The absolute values are quite large ...
+
+plotPCA(data, info, "Log2 PCA before normalization (colored by condition)", "Condition")
+
+
+
+
+
+
+
+
+
 
 png("~/Desktop/BSamples.png");     plotPCA(data, info, "Log2 PCA before normalization (colored by samples)", "Samples");             dev.off()
 png("~/Desktop/BInstruments.png"); plotPCA(data, info, "Log2 PCA before normalization (colored by instruments)", "Instruments");     dev.off()
