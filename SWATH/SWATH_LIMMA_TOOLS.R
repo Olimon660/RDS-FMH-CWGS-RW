@@ -104,7 +104,7 @@ checkMissing <- function()
         if (ncol(case) == 0) { print("Missing all replicates in mortal")   }
         
         mCont <- rowSums(is.na(cont))
-        mCase <- rowSums(is.na(case))        
+        mCase <- rowSums(is.na(case))
         
         print(sum(mCont == 1))
         print(sum(mCont == 2))
