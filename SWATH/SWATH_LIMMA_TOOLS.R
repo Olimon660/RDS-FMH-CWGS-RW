@@ -92,7 +92,7 @@ checkMissing <- function()
     for (i in 1:nrow(tests)) { checkTest(data, tests[i,]) }
 }
 
-min(data, na.rm=TRUE)
-quantile(data, na.rm=TRUE)
-print(data[is.na(rowSums(data)), is.na(colSums(data))])
-checkMissing()
+#min(data, na.rm=TRUE)
+#quantile(data, na.rm=TRUE)
+#print(data[is.na(rowSums(data)), is.na(colSums(data))])
+#checkMissing()

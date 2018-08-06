@@ -27,7 +27,6 @@ boxplot(exprs(protein_level_data_expression), main="After Quantile Normalisation
 # print the dimensions of the expression object form our main working data set 
 dim(exprs(protein_level_data_expression))
 
-
 res <- NULL
 for (i in 1:nrow(tests))
 {
