@@ -10,5 +10,13 @@ CREATE TABLE Swath (
 	PVal   		 VARCHAR(100),
 	PMod   		 VARCHAR(100),
 	QVal   		 VARCHAR(100),
-	QMode   	 VARCHAR(100)
+	QMod    	 VARCHAR(100),
+	Mortal1      VARCHAR(100),
+	Mortal2      VARCHAR(100),
+	Mortal3      VARCHAR(100),
+	Immortal1    VARCHAR(100),
+	Immortal2    VARCHAR(100),
+	Immortal3    VARCHAR(100),
+	MortalName   VARCHAR(100),
+	ImmortalName VARCHAR(100)
 );

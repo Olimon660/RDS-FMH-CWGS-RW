@@ -46,4 +46,4 @@ for (i in 1:nrow(tests))
 }
 
 diff.test <- diff.test[with(diff.test, order(qval)),]
-write.table(data.norm, file="SWATH/diffTest.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
+write.table(diff.test, file="SWATH/diffResults.csv", quote=FALSE, row.names=TRUE, col.names=FALSE, sep=";")
