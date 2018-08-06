@@ -41,7 +41,8 @@ diff.test <- NULL
 for (i in 1:nrow(tests))
 {
     print(i)
-    r <- runTest(data, tests[i,])
+    file <- paste(tests[i,]$Mortal, "-", tests[i,]$Immortal, ".png", sep="")
+    r <- runTest(data, tests[i,], file)
     if (is.null(r)) print(tests[i,]) else diff.test <- rbind(diff.test, r)
 }
 

@@ -1,6 +1,7 @@
 library(limma)
+library(ggplot2)
 
-eb.fit <- function(dat, design)
+eb.fit <- function(dat, design, mortal, immortal, saveTo)
 {
     n <- dim(dat)[1]
     fit <- lmFit(dat, design)
@@ -17,6 +18,28 @@ eb.fit <- function(dat, design)
     p.mod <- fit.eb$p.value[, 2]
     q.ord <- qvalue(p.ord)$q
     q.mod <- qvalue(p.mod)$q
+    
+    data <- data.frame(q.mod=-log2(q.mod), logFC=logFC)
+    data$Color <- "blue"
+    data[abs(data$logFC) >= 4,]$Color <- "red"
+    data$Size <- data$Color
+    data[data$Color == "blue",]$Size <- 0.05
+    data$Name <- row.names(dat)
+
+    png(paste("~/Desktop/", saveTo, sep=""))
+    p <- ggplot(data, aes(y=q.mod, x=logFC))
+    p <- p + geom_point(aes(col=Color))
+    p <- p + scale_colour_manual(values = c("blue", "red"))
+    p <- p + geom_vline(xintercept=4, color="black", size=0.2)
+    p <- p + geom_vline(xintercept=-4, color="black", size=0.2)
+    p <- p + theme_bw()
+    p <- p + xlab("Log fold changes")
+    p <- p + ylab("-log2 Moderated q-value")
+    p <- p + ggtitle(paste("Mortal: ", mortal, "    Immortal: ", immortal, sep=""))
+    p <- p + theme(legend.position="none")
+    print(p)
+    dev.off()
+    
     results.eb <- data.frame(logFC, t.ord, t.mod, p.ord, p.mod, q.ord, q.mod, df.r, df.0, s2.0, s2, s2.post)
     results.eb[order(results.eb$p.mod), ]
 }
@@ -35,7 +58,7 @@ getPData <- function()
     new("AnnotatedDataFrame", data=pData)
 }
 
-runTest <- function(data, test)
+runTest <- function(data, test, saveTo)
 {
     norm <- data[, noRep(colnames(data)) == test$Mortal[[1]]]   # Mortal (normal controls)
     tumo <- data[, noRep(colnames(data)) == test$Immortal[[1]]] # Immortal (tumor sample)
@@ -52,11 +75,11 @@ runTest <- function(data, test)
     stopifnot(length(unique(noRep(colnames(norm)))) == 1)
     stopifnot(length(unique(noRep(colnames(tumo)))) == 1)
     
-    design <- c(rep(1, ncol(norm)), rep(2, ncol(tumo)))
+    design <- c(rep(-1, ncol(norm)), rep(1, ncol(tumo)))
     design <- model.matrix(~factor(design))
     colnames(design) <- c("Intercept", "Diff")
 
-    r <- eb.fit(cbind(norm, tumo), design)
+    r <- eb.fit(cbind(norm, tumo), design, test$Mortal[[1]], test$Immortal[[1]], saveTo)
     
     acc  <- function(x) { sapply(strsplit(x, split="|", fixed=TRUE) , "[[", 2) }
     gene <- function(x) { sapply(strsplit(x, split="|", fixed=TRUE) , "[[", 3) }    
