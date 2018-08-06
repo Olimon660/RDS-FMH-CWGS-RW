@@ -87,8 +87,8 @@ map <- merge(data.frame(Cols=cols), info, by.x="Cols", by.y="SWATH.File.Name")
 map <- map[with(map, order(Sample)),]
 write.table(map$Sample, file="SWATH/sample.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
 
-# Run SWATH_CLEANUP.py on Python for mapping the friendly names
 map$NewSample <- read.table("SWATH/newSample.txt", header=FALSE, sep="\n")$V1
+system("python3 SWATH/SWATH_CLEANUP.py")
 
 # Substitue the intensity table with the samples
 colnames(data) <- as.character(map$NewSample[match(colnames(data), map$Cols)])
