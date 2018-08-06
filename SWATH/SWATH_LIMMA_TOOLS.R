@@ -37,27 +37,56 @@ getPData <- function()
 
 runTest <- function(data, test)
 {
-    case <- data[, noRep(colnames(data)) == test$Mortal[[1]]]   # Mortal
-    cont <- data[, noRep(colnames(data)) == test$Immortal[[1]]] # Immortal
+    norm <- data[, noRep(colnames(data)) == test$Mortal[[1]]]   # Mortal (normal controls)
+    tumo <- data[, noRep(colnames(data)) == test$Immortal[[1]]] # Immortal (tumor sample)
     
-    if (ncol(case) != 2 && ncol(case) != 3) { return(NULL) }
-    if (ncol(cont) != 2 && ncol(cont) != 3) { return(NULL) }    
+    stopifnot(sum(is.na(norm)) == 0)
+    stopifnot(sum(is.na(tumo)) == 0)    
+
+    if (ncol(norm) == 0) { return(NULL) }
+    if (ncol(tumo) == 0) { return(NULL) }    
     
-    stopifnot(length(unique(noRep(colnames(case)))) == 1)
-    stopifnot(length(unique(noRep(colnames(cont)))) == 1)    
+    stopifnot(ncol(norm) == 2 || ncol(norm) == 3)
+    stopifnot(ncol(tumo) == 2 || ncol(tumo) == 3)    
+
+    stopifnot(length(unique(noRep(colnames(norm)))) == 1)
+    stopifnot(length(unique(noRep(colnames(tumo)))) == 1)
     
-    # Always keep controls before cases
-    newData <- cbind(cont, case)
-    
-    #
-    # http://www.biostat.jhsph.edu/~kkammers/software/eupa/R_guide.html
-    #
-    
-    if (ncol(cont) == 2) { design <- model.matrix(~factor(c(1,1,2,2,2))) }
-    if (ncol(cont) == 3) { design <- model.matrix(~factor(c(1,1,1,2,2,2))) }
-    
+    design <- c(rep(1, ncol(norm)), rep(2, ncol(tumo)))
+    design <- model.matrix(~factor(design))
     colnames(design) <- c("Intercept", "Diff")
-    eb.fit(newData, design)
+
+    r <- eb.fit(cbind(norm, tumo), design)
+    
+    acc  <- function(x) { sapply(strsplit(x, split="|", fixed=TRUE) , "[[", 2) }
+    gene <- function(x) { sapply(strsplit(x, split="|", fixed=TRUE) , "[[", 3) }    
+    
+    d <- data.frame(row.names = row.names(r),
+                    access    = acc(row.names(r)),
+                    gene      = gene(row.names(r)),
+                    mortalM   = rowMeans(norm),
+                    immortM   = rowMeans(tumo),
+                    logFC     = r$logFC,
+                    tstats    = r$t.ord,
+                    tmod      = r$t.mod,
+                    pval      = r$p.ord,
+                    pmod      = r$p.mod,
+                    qval      = r$q.ord,
+                    q.mod     = r$q.mod)
+
+    d$mortal1   = norm[,1]
+    d$mortal2   = norm[,2]
+    if (ncol(norm) == 2) { d$mortal3   <- rep(NaN, nrow(data)) }
+    if (ncol(norm) == 3) { d$mortal3   <- norm[,3] }
+
+    d$immortal1 = tumo[,1]
+    d$immortal2 = tumo[,2]
+    if (ncol(tumo) == 2) { d$immortal3 <- rep(NaN, nrow(data)) }
+    if (ncol(tumo) == 3) { d$immortal3 <- tumo[,3] }
+    
+    d$MortalName   <- test$Mortal[[1]]
+    d$ImmortalName <- test$Immortal[[1]]
+    d
 }
 
 checkMissing <- function()
@@ -91,8 +120,3 @@ checkMissing <- function()
     print(dim(data)) # 5854 x 110
     for (i in 1:nrow(tests)) { checkTest(data, tests[i,]) }
 }
-
-#min(data, na.rm=TRUE)
-#quantile(data, na.rm=TRUE)
-#print(data[is.na(rowSums(data)), is.na(colSums(data))])
-#checkMissing()

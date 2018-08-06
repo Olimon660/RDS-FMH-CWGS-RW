@@ -40,8 +40,10 @@ boxplot(exprs(protein_level_data_expression), main="After Quantile Normalisation
 diff.test <- NULL
 for (i in 1:nrow(tests))
 {
+    print(i)
     r <- runTest(data, tests[i,])
-    if (is.null(r)) print(tests[i,]) else diff.test <- rbind(res, r)
+    if (is.null(r)) print(tests[i,]) else diff.test <- rbind(diff.test, r)
 }
 
-print(dim(diff.test))
+diff.test <- diff.test[with(diff.test, order(qval)),]
+write.table(data.norm, file="SWATH/diffTest.tsv", quote=FALSE, row.names=TRUE, col.names=TRUE, sep="\t")
