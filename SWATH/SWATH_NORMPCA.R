@@ -46,6 +46,7 @@ plotPCA <- function(data, info, title, mode, showShape=FALSE, showLeg=TRUE)
     if (mode == "Condition")   { g <- g + geom_point(size=2.5, aes(size=0.3, col=Cond)) }
     
     g <- g + theme_bw()
+    g <- g + scale_colour_manual(values = c("red", "orange", "brown", "green", "blue", "black", "violet"))
     g <- g + ggtitle(title) +  theme(legend.title=element_blank())
 
     if (!showLeg) { g <- g + theme(legend.position="none") }
