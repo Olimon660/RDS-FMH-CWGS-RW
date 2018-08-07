@@ -1,5 +1,7 @@
 
 data <- read.table("SWATH/Cell_Study_SRL_1&3_Re_Analysis_for_ET_180409.csv", row.names=1, header=TRUE, sep=',') # 5854 x 111
+stopifnot(data[1,1] == 8677605.061)
+
 cols <- colnames(data) # Sample names for the proteins
 cols <- gsub("..sample.1..", "", cols)
 cols <- gsub(".wiff", "", cols)
