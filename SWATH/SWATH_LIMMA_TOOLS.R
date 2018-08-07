@@ -19,17 +19,18 @@ eb.fit <- function(dat, design, mortal, immortal, saveTo)
     q.ord <- qvalue(p.ord)$q
     q.mod <- qvalue(p.mod)$q
     
-    data <- data.frame(q.mod=-log2(q.mod), logFC=logFC)
-    data$Color <- "blue"
-    data[abs(data$logFC) >= 4,]$Color <- "red"
-    data$Size <- data$Color
-    data[data$Color == "blue",]$Size <- 0.05
-    data$Name <- row.names(dat)
+    data <- data.frame(name=row.names(dat), lqm=-log2(q.mod), qm=q.mod, logFC=logFC)
+    data$color <- "black"
+
+    if (nrow(data[data$qm <= 0.05,]) > 0) { data[data$qm <= 0.05,]$color <- "red"    }
+    if (nrow(data[abs(logFC) >= 3,]) > 0) { data[abs(logFC) >= 3,]$color <- "orange" }
+    if (nrow(data[data$qm <= 0.05 & abs(logFC) >= 3,]) > 0) { data[data$qm <= 0.05 & abs(logFC) >= 3,]$color <- "green" }
+    data$color <- as.factor(data$color)
 
     png(paste("~/Desktop/", saveTo, sep=""))
-    p <- ggplot(data, aes(y=q.mod, x=logFC))
-    p <- p + geom_point(aes(col=Color))
-    p <- p + scale_colour_manual(values = c("blue", "red"))
+    p <- ggplot(data, aes(y=lqm, x=logFC))
+    p <- p + geom_point(aes(col=color))
+    p <- p + scale_colour_manual(values = c(levels(data$color)))
     p <- p + geom_vline(xintercept=4, color="black", size=0.2)
     p <- p + geom_vline(xintercept=-4, color="black", size=0.2)
     p <- p + theme_bw()
@@ -39,7 +40,7 @@ eb.fit <- function(dat, design, mortal, immortal, saveTo)
     p <- p + theme(legend.position="none")
     print(p)
     dev.off()
-    
+
     results.eb <- data.frame(logFC, t.ord, t.mod, p.ord, p.mod, q.ord, q.mod, df.r, df.0, s2.0, s2, s2.post)
     results.eb[order(results.eb$p.mod), ]
 }
