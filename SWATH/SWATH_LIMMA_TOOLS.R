@@ -1,4 +1,5 @@
 library(limma)
+library(qvalue)
 library(ggplot2)
 
 eb.fit <- function(dat, design, mortal, immortal, saveTo)
@@ -28,6 +29,7 @@ eb.fit <- function(dat, design, mortal, immortal, saveTo)
     data$color <- as.factor(data$color)
     data$name <- as.character(data$name)
     data$name <- sapply(strsplit(data$name, "_HUMAN"), `[`, 1)
+    data$name <- sapply(strsplit(data$name, "|", fixed=TRUE), `[`, 3)
 
     png(paste("~/Desktop/", saveTo, sep=""), width=480*2)
     p <- ggplot(data, aes(y=lqm, x=logFC))
