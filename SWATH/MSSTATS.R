@@ -1,9 +1,17 @@
+library(MSstats)
 
-data <- read.csv("Observed RT.csv")
+data <- read.csv("SWATH/Observed RT.csv")
+saveRDS(data, file="SWATH/ObservedRT.rds")
+data <- readRDS("SWATH/ObservedRT.rds")
 
 #
-# We need "ProteinName", "PeptideSequence", "PrecursorCharge", "FragmentIon", "ProductCharge", "IsotopeLabelType",
-#         "Condition", "BioReplicate", "Run", "Intensity" for inputs.
+# We need "FragmentIon", "sIsotopeLabelType",
+#         "Condition", "BioReplicate", "Run", "Intensity".
 #
 
+data$ProductCharge <- NA
+names(data)[names(data) == "Protein"] <- "ProteinName"
+names(data)[names(data) == "Peptide"] <- "PeptideSequence"
+names(data)[names(data) == "Precursor.Charge"] <- "PrecursorCharge"
 
+dataProcess(data)
