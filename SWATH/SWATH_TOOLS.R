@@ -24,14 +24,15 @@ computerFriendly <- function(x)
 
 track <- function()
 {
-    track <- read.table("SWATH/Cell Study_Tracking_SM.csv", header=FALSE, sep=',')
-    track <- track[,c(1:15)]
-    colnames(track) <- c("ID", "Sample", "ProcessDate", "AcqType", "ProcessInst", "FileName", "Location", "Notes", "RunDate", "IDAFile", "IDALocation",
-                         "MSUsed", "Operator", "MSMethod", "AcqType")
-    track <- track[, c("ID", "Sample", "ProcessDate", "AcqType", "ProcessInst", "FileName", "RunDate", "MSUsed", "Operator", "MSMethod")]
-    track <- track[with(track, order(Sample, FileName)),]
-    track <- track[track$ID != "",]
-    track <- track[track$ID != "Sample No ",]
-    track <- track[track$FileName != "",]
-    track
+    trk <- read.table("SWATH/Cell Study_Tracking_SM.csv", header=FALSE, sep=',', stringsAsFactors=FALSE)
+    trk <- trk[,c(1:15)]
+    colnames(trk) <- c("ID", "Sample", "ProcessDate", "AcqType", "ProcessInst", "FileName", "Location", "Notes", "RunDate", "IDAFile", "IDALocation",
+                       "MSUsed", "Operator", "MSMethod", "AcqType")
+    trk <- trk[, c("ID", "Sample", "ProcessDate", "AcqType", "ProcessInst", "FileName", "RunDate", "MSUsed", "Operator", "MSMethod")]
+    trk <- trk[with(trk, order(Sample, FileName)),]
+    trk <- trk[trk$ID != "Sample No ",]
+    trk <- trk[trk$AcqType != "IDA",]
+    trk <- trk[trk$FileName != "",]
+    trk$Sample <- trimws(trk$Sample)
+    trk
 }

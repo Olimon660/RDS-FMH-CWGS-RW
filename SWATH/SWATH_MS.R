@@ -10,7 +10,6 @@ library(MSstats)
 #
 
 trk <- track()
-trk <- trk[trk$AcqType != "IDA",]
 write.table(trk$FileName, "/tmp/A.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
 system("python3 SWATH/SWATH_SAMPLE.py /tmp/A.txt /tmp/B.txt")
 trk$FileID <- read.table("/tmp/B.txt")$V1
@@ -26,11 +25,4 @@ names(info)[names(info) == "Precursor.Charge"] <- "PrecursorCharge"
 write.table(colnames(inten), "/tmp/A.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
 system("python3 SWATH/SWATH_SAMPLE.py /tmp/A.txt /tmp/B.txt")
 colnames(inten) <- read.table("/tmp/B.txt")$V1
-
-
-
-
-    print(colnames(inten)[!(colnames(inten) %in% trk$FileID)])
-#print(trk$FileName)
-
-
+stopifnot(sum(!(colnames(inten) %in% trk$FileID)) == 0)
