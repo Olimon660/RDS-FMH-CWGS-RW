@@ -1,12 +1,14 @@
 library(MSstats)
 
-#data <- read.csv("SWATH/Observed RT.csv")
-#saveRDS(data, file="SWATH/ObservedRT.rds")
-#data <- readRDS("SWATH/ObservedRT.rds")
+data <- read.csv("SWATH/Cell_Study_Reanalysis_All_415_samples_August_2018_PGH_peptide_FDR.csv", header=1)
+saveRDS(data, file="SWATH/Cell_Study_Reanalysis_All_415_samples_August_2018_PGH_peptide_FDR.rds")
+data <- readRDS("SWATH/Cell_Study_Reanalysis_All_415_samples_August_2018_PGH_peptide_FDR.rds")
 
 #
-# We need "FragmentIon", "sIsotopeLabelType",
-#         "Condition", "BioReplicate", "Run", "Intensity".
+# We need "FragmentIon", "IsotopeLabelType",
+#         "Condition", "BioReplicate", "Run"
+#
+#  IsotopeLabelType not used
 #
 
 trk <- track()
