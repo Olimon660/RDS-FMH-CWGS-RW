@@ -6,3 +6,4 @@
 #PBS -q dtq
 
 cp -rf /scratch/RDS-FMH-CWGS-RW /rds/PRJ-CWGS/
+diff -r /scratch/RDS-FMH-CWGS-RW /rds/PRJ-CWGS/RDS-FMH-CWGS-RW > /home/twon2259/A.txt
