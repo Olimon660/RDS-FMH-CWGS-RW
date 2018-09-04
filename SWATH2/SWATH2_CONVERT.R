@@ -18,5 +18,3 @@ trk_ <- subset(trk, grepl("JFCF", trk$Sample) | grepl("IIICF", trk$Sample) | gre
                     grepl("LFS", trk$Sample)  | grepl("MeT", trk$Sample)   | grepl("VA13", trk$Sample)  | grepl("GM02063", trk$Sample) |
                     grepl("WI38", trk$Sample))
 inten_ <- inten[, colnames(inten) %in% trk_$ID]
-
-
