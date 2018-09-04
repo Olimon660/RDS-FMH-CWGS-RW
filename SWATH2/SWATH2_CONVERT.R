@@ -4,8 +4,6 @@ data <- read.csv("SWATH2/Cell_Study_Reanalysis_All_415_samples_August_2018_PGH_p
 
 
 
-data <- readRDS("SWATH/Cell_Study_Reanalysis_All_415_samples_August_2018_PGH_peptide_FDR.rds")
-
 #
 # We need "FragmentIon", "IsotopeLabelType",
 #         "Condition", "BioReplicate", "Run"
