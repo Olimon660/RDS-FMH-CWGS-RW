@@ -23,6 +23,7 @@ with open("/tmp/A.txt", "r") as w:
         samp = replace(samp, "-shATRX-3", "")
         samp = replace(samp, "-shATRX-4", "")
         samp = replace(samp, "JFCF-6", "JFCF_6")
-        
-        print(samp)
-        
+        samp = replace(samp, "-shDAXX", "")
+        samp = replace(samp, "GM847DM", "GM847")
+
+        print(samp)        
