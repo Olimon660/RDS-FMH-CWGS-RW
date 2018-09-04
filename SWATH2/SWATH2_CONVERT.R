@@ -23,5 +23,5 @@ write.table(trk_$Sample, "/tmp/A.txt", quote=FALSE, row.names=FALSE, col.names=F
 system("python3 SWATH2/SWATH2_COMPUTER.py > /tmp/B.txt")
 trk_$Computer <- read.table("/tmp/B.txt")$V1
 
-write.table(trk_,   file="SWATH2/SWATH2_track.tsv", header=FALSE)
-write.table(inten_, file="SWATH2/SWATH2_intensity.tsv", header=FALSE)
+write.table(trk_,   file="SWATH2/SWATH2_track.tsv", row.names=FALSE)
+write.table(inten_, file="SWATH2/SWATH2_intensity.tsv", row.names=FALSE)
