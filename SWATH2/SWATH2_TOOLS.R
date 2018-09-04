@@ -4,6 +4,14 @@
     c("Observed.RT.", ".wiff", " ")
 }
 
+getTests <- function()
+{
+    tests <- read.table("SWATH2/contrasts.csv", header=TRUE, sep=',', stringsAsFactors=FALSE)
+    tests[tests$Mortal == "IIICF",]$Mortal <- "IIICF_P7" # IIICF_P7 is being used as the reference
+    tests[tests$Mortal == "JFCF6_P12",]$Mortal <- "JFCF_6"
+    tests    
+}
+
 computerFriendly <- function(x)
 {
     for (i in .remove())

@@ -19,5 +19,9 @@ trk_ <- subset(trk, grepl("JFCF", trk$Sample) | grepl("IIICF", trk$Sample) | gre
                     grepl("WI38", trk$Sample))
 inten_ <- inten[, colnames(inten) %in% trk_$ID]
 
-write.table(trk_,   file="SWATH2/SWATH2_track.csv")
-write.table(inten_, file="SWATH2/SWATH2_intensity.csv")
+write.table(trk_$Sample, "/tmp/A.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
+system("python3 SWATH2/SWATH2_COMPUTER.py > /tmp/B.txt")
+trk_$Computer <- read.table("/tmp/B.txt")$V1
+
+write.table(trk_,   file="SWATH2/SWATH2_track.tsv", header=FALSE)
+write.table(inten_, file="SWATH2/SWATH2_intensity.tsv", header=FALSE)
