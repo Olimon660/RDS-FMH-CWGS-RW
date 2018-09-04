@@ -24,6 +24,12 @@ with open("/tmp/A.txt", "r") as w:
         samp = replace(samp, "-shATRX-4", "")
         samp = replace(samp, "JFCF-6", "JFCF_6")
         samp = replace(samp, "-shDAXX", "")
+        samp = replace(samp, "-vector", "")
         samp = replace(samp, "GM847DM", "GM847")
+        samp = replace(samp, "IIIFC", "IIICF")
+        samp = replace(samp, "_A", "")
+        samp = replace(samp, "_B", "")
+        samp = replace(samp, "_C", "")
+        samp = replace(samp, "IIICF(P7)", "IIICF_P7")
 
         print(samp)        
