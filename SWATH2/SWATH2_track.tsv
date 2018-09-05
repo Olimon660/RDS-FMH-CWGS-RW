@@ -1,220 +1,223 @@
 IntenSample	ID	Sample	ProcessDate	AcqType	ProcessInst	FileName	RunDate	MSUsed	Operator	MSMethod
-1	1	JFCF_6_T_5K	19/1/17	SWATH	ProCan 2	 SWATH_Sample_01	8/12/16	ProCan 2	SM	90 Min IDA_06
-10	10	JFCF_6_T_5K	19/1/17	SWATH	ProCan 2	 SWATH_Sample_10	14/12/16	ProCan 2	SM	90 Min IDA_06
-101	101	IIICF_E6E74	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_101				
-102	102	IIICF-T1	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_102				
-103	103	JFCF_6_T_5K	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_103				
+1	1	JFCF_6_T_5K_vector	19/1/17	SWATH	ProCan 2	 SWATH_Sample_01	8/12/16	ProCan 2	SM	90 Min IDA_06
+10	10	JFCF_6_T_5K_sc1	19/1/17	SWATH	ProCan 2	 SWATH_Sample_10	14/12/16	ProCan 2	SM	90 Min IDA_06
+101	101	IIICF_E6E7_C4_post	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_101				
+102	102	IIICF_T_B1	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_102				
+103	103	JFCF_6_T_5K_sc1	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_103				
 104	104	JFCF_6_T_1_R	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_104				
 105	105	IIICF_c	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_105				
 106	106	JFCF_6_T_5K	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_106				
 107	107	JFCF_6_T_1J_11E	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_107				
-109	109	MeT-4A	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_109				
+109	109	MeT_4A_post	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_109				
 11	11	JFCF_6_T_1_R	19/1/17	SWATH	ProCan 2	 SWATH_Sample_11	14/12/16	ProCan 2	SM	90 Min IDA_06
 110	110	IIICF_a2	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_110				
-111	111	IIICF-T3	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_111				
-112	112	JFCF_6_T_1	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_112				
+111	111	IIICF_T_B3	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_111				
+112	112	JFCF_6_T_1_C	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_112				
 113	113	JFCF_6_T_1_D	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_113				
 114	114	JFCF_6_T_1_G	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_114				
 115	115	JFCF_6_T_1_H	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_115				
 116	116	JFCF_6_T_1_L	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_116				
 117	117	JFCF_6_T_1_M	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_117				
-118	118	JFCF_6_T_1_P	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_118				
-119	119	JFCF_6_T_1_P-EV	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_119				
+118	118	JFCF_6_T_1_P_TEL	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_118				
+119	119	JFCF_6_T_1_P_EV	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_119				
 12	12	JFCF_6_T_1J_11C	19/1/17	SWATH	ProCan 2	 SWATH_Sample_12	14/12/16	ProCan 2	SM	90 Min IDA_06
 120	120	JFCF_6_T_1_Q	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_120				
 121	121	JFCF_6_T_1J_11C	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_121				
-122	122	JFCF_6_T_5K	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_122				
+122	122	JFCF_6_T_5K_shATRX_2	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_122				
 123	123	JFCF_6_T_1_F	14/2/17	SWATH	ProCan 5	 Cell_Study_Sample_123				
-124	124	JFCF_6_T_1_P	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_124				
-125	125	JFCF_6_T_5K	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_125				
+124	124	JFCF_6_T_1_P_shDAXX	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_124				
+125	125	JFCF_6_T_5K_shDAXX	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_125				
 126	126	JFCF_6_T_1J_6G	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_126				
-127	127	JFCF_6_T_1_P_(ALT)	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_127				
-128	128	JFCF_6_T_5K	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_128				
-129	129	JFCF_6_T_1_P	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_129				
-130	130	JFCF_6_T_5K	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_130				
+127	127	JFCF_6_T_1_P_ALT	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_127				
+128	128	JFCF_6_T_5K_sc2	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_128				
+129	129	JFCF_6_T_1_P_shATRX_4	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_129				
+130	130	JFCF_6_T_5K_shATRX_3	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_130				
 131	131	JFCF_6_T_1J_1_3C	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_131				
 132	132	JFCF_6_T_2H	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_132				
 133	133	JFCF_6_T_1J_1D	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_133	20/2/17	ProCan 5		
 134	134	JFCF_6_T_1J_9E	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_134	20/2/17	ProCan 5		
-135	135	JFCF_6_T_1_P	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_135	20/2/17	ProCan 5		
-136	136	JFCF_6_T_1_P	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_136	20/2/17	ProCan 5		
-137	137	JFCF_6_T_5K	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_137	20/2/17	ProCan 5		
-138	138	JFCF_6_T_1_P	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_138	20/2/17	ProCan 5		
-139	139	JFCF_6_T_1_P	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_139	20/2/17	ProCan 5		
+135	135	JFCF_6_T_1_P_shATRX_1	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_135	20/2/17	ProCan 5		
+136	136	JFCF_6_T_1_P_shATRX_3	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_136	20/2/17	ProCan 5		
+137	137	JFCF_6_T_5K_shATRX_4	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_137	20/2/17	ProCan 5		
+138	138	JFCF_6_T_1_P_shATRX_2	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_138	20/2/17	ProCan 5		
+139	139	JFCF_6_T_1_P_sc2	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_139	20/2/17	ProCan 5		
 140	140	JFCF_6_T_1J_5H	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_140	20/2/17	ProCan 5		
 141	141	JFCF_6_T_1J_6B	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_141	20/2/17	ProCan 5		
 142	142	JFCF_6_T_1J_4D	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_142	20/2/17	ProCan 5		
-143	143	JFCF_6_T_5K	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_143	20/2/17	ProCan 5		
+143	143	JFCF_6_T_5K_shATRX_1	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_143	20/2/17	ProCan 5		
 144	144	JFCF_6_T_1J_4F	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_144	20/2/17	ProCan 5		
-145	145	JFCF_6_T_5K	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_145				
-146	146	JFCF_6_T_1J_1-4D	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_146				
+145	145	JFCF_6_T_5K_vector	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_145				
+146	146	JFCF_6_T_1J_1_4D	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_146				
 147	147	JFCF_6_T_1J_1C	15/2/17	SWATH	ProCan 5	 Cell_study_Sample_147				
 148	148	GM847	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_148				
-149	149	IVG-BF_LXSN_post	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_149				
+149	149	IVG_BF_LXSN_post	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_149				
 15	15	IIICF_c	19/1/17	SWATH	ProCan 2	 SWATH_Sample_15	28/12/16	ProCan 2	SM	90 Min IDA_06
-152	152	IIICF_E6E74	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_152				
-153	153	IIICF-T1	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_153				
-154	154	JFCF_6_T_5K	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_154				
+152	152	IIICF_E6E7_C4_post	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_152				
+153	153	IIICF_T_B1	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_153				
+154	154	JFCF_6_T_5K_sc1	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_154				
 155	155	JFCF_6_T_1_R	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_155				
-156	156	WI-38_VA13_2RA	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_156				
-157	157	LFS-05F-24_post	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_157				
+156	156	VA13	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_156				
+157	157	LFS_05F_24_post	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_157				
 158	158	IIICF_c	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_158				
 159	159	JFCF_6_T_5K	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_159				
 16	16	JFCF_6_T_5K	19/1/17	SWATH	ProCan 2	 SWATH_Sample_16	28/12/16	ProCan 2	SM	90 Min IDA_06
-160	160	IIICF-T6	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_160				
+160	160	IIICF_T_A6	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_160				
 161	161	JFCF_6_T_1J_12E	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_161				
 162	162	JFCF_6_T_1J_11E	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_162				
-164	164	MeT-4A	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_164				
+164	164	MeT_4A_post	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_164				
 165	165	IIICF_a2	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_165				
-166	166	IIICF-T3	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_166				
-167	167	JFCF_6_T_1	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_167				
+166	166	IIICF_T_B3	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_166				
+167	167	JFCF_6_T_1_C	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_167				
 168	168	JFCF_6_T_1_D	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_168	21/2/17	ProCan 5		
 169	169	JFCF_6_T_1_G	17/2/17	SWATH	ProCan 5	 Cell_Study_Sample_169	21/2/17	ProCan 5		
 170	170	JFCF_6_T_1_H	22/2/17	SWATH	ProCan 5	 Cell_Study_Sample_170	21/2/17	ProCan 5		
 171	171	JFCF_6_T_1_L	22/2/17	SWATH	ProCan 5	 Cell_Study_Sample_171	21/2/17	ProCan 5		
 172	172	JFCF_6_T_1_M	22/2/17	SWATH	ProCan 5	 Cell_Study_Sample_172	21/2/17	ProCan 5		
-173	173	JFCF_6_T_1_P	22/2/17	SWATH	ProCan 5	 Cell_Study_Sample_173	21/2/17	ProCan 5		
-174	174	JFCF_6_T_1_P-EV	22/2/17	SWATH	ProCan 5	 Cell_Study_Sample_174	21/2/17	ProCan 5		
+173	173	JFCF_6_T_1_P_TEL	22/2/17	SWATH	ProCan 5	 Cell_Study_Sample_173	21/2/17	ProCan 5		
+174	174	JFCF_6_T_1_P_EV	22/2/17	SWATH	ProCan 5	 Cell_Study_Sample_174	21/2/17	ProCan 5		
 175	175	JFCF_6_T_1_Q	22/2/17	SWATH	ProCan 5	 Cell_Study_Sample_175	21/2/17	ProCan 5		
 176	176	JFCF_6_T_1J_11C	22/2/17	SWATH	ProCan 5	 Cell_Study_Sample_176				
 19	19	JFCF_6_T_1J_11E	19/1/17	SWATH	ProCan 2	 SWATH_Sample_19	6/1/17	ProCan 2	SM	90 Min IDA_06
-2	2	JFCF_6_T_1J_1-4D	19/1/17	SWATH	ProCan 2	 SWATH_Sample_02	8/12/16	ProCan 2	SM	90 Min IDA_06
-21	21	MeT-4A	19/1/17	SWATH	ProCan 2	 SWATH_Sample_21	6/1/17	ProCan 2	SM	90 Min IDA_06
+2	2	JFCF_6_T_1J_1_4D	19/1/17	SWATH	ProCan 2	 SWATH_Sample_02	8/12/16	ProCan 2	SM	90 Min IDA_06
+21	21	MeT_4A_post	19/1/17	SWATH	ProCan 2	 SWATH_Sample_21	6/1/17	ProCan 2	SM	90 Min IDA_06
 22	22	IIICF_a2	19/1/17	SWATH	ProCan 2	 SWATH_Sample_22	6/1/17	ProCan 2	SM	90 Min IDA_06
-23	23	IIICF-T3	19/1/17	SWATH	ProCan 2	 SWATH_Sample_23	6/1/17	ProCan 2	SM	90 Min IDA_06
-24	24	JFCF_6_T_5K	19/1/17	SWATH	ProCan 2	 SWATH_Sample_24	6/1/17	ProCan 2	SM	90 Min IDA_06
+23	23	IIICF_T_B3	19/1/17	SWATH	ProCan 2	 SWATH_Sample_23	6/1/17	ProCan 2	SM	90 Min IDA_06
+24	24	JFCF_6_T_5K_shATRX_2	19/1/17	SWATH	ProCan 2	 SWATH_Sample_24	6/1/17	ProCan 2	SM	90 Min IDA_06
 25	25	JFCF_6_T_1_F	19/1/17	SWATH	ProCan 2	 SWATH_Sample_25	6/1/17	ProCan 2	SM	90 Min IDA_06
 256	256	IIICF_a2	17/12/17	SWATH	ProCan 5	171217_SM_PC5_S_Cell_Study_Sample_256				
 258	258	JFCF_6_SUPT_1L	17/12/17	SWATH	ProCan 5	171217_SM_PC5_S_Cell_Study_Sample_258				
-26	26	JFCF_6_T_1_P	19/1/17	SWATH	ProCan 2	 SWATH_Sample_26	6/1/17	ProCan 2	SM	90 Min IDA_06
-27	27	JFCF_6_T_5K	19/1/17	SWATH	ProCan 2	 SWATH_Sample_27	6/1/17	ProCan 2	SM	90 Min IDA_06
+26	26	JFCF_6_T_1_P_shDAXX	19/1/17	SWATH	ProCan 2	 SWATH_Sample_26	6/1/17	ProCan 2	SM	90 Min IDA_06
+27	27	JFCF_6_T_5K_shDAXX	19/1/17	SWATH	ProCan 2	 SWATH_Sample_27	6/1/17	ProCan 2	SM	90 Min IDA_06
 275	275	JFCF_6_SUPT_1I	31/12/17	SWATH	ProCan 5	171231_SM_PC5_S_Cell_Study_Sample_275				
 276	276	JFCF_6_SUPT_1G	31/12/17	SWATH	ProCan 5	171231_SM_PC5_S_Cell_Study_Sample_276				
 28	28	JFCF_6_T_1J_6G	19/1/17	SWATH	ProCan 2	 SWATH_Sample_28	6/1/17	ProCan 2	SM	90 Min IDA_06
 283	283	IIICF_a2	1/1/18	SWATH	ProCan 5	180101_SM_PC5_S_Cell_Study_Sample_283				
 285	285	JFCF_6_SUPT_1L	1/1/18	SWATH	ProCan 5	180101_SM_PC5_S_Cell_Study_Sample_285				
-29	29	JFCF_6_T_1_P_(ALT)	19/1/17	SWATH	ProCan 2	 SWATH_Sample_29	6/1/17	ProCan 2	SM	90 Min IDA_06
+29	29	JFCF_6_T_1_P_ALT	19/1/17	SWATH	ProCan 2	 SWATH_Sample_29	6/1/17	ProCan 2	SM	90 Min IDA_06
 3	3	JFCF_6_T_1J_1C	19/1/17	SWATH	ProCan 2	 SWATH_Sample_03	8/12/16	ProCan 2	SM	90 Min IDA_06
-30	30	JFCF_6_T_5K	19/1/17	SWATH	ProCan 2	 SWATH_Sample_30	6/1/17	ProCan 2	SM	90 Min IDA_06
+30	30	JFCF_6_T_5K_sc2	19/1/17	SWATH	ProCan 2	 SWATH_Sample_30	6/1/17	ProCan 2	SM	90 Min IDA_06
 302	302	JFCF_6_SUPT_1I	5/1/18	SWATH	ProCan 5	180105_SM_PC5_S_Cell_Study_Sample_302				
 303	303	JFCF_6_SUPT_1G	10/1/18	SWATH	ProCan 5	180110_SM_PC5_S_Cell_Study_Sample_repeat_303				
-31	31	JFCF_6_T_1_P	19/1/17	SWATH	ProCan 2	 SWATH_Sample_31	6/1/17	ProCan 2	SM	90 Min IDA_06
+31	31	JFCF_6_T_1_P_shATRX_4	19/1/17	SWATH	ProCan 2	 SWATH_Sample_31	6/1/17	ProCan 2	SM	90 Min IDA_06
 310	310	IIICF_a2	5/1/18	SWATH	ProCan 5	180105_SM_PC5_S_Cell_Study_Sample_310				
 312	312	JFCF_6_SUPT_1L	5/1/18	SWATH	ProCan 5	180105_SM_PC5_S_Cell_Study_Sample_312				
-32	32	JFCF_6_T_1	19/1/17	SWATH	ProCan 2	 SWATH_Sample_32	6/1/17	ProCan 2	SM	90 Min IDA_06
+32	32	JFCF_6_T_1_C	19/1/17	SWATH	ProCan 2	 SWATH_Sample_32	6/1/17	ProCan 2	SM	90 Min IDA_06
 329	329	JFCF_6_SUPT_1I	6/1/18	SWATH	ProCan 5	180106_SM_PC5_S_Cell_Study_Sample_329				
-33	33	JFCF_6_T_5K	19/1/17	SWATH	ProCan 2	 SWATH_Sample_33	6/1/17	ProCan 2	SM	90 Min IDA_06
+33	33	JFCF_6_T_5K_shATRX_3	19/1/17	SWATH	ProCan 2	 SWATH_Sample_33	6/1/17	ProCan 2	SM	90 Min IDA_06
 330	330	JFCF_6_SUPT_1G	7/1/18	SWATH	ProCan 5	180107_SM_PC5_S_Cell_Study_Sample_330				
 334	334	JFCF_6	7/1/18	SWATH	ProCan 5	180107_SM_PC5_S_Cell_Study_Sample_334				
 335	335	WI38	7/1/18	SWATH	ProCan 5	180107_SM_PC5_S_Cell_Study_Sample_335				
-336	336	LFS05F24_pre	7/1/18	SWATH	ProCan 5	180107_SM_PC5_S_Cell_Study_Sample_336				
+336	336	LFS_05F_24_pre	7/1/18	SWATH	ProCan 5	180107_SM_PC5_S_Cell_Study_Sample_336				
 337	337	IIICF_P7	7/1/18	SWATH	ProCan 5	180107_SM_PC5_S_Cell_Study_Sample_337				
-338	338	IVG-BF-LXSN	7/1/18	SWATH	ProCan 5	180107_SM_PC5_S_Cell_Study_Sample_338				
+338	338	IVG_BF_LXSN_pre	7/1/18	SWATH	ProCan 5	180107_SM_PC5_S_Cell_Study_Sample_338				
+339	339	MeT_4A_pre	7/1/18	SWATH	ProCan 5	180107_SM_PC5_S_Cell_Study_Sample_339				
 34	34	JFCF_6_T_1J_1_3C	19/1/17	SWATH	ProCan 2	 SWATH_Sample_34	6/1/17	ProCan 2	SM	90 Min IDA_06
-340	340	IIICF_E6E74_pre	7/1/18	SWATH	ProCan 5	180107_SM_PC5_S_Cell_Study_Sample_340				
+340	340	IIICF_E6E7_C4_pre	7/1/18	SWATH	ProCan 5	180107_SM_PC5_S_Cell_Study_Sample_340				
 341	341	IIICF(P9)	7/1/18	SWATH	ProCan 5	180107_SM_PC5_S_Cell_Study_Sample_341				
 342	342	GM02063	10/1/18	SWATH	ProCan 5	180110_SM_PC5_S_Cell_Study_Sample_342				
 344	344	JFCF_6	10/1/18	SWATH	ProCan 5	180110_SM_PC5_S_Cell_Study_Sample_344				
 345	345	WI38	10/1/18	SWATH	ProCan 5	180110_SM_PC5_S_Cell_Study_Sample_345				
-346	346	LFS05F24_pre	10/1/18	SWATH	ProCan 5	180110_SM_PC5_S_Cell_Study_Sample_346				
+346	346	LFS_05F_24_pre	10/1/18	SWATH	ProCan 5	180110_SM_PC5_S_Cell_Study_Sample_346				
 348	348	IIICF_P7	10/1/18	SWATH	ProCan 5	180110_SM_PC5_S_Cell_Study_Sample_348				
-349	349	IVG-BF-LXSN	10/1/18	SWATH	ProCan 5	180110_SM_PC5_S_Cell_Study_Sample_349				
+349	349	IVG_BF_LXSN_pre	10/1/18	SWATH	ProCan 5	180110_SM_PC5_S_Cell_Study_Sample_349				
 35	35	JFCF_6_T_2H	19/1/17	SWATH	ProCan 2	 SWATH_Sample_35	6/1/17	ProCan 2	SM	90 Min IDA_06
-352	352	IIICF_E6E74_pre	10/1/18	SWATH	ProCan 5	180110_SM_PC5_S_Cell_Study_Sample_352				
+350	350	MeT_4A_pre	10/1/18	SWATH	ProCan 5	180110_SM_PC5_S_Cell_Study_Sample_350				
+352	352	IIICF_E6E7_C4_pre	10/1/18	SWATH	ProCan 5	180110_SM_PC5_S_Cell_Study_Sample_352				
 353	353	IIICF(P9)	12/1/18	SWATH	ProCan 5	180112_SM_PC5_S_Cell_Study_Sample_repeat_353				
 354	354	GM02063	10/1/18	SWATH	ProCan 5	180111_SM_PC5_S_Cell_Study_Sample_354				
 356	356	JFCF_6	11/1/18	SWATH	ProCan 5	180111_SM_PC5_S_Cell_Study_Sample_356				
 357	357	WI38	11/1/18	SWATH	ProCan 5	180111_SM_PC5_S_Cell_Study_Sample_357				
-358	358	LFS05F24_pre	12/1/18	SWATH	ProCan 5	180112_SM_PC5_S_Cell_Study_Sample_repeat_358				
+358	358	LFS_05F_24_pre	12/1/18	SWATH	ProCan 5	180112_SM_PC5_S_Cell_Study_Sample_repeat_358				
 36	36	JFCF_6_T_1J_1D	1/2/17	SWATH	ProCan 5	 Cell Study_Sample36				
 360	360	IIICF_P7	11/1/18	SWATH	ProCan 5	180111_SM_PC5_S_Cell_Study_Sample_360				
-361	361	IVG-BF-LXSN	11/1/18	SWATH	ProCan 5	180111_SM_PC5_S_Cell_Study_Sample_361				
-364	364	IIICF_E6E74_pre	11/1/18	SWATH	ProCan 5	180111_SM_PC5_S_Cell_Study_Sample_364				
+361	361	IVG_BF_LXSN_pre	11/1/18	SWATH	ProCan 5	180111_SM_PC5_S_Cell_Study_Sample_361				
+362	362	MeT_4A_pre	11/1/18	SWATH	ProCan 5	180111_SM_PC5_S_Cell_Study_Sample_362				
+364	364	IIICF_E6E7_C4_pre	11/1/18	SWATH	ProCan 5	180111_SM_PC5_S_Cell_Study_Sample_364				
 365	365	IIICF(P9)	11/1/18	SWATH	ProCan 5	180111_SM_PC5_S_Cell_Study_Sample_365				
 366	366	GM02063	11/1/18	SWATH	ProCan 5	180111_SM_PC5_S_Cell_Study_Sample_366				
-367	367	IIICF-T3	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_367				
-368	368	IIICF-T4	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_368				
-369	369	IIICF_E61	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_369				
+367	367	IIICF_T_C3	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_367				
+368	368	IIICF_T_C4	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_368				
+369	369	IIICF_E6_A1	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_369				
 37	37	JFCF_6_T_1J_9E	1/2/17	SWATH	ProCan 5	 Cell Study_Sample37				
-370	370	IIICF_E6E74_PRE	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_370				
-372	372	IIICF_E6E72	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_372				
-373	373	IIICF_402_DE_D2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_373				
-374	374	IIICF_E6E73	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_374				
-375	375	IIICF_E62	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_375				
-378	378	IIICF_E6E72	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_378				
+370	370	IIICF_E6E7_C4_PRE	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_370				
+372	372	IIICF_E6E7_B2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_372				
+373	373	IIICF_402DE_D2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_373				
+374	374	IIICF_E6E7_C3	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_374				
+375	375	IIICF_E6_A2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_375				
+378	378	IIICF_E6E7_A2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_378				
 379	379	IIICF_d2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_379				
-38	38	JFCF_6_T_1_P	1/2/17	SWATH	ProCan 5	 Cell Study_Sample38				
-380	380	IIICF_E6E71	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_380				
-383	383	IIICF-T3	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_383				
-384	384	IIICF-T4	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_384				
-385	385	IIICF_E61	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_385				
-386	386	IIICF_E6E74_PRE	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_386				
-388	388	IIICF_E6E72	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_388				
-389	389	IIICF_402_DE_D2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_389				
-39	39	JFCF_6_T_1_P	1/2/17	SWATH	ProCan 5	 Cell Study_Sample39				
-390	390	IIICF_E6E73	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_390				
-391	391	IIICF_E62	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_391				
-394	394	IIICF_E6E72	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_394				
+38	38	JFCF_6_T_1_P_shATRX_1	1/2/17	SWATH	ProCan 5	 Cell Study_Sample38				
+380	380	IIICF_E6E7_A1	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_380				
+383	383	IIICF_T_C3	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_383				
+384	384	IIICF_T_C4	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_384				
+385	385	IIICF_E6_A1	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_385				
+386	386	IIICF_E6E7_C4_PRE	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_386				
+388	388	IIICF_E6E7_B2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_388				
+389	389	IIICF_402DE_D2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_389				
+39	39	JFCF_6_T_1_P_shATRX_3	1/2/17	SWATH	ProCan 5	 Cell Study_Sample39				
+390	390	IIICF_E6E7_C3	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_390				
+391	391	IIICF_E6_A2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_391				
+394	394	IIICF_E6E7_A2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_394				
 395	395	IIICF_d2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_395				
-396	396	IIICF_E6E71	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_396				
-399	399	IIICF-T3	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_399				
+396	396	IIICF_E6E7_A1	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_396				
+399	399	IIICF_T_C3	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_399				
 4	4	GM847	19/1/17	SWATH	ProCan 2	 SWATH_Sample_04	8/12/16	ProCan 2	SM	90 Min IDA_06
-40	40	JFCF_6_T_5K	1/2/17	SWATH	ProCan 5	 Cell Study_Sample40				
-400	400	IIICF-T4	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_400				
-401	401	IIICF_E61	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_401				
-403	403	IIICF_E6E72	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_403				
-404	404	IIICF_402_DE_D2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_404				
-405	405	IIICF_E6E73	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_405				
-406	406	IIICF_E62	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_406				
-409	409	IIICF_E6E72	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_409				
+40	40	JFCF_6_T_5K_shATRX_4	1/2/17	SWATH	ProCan 5	 Cell Study_Sample40				
+400	400	IIICF_T_C4	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_400				
+401	401	IIICF_E6_A1	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_401				
+403	403	IIICF_E6E7_B2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_403				
+404	404	IIICF_402DE_D2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_404				
+405	405	IIICF_E6E7_C3	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_405				
+406	406	IIICF_E6_A2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_406				
+409	409	IIICF_E6E7_A2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_409				
 41	41	JFCF_6_T_1_H	1/2/17	SWATH	ProCan 5	 Cell Study_Sample41				
 410	410	IIICF_d2	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_410				
-411	411	IIICF_E6E71	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_411				
-42	42	JFCF_6_T_1_P	1/2/17	SWATH	ProCan 5	 Cell Study_Sample42				
-43	43	JFCF_6_T_1_P	1/2/17	SWATH	ProCan 5	 Cell Study_Sample43				
+411	411	IIICF_E6E7_A1	6/6/18	SWATH	ProCan 5	180606_PC5_SM_S_Cell_study_sample_411				
+42	42	JFCF_6_T_1_P_shATRX_2	1/2/17	SWATH	ProCan 5	 Cell Study_Sample42				
+43	43	JFCF_6_T_1_P_sc2	1/2/17	SWATH	ProCan 5	 Cell Study_Sample43				
 44	44	JFCF_6_T_1J_5H	1/2/17	SWATH	ProCan 5	 Cell Study_Sample44				
 45	45	JFCF_6_T_1J_6B	1/2/17	SWATH	ProCan 5	 Cell Study_Sample45				
 46	46	JFCF_6_T_1J_4D	1/2/17	SWATH	ProCan 5	 Cell Study_Sample46				
-47	47	JFCF_6_T_5K	1/2/17	SWATH	ProCan 5	 Cell Study_Sample47				
+47	47	JFCF_6_T_5K_shATRX_1	1/2/17	SWATH	ProCan 5	 Cell Study_Sample47				
 48	48	JFCF_6_T_1J_4F	1/2/17	SWATH	ProCan 5	 Cell Study_Sample48				
 49	49	JFCF_6_T_1_D	1/2/17	SWATH	ProCan 5	 Cell Study_Sample49				
-5	5	IVG-BF_LXSN_post	19/1/17	SWATH	ProCan 2	 SWATH_Sample_05	13/12/16	ProCan 2	SM	90 Min IDA_06
+5	5	IVG_BF_LXSN_post	19/1/17	SWATH	ProCan 2	 SWATH_Sample_05	13/12/16	ProCan 2	SM	90 Min IDA_06
 50	50	JFCF_6_T_1_G	1/2/17	SWATH	ProCan 5	 Cell Study_Sample50				
 51	51	JFCF_6_T_1_L	1/2/17	SWATH	ProCan 5	 Cell Study_Sample51				
 52	52	JFCF_6_T_1_M	1/2/17	SWATH	ProCan 5	 Cell Study_Sample52				
-53	53	JFCF_6_T_1_P	1/2/17	SWATH	ProCan 5	 Cell Study_Sample53				
+53	53	JFCF_6_T_1_P_TEL	1/2/17	SWATH	ProCan 5	 Cell Study_Sample53				
 54	54	JFCF_6_T_1_Q	1/2/17	SWATH	ProCan 5	 Cell Study_Sample54				
-55	55	JFCF_6_T_1_P-EV	1/2/17	SWATH	ProCan 5	 Cell Study_Sample55				
-56	56	WI-38_VA13_2RA	1/2/17	SWATH	ProCan 5	 Cell Study_Sample56				
-57	57	LFS-05F-24_post	1/2/17	SWATH	ProCan 5	 Cell Study_Sample57	17/1/17	ProCan 2	SM	90 Min IDA_06
-58	58	IIICF-T6	1/2/17	SWATH	ProCan 5	 Cell Study_Sample58	17/1/17	ProCan 2	SM	90 Min IDA_06
+55	55	JFCF_6_T_1_P_EV	1/2/17	SWATH	ProCan 5	 Cell Study_Sample55				
+56	56	VA13	1/2/17	SWATH	ProCan 5	 Cell Study_Sample56				
+57	57	LFS_05F_24_post	1/2/17	SWATH	ProCan 5	 Cell Study_Sample57	17/1/17	ProCan 2	SM	90 Min IDA_06
+58	58	IIICF_T_A6	1/2/17	SWATH	ProCan 5	 Cell Study_Sample58	17/1/17	ProCan 2	SM	90 Min IDA_06
 59	59	JFCF_6_T_1J_12E	1/2/17	SWATH	ProCan 5	 Cell Study_Sample59	17/1/17	ProCan 2	SM	90 Min IDA_06
-71	71	JFCF_6_T_5K	30/1/17	SWATH	ProCan 5	 Cell Study_Sample71				
+71	71	JFCF_6_T_5K_shATRX_2	30/1/17	SWATH	ProCan 5	 Cell Study_Sample71				
 72	72	JFCF_6_T_1_F	30/1/17	SWATH	ProCan 5	 Cell Study_Sample72				
-73	73	JFCF_6_T_1_P	30/1/17	SWATH	ProCan 5	 Cell Study_Sample73				
-74	74	JFCF_6_T_5K	30/1/17	SWATH	ProCan 5	 Cell Study_Sample74				
+73	73	JFCF_6_T_1_P_shDAXX	30/1/17	SWATH	ProCan 5	 Cell Study_Sample73				
+74	74	JFCF_6_T_5K_shDAXX	30/1/17	SWATH	ProCan 5	 Cell Study_Sample74				
 75	75	JFCF_6_T_1J_6G	30/1/17	SWATH	ProCan 5	 Cell Study_Sample75				
-76	76	JFCF_6_T_1_P_(ALT)	30/1/17	SWATH	ProCan 5	 Cell Study_Sample76				
-77	77	JFCF_6_T_5K	30/1/17	SWATH	ProCan 5	 Cell Study_Sample77				
-78	78	JFCF_6_T_1_P	30/1/17	SWATH	ProCan 5	 Cell Study_Sample78				
-79	79	JFCF_6_T_5K	30/1/17	SWATH	ProCan 5	 Cell Study_Sample79				
-8	8	IIICF_E6E74	19/1/17	SWATH	ProCan 2	 SWATH_Sample_08	13/12/16	ProCan 2	SM	90 Min IDA_06
+76	76	JFCF_6_T_1_P_ALT	30/1/17	SWATH	ProCan 5	 Cell Study_Sample76				
+77	77	JFCF_6_T_5K_sc2	30/1/17	SWATH	ProCan 5	 Cell Study_Sample77				
+78	78	JFCF_6_T_1_P_shATRX_4	30/1/17	SWATH	ProCan 5	 Cell Study_Sample78				
+79	79	JFCF_6_T_5K_shATRX_3	30/1/17	SWATH	ProCan 5	 Cell Study_Sample79				
+8	8	IIICF_E6E7_C4_post	19/1/17	SWATH	ProCan 2	 SWATH_Sample_08	13/12/16	ProCan 2	SM	90 Min IDA_06
 80	80	JFCF_6_T_1J_1_3C	30/1/17	SWATH	ProCan 5	 Cell Study_Sample80				
 81	81	JFCF_6_T_2H	31/1/17	SWATH	ProCan 5	 Cell Study_Sample81				
 82	82	JFCF_6_T_1J_1D	31/1/17	SWATH	ProCan 5	 Cell Study_Sample82				
 83	83	JFCF_6_T_1J_9E	31/1/17	SWATH	ProCan 5	 Cell Study_Sample83				
-84	84	JFCF_6_T_1_P	31/1/17	SWATH	ProCan 5	 Cell Study_Sample84				
-86	86	JFCF_6_T_5K	31/1/17	SWATH	ProCan 5	 Cell Study_Sample86				
-87	87	JFCF_6_T_1_P	31/1/17	SWATH	ProCan 5	 Cell Study_Sample87				
-88	88	JFCF_6_T_1_P	31/1/17	SWATH	ProCan 5	 Cell Study_Sample88				
+84	84	JFCF_6_T_1_P_shATRX_1	31/1/17	SWATH	ProCan 5	 Cell Study_Sample84				
+86	86	JFCF_6_T_5K_shATRX_4	31/1/17	SWATH	ProCan 5	 Cell Study_Sample86				
+87	87	JFCF_6_T_1_P_shATRX_2	31/1/17	SWATH	ProCan 5	 Cell Study_Sample87				
+88	88	JFCF_6_T_1_P_sc2	31/1/17	SWATH	ProCan 5	 Cell Study_Sample88				
 89	89	JFCF_6_T_1J_5H	31/1/17	SWATH	ProCan 5	 Cell Study_Sample89				
-9	9	IIICF-T1	19/1/17	SWATH	ProCan 2	 SWATH_Sample_09	14/12/16	ProCan 2	SM	90 Min IDA_06
+9	9	IIICF_T_B1	19/1/17	SWATH	ProCan 2	 SWATH_Sample_09	14/12/16	ProCan 2	SM	90 Min IDA_06
 90	90	JFCF_6_T_1J_6B	31/1/17	SWATH	ProCan 5	 Cell Study_Sample90				
 91	91	JFCF_6_T_1J_4D	31/1/17	SWATH	ProCan 5	 Cell Study_Sample91				
-92	92	JFCF_6_T_5K	31/1/17	SWATH	ProCan 5	 Cell Study_Sample92				
+92	92	JFCF_6_T_5K_shATRX_1	31/1/17	SWATH	ProCan 5	 Cell Study_Sample92				
 93	93	JFCF_6_T_1J_4F	31/1/17	SWATH	ProCan 5	 Cell Study_Sample93				
-94	94	JFCF_6_T_5K	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_94				
-95	95	JFCF_6_T_1J_1-4D	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_95				
+94	94	JFCF_6_T_5K_vector	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_94				
+95	95	JFCF_6_T_1J_1_4D	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_95				
 96	96	JFCF_6_T_1J_1C	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_96				
 97	97	GM847	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_97				
-98	98	IVG-BF_LXSN_post	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_98				
+98	98	IVG_BF_LXSN_post	13/2/17	SWATH	ProCan 5	 Cell_Study_Sample_98				
