@@ -5,7 +5,8 @@ getTests <- function()
     tests <- read.table("SWATH2/contrasts.csv", header=TRUE, sep=',', stringsAsFactors=FALSE)
     tests[tests$Mortal == "IIICF",]$Mortal <- "IIICF_P7" # IIICF_P7 is being used as the reference
     tests[tests$Mortal == "JFCF6_P12",]$Mortal <- "JFCF_6"
-    tests    
+    colnames(test) <- c("Mortal", "Immortal")    
+    tests
 }
 
 track <- function()
@@ -50,4 +51,4 @@ inten_ <- cbind(info, inten_)
 
 write.table(trk_, file="SWATH2/SWATH2_track.tsv", row.names=FALSE, quote=FALSE, sep='\t')
 write.table(inten_, file="SWATH2/SWATH2_data.tsv", row.names=FALSE, quote=FALSE, sep='\t')
-write.table(getTests(), file="SWATH2/SWATH2_tests.tsv", row.names=FALSE, quote=FALSE, sep='\t', col.names=FALSE)
+write.table(getTests(), file="SWATH2/SWATH2_tests.tsv", row.names=FALSE, quote=FALSE, sep='\t')
