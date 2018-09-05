@@ -48,6 +48,6 @@ trk_ <- subset(trk, grepl("JFCF", trk$Sample) | grepl("IIICF", trk$Sample) | gre
 inten_ <- inten[, colnames(inten) %in% trk_$ID]
 inten_ <- cbind(info, inten_)
 
-write.table(trk_,   file="SWATH2/SWATH2_track.tsv", row.names=FALSE, quote=FALSE, sep='\t')
-write.table(inten_, file="SWATH2/SWATH2_intensity.tsv", row.names=FALSE, quote=FALSE, sep='\t')
+write.table(trk_, file="SWATH2/SWATH2_track.tsv", row.names=FALSE, quote=FALSE, sep='\t')
+write.table(inten_, file="SWATH2/SWATH2_data.tsv", row.names=FALSE, quote=FALSE, sep='\t')
 write.table(getTests(), file="SWATH2/SWATH2_tests.tsv", row.names=FALSE, quote=FALSE, sep='\t', col.names=FALSE)
