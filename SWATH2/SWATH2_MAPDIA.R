@@ -21,9 +21,14 @@ for (row in 1:nrow(test))
 
     d <- data[, colnames(data) %in% m$ID | colnames(data) %in% i$ID | colnames(data) %in% c("ProteinName", "PeptideSequence", "FragmentIon")]
     colnames(d) <- c(c("ProteinName", "PeptideSequence", "FragmentIon"), c(rep(t$Mortal, nrow(m))), rep(t$Immortal, nrow(i)))
-    
-    write.table(d, "/tmp/data.txt", quote=FALSE, row.names=FALSE)
 
+    n1 <- nrow(m) + nrow(i) # Total number of samples
     
+    # Remove peptides with all missing data
+    d <- d[rowSums(is.na(d[,c(4:9)])) != n1,]
+    
+    # Write data file for mapDIA differential testing    
+    write.table(d, "/tmp/data.txt", quote=FALSE, row.names=FALSE, sep='\t')
+
     break
 }
