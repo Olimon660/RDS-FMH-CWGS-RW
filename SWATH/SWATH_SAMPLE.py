@@ -40,6 +40,3 @@ assert(len(x) == len(set(x)))
 with open(sys.argv[2], "w") as w:
     for i in x:
         w.write(str(i) + "\n")
-        
-#Observed.RT.170818_SM_Cell_Study_SWATH_Sample_221..170818_SM_Cell_Study_SWATH_Sample_221.wiff..sample.1..
-
