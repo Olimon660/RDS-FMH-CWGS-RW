@@ -38,16 +38,21 @@ system("python3 SWATH2/SWATH2_SAMPLE.py /tmp/A.txt /tmp/B.txt")
 colnames(inten) <- read.table("/tmp/B.txt")$V1
 stopifnot(sum(!(colnames(inten) %in% trk$FileID)) == 0)
 
-trk <- merge(data.frame(IntenSample=colnames(inten)), trk, by.x="IntenSample", by.y="FileID")
-write.table(trk$Sample, "/tmp/A.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
+tmp <- merge(data.frame(IntenSample=colnames(inten)), trk, by.x="IntenSample", by.y="FileID")
+write.table(tmp$Sample, "/tmp/A.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
 system("python3 SWATH2/SWATH2_COMPUTER.py > /tmp/B.txt")
-trk$Sample <- read.table("/tmp/B.txt")$V1
+tmp$FriendSample <- read.table("/tmp/B.txt", stringsAsFactors=F)$V1
+trk_ <- subset(tmp, grepl("JFCF", tmp$FriendSample) | grepl("IIICF", tmp$FriendSample) | grepl("GM847", tmp$FriendSample) | grepl("IVG", tmp$FriendSample) |
+                    grepl("LFS", tmp$FriendSample)  | grepl("MeT", tmp$FriendSample)   | grepl("VA13", tmp$FriendSample)  | grepl("GM02063", tmp$FriendSample) |
+                    grepl("WI38", tmp$FriendSample))
+trk_$Cell <- sapply(strsplit(trk_$FriendSample, "_"), `[`, 1)
 
-trk_ <- subset(trk, grepl("JFCF", trk$Sample) | grepl("IIICF", trk$Sample) | grepl("GM847", trk$Sample) | grepl("IVG", trk$Sample) |
-                    grepl("LFS", trk$Sample)  | grepl("MeT", trk$Sample)   | grepl("VA13", trk$Sample)  | grepl("GM02063", trk$Sample) |
-                    grepl("WI38", trk$Sample))
 inten_ <- inten[, colnames(inten) %in% trk_$ID]
 inten_ <- cbind(info, inten_)
+
+mortals <- c("JFCF_6", "GM02063", "IIICF_E6E7_C4_pre", "IVG_BF_LXSN_pre", "LFS_05F_24_pre", "MeT_4A_pre", "WI38", "IIICF_P7", "IIICF_P9")
+trk_$Mortality <- "Immortal"
+trk_[trk_$FriendSample %in% mortals,]$Mortality <- "Mortal"
 
 write.table(trk_, file="SWATH2/SWATH2_track.tsv", row.names=FALSE, quote=FALSE, sep='\t')
 write.table(inten_, file="SWATH2/SWATH2_data.tsv", row.names=FALSE, quote=FALSE, sep='\t')
