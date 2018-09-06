@@ -2,11 +2,11 @@ library(plyr)
 
 getTests <- function()
 {
-    tests <- read.table("SWATH2/contrasts.csv", header=TRUE, sep=',', stringsAsFactors=FALSE)
-    tests[tests$Mortal == "IIICF",]$Mortal <- "IIICF_P7" # IIICF_P7 is being used as the reference
-    tests[tests$Mortal == "JFCF6_P12",]$Mortal <- "JFCF_6"
+    test <- read.table("SWATH2/contrasts.csv", header=TRUE, sep=',', stringsAsFactors=FALSE)
+    test[test$Mortal == "IIICF",]$Mortal <- "IIICF_P7" # IIICF_P7 is being used as the reference
+    test[test$Mortal == "JFCF6_P12",]$Mortal <- "JFCF_6"
     colnames(test) <- c("Mortal", "Immortal")    
-    tests
+    test
 }
 
 track <- function()
