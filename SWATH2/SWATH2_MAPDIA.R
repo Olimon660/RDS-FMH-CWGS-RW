@@ -10,12 +10,18 @@ data <- plyr::rename(data, c('Protein'='ProteinName'))
 data <- plyr::rename(data, c('Peptide'='PeptideSequence'))
 data <- add_column(data, FragmentIon='', .after = 2)
 
+plotVol <- function(path)
+{
+    
+    
+}
+
 for (row in 1:nrow(test))
 {
     t <- test[row,]
     print(t)
-    m <- info[info$Sample == t$Mortal,]   # Mortal samples
-    i <- info[info$Sample == t$Immortal,] # Immortal samples
+    m <- info[info$FriendSample == t$Mortal,]   # Mortal samples
+    i <- info[info$FriendSample == t$Immortal,] # Immortal samples
 
     if (t$Immortal == "JFCF_6_P_pLKO_5") {
         next
@@ -34,4 +40,6 @@ for (row in 1:nrow(test))
     
     # Write data file for mapDIA differential testing    
     write.table(d, "/tmp/data.txt", quote=FALSE, row.names=FALSE, sep='\t')
+    
+    break
 }

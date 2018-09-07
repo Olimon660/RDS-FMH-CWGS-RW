@@ -1,0 +1,34 @@
+FILE =/tmp/data.txt
+LEVEL=2
+LOG2_TRANSFORMATION =true
+
+### Experimental design
+EXPERIMENTAL_DESIGN= IndependentDesign
+
+### Normalization
+#NORMALIZATION= tis
+
+### Filter
+SDF= 2
+PSEUDOCV =.1
+MIN_CORREL= 0.2
+MIN_OBS = 1 1
+MIN_FRAG_PER_PEP = 3
+MAX_FRAG_PER_PEP = 5
+MIN_PEP_PER_PROT = 1
+
+### Sample information
+LABELS=A B
+SIZE=3 3 #if using independent design
+
+### min. max. DE
+MIN_DE= .01
+MAX_DE =.99
+
+### Contrast matrix for group comparison
+CONTRAST=
+- 1
+0 -
+
+### protein_level.txt
+MAX_PEP_PER_PROT = 5
