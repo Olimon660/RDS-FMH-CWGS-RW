@@ -6,7 +6,7 @@ LOG2_TRANSFORMATION =true
 EXPERIMENTAL_DESIGN= IndependentDesign
 
 ### Normalization
-#NORMALIZATION= tis
+NORMALIZATION= tis
 
 ### Filter
 SDF= 2
@@ -29,6 +29,3 @@ MAX_DE =.99
 CONTRAST=
 - 1
 0 -
-
-### protein_level.txt
-MAX_PEP_PER_PROT = 100

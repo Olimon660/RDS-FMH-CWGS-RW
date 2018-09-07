@@ -34,7 +34,7 @@ data[,7:ncol(data)] <- log2(data[,7:ncol(data)])
 info <- read.table("SWATH2/SWATH2_track.tsv", header=TRUE, sep='\t')
 
 pd <- data         # data at the peptide level
-pd[is.na(pd)] <- 0 # Also useful for the next step
+pd[is.na(pd)] <- 0 # Also useful for the next step (no missing value)
 pt <- toProts(pd, info)
 
 #plotPCA(pd[,7:ncol(pd)], info, "Log2 PCA before normalization (colored by cells) (Peptide level)") # Before normalization
