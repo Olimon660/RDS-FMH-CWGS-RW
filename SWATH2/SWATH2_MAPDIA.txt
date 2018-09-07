@@ -31,4 +31,4 @@ CONTRAST=
 0 -
 
 ### protein_level.txt
-MAX_PEP_PER_PROT = 5
+MAX_PEP_PER_PROT = 100

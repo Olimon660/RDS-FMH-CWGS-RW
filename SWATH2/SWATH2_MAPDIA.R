@@ -49,12 +49,8 @@ for (row in 1:nrow(test))
     m <- info[info$FriendSample == t$Mortal,]   # Mortal samples
     i <- info[info$FriendSample == t$Immortal,] # Immortal samples
 
-    if (t$Immortal == "JFCF_6_P_pLKO_5") {
-        next
-    }
-
-    stopifnot(nrow(m) > 0)
-    stopifnot(nrow(i) > 0)
+    stopifnot(nrow(m) == 3)
+    stopifnot(nrow(i) == 2 || nrow(i) == 3)
 
     d <- data[, colnames(data) %in% m$ID | colnames(data) %in% i$ID | colnames(data) %in% c("ProteinName", "PeptideSequence", "FragmentIon")]
     colnames(d) <- c(c("ProteinName", "PeptideSequence", "FragmentIon"), c(rep(t$Mortal, nrow(m))), rep(t$Immortal, nrow(i)))
@@ -70,6 +66,10 @@ for (row in 1:nrow(test))
     system("rm fragment_selection.txt; rm log2_data.txt")
     system("rm param.txt; rm protein_level.txt")
     system("mapDIA /tmp/SWATH2_MAPDIA.txt")
+
+    if (nrow(i) == 2) {
+        system("sed -i '' 's/SIZE=3 3/SIZE=3 2/g' /tmp/SWATH2_MAPDIA.txt")
+    }
 
     t2 <- read.table(paste(getwd(), "/analysis_output.txt", sep=""), sep="\t", header=1)
     t2$Mortal <- t$Mortal
@@ -87,5 +87,4 @@ for (row in 1:nrow(test))
    plotVol(getwd(), t$Mortal, t$Immortal)
 }
 
-
-
+write.table(r, "SWATH2/SWATH2_results.tsv", quote=FALSE, sep="\t")

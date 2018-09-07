@@ -42,6 +42,8 @@ tmp <- merge(data.frame(IntenSample=colnames(inten)), trk, by.x="IntenSample", b
 write.table(tmp$Sample, "/tmp/A.txt", quote=FALSE, row.names=FALSE, col.names=FALSE)
 system("python3 SWATH2/SWATH2_COMPUTER.py > /tmp/B.txt")
 tmp$FriendSample <- read.table("/tmp/B.txt", stringsAsFactors=F)$V1
+tmp <- tmp[tmp$FriendSample != "????",]
+
 trk_ <- subset(tmp, grepl("JFCF", tmp$FriendSample) | grepl("IIICF", tmp$FriendSample) | grepl("GM847", tmp$FriendSample) | grepl("IVG", tmp$FriendSample) |
                     grepl("LFS", tmp$FriendSample)  | grepl("MeT", tmp$FriendSample)   | grepl("VA13", tmp$FriendSample)  | grepl("GM02063", tmp$FriendSample) |
                     grepl("WI38", tmp$FriendSample))

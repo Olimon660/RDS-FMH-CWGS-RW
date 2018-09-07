@@ -14,6 +14,9 @@ with open("/tmp/A.txt", "r") as w:
         if samp == "JFCF-6/T.1/P":
             print("JFCF_6_T_1_P_TEL")
             continue
+        elif samp == "JFCF-6/T.1/P-sc2":
+            print("JFCF_6_P_pLKO_5")
+            continue
         elif samp == "JFCF-6/T.1/P (ALT)":
             print("JFCF_6_T_1_P_ALT")
             continue
@@ -38,12 +41,15 @@ with open("/tmp/A.txt", "r") as w:
         elif samp == "WI-38 VA13/2RA":
             print("VA13")
             continue
+        elif "shATRX" in samp or "shDAXX" in samp or "vector" in samp or "sc1" in samp or "sc2" in samp or "/a2_A" in samp or \
+             "/a2_B" in samp  or "/a2_C" in samp:
+            print("????")
+            continue
 
         samp = replace(samp, "_A", "")
         samp = replace(samp, "_B", "")
         samp = replace(samp, "_C", "")
         samp = replace(samp, "-", "_")
-        samp = replace(samp, "_vector", "")
         samp = replace(samp, "_sc1", "")
         samp = replace(samp, "_sc2", "")
         samp = replace(samp, "_sc3", "")
@@ -51,16 +57,7 @@ with open("/tmp/A.txt", "r") as w:
         samp = replace(samp, "/", "_")
         samp = replace(samp, ".", "_")
         samp = replace(samp, " ", "_")
-        samp = replace(samp, "-shATRX-1", "")
-        samp = replace(samp, "-shATRX-2", "")
-        samp = replace(samp, "-shATRX-3", "")
-        samp = replace(samp, "-shATRX-4", "")
         samp = replace(samp, "JFCF-6", "JFCF_6")
-        samp = replace(samp, "_shDAXX", "")
-        samp = replace(samp, "_shATRX_1", "")
-        samp = replace(samp, "_shATRX_2", "")
-        samp = replace(samp, "_shATRX_3", "")
-        samp = replace(samp, "_shATRX_4", "")
         samp = replace(samp, "GM847DM", "GM847")
         samp = replace(samp, "IIIFC", "IIICF")
         samp = replace(samp, "IIICF(P7)", "IIICF_P7")
