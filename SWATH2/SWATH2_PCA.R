@@ -37,5 +37,20 @@ pd <- data         # data at the peptide level
 pd[is.na(pd)] <- 0 # Also useful for the next step (no missing value)
 pt <- toProts(pd, info)
 
-#plotPCA(pd[,7:ncol(pd)], info, "Log2 PCA before normalization (colored by cells) (Peptide level)") # Before normalization
+plotPCA(pd[,7:ncol(pd)], info, "Log2 PCA before normalization (colored by cells) (Peptide level)") # Before normalization
 plotPCA(pt[,2:ncol(pt)], info, "Log2 PCA before normalization (colored by cells) (Protein level)") # Before normalization
+
+normalize <- function(data)
+{
+    x <- normalize.quantiles(as.matrix(data))
+    colnames(x) <- colnames(data)
+    as.data.frame(x)
+}
+
+pd.norm <- pd
+pt.norm <- pt
+pd.norm[,7:ncol(pd.norm)] <- normalize(pd.norm[,7:ncol(pd.norm)])
+pt.norm[,2:ncol(pt.norm)] <- normalize(pt.norm[,2:ncol(pt.norm)])
+
+plotPCA(pd.norm[,7:ncol(pd.norm)], info, "Log2 PCA after normalization (colored by cells) (Peptide level)") # After normalization
+plotPCA(pt.norm[,2:ncol(pt.norm)], info, "Log2 PCA after normalization (colored by cells) (Protein level)") # After normalization
