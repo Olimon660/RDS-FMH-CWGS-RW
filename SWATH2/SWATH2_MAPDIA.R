@@ -21,9 +21,9 @@ plotVol <- function(path, mortal, immortal)
     out <- read.table(paste(path, "/analysis_output.txt", sep=""), sep="\t", header=1)
     out$color <- "black"
     if (nrow(out[out$FDR <= 0.05,]) > 0)  { out[out$FDR <= 0.05,]$color <- "red" }
-    if (nrow(out[abs(out$log2FC) >= 3,]) > 0) { out[abs(out$log2FC) >= 3,]$color <- "orange" }
-    if (nrow(out[out$FDR <= 0.05 & abs(out$log2FC) >= 3,]) > 0) { out[out$FDR <= 0.05 & abs(out$log2FC) >= 3,]$color <- "green" }
-    out$color <- as.factor(out$color)    
+    if (nrow(out[abs(out$log2FC) >= 4,]) > 0) { out[abs(out$log2FC) >= 4,]$color <- "orange" }
+    if (nrow(out[out$FDR <= 0.05 & abs(out$log2FC) >= 4,]) > 0) { out[out$FDR <= 0.05 & abs(out$log2FC) >= 4,]$color <- "green" }
+    out$color <- as.factor(out$color)
     
     out$Name <- as.character(out$Protein)
     out$Name <- sapply(strsplit(out$Name, "|", fixed=TRUE), `[`, 3)
@@ -32,8 +32,8 @@ plotVol <- function(path, mortal, immortal)
     g <- ggplot(out, aes(x=log2FC, y=-log2(FDR)))
     g <- g + geom_point(aes(col=color))
     g <- g + scale_colour_manual(values = c(levels(out$color)))
-    g <- g + geom_vline(xintercept=3, color="black", size=0.2)
-    g <- g + geom_vline(xintercept=-3, color="black", size=0.2)
+    g <- g + geom_vline(xintercept=4,  color="black", size=0.2)
+    g <- g + geom_vline(xintercept=-4, color="black", size=0.2)
     g <- g + theme_bw()
     g <- g + xlab("Log fold changes")
     g <- g + ylab("-log2 FDR")
@@ -46,6 +46,9 @@ plotVol <- function(path, mortal, immortal)
 
 r <- NULL
 
+# Set this to ON/OFF for what Erdahl's asking for
+shouldImputeOneMissing <- TRUE
+
 for (row in 1:nrow(test))
 {
     t <- test[row,]
@@ -57,11 +60,18 @@ for (row in 1:nrow(test))
 
     d <- data[, colnames(data) %in% m$ID | colnames(data) %in% i$ID | colnames(data) %in% c("ProteinName", "PeptideSequence", "FragmentIon")]
     colnames(d) <- c(c("ProteinName", "PeptideSequence", "FragmentIon"), c(rep(t$Mortal, nrow(m))), rep(t$Immortal, nrow(i)))
-
-    n1 <- nrow(m) + nrow(i) # Total number of samples
     
-    # Remove peptides with all missing data
-    d <- d[rowSums(is.na(d[,c(4:ncol(d))])) != n1,]
+    n1 <- nrow(m) + nrow(i)                         # Total number of samples
+    d <- d[rowSums(is.na(d[,c(4:ncol(d))])) != n1,] # Remove peptides with all missing data
+
+    i1 <- rowSums(is.na(d[,c(4:6)])) == 3                     # Rows missing for all mortals
+    i2 <- rowSums(is.na(d[,c(7:ncol(d))])) == ((ncol(d)-7)+1) # Rows missing for all immortals
+
+    if (shouldImputeOneMissing) {
+        d[i1,4:6]       <- 1 # Set it to 1 so log2(1) = 0
+        d[i2,7:ncol(d)] <- 1 # Set it to 1 so log2(1) = 0
+        print("Erdahl's imputation!")
+    }
     
     write.table(d, "/tmp/data.txt", quote=FALSE, row.names=FALSE, sep='\t')
     system("cp SWATH2/SWATH2_MAPDIA.txt /tmp/")
@@ -119,3 +129,4 @@ for (row in 1:nrow(test))
 }
 
 write.table(r, "SWATH2/SWATH2_results.tsv", quote=FALSE, sep="\t")
+system("cp SWATH2/SWATH2_results.tsv ~/Desktop/")

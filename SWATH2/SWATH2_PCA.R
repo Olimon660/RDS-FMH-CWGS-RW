@@ -34,7 +34,7 @@ data[,7:ncol(data)] <- log2(data[,7:ncol(data)])
 info <- read.table("SWATH2/SWATH2_track.tsv", header=TRUE, sep='\t')
 
 pd <- data         # data at the peptide level
-pd[is.na(pd)] <- 0 # Also useful for the next step (no missing value)
+pd[is.na(pd)] <- 0 # Required for the next step (no missing value)
 pt <- toProts(pd, info)
 
 plotPCA(pd[,7:ncol(pd)], info, "Log2 PCA before normalization (colored by cells) (Peptide level)") # Before normalization
@@ -47,12 +47,12 @@ normalize <- function(data)
     as.data.frame(x)
 }
 
-pd.norm <- pd
+pd.norm <- data
 pt.norm <- pt
 pd.norm[,7:ncol(pd.norm)] <- normalize(pd.norm[,7:ncol(pd.norm)])
 pt.norm[,2:ncol(pt.norm)] <- normalize(pt.norm[,2:ncol(pt.norm)])
+write.table(pd.norm, "SWATH2/SWATH2_norm.tsv", quote=FALSE, sep="\t")
+pd.norm[is.na(pd.norm)] <- 0 # Required for the next step (no missing value)
 
 plotPCA(pd.norm[,7:ncol(pd.norm)], info, "Log2 PCA after normalization (colored by cells) (Peptide level)") # After normalization
 plotPCA(pt.norm[,2:ncol(pt.norm)], info, "Log2 PCA after normalization (colored by cells) (Protein level)") # After normalization
-
-write.table(pt.norm, "SWATH2/SWATH2_norm.tsv", quote=FALSE, sep="\t")
