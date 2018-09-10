@@ -13,6 +13,7 @@ data <- dplyr::select(data, -c("Unique_code", "Precursor.MZ", "Precursor.Charge"
 data <- plyr::rename(data, c('Protein'='ProteinName'))
 data <- plyr::rename(data, c('Peptide'='PeptideSequence'))
 data <- add_column(data, FragmentIon='', .after = 2)
+data$ProteinName <- gsub("_HUMAN", "", data$ProteinName)
 
 plotVol <- function(path, mortal, immortal)
 {
