@@ -54,3 +54,5 @@ pt.norm[,2:ncol(pt.norm)] <- normalize(pt.norm[,2:ncol(pt.norm)])
 
 plotPCA(pd.norm[,7:ncol(pd.norm)], info, "Log2 PCA after normalization (colored by cells) (Peptide level)") # After normalization
 plotPCA(pt.norm[,2:ncol(pt.norm)], info, "Log2 PCA after normalization (colored by cells) (Protein level)") # After normalization
+
+write.table(pt.norm, "SWATH2/SWATH2_norm.tsv", quote=FALSE, sep="\t")
