@@ -13,5 +13,5 @@ CREATE TABLE Swath (
 	Mortal3      VARCHAR(100),
 	Immortal1    VARCHAR(100),
 	Immortal2    VARCHAR(100),
-	Immortal3    VARCHAR(100),
+	Immortal3    VARCHAR(100)
 );

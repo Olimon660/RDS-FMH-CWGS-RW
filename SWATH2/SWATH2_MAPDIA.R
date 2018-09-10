@@ -125,8 +125,8 @@ for (row in 1:nrow(test))
                      Immortal2    = r3$B2,
                      Immortal3    = r3$B3)
     r  <- rbind(r, r3)
-    plotVol(getwd(), t$Mortal, t$Immortal)
+    #plotVol(getwd(), t$Mortal, t$Immortal)
 }
 
-write.table(r, "SWATH2/SWATH2_results.tsv", quote=FALSE, sep="\t")
-system("cp SWATH2/SWATH2_results.tsv ~/Desktop/")
+write.table(r, "SWATH2/SWATH2_results.tsv", quote=FALSE, sep=";", row.names=FALSE)
+system("cp SWATH2/SWATH2_results.tsv ~/Desktop/") # Create a DB from it!
