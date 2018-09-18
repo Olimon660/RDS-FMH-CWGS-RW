@@ -10,5 +10,5 @@ keys = [ "ENSG00000204209", "ENSG00000085224", "ENSG00000164362", "ENSG000001415
 
 with open(sys.argv[1], "r") as r:
     while line in r:
-        if any(x in line for x in keys)
+        if any(x in line for x in keys):
             print(line)
