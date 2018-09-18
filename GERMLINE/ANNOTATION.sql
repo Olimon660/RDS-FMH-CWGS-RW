@@ -1,6 +1,6 @@
 CREATE TABLE Annotation (
-    Key   			   VARCHAR(50) NOT NULL,
-    File  			   VARCHAR(50) NOT NULL,
+    Key                VARCHAR(50) NOT NULL,
+    File               VARCHAR(50) NOT NULL,
     DP    			   VARCHAR(50) NOT NULL,
     AD_1  			   VARCHAR(50) NOT NULL,
     AD_2  			   VARCHAR(50), -- NULL if not two samples
