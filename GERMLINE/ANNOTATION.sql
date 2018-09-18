@@ -1,5 +1,5 @@
 CREATE TABLE Annotation (
-    Key                VARCHAR(50) NOT NULL,
+    Key                VARCHAR(50) NOT NULL, # 1
     File               VARCHAR(50) NOT NULL,
     DP                 VARCHAR(50) NOT NULL,
     AD_1               VARCHAR(50) NOT NULL,
@@ -18,7 +18,7 @@ CREATE TABLE Annotation (
     Consequence        VARCHAR(50), 
     IMPACT             VARCHAR(50), 
     SYMBOL             VARCHAR(50), 
-    Gene               VARCHAR(50), 
+    Gene               VARCHAR(50), # 20
     Feature_type       VARCHAR(50), 
     Feature            VARCHAR(50), 
     BIOTYPE            VARCHAR(50), 
