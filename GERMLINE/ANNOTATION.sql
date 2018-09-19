@@ -28,7 +28,7 @@ CREATE TABLE Annotation (
     HGVSp              VARCHAR(50), 
     cDNA_position      VARCHAR(50),
     CDS_position       VARCHAR(50),
-    Protein_position   VARCHAR(50), 
+    Protein_position   VARCHAR(50), # 30
     Amino_acids        VARCHAR(50), 
     Codons             VARCHAR(50), 
     Existing_variation VARCHAR(50), 
@@ -37,8 +37,8 @@ CREATE TABLE Annotation (
     FLAGS              VARCHAR(50), 
     VARIANT_CLASS      VARCHAR(50), 
     SYMBOL_SOURCE      VARCHAR(50), 
-    HGNC_ID            VARCHAR(50), 
-    CANONICAL          VARCHAR(50), 
+    HGNC_ID            VARCHAR(50), # 39
+    CANONICAL          VARCHAR(50), # 40
     TSL                VARCHAR(50), 
     APPRIS             VARCHAR(50), 
     CCDS               VARCHAR(50), 
@@ -47,8 +47,8 @@ CREATE TABLE Annotation (
     TREMBL             VARCHAR(50), 
     UNIPARC            VARCHAR(50), 
     GENE_PHENO         VARCHAR(50),
-    SIFT               VARCHAR(50), 
-    PolyPhen           VARCHAR(50),
+    SIFT               VARCHAR(50), # 49
+    PolyPhen           VARCHAR(50), # 50
     DOMAINS            VARCHAR(50), 
     miRNA              VARCHAR(50),
     AF                 VARCHAR(50), 
@@ -76,6 +76,6 @@ CREATE TABLE Annotation (
     PUBMED             VARCHAR(50), 
     MOTIF_NAME         VARCHAR(50),
     MOTIF_POS          VARCHAR(50), 
-    HIGH_INF_POS       VARCHAR(50), 
+    HIGH_INF_POS       VARCHAR(50), # 78
     MOTIF_SCORE_CHANGE VARCHAR(50)
 );

@@ -11,12 +11,45 @@ def file2Samp(x):
     assert("GATK" in x)
     return x.split("GATK_")[1].replace(".vcf", "")
 
+def isMod(x):
+    return x == "MODIFIER"
+    
+def isHigh(x):
+    return x == "HIGH"
+
 with open(sys.argv[1], "r") as r:
     for line in r:
-        toks = line.strip().split(';')
+        if len(line.strip()) == 0:
+            continue
+        toks = line.strip().split(';')        
         
-        print(line)
+        # Eg: 6/ANNOTATED_REMOVED_FILTERED_INDEL_NORM_DECOM_GATK_IIICF-T_B3.vcf
+        file = toks[1]
         
-        #print(file2Samp(toks[1]))
+        # Ensembl gene name
+        gene = toks[19]
         
+        # Gene symbol
+        sym = toks[18]
         
+        # Feature type
+        ft = toks[20]
+        
+        # Feature
+        ff = toks[21]
+        
+        # Impact (LOW, HIGH, MODERATE, MODIFIER)
+        impact = toks[17]
+
+        chr = toks[11]
+        pos = toks[12]
+        ref = toks[13]
+        alt = toks[14]
+
+        # Consequence
+        con = toks[16]
+
+        print(impact)
+        
+
+        asadsds
