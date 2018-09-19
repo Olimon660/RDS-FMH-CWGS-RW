@@ -12,23 +12,33 @@ def file2Samp(x):
     return x.split("GATK_")[1].replace(".vcf", "")
 
 def isMod(x):
-    return x == "MODIFIER"
+    return x == "MODERATE"
     
 def isHigh(x):
     return x == "HIGH"
+    
+def isLow(x):
+    return x == "LOW" or x == "MODIFIER"
+    
+def ens2Name(x):
+    if x == "ENSG00000204209":
+        return "DAXX"
+    elif x == "ENSG00000085224":
+        return "ATRX"
+    elif x == "ENSG00000164362":
+        return "TERT"
+    elif x == "ENSG00000141510":
+        return "TP53"
 
-with open(sys.argv[1], "r") as r:
-    for line in r:
-        if len(line.strip()) == 0:
-            continue
+def WGS(line):
         toks = line.strip().split(';')        
         
         # Eg: 6/ANNOTATED_REMOVED_FILTERED_INDEL_NORM_DECOM_GATK_IIICF-T_B3.vcf
         file = toks[1]
         
-        # Ensembl gene name
-        gene = toks[19]
-        
+        # Translated gene name (from Ensembl)
+        gene = ens2Name(toks[19])
+
         # Gene symbol
         sym = toks[18]
         
@@ -39,17 +49,20 @@ with open(sys.argv[1], "r") as r:
         ff = toks[21]
         
         # Impact (LOW, HIGH, MODERATE, MODIFIER)
-        impact = toks[17]
+        imp = toks[17]
 
-        chr = toks[11]
-        pos = toks[12]
-        ref = toks[13]
-        alt = toks[14]
+        assert(isMod(imp) or isHigh(imp) or isLow(imp))
+
+        chr = toks[11] # Chromosome
+        pos = toks[12] # Position
+        ref = toks[13] # Reference
+        alt = toks[14] # Allele
 
         # Consequence
         con = toks[16]
 
-        print(impact)
-        
-
-        asadsds
+with open(sys.argv[1], "r") as r:
+    for line in r:
+        if len(line.strip()) == 0:
+            continue
+        WGS(line)
