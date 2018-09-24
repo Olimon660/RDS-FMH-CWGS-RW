@@ -73,10 +73,13 @@ def onlySNP(x):
 def onlyInd(x):
     return [i for i in x if i["type"] == "Ind"]
 
-def onlyGene(x, gene):
-    return [i for i in x if i["gene"] == gene]
+def onlyGene(x, gn):
+    return [i for i in x if i["gn"] == gn]
 
-def analyze(WGS):
+def only(x, key, v):
+    return [i for i in x if i[key] == v]
+
+def analyze(W, P):
     # Format string
     f = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n"
 
@@ -85,8 +88,8 @@ def analyze(WGS):
 
     w = open("AN1/AN1_RESULTS.tsv", "w")
     w.write(f.format("Name", "Mortal", "Immortal", "Gene", \
-                     "WGS_M_SNP", "WGS_M_Ind", "WGS_I_SNP", "WGS_I_Ind", \
-                     "WGS_M_S", "WGS_I_S"))
+                     "W_M_SNP", "W_M_Ind", "W_I_SNP", "W_I_Ind", "W_M_S", "W_I_S" \
+                     "P_M_A", "P_I_A"))
 
     with open("AN1/AN1_CONTRASTS.csv") as r:
         for l in r:
@@ -96,8 +99,8 @@ def analyze(WGS):
 
             m1  = toks[0] # Mortal
             m2  = toks[1] # Immortal
-            m1W = WGSByName(WGS, m1)
-            m2W = WGSByName(WGS, m2)
+            m1W = WGSByName(W, m1)
+            m2W = WGSByName(W, m2)
                 
             # Name of the contrast
             name = m1 + "_" + m2
@@ -106,13 +109,19 @@ def analyze(WGS):
             W_M_IND = onlyInd(m1W) # Indels for mortal (all genes)
             W_I_SNP = onlySNP(m2W) # SNPs for immortal (all genes)
             W_I_IND = onlyInd(m2W) # Indels for immortal (all genes)
-            
+
             for gene in genes:
                 W_M_SNP_G = onlyGene(W_M_SNP, gene)
                 W_M_IND_G = onlyGene(W_M_IND, gene)
                 W_I_SNP_G = onlyGene(W_I_SNP, gene)
                 W_I_IND_G = onlyGene(W_I_IND, gene)
                 
+                P_ = only(only(only(P, "gn", gene), "m1", m1), "m2", m2) # Protein filtered to specified gene
+                assert(len(P_) == 0 or len(P_) == 1)
+
+                P_M_A = "-" if len(P_) == 0 else P_[0]["a1"] # Average mean for mortal samples
+                P_I_A = "-" if len(P_) == 0 else P_[0]["a2"] # Average mean for immortal samples
+
                 #
                 # Checks mutations and if no mutations add a "-" sign (pathway not activated due to mutations). Otherwise it's "+".
                 #
@@ -120,21 +129,41 @@ def analyze(WGS):
                 WGS_M_S = gene + "-" if len(W_M_SNP_G) == 0 and len(W_M_IND_G) == 0 else gene + "+" # Gene pathway for mortal
                 WGS_I_S = gene + "-" if len(W_I_SNP_G) == 0 and len(W_I_IND_G) == 0 else gene + "+" # Gene pathway for immortal
             
-                w.write(f.format(name, m1, m2, gene, len(W_M_SNP_G), len(W_M_IND_G), len(W_I_SNP_G), len(W_I_IND_G), WGS_M_S, WGS_I_S))
+                w.write(f.format(name, m1, m2, gene, len(W_M_SNP_G), len(W_M_IND_G), len(W_I_SNP_G), len(W_I_IND_G), WGS_M_S, WGS_I_S, \
+                                 P_M_A, P_I_A))
     w.close()
 
-def parseWGS(file):
-    with open(file, "r") as r1:
-        x = [] # WGS germline
-
-        for l in r1:
+def parseP(file):
+    with open(file, "r") as r:
+        for l in r:
+            toks = l.strip().split(';')        
+            if toks[0] == "Mortal":
+                continue
+        
+            m1 = toks[0] # Mortal
+            m2 = toks[1] # Immortal
+            gn = toks[3]
+            lf = toks[6] # LogFC
+            a1 = toks[4] # Mortal mean
+            a2 = toks[5] # Immortal mean
+            
+            if m1 == "IIICF_P7":
+                m1 = "IIICF"
+            if m2 == "IIICF_P7":
+                m2 = "IIICF"
+            
+            yield { "m1":m1, "m2":m2, "gn":gn, "lf":lf, "a1":a1, "a2":a2 }
+            
+def parseW(file):
+    with open(file, "r") as r:
+        for l in r:
             toks = l.strip().split(';')
 
             # Eg: IIICF-T_B3
             name = file2Samp(toks[1])
 
             # Translated gene name (from Ensembl)
-            gene = ens2Name(toks[19])
+            gn = ens2Name(toks[19])
 
             # Gene symbol
             sym = toks[18]
@@ -158,18 +187,13 @@ def parseWGS(file):
             # Mutation type
             ty = "SNP" if len(ref) == 1 and len(alt) == 1 else "Ind"
 
-            # Consequence
-            con = toks[16]
-
-            x.append({ "name":name, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "imp":imp, "gene":gene, "type":ty })
-
-        return x
+            yield { "name":name, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "imp":imp, "gn":gn, "type":ty }
 
 if sys.argv[1] == "W":
-    save("AN1/AN1_WGS.pickle", parseWGS("AN1/FILTERED_WGS.csv"))
-elif sys.argv[1] == "A":
-    analyze(load("AN1/AN1_WGS.pickle"))
+    save("AN1/AN1_W.pickle", list(parseW("AN1/FILTERED_WGS.csv")))
 elif sys.argv[1] == "P":
-    pass
+    save("AN1/AN1_P.pickle", list(parseP("SWATH2/SWATH2_results.tsv")))
+elif sys.argv[1] == "A":
+    analyze(load("AN1/AN1_W.pickle"), load("AN1/AN1_P.pickle"))
 elif sys.argv[1] == "F":
     pass
