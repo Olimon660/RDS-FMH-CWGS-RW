@@ -1,10 +1,10 @@
 #
 # Python script for analyzing resulting after filtering
 #
-#   python3 AN1/AN1_ANALYSIS.py F
-#   python3 AN1/AN1_ANALYSIS.py W
-#   python3 AN1/AN1_ANALYSIS.py P
-#   python3 AN1/AN1_ANALYSIS.py A
+#     python3 AN1/AN1_ANALYSIS.py F
+#     python3 AN1/AN1_ANALYSIS.py W
+#     python3 AN1/AN1_ANALYSIS.py P
+#     python3 AN1/AN1_ANALYSIS.py A
 #
 # Generate a user-friendly TSV output file for the results.
 #
