@@ -78,12 +78,14 @@ for (row in 1:nrow(test))
     system("rm analysis_output.txt; rm analysis_output_wide_format.txt")
     system("rm fragment_selection.txt; rm log2_data.txt")
     system("rm param.txt; rm protein_level.txt")
-    system("mapDIA /tmp/SWATH2_MAPDIA.txt")
-
+    
     if (nrow(i) == 2) {
         system("sed -i '' 's/SIZE=3 3/SIZE=3 2/g' /tmp/SWATH2_MAPDIA.txt")
     }
 
+    # Run mapDIA on the analysis
+    system("mapDIA /tmp/SWATH2_MAPDIA.txt")
+    
     t2 <- read.table(paste(getwd(), "/analysis_output.txt", sep=""), sep="\t", header=1, stringsAsFactors=F)
     t2$Mortal <- t$Mortal
     t2$Immortal <- t$Immortal
