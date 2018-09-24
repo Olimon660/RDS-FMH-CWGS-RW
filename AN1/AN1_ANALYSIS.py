@@ -153,3 +153,7 @@ if sys.argv[1] == "W":
     save("AN1/AN1_WGS.pickle", parseWGS("AN1/FILTERED_WGS.csv"))
 elif sys.argv[1] == "A":
     analyze(load("AN1/AN1_WGS.pickle"))
+elif sys.argv[1] == "P":
+    pass
+elif sys.argv[1] == "F":
+    pass
