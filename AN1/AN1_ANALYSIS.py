@@ -113,6 +113,10 @@ def analyze(WGS):
                 W_I_SNP_G = onlyGene(W_I_SNP, gene)
                 W_I_IND_G = onlyGene(W_I_IND, gene)
                 
+                #
+                # Checks mutations and if no mutations add a "-" sign (pathway not activated due to mutations). Otherwise it's "+".
+                #
+                
                 WGS_M_S = gene + "-" if len(W_M_SNP_G) == 0 and len(W_M_IND_G) == 0 else gene + "+" # Gene pathway for mortal
                 WGS_I_S = gene + "-" if len(W_I_SNP_G) == 0 and len(W_I_IND_G) == 0 else gene + "+" # Gene pathway for immortal
             
