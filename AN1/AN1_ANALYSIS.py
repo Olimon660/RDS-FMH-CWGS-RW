@@ -81,14 +81,14 @@ def only(x, key, v):
 
 def analyze(W, P):
     # Format string
-    f = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n"
+    f = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n"
 
     # Genes interested
     genes = [ "ATRX", "DAXX" ]
 
     w = open("AN1/AN1_RESULTS.tsv", "w")
-    w.write(f.format("Name", "Mortal", "Immortal", "Gene", \
-                     "W_M_SNP", "W_M_Ind", "W_I_SNP", "W_I_Ind", "W_M_S", "W_I_S" \
+    w.write(f.format("Name", "Mortal", "Immortal", "Gene/Protein", \
+                     "W_M_SNP", "W_M_Ind", "W_I_SNP", "W_I_Ind", "W_M_S", "W_I_S", \
                      "P_M_A", "P_I_A"))
 
     with open("AN1/AN1_CONTRASTS.csv") as r:
