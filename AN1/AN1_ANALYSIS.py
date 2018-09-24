@@ -174,8 +174,20 @@ def parseW(file):
             # Feature
             ff = toks[21]
         
+            # Predict the effect of coding variants on protein function (e.g. deleterious and deleterious_low_confidence)
+            sift = toks[48]
+            
+            # Possible impact of amino acid substitutions on the stability and function of human proteins
+            phen = toks[49]
+            
             # Impact (LOW, HIGH, MODERATE, MODIFIER)
             imp = toks[17]
+            
+            # Consequence (e.g. TF_binding_site_variant, 3_prime_UTR_variant, 5_prime_UTR_variant and regulatory_region_variant)
+            cons = toks[16]
+            
+            # Shortest ditance from variant to transcript
+            dist = toks[33]
             
             assert(isMod(imp) or isHigh(imp) or isLow(imp))
 
@@ -187,7 +199,7 @@ def parseW(file):
             # Mutation type
             ty = "SNP" if len(ref) == 1 and len(alt) == 1 else "Ind"
 
-            yield { "name":name, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "imp":imp, "gn":gn, "type":ty }
+            yield { "name":name, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "imp":imp, "gn":gn, "type":ty, "sift":sift, "phen":phen }
 
 if sys.argv[1] == "W":
     save("AN1/AN1_W.pickle", list(parseW("AN1/FILTERED_WGS.csv")))

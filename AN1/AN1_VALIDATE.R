@@ -11,6 +11,4 @@ ATRX <- df1[grepl("ATRX", df1$Unique_code),]
 a <- colSums(ATRX[,7:ncol(ATRX)], na.rm=TRUE)
 
 
-
-
 DAXX[,7:ncol(DAXX)] <- sum(DAXX[,7:ncol(DAXX)], na.rm=TRUE)
