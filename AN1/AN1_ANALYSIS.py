@@ -86,7 +86,7 @@ def analyze(WGS):
     w = open("AN1/AN1_RESULTS.tsv", "w")
     w.write(f.format("Name", "Mortal", "Immortal", "Gene", \
                      "WGS_M_SNP", "WGS_M_Ind", "WGS_I_SNP", "WGS_I_Ind", \
-                     "WGS_M_Sym", "WGS_I_Sym"))
+                     "WGS_M_S", "WGS_I_S"))
 
     with open("AN1/AN1_CONTRASTS.csv") as r:
         for l in r:
