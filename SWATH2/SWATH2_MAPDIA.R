@@ -71,7 +71,6 @@ for (row in 1:nrow(test))
     if (shouldImputeOneMissing) {
         d[i1,4:6]       <- 1 # Set it to 1 so log2(1) = 0
         d[i2,7:ncol(d)] <- 1 # Set it to 1 so log2(1) = 0
-        print("Erdahl's imputation!")
     }
     
     write.table(d, "/tmp/data.txt", quote=FALSE, row.names=FALSE, sep='\t')
