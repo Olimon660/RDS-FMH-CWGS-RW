@@ -73,9 +73,15 @@ def onlySNP(x):
 def onlyInd(x):
     return [i for i in x if i["type"] == "Ind"]
 
+def onlyGene(x, gene):
+    return [i for i in x if i["gene"] == gene]
+
 def analyze(WGS):
     # Format string
     f = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n"
+
+    # DAXX
+    genes = [ "ENSG00000204209" ]
 
     w = open("AN1/AN1_RESULTS.tsv", "w")
     w.write(f.format("Name", "Mortal", "Immortal", \
@@ -92,17 +98,27 @@ def analyze(WGS):
             m2  = toks[1] # Immortal
             m1W = WGSByName(WGS, m1)
             m2W = WGSByName(WGS, m2)
-            
-            WGS_M_SNP = len(onlySNP(m1W))
-            WGS_M_Ind = len(onlyInd(m1W))
-            WGS_I_SNP = len(onlySNP(m2W))
-            WGS_I_Ind = len(onlyInd(m2W))
-
+                
             # Name of the contrast
             name = m1 + "_" + m2
+
+            W_M_SNP = onlySNP(m1W) # SNPs for mortal (all genes)
+            W_M_IND = onlyInd(m1W) # Indels for mortal (all genes)
+            W_I_SNP = onlySNP(m2W) # SNPs for immortal (all genes)
+            W_I_IND = onlyInd(m2W) # Indels for immortal (all genes)
             
-            WGS_M_S = m1 + "-" if WGS_M_SNP == 0 and WGS_M_Ind == 0 else m1 + "+"
-            WGS_I_S = m1 + "-" if WGS_I_SNP == 0 and WGS_I_Ind == 0 else m1 + "+"
+            for gene in genes:
+                W_M_SNP_G = onlyGene(W_M_SNP, gene)
+                W_M_IND_G = onlyGene(W_M_IND, gene)
+                W_I_SNP_G = onlyGene(W_M_SNP, gene)
+                W_I_IND_G = onlyGene(W_M_IND, gene)
+                
+                dasdads
+                
+
+            
+                WGS_M_S = m1 + "-" if WGS_M_SNP == 0 and WGS_M_Ind == 0 else m1 + "+"
+                WGS_I_S = m1 + "-" if WGS_I_SNP == 0 and WGS_I_Ind == 0 else m1 + "+"
             
             w.write(f.format(name, m1, m2, WGS_M_SNP, WGS_M_Ind, WGS_I_SNP, WGS_I_Ind, WGS_M_S, WGS_I_S))
     w.close()
