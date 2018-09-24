@@ -78,13 +78,13 @@ def onlyGene(x, gene):
 
 def analyze(WGS):
     # Format string
-    f = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n"
+    f = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n"
 
-    # DAXX
-    genes = [ "ENSG00000204209" ]
+    # Genes interested
+    genes = [ "ATRX" ]
 
     w = open("AN1/AN1_RESULTS.tsv", "w")
-    w.write(f.format("Name", "Mortal", "Immortal", \
+    w.write(f.format("Name", "Mortal", "Immortal", "Gene", \
                      "WGS_M_SNP", "WGS_M_Ind", "WGS_I_SNP", "WGS_I_Ind", \
                      "WGS_M_Sym", "WGS_I_Sym"))
 
@@ -110,17 +110,13 @@ def analyze(WGS):
             for gene in genes:
                 W_M_SNP_G = onlyGene(W_M_SNP, gene)
                 W_M_IND_G = onlyGene(W_M_IND, gene)
-                W_I_SNP_G = onlyGene(W_M_SNP, gene)
-                W_I_IND_G = onlyGene(W_M_IND, gene)
+                W_I_SNP_G = onlyGene(W_I_SNP, gene)
+                W_I_IND_G = onlyGene(W_I_IND, gene)
                 
-                dasdads
-                
-
+                WGS_M_S = gene + "-" if len(W_M_SNP_G) == 0 and len(W_M_IND_G) == 0 else gene + "+" # Gene pathway for mortal
+                WGS_I_S = gene + "-" if len(W_I_SNP_G) == 0 and len(W_I_IND_G) == 0 else gene + "+" # Gene pathway for immortal
             
-                WGS_M_S = m1 + "-" if WGS_M_SNP == 0 and WGS_M_Ind == 0 else m1 + "+"
-                WGS_I_S = m1 + "-" if WGS_I_SNP == 0 and WGS_I_Ind == 0 else m1 + "+"
-            
-            w.write(f.format(name, m1, m2, WGS_M_SNP, WGS_M_Ind, WGS_I_SNP, WGS_I_Ind, WGS_M_S, WGS_I_S))
+            w.write(f.format(name, m1, m2, gene, len(W_M_SNP_G), len(W_M_IND_G), len(W_I_SNP_G), len(W_I_IND_G), WGS_M_S, WGS_I_S))
     w.close()
 
 def parseWGS(file):
