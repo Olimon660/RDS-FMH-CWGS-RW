@@ -1,15 +1,16 @@
 #
-# Python script for analyzinggermline resulting after filtering
+# Python script for analyzing resulting after filtering
 #
-#   python3 AN1/AN1_ANALYSIS.py AN1/FILTERED_AN1.csv > ANALYSIS_FILTERED_AN1.csv
+#   python3 AN1/AN1_ANALYSIS.py F
+#   python3 AN1/AN1_ANALYSIS.py W
+#   python3 AN1/AN1_ANALYSIS.py P
+#   python3 AN1/AN1_ANALYSIS.py A
 #
 # Generate a user-friendly TSV output file for the results.
 #
-#   - For each contrast result
-#   - For each mortal and immortal sample
-#
 
 import sys
+import pickle
 
 # Eg: 6/ANNOTATED_REMOVED_FILTERED_INDEL_NORM_DECOM_GATK_IIICF-T_B3.vcf
 def file2Samp(x):
@@ -55,72 +56,100 @@ def analyze(cons, g, p):
         check(m1)
         check(m2)
 
-#
-# Parse WGS results and convert it into a format more useful for further analysis
-#
+def load(x):
+    with open(x, "rb") as r:
+        return pickle.load(r)
 
-def WGS(cons, line):
-    toks = line.strip().split(';')        
+def save(file, x):
+    with open(file, "wb") as w:
+        pickle.dump(x, w, protocol=pickle.HIGHEST_PROTOCOL)    
+
+def WGSByName(x, name):
+    return [i for i in x if i["name"] == name]
+
+def onlySNP(x):
+    return [i for i in x if i["type"] == "SNP"]
+
+def onlyInd(x):
+    return [i for i in x if i["type"] == "Ind"]
+
+def analyze(WGS):
+    # Format string
+    f = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n"
+
+    w = open("AN1/AN1_RESULTS.tsv", "w")
+    w.write(f.format("Name", "Mortal", "Immortal", \
+                     "WGS_M_SNP", "WGS_M_Ind", "WGS_I_SNP", "WGS_I_Ind", \
+                     "WGS_M_Sym", "WGS_I_Sym"))
+
+    with open("AN1/AN1_CONTRASTS.csv") as r:
+        for l in r:
+            if "Mortal" in l and "Immortal" in l:
+                continue
+            toks = l.strip().split(',')
+
+            m1  = toks[0] # Mortal
+            m2  = toks[1] # Immortal
+            m1W = WGSByName(WGS, m1)
+            m2W = WGSByName(WGS, m2)
+            
+            WGS_M_SNP = len(onlySNP(m1W))
+            WGS_M_Ind = len(onlyInd(m1W))
+            WGS_I_SNP = len(onlySNP(m2W))
+            WGS_I_Ind = len(onlyInd(m2W))
+
+            # Name of the contrast
+            name = m1 + "_" + m2
+            
+            WGS_M_S = m1 + "-" if WGS_M_SNP == 0 and WGS_M_Ind == 0 else m1 + "+"
+            WGS_I_S = m1 + "-" if WGS_I_SNP == 0 and WGS_I_Ind == 0 else m1 + "+"
+            
+            w.write(f.format(name, m1, m2, WGS_M_SNP, WGS_M_Ind, WGS_I_SNP, WGS_I_Ind, WGS_M_S, WGS_I_S))
+    w.close()
+
+def parseWGS(file):
+    with open(file, "r") as r1:
+        x = [] # WGS germline
+
+        for l in r1:
+            toks = l.strip().split(';')
+
+            # Eg: IIICF-T_B3
+            name = file2Samp(toks[1])
+
+            # Translated gene name (from Ensembl)
+            gene = ens2Name(toks[19])
+
+            # Gene symbol
+            sym = toks[18]
         
-    # Eg: 6/ANNOTATED_REMOVED_FILTERED_INDEL_NORM_DECOM_GATK_IIICF-T_B3.vcf
-    samp = file2Samp(toks[1])
+            # Feature type
+            ft = toks[20]
 
-    # Translated gene name (from Ensembl)
-    gene = ens2Name(toks[19])
-
-    # Gene symbol
-    sym = toks[18]
+            # Feature
+            ff = toks[21]
         
-    # Feature type
-    ft = toks[20]
-        
-    # Feature
-    ff = toks[21]
-        
-    # Impact (LOW, HIGH, MODERATE, MODIFIER)
-    imp = toks[17]
+            # Impact (LOW, HIGH, MODERATE, MODIFIER)
+            imp = toks[17]
+            
+            assert(isMod(imp) or isHigh(imp) or isLow(imp))
 
-    assert(isMod(imp) or isHigh(imp) or isLow(imp))
+            chr = toks[11] # Chromosome
+            pos = toks[12] # Position
+            ref = toks[13] # Reference
+            alt = toks[14] # Allele
 
-    chr = toks[11] # Chromosome
-    pos = toks[12] # Position
-    ref = toks[13] # Reference
-    alt = toks[14] # Allele
+            # Mutation type
+            ty = "SNP" if len(ref) == 1 and len(alt) == 1 else "Ind"
 
-    # Consequence
-    con = toks[16]
+            # Consequence
+            con = toks[16]
 
-    return { "samp": samp, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "imp":imp, "gene":gene }
+            x.append({ "name":name, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "imp":imp, "gene":gene, "type":ty })
 
-#
-# Parse proteomics data and convert it into a format more useful for further analysis
-#
+        return x
 
-def PROTS(cons, line):
-    pass
-
-with open(sys.argv[1], "r") as r1:
-    g = [] # WGS germline
-    p = [] # Proteomics
-    
-    for l1 in r1:
-        if len(l1.strip()) == 0:
-            continue
-        
-        # Contrasts
-        cons = []
-        
-        with open("AN1/AN1_CONTRASTS.csv") as r2:
-            for l2 in r2:
-                if "Mortal" in l2 and "Immortal" in l2:
-                    continue
-                toks = l2.strip().split(',')                
-                cons.append({
-                    "m1": toks[0],
-                    "m2": toks[1]
-                })
-                
-        # Search for WGS data
-        g.append(WGS(cons, l1))
-
-    analyze(cons, g, p)
+if sys.argv[1] == "W":
+    save("AN1/AN1_WGS.pickle", parseWGS("AN1/FILTERED_WGS.csv"))
+elif sys.argv[1] == "A":
+    analyze(load("AN1/AN1_WGS.pickle"))
