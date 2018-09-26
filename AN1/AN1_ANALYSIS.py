@@ -218,8 +218,7 @@ elif sys.argv[1] == "F":
         chrs = [ { "c":i.split(":")[0], "p1":int(i.split(":")[1])-3000, "p2":int(i.split(":")[1]) } for i in chrs]
         for line in r:
             if any(x in line for x in keys):
-                #print(line, end='')
-                pass
+                print(line, end='')
             else:
                 toks = line.split(";")
                 
@@ -228,4 +227,3 @@ elif sys.argv[1] == "F":
                 
                 if any(c == x["c"] and p >= x["p1"] and p <= x["p2"] for x in chrs):                
                     print(line, end='')                    
-                    asdadsdas
