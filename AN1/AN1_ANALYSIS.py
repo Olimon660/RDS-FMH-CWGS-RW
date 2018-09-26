@@ -224,7 +224,7 @@ elif sys.argv[1] == "F":
                 toks = line.split(";")
                 
                 c = toks[11]
-                p = toks[12]
+                p = int(toks[12])
                 
                 if any(c == x["c"] and p >= x["p1"] and p <= x["p2"] for x in chrs):                
                     print(line, end='')                    
