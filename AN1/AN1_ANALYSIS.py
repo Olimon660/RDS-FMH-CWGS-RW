@@ -1,7 +1,7 @@
 #
 # Python script for analyzing resulting after filtering
 #
-#     python3 AN1/AN1_ANALYSIS.py F germline.csv
+#     python3 AN1/AN1_ANALYSIS.py F "/home/twong/das/Outbox/Cancer Research Unit/RReddell/WGS/germline.csv"
 #     python3 AN1/AN1_ANALYSIS.py W
 #     python3 AN1/AN1_ANALYSIS.py P
 #     python3 AN1/AN1_ANALYSIS.py A
