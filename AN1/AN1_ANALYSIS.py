@@ -215,7 +215,7 @@ elif sys.argv[1] == "F":
     chrs = [ "chr6:33318558", "chrX:77504878", "chr5:1253147", "chr17:7661779" ]
 
     with open(sys.argv[2], "r") as r:
-        chrs = [ { "c":i.split(":")[0], "p1":int(i.split(":")[1])-3000, "p2":int(i.split(":")[1]) } for i in chrs]
+        chrs = [ { "c":i.split(":")[0], "p1":int(i.split(":")[1])-5000, "p2":int(i.split(":")[1]) } for i in chrs]
         for line in r:
             if any(x in line for x in keys):
                 print(line, end='')
