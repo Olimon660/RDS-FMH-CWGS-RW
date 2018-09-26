@@ -1,7 +1,7 @@
 #
 # Python script for analyzing resulting after filtering
 #
-#     python3 AN1/AN1_ANALYSIS.py F
+#     python3 AN1/AN1_ANALYSIS.py F germline.csv
 #     python3 AN1/AN1_ANALYSIS.py W
 #     python3 AN1/AN1_ANALYSIS.py P
 #     python3 AN1/AN1_ANALYSIS.py A
@@ -208,4 +208,24 @@ elif sys.argv[1] == "P":
 elif sys.argv[1] == "A":
     analyze(load("AN1/AN1_W.pickle"), load("AN1/AN1_P.pickle"))
 elif sys.argv[1] == "F":
-    pass
+    # https://wiki.cmri.com.au/pages/viewpage.action?pageId=22578249
+    keys = [ "ENSG00000204209", "ENSG00000085224", "ENSG00000164362", "ENSG00000141510", "DAXX", "ATRX", "TERT", "TP53" ]
+
+    # DAXX, ATRX, TERT and TP53
+    chrs = [ "chr6:33318558", "chrX:77504878", "chr5:1253147", "chr17:7661779" ]
+
+    with open(sys.argv[2], "r") as r:
+        chrs = [ { "c":i.split(":")[0], "p1":int(i.split(":")[1])-3000, "p2":int(i.split(":")[1]) } for i in chrs]
+        for line in r:
+            if any(x in line for x in keys):
+                #print(line, end='')
+                pass
+            else:
+                toks = line.split(";")
+                
+                c = toks[11]
+                p = toks[12]
+                
+                if any(c == x["c"] and p >= x["p1"] and p <= x["p2"] for x in chrs):                
+                    print(line, end='')                    
+                    asdadsdas
