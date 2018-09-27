@@ -226,13 +226,19 @@ elif sys.argv[1] == "F":
     with open(sys.argv[2], "r") as r:
         chrs = [ { "c":i.split(":")[0], "p1":int(i.split(":")[1])-5000, "p2":int(i.split(":")[1]) } for i in chrs]
         for line in r:
-            if any(x in line for x in genes):
+            toks = line.split(";")
+            
+            # Gene name
+            gn = toks[19]
+            
+            # Chromosome
+            c = toks[11]
+            
+            # Position
+            p = int(toks[12])
+
+            if any(x == gn for x in genes):
                 print(line, end='')
             else:
-                toks = line.split(";")
-                
-                c = toks[11]
-                p = int(toks[12])
-                
                 if any((c == x["c"] and p >= x["p1"] and p <= x["p2"]) for x in chrs):                
                     print(line, end='')                    
