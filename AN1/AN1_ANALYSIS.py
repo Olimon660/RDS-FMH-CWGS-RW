@@ -132,12 +132,12 @@ def analyze(W, P):
                 ups = only(x, "con",  "upstream_gene_variant")
                 reg = only(x, "con",  "regulatory_region_variant")
                 tfs = only(x, "con",  "TF_binding_site_variant")
-                5ps = grep(x, "con",  "5_prime_UTR_variant")
+                fiv = grep(x, "con",  "5_prime_UTR_variant")
                 hig = only(x, "imp", "HIGH")
                 med = only(x, "imp", "MODERATE")
                 low = only(x, "imp", "LOW") + only(x, "imp", "MODIFIER")
                 
-                return (str(len(snp)) + "\t" + str(len(ind)) + "\t" + str(len(ups)) + "\t" + str(len(reg)) + "\t" + str(len(tfs)) + "\t" + str(len(5ps)) + \
+                return (str(len(snp)) + "\t" + str(len(ind)) + "\t" + str(len(ups)) + "\t" + str(len(reg)) + "\t" + str(len(tfs)) + "\t" + str(len(fiv)) + \
                         str(len(hig)) + "\t" + str(len(med)) + "\t" + str(len(low)))
             
             # Write a gene for each contrast 
