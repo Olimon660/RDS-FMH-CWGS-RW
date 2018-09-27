@@ -124,7 +124,7 @@ def analyze(W, P):
 
             # Construct a block of text for mortal/immortal for a gene
             def block(m, gn):
-                x = only(onlyW, "name", m), "gn", gn)
+                x = only(only(W, "name", m), "gn", gn)
                 assert(len(x) > 0)
 
                 snp = only(x, "type", "snp") # SNPs for mortal
