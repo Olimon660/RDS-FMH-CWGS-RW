@@ -70,28 +70,48 @@ def save(file, x):
     with open(file, "wb") as w:
         pickle.dump(x, w, protocol=pickle.HIGHEST_PROTOCOL)    
 
-def WGSByName(x, name):
-    return [i for i in x if i["name"] == name]
-
-def onlySNP(x):
-    return [i for i in x if i["type"] == "SNP"]
-
-def onlyInd(x):
-    return [i for i in x if i["type"] == "Ind"]
-
-def onlyGene(x, gn):
-    return [i for i in x if i["gn"] == gn]
+def grep(x, key, v):
+    return [i for i in x if v in i[key]]
 
 def only(x, key, v):
     return [i for i in x if i[key] == v]
 
 def analyze(W, P):
+    w1 = open("AN1/AN1_SUMMARY.tsv", "w")
+    
+    #
+    # - Name
+    # - Mortal namae
+    # - Immortal name
+    # - Feature (gene or protein)
+    #
+    # - Number of SNPS in WGS mortal
+    # - Number of indels in WGS mortal
+    # - Number of consequence in WGS mortal (upstream_gene_variant)
+    # - Number of consequence in WGS mortal (regulatory_region_variant)
+    # - Number of consequence in WGS mortal (TF_binding_site_variant)
+    # - Number of consequence in WGS mortal (5_prime_UTR_variant&NMD_transcript_variant or 5_prime_UTR_variant)
+    # - Number of impacts in WGS mortal (HIGH)
+    # - Number of impacts in WGS mortal (MODERATE)
+    # - Number of impacts in WGS mortal (LOW)
+    #
+    # - Number of SNPS in WGS immortal
+    # - Number of indels in WGS immortal
+    # - Number of consequence in WGS immortal (upstream_gene_variant)
+    # - Number of consequence in WGS immortal (regulatory_region_variant)
+    # - Number of consequence in WGS immortal (TF_binding_site_variant)
+    # - Number of consequence in WGS immortal (5_prime_UTR_variant&NMD_transcript_variant or 5_prime_UTR_variant)
+    # - Number of impacts in WGS immortal (HIGH)
+    # - Number of impacts in WGS immortal (MODERATE)
+    # - Number of impacts in WGS immortal (LOW)
+    #
+    
     # Format string
     f = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n"
-
-    w = open("AN1/AN1_RESULTS.tsv", "w")
-    w.write(f.format("Name", "Mortal", "Immortal", "Gene/Protein", \
-                     "WGS_Mortal_SNP", "WGS_Mortal_Ind", "WGS_Immortal_SNP", "WGS_Immortal_Ind", "WGS_Mortal_S", "WGS_Immortal_S"))
+    
+    w1.write(f.format("Name", "Mortal", "Immortal", "Feature", \
+                      "WM_SNP", "WM_Ind", "WM_ConUp", "WM_ConReg", "WM_ConTF", "WM_Con5Prime", "WM_ConHigh", "WM_ConMod", "WM_ConLow",
+                      "WI_SNP", "WI_Ind", "WI_ConUp", "WI_ConReg", "WI_ConTF", "WI_Con5Prime", "WI_ConHigh", "WI_ConMod", "WI_ConMod" ))
 
     with open("AN1/AN1_CONTRASTS.csv") as r:
         for l in r:
@@ -99,43 +119,30 @@ def analyze(W, P):
                 continue
             toks = l.strip().split(',')
 
-            m1  = toks[0] # Mortal
-            m2  = toks[1] # Immortal
-            m1W = WGSByName(W, m1)
-            m2W = WGSByName(W, m2)
-            
-            #assert(len(m1W) > 0)
-            #assert(len(m2W) > 0)
-            
-            # Name of the contrast
-            name = m1 + "_" + m2
+            m1 = toks[0] # Mortal
+            m2 = toks[1] # Immortal
 
-            W_M_SNP = onlySNP(m1W) if len(m1W) > 0 else "-" # SNPs for mortal (all genes)
-            W_M_IND = onlyInd(m1W) if len(m1W) > 0 else "-" # Indels for mortal (all genes)
-            W_I_SNP = onlySNP(m2W) if len(m2W) > 0 else "-" # SNPs for immortal (all genes)
-            W_I_IND = onlyInd(m2W) if len(m2W) > 0 else "-" # Indels for immortal (all genes)
+            # Construct a block of text for mortal/immortal for a gene
+            def block(m, gn):
+                x = only(onlyW, "name", m), "gn", gn)
+                assert(len(x) > 0)
 
-            for gene in genes:
-                W_M_SNP_G = onlyGene(W_M_SNP, gene) if W_M_SNP != "-" else "-" 
-                W_M_IND_G = onlyGene(W_M_IND, gene) if W_M_IND != "-" else "-" 
-                W_I_SNP_G = onlyGene(W_I_SNP, gene) if W_I_SNP != "-" else "-" 
-                W_I_IND_G = onlyGene(W_I_IND, gene) if W_I_IND != "-" else "-" 
+                snp = only(x, "type", "snp") # SNPs for mortal
+                ind = only(x, "type", "ind") # Indels for mortal
+                ups = only(x, "con",  "upstream_gene_variant")
+                reg = only(x, "con",  "regulatory_region_variant")
+                tfs = only(x, "con",  "TF_binding_site_variant")
+                5ps = grep(x, "con",  "5_prime_UTR_variant")
+                hig = only(x, "imp", "HIGH")
+                med = only(x, "imp", "MODERATE")
+                low = only(x, "imp", "LOW") + only(x, "imp", "MODIFIER")
                 
-                #
-                # Checks mutations and if no mutations add a "-" sign (pathway not activated due to mutations). Otherwise it's "+".
-                #
-                
-                if W_M_SNP_G == "-" or W_M_IND_G == "-":
-                    WGS_M_S = "-"
-                else:
-                    WGS_M_S = gene + "-" if len(W_M_SNP_G) == 0 and len(W_M_IND_G) == 0 else gene + "+" # Gene pathway for mortal
-                    
-                if W_I_SNP_G == "-" or W_I_IND_G == "-":
-                    WGS_I_S = "-"
-                else:                
-                    WGS_I_S = gene + "-" if len(W_I_SNP_G) == 0 and len(W_I_IND_G) == 0 else gene + "+" # Gene pathway for immortal
+                return (str(len(snp)) + "\t" + str(len(ind)) + "\t" + str(len(ups)) + "\t" + str(len(reg)) + "\t" + str(len(tfs)) + "\t" + str(len(5ps)) + \
+                        str(len(hig)) + "\t" + str(len(med)) + "\t" + str(len(low)))
             
-                w.write(f.format(name, m1, m2, gene, len(W_M_SNP_G), len(W_M_IND_G), len(W_I_SNP_G), len(W_I_IND_G), WGS_M_S, WGS_I_S))
+            # Write a gene for each contrast 
+            for gn in genes:
+                w1.write((m1 + "_" + m2) + "\t" + m1 + "\t" + m2 + "\t" + gn + "\t" + block(m1, gn) + "\t" + block(m2, gn))
     w.close()
 
 def parseP(file):
@@ -187,9 +194,10 @@ def parseW(file):
             
             # Impact (LOW, HIGH, MODERATE, MODIFIER)
             imp = toks[17]
+            assert(imp == "HIGH" or imp == "MODERATE")
             
             # Consequence (e.g. TF_binding_site_variant, 3_prime_UTR_variant, 5_prime_UTR_variant and regulatory_region_variant)
-            cons = toks[16]
+            con = toks[16]
             
             # Shortest ditance from variant to transcript
             dist = toks[33]
@@ -202,12 +210,12 @@ def parseW(file):
             alt = toks[14] # Allele
 
             # Mutation type
-            ty = "SNP" if len(ref) == 1 and len(alt) == 1 else "Ind"
+            ty = "snp" if len(ref) == 1 and len(alt) == 1 else "ind"
 
             # How to label this variant? (either inside a gene or a promoter)
             lab = "Normal" if gn in genes else "Promoter"
 
-            yield { "name":name, "lab":lab, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "imp":imp, "gn":gn, "type":ty, "sift":sift, "phen":phen }
+            yield { "name":name, "lab":lab, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "con":con, "imp":imp, "gn":gn, "type":ty, "sift":sift, "phen":phen }
 
 if sys.argv[1] == "W":
     save("AN1/AN1_W.pickle", list(parseW("AN1/AN1_W_FILTERED.csv")))
@@ -217,6 +225,7 @@ elif sys.argv[1] == "A":
     analyze(load("AN1/AN1_W.pickle"), load("AN1/AN1_P.pickle"))
 elif sys.argv[1] == "F":
     with open(sys.argv[2], "r") as r:
+        # Make sure we capture all upstream variants
         chrs = [ { "c":i.split(":")[0], "p1":int(i.split(":")[1])-5000, "p2":int(i.split(":")[1]) } for i in rs]
         for line in r:
             toks = line.split(";")
@@ -229,7 +238,7 @@ elif sys.argv[1] == "F":
             
             # Position
             p = int(toks[12])
-
+            
             if any(x == gn for x in genes):
                 print(line, end='')
             else:
