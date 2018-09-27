@@ -6,11 +6,14 @@
 #     python3 AN1/AN1_ANALYSIS.py P
 #     python3 AN1/AN1_ANALYSIS.py A
 #
-# Generate a user-friendly TSV output file for the results.
+# Generate a user-friendly TSV output file for the results. Further statisticsl analysis can be done on the output file.
 #
 
 import sys
 import pickle
+
+# Genes interested
+genes = [ "ENSG00000204209", "ENSG00000085224", "ENSG00000164362", "ENSG00000141510", "DAXX", "ATRX", "TERT", "TP53" ]
 
 # Eg: 6/ANNOTATED_REMOVED_FILTERED_INDEL_NORM_DECOM_GATK_IIICF-T_B3.vcf
 def file2Samp(x):
@@ -81,15 +84,14 @@ def only(x, key, v):
 
 def analyze(W, P):
     # Format string
-    f = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n"
+    f = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n"
 
     # Genes interested
     genes = [ "ATRX", "DAXX" ]
 
     w = open("AN1/AN1_RESULTS.tsv", "w")
     w.write(f.format("Name", "Mortal", "Immortal", "Gene/Protein", \
-                     "W_M_SNP", "W_M_Ind", "W_I_SNP", "W_I_Ind", "W_M_S", "W_I_S", \
-                     "P_M_A", "P_I_A"))
+                     "WGS_Mortal_SNP", "WGS_Mortal_Ind", "WGS_Immortal_SNP", "WGS_Immortal_Ind", "WGS_Mortal_S", "WGS_Immortal_S"))
 
     with open("AN1/AN1_CONTRASTS.csv") as r:
         for l in r:
@@ -101,36 +103,43 @@ def analyze(W, P):
             m2  = toks[1] # Immortal
             m1W = WGSByName(W, m1)
             m2W = WGSByName(W, m2)
-                
+            
+            #assert(len(m1W) > 0)
+            #assert(len(m2W) > 0)
+            
             # Name of the contrast
             name = m1 + "_" + m2
 
-            W_M_SNP = onlySNP(m1W) # SNPs for mortal (all genes)
-            W_M_IND = onlyInd(m1W) # Indels for mortal (all genes)
-            W_I_SNP = onlySNP(m2W) # SNPs for immortal (all genes)
-            W_I_IND = onlyInd(m2W) # Indels for immortal (all genes)
+            W_M_SNP = onlySNP(m1W) if len(m1W) > 0 else "-" # SNPs for mortal (all genes)
+            W_M_IND = onlyInd(m1W) if len(m1W) > 0 else "-" # Indels for mortal (all genes)
+            W_I_SNP = onlySNP(m2W) if len(m2W) > 0 else "-" # SNPs for immortal (all genes)
+            W_I_IND = onlyInd(m2W) if len(m2W) > 0 else "-" # Indels for immortal (all genes)
 
             for gene in genes:
-                W_M_SNP_G = onlyGene(W_M_SNP, gene)
-                W_M_IND_G = onlyGene(W_M_IND, gene)
-                W_I_SNP_G = onlyGene(W_I_SNP, gene)
-                W_I_IND_G = onlyGene(W_I_IND, gene)
+                W_M_SNP_G = onlyGene(W_M_SNP, gene) if W_M_SNP != "-" else "-" 
+                W_M_IND_G = onlyGene(W_M_IND, gene) if W_M_IND != "-" else "-" 
+                W_I_SNP_G = onlyGene(W_I_SNP, gene) if W_I_SNP != "-" else "-" 
+                W_I_IND_G = onlyGene(W_I_IND, gene) if W_I_IND != "-" else "-" 
                 
-                P_ = only(only(only(P, "gn", gene), "m1", m1), "m2", m2) # Protein filtered to specified gene
-                assert(len(P_) == 0 or len(P_) == 1)
-
-                P_M_A = "-" if len(P_) == 0 else P_[0]["a1"] # Average mean for mortal samples
-                P_I_A = "-" if len(P_) == 0 else P_[0]["a2"] # Average mean for immortal samples
-
+                if m2 == "IIICF_d2":
+                    print(m2W[10])
+                    asddasd
+                
                 #
                 # Checks mutations and if no mutations add a "-" sign (pathway not activated due to mutations). Otherwise it's "+".
                 #
                 
-                WGS_M_S = gene + "-" if len(W_M_SNP_G) == 0 and len(W_M_IND_G) == 0 else gene + "+" # Gene pathway for mortal
-                WGS_I_S = gene + "-" if len(W_I_SNP_G) == 0 and len(W_I_IND_G) == 0 else gene + "+" # Gene pathway for immortal
+                if W_M_SNP_G == "-" or W_M_IND_G == "-":
+                    WGS_M_S = "-"
+                else:
+                    WGS_M_S = gene + "-" if len(W_M_SNP_G) == 0 and len(W_M_IND_G) == 0 else gene + "+" # Gene pathway for mortal
+                    
+                if W_I_SNP_G == "-" or W_I_IND_G == "-":
+                    WGS_I_S = "-"
+                else:                
+                    WGS_I_S = gene + "-" if len(W_I_SNP_G) == 0 and len(W_I_IND_G) == 0 else gene + "+" # Gene pathway for immortal
             
-                w.write(f.format(name, m1, m2, gene, len(W_M_SNP_G), len(W_M_IND_G), len(W_I_SNP_G), len(W_I_IND_G), WGS_M_S, WGS_I_S, \
-                                 P_M_A, P_I_A))
+                w.write(f.format(name, m1, m2, gene, len(W_M_SNP_G), len(W_M_IND_G), len(W_I_SNP_G), len(W_I_IND_G), WGS_M_S, WGS_I_S))
     w.close()
 
 def parseP(file):
@@ -199,25 +208,25 @@ def parseW(file):
             # Mutation type
             ty = "SNP" if len(ref) == 1 and len(alt) == 1 else "Ind"
 
-            yield { "name":name, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "imp":imp, "gn":gn, "type":ty, "sift":sift, "phen":phen }
+            # How to label this variant? (either inside a gene or a promoter)
+            lab = "Normal" if gn in genes else "Promoter"
+
+            yield { "name":name, "lab":lab, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "imp":imp, "gn":gn, "type":ty, "sift":sift, "phen":phen }
 
 if sys.argv[1] == "W":
-    save("AN1/AN1_W.pickle", list(parseW("AN1/FILTERED_WGS.csv")))
+    save("AN1/AN1_W.pickle", list(parseW("AN1/AN1_W_FILTERED.csv")))
 elif sys.argv[1] == "P":
     save("AN1/AN1_P.pickle", list(parseP("SWATH2/SWATH2_results.tsv")))
 elif sys.argv[1] == "A":
     analyze(load("AN1/AN1_W.pickle"), load("AN1/AN1_P.pickle"))
 elif sys.argv[1] == "F":
-    # https://wiki.cmri.com.au/pages/viewpage.action?pageId=22578249
-    keys = [ "ENSG00000204209", "ENSG00000085224", "ENSG00000164362", "ENSG00000141510", "DAXX", "ATRX", "TERT", "TP53" ]
-
     # DAXX, ATRX, TERT and TP53
     chrs = [ "chr6:33318558", "chrX:77504878", "chr5:1253147", "chr17:7661779" ]
 
     with open(sys.argv[2], "r") as r:
         chrs = [ { "c":i.split(":")[0], "p1":int(i.split(":")[1])-5000, "p2":int(i.split(":")[1]) } for i in chrs]
         for line in r:
-            if any(x in line for x in keys):
+            if any(x in line for x in genes):
                 print(line, end='')
             else:
                 toks = line.split(";")
@@ -225,5 +234,5 @@ elif sys.argv[1] == "F":
                 c = toks[11]
                 p = int(toks[12])
                 
-                if any(c == x["c"] and p >= x["p1"] and p <= x["p2"] for x in chrs):                
+                if any((c == x["c"] and p >= x["p1"] and p <= x["p2"]) for x in chrs):                
                     print(line, end='')                    
