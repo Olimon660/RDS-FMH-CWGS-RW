@@ -15,6 +15,9 @@ import pickle
 # Genes interested
 genes = [ "ENSG00000204209", "ENSG00000085224", "ENSG00000164362", "ENSG00000141510", "DAXX", "ATRX", "TERT", "TP53" ]
 
+# DAXX, ATRX, TERT and TP53
+rs = [ "chr6:33318558", "chrX:77504878", "chr5:1253147", "chr17:7661779" ]
+
 # Eg: 6/ANNOTATED_REMOVED_FILTERED_INDEL_NORM_DECOM_GATK_IIICF-T_B3.vcf
 def file2Samp(x):
     assert("GATK" in x)
@@ -86,9 +89,6 @@ def analyze(W, P):
     # Format string
     f = "{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\t{}\n"
 
-    # Genes interested
-    genes = [ "ATRX", "DAXX" ]
-
     w = open("AN1/AN1_RESULTS.tsv", "w")
     w.write(f.format("Name", "Mortal", "Immortal", "Gene/Protein", \
                      "WGS_Mortal_SNP", "WGS_Mortal_Ind", "WGS_Immortal_SNP", "WGS_Immortal_Ind", "WGS_Mortal_S", "WGS_Immortal_S"))
@@ -120,10 +120,6 @@ def analyze(W, P):
                 W_M_IND_G = onlyGene(W_M_IND, gene) if W_M_IND != "-" else "-" 
                 W_I_SNP_G = onlyGene(W_I_SNP, gene) if W_I_SNP != "-" else "-" 
                 W_I_IND_G = onlyGene(W_I_IND, gene) if W_I_IND != "-" else "-" 
-                
-                if m2 == "IIICF_d2":
-                    print(m2W[10])
-                    asddasd
                 
                 #
                 # Checks mutations and if no mutations add a "-" sign (pathway not activated due to mutations). Otherwise it's "+".
@@ -220,11 +216,8 @@ elif sys.argv[1] == "P":
 elif sys.argv[1] == "A":
     analyze(load("AN1/AN1_W.pickle"), load("AN1/AN1_P.pickle"))
 elif sys.argv[1] == "F":
-    # DAXX, ATRX, TERT and TP53
-    chrs = [ "chr6:33318558", "chrX:77504878", "chr5:1253147", "chr17:7661779" ]
-
     with open(sys.argv[2], "r") as r:
-        chrs = [ { "c":i.split(":")[0], "p1":int(i.split(":")[1])-5000, "p2":int(i.split(":")[1]) } for i in chrs]
+        chrs = [ { "c":i.split(":")[0], "p1":int(i.split(":")[1])-5000, "p2":int(i.split(":")[1]) } for i in rs]
         for line in r:
             toks = line.split(";")
             
