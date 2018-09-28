@@ -22,7 +22,7 @@ rs = [ "chr6:33318558", "chrX:77504878", "chr5:1253147", "chr17:7661779" ]
 # Eg: 6/ANNOTATED_REMOVED_FILTERED_INDEL_NORM_DECOM_GATK_IIICF-T_B3.vcf
 def file2Samp(x):
     assert("GATK" in x)
-    return x.split("GATK_")[1].replace(".vcf", "")
+    return x.split("GATK_")[1].replace(".vcf", "").replace("-", "_")
 
 def ens2Name(x):
     if x == "ENSG00000204209":
@@ -34,7 +34,8 @@ def ens2Name(x):
     elif x == "ENSG00000141510":
         return "TP53"
     else:
-        raise Exception("Unknown: " + str(x))
+        return "-"        
+        #raise Exception("Unknown: " + str(x))
 
 def analyze(cons, g, p):
     for c in cons:
@@ -129,6 +130,10 @@ def analyze(W, V):
 
             # Construct a block of text for mortal/immortal for a gene (germline)
             def blockG(m, gn):
+                m = "IIICF_T_C3"
+                gn = "TERT"
+                
+                
                 x = only(only(W, "name", m), "gn", gn)
                 #assert(len(x) > 0) Wait until new annotation is done
 
@@ -233,6 +238,8 @@ def parseG(file):
 
             # Eg: IIICF-T_B3
             name = file2Samp(toks[1])
+            
+            print(name)
 
             # Translated gene name (from Ensembl)
             gn = ens2Name(toks[19])
@@ -267,7 +274,7 @@ if sys.argv[1] == "G":
 elif sys.argv[1] == "V":
     save("AN1/AN1_V.pkl", list(parseV("7/7.csv"))) # Structural variants
 elif sys.argv[1] == "A":
-    analyze(load("AN1/AN1_W.pkl"), load("AN1/AN1_V.pkl"))
+    analyze(load("AN1/AN1_G.pkl"), load("AN1/AN1_V.pkl"))
 elif sys.argv[1] == "F":
     with open(sys.argv[2], "r") as r: # Filtering germline variants
         # Make sure we capture all upstream variants
