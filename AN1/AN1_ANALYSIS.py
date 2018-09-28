@@ -126,9 +126,9 @@ def analyze(W, P):
                 reg = only(x, "con",  "regulatory_region_variant")
                 tfs = only(x, "con",  "TF_binding_site_variant")
                 fiv = grep(x, "con",  "5_prime_UTR_variant")
-                hig = only(x, "imp", "HIGH")
-                med = only(x, "imp", "MODERATE")
-                low = only(x, "imp", "LOW") + only(x, "imp", "MODIFIER")
+                hig = only(x, "imp",  "HIGH")
+                med = only(x, "imp",  "MODERATE")
+                low = only(x, "imp",  "LOW") + only(x, "imp", "MODIFIER")
                 
                 return (str(len(snp)) + "\t" + str(len(ind)) + "\t" + str(len(ups)) + "\t" + str(len(reg)) + "\t" + str(len(tfs)) + "\t" + str(len(fiv)) + \
                         str(len(hig)) + "\t" + str(len(med)) + "\t" + str(len(low)))
@@ -147,7 +147,7 @@ def parseP(file):
         
             m1 = toks[0] # Mortal
             m2 = toks[1] # Immortal
-            gn = toks[3]
+            gn = toks[3] # Ensembl gene
             lf = toks[6] # LogFC
             a1 = toks[4] # Mortal mean
             a2 = toks[5] # Immortal mean
