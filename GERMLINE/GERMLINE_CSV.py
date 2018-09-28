@@ -1,5 +1,5 @@
 #
-# python3 OTHERS/ANNOTATION_SQL.py OTHERS/ANNOTATION.sql <Input File> <Output CSV>
+# python3 GERMLINE/GERMLINE_CSV.py OTHERS/ANNOTATION.sql <Input File> <Output CSV>
 #
 
 import os
