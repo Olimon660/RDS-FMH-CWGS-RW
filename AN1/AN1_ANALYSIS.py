@@ -217,10 +217,10 @@ def parseW(file):
 
             yield { "name":name, "lab":lab, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "con":con, "imp":imp, "gn":gn, "type":ty, "sift":sift, "phen":phen }
 
-if sys.argv[1] == "W":
+if sys.argv[1] == "G":
     save("AN1/AN1_W.pickle", list(parseW("AN1/AN1_W_FILTERED.csv")))
-elif sys.argv[1] == "P":
-    save("AN1/AN1_P.pickle", list(parseP("SWATH2/SWATH2_results.tsv")))
+elif sys.argv[1] == "S":
+    pass
 elif sys.argv[1] == "A":
     analyze(load("AN1/AN1_W.pickle"), load("AN1/AN1_P.pickle"))
 elif sys.argv[1] == "F":
@@ -241,6 +241,8 @@ elif sys.argv[1] == "F":
             
             if any(x == gn for x in genes):
                 print(line, end='')
+            elif c == "chrE" or "chrC" or "chrV"
+                print(line, end='')                
             else:
                 if any((c == x["c"] and p >= x["p1"] and p <= x["p2"]) for x in chrs):                
                     print(line, end='')                    
