@@ -5,6 +5,7 @@
 #     python3 AN1/AN1_ANALYSIS.py W
 #     python3 AN1/AN1_ANALYSIS.py P
 #     python3 AN1/AN1_ANALYSIS.py A
+#     python3 AN1/AN1_ANALYSIS.py R
 #
 # Generate a user-friendly TSV output file for the results. Further statisticsl analysis can be done on the output file.
 #
@@ -242,7 +243,7 @@ elif sys.argv[1] == "F":
             if any(x == gn for x in genes):
                 print(line, end='')
             elif c == "chrE" or "chrC" or "chrV": # Any of the special genome
-                print(line, end='')                
+                print(line, end='')
             else:
                 if any((c == x["c"] and p >= x["p1"] and p <= x["p2"]) for x in chrs):                
                     print(line, end='')                    
