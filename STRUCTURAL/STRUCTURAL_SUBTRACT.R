@@ -74,7 +74,7 @@ for (file in Sys.glob("8/ANNOTATED_*vcf"))
                          REFPAIR = i1$REFPAIR)
         i1_ <- i1
         i1_ <- i1_[,!(names(i1_) %in% c("Name"))]
-        i2   <- merge(x=i1, y=i1_, by.x="Name", by.y="Partner")
+        i2  <- merge(x=i1, y=i1_, by.x="Name", by.y="Partner")
         
         tmp2 <- data.frame(Name     = i2$Name,
                            Resolu   = i2$Resolu.x,
