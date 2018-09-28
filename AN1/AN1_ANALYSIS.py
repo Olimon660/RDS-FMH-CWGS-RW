@@ -130,10 +130,6 @@ def analyze(W, V):
 
             # Construct a block of text for mortal/immortal for a gene (germline)
             def blockG(m, gn):
-                m = "IIICF_T_C3"
-                gn = "TERT"
-                
-                
                 x = only(only(W, "name", m), "gn", gn)
                 #assert(len(x) > 0) Wait until new annotation is done
 
