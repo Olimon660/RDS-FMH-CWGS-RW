@@ -19,10 +19,34 @@ gns = [ "ENSG00000204209", "ENSG00000085224", "ENSG00000164362", "ENSG0000014151
 # DAXX, ATRX, TERT and TP53
 rs = [ "chr6:33318558", "chrX:77504878", "chr5:1253147", "chr17:7661779" ]
 
+def fixSamp(x):
+    if x == "IIICFE6E7C4post":
+        x = "IIICF_E6E7_C4_post"
+    elif x == "IVG_BF_LXSNpost":
+        x = "IVG_BF_LXSN_post"
+    elif x == "JFCF_6_T_1_P":
+        x = "JFCF_6_T_1_P_TEL"
+    elif x == "JFCF_6_T_1_PALT":
+        x = "JFCF_6_T_1_P_ALT"
+    elif x == "JFCF6_T_1J_1_3C_H06L4ALXX_3":
+        x = "JFCF_6_T_1J_1_3C"
+    elif x == "JFCF6_T_1J_6B_H06L4ALXX_4":
+        x = "JFCF_6_T_1J_6B"
+    elif x == "JFCF_61M":
+        x = "JFCF_6_T_1_M"
+    elif x == "JFCF_61Q":
+        x = "JFCF_6_T_1_Q"
+    elif x == "MeT_4Apost":
+        x = "MeT_4A_post"        
+    return x
+
 # Eg: 6/ANNOTATED_REMOVED_FILTERED_INDEL_NORM_DECOM_GATK_IIICF-T_B3.vcf
 def file2Samp(x):
-    assert("GATK" in x)
-    return x.split("GATK_")[1].replace(".vcf", "").replace("-", "_")
+    x = x.replace("-", "_")
+    if "GATK" in x:
+        return x.split("GATK_")[1].replace(".vcf", "")
+    else:
+        return x
 
 def ens2Name(x):
     if x == "ENSG00000204209":
@@ -128,6 +152,13 @@ def analyze(W, V):
             m1 = toks[0] # Mortal
             m2 = toks[1] # Immortal
 
+            for i in V:
+                print(i["m1"])
+
+            print(m1)
+
+            assert(len(only(V, "m1", m1)) > 0)
+
             # Construct a block of text for mortal/immortal for a gene (germline)
             def blockG(m, gn):
                 x = only(only(W, "name", m), "gn", gn)
@@ -195,10 +226,20 @@ def parseP(file):
 #
 
 def parseV(file):
+    c = {}
+    with open("AN1/AN1_CONTRASTS.csv") as r:
+        for l in r:
+            if "Mortal" in l and "Immortal" in l:
+                continue
+            toks = l.strip().split(',')
+            m1 = toks[0] # Mortal
+            m2 = toks[1] # Immortal
+            c[m2] = m1   # Indexed by immortal
+
     with open(file, "r") as r:
         for l in r:
             toks = l.strip().split(';')
-            
+
             c1 = toks[5]
             s1 = toks[6]
             e1 = toks[7]
@@ -209,7 +250,8 @@ def parseV(file):
             g2 = toks[36] # Gene ID
             di = toks[46] # Distance            
             ft = toks[37] # Feature type
-            fi = toks[38] # Feature ID
+            fi = toks[38] # Feature ID            
+            m2 = fixSamp(file2Samp(toks[1])) # Immortal
     
             # Impacts (-, "LOW", "MODIFIER" and "HIGH")
             imp = toks[34]
@@ -219,7 +261,14 @@ def parseV(file):
                 continue
         
             if g1 in gns or g2 in gns:
-                yield { "name":toks[1], "type":toks[2], "res":toks[3], "styp":toks[4], \
+                if not m2 in c:
+                    print(toks[1])
+                    AAA
+                
+                assert(m2 in c)
+                m1 = c[m2] # Mortal
+                
+                yield { "name":m1 + "_" + m2, "m1":m1, "m2":m2, "type":toks[2], "res":toks[3], "styp":toks[4], \
                         "c1":c1, "s1":s1, "e1":e1, "c2":c2, "s2":s2, "e2":e2, \
                         "g1":g1, "g2":g2, "di":di, "ft":ft, "fi":fi, "imp":imp }
             
@@ -235,8 +284,6 @@ def parseG(file):
             # Eg: IIICF-T_B3
             name = file2Samp(toks[1])
             
-            print(name)
-
             # Translated gene name (from Ensembl)
             gn = ens2Name(toks[19])
             
