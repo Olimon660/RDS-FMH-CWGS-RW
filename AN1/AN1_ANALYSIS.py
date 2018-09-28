@@ -37,7 +37,7 @@ def fixSamp(x):
     elif x == "JFCF_61Q":
         x = "JFCF_6_T_1_Q"
     elif x == "MeT_4Apost":
-        x = "MeT_4A_post"        
+        x = "MeT_4A_post"
     return x
 
 # Eg: 6/ANNOTATED_REMOVED_FILTERED_INDEL_NORM_DECOM_GATK_IIICF-T_B3.vcf
@@ -151,13 +151,9 @@ def analyze(W, V):
 
             m1 = toks[0] # Mortal
             m2 = toks[1] # Immortal
-
-            for i in V:
-                print(i["m1"])
-
-            print(m1)
-
-            assert(len(only(V, "m1", m1)) > 0)
+            
+            #assert(len(only(V, "m1", m1)) > 0)
+            #assert(len(only(V, "m2", m2)) > 0)
 
             # Construct a block of text for mortal/immortal for a gene (germline)
             def blockG(m, gn):
@@ -226,7 +222,8 @@ def parseP(file):
 #
 
 def parseV(file):
-    c = {}
+    i1 = {}
+    i2 = {}
     with open("AN1/AN1_CONTRASTS.csv") as r:
         for l in r:
             if "Mortal" in l and "Immortal" in l:
@@ -234,7 +231,8 @@ def parseV(file):
             toks = l.strip().split(',')
             m1 = toks[0] # Mortal
             m2 = toks[1] # Immortal
-            c[m2] = m1   # Indexed by immortal
+            i1[m1] = m2
+            i2[m2] = m1
 
     with open(file, "r") as r:
         for l in r:
@@ -261,12 +259,13 @@ def parseV(file):
                 continue
         
             if g1 in gns or g2 in gns:
-                if not m2 in c:
-                    print(toks[1])
-                    AAA
+                m1 = i2[m2] # Mortal
                 
-                assert(m2 in c)
-                m1 = c[m2] # Mortal
+                if not m1 in i1:
+                    print(m1)
+                    ddasadds
+                
+                assert(m1 in i1 and m2 in i2)
                 
                 yield { "name":m1 + "_" + m2, "m1":m1, "m2":m2, "type":toks[2], "res":toks[3], "styp":toks[4], \
                         "c1":c1, "s1":s1, "e1":e1, "c2":c2, "s2":s2, "e2":e2, \
