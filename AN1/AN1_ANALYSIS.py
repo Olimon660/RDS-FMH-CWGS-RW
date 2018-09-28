@@ -5,7 +5,6 @@
 #     python3 AN1/AN1_ANALYSIS.py G
 #     python3 AN1/AN1_ANALYSIS.py V
 #     python3 AN1/AN1_ANALYSIS.py A
-#     python3 AN1/AN1_ANALYSIS.py R
 #
 # Generate a user-friendly TSV output file for the results. Further statisticsl analysis can be done on the output file.
 #
@@ -141,7 +140,7 @@ def analyze(W, V):
     w1.write("Name\tMortal\tImmortal\tFeature\t"
              "GM_SNP\tGM_Ind\tGM_ConUp\tGM_ConReg\tGM_ConTF\tGM_Con5Prime\tGM_ImpHigh\tGM_ImpMod\tGM_ImpLow\t"
              "GI_SNP\tGI_Ind\tGI_ConUp\tGI_ConReg\tGI_ConTF\tGI_Con5Prime\tGI_ImpHigh\tGI_ImpMod\tGI_ImpLow\t"
-             "VM_MUT\tVI_MUT\tVM_ImpHigh\tVM_ImpMod\tVM_ImpLow\tVI_ImpHigh\tVI_ImpMod\tVI_ImpLow\n")
+             "VM_MUT\tVM_ImpHigh\tVM_ImpMod\tVM_ImpLow\tVI_MUT\tVI_ImpHigh\tVI_ImpMod\tVI_ImpLow\n")
 
     with open("AN1/AN1_CONTRASTS.csv") as r:
         for l in r:
@@ -174,12 +173,18 @@ def analyze(W, V):
                         str(len(hig)) + "\t" + str(len(med)) + "\t" + str(len(low)))
             
             # Construct a block of text for mortla/immortal for a gene (SV)
-            def blockV(m, gn):                
+            def blockV(m, gn):       
                 x = only(V, "g1", gn)
                 
                 hig = only(x, "imp", "HIGH")
                 med = only(x, "imp", "MODIFIER")
                 low = only(x, "imp", "LOW")
+                
+                if len(x) > 0:
+                    for i in x:
+                        print(i["imp"])
+                    
+                    sadsads
                 
                 return (str(len(x)) + "\t" + str(len(hig)) + "\t" + str(len(med)) + "\t" + str(len(low)))
             
@@ -187,7 +192,7 @@ def analyze(W, V):
             for gn in gns:
                 if "ENSG" in gn: # Only the actual gene names
                     continue
-                
+
                 w1.write((m1 + "_" + m2) + "\t" + m1 + "\t" + m2 + "\t" + gn + "\t" + blockG(m1, gn) + "\t" + blockG(m2, gn) + "\t" + \
                           blockV(m1, gn) + "\t" + blockV(m2, gn) + "\n")
     w1.close()
@@ -260,7 +265,6 @@ def parseV(file):
         
             if g1 in gns or g2 in gns:
                 m1 = i2[m2] # Mortal
-                
                 assert(m1 in i1 and m2 in i2)
                 
                 yield { "name":m1 + "_" + m2, "m1":m1, "m2":m2, "type":toks[2], "res":toks[3], "styp":toks[4], \
