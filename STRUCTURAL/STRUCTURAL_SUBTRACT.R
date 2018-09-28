@@ -96,8 +96,7 @@ for (file in Sys.glob("8/ANNOTATED_*vcf"))
                            HOMSEQ2  = i2$HOMSEQ.y,
                            REFPAIR1 = i2$REFPAIR.x,
                            REFPAIR2 = i2$REFPAIR.y)
-        tmp3 <- merge(tmp1, tmp2, by.x="Name", by.y="Name")
-        tmp3
+        merge(tmp1, tmp2, by.x="Name", by.y="Name")
     }
     
     gData <- rbind(gData, process(vcf[geno(vcf)$QUAL[,normal] != 0,]))
