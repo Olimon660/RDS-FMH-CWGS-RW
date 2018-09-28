@@ -174,7 +174,7 @@ def analyze(W, V):
             
             # Construct a block of text for mortla/immortal for a gene (SV)
             def blockV(m, gn):       
-                x = only(V, "g1", gn)
+                x = only(only(V, "name", m), "g1", gn)
                 
                 hig = only(x, "imp", "HIGH")
                 med = only(x, "imp", "MODIFIER")
