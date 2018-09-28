@@ -180,12 +180,6 @@ def analyze(W, V):
                 med = only(x, "imp", "MODIFIER")
                 low = only(x, "imp", "LOW")
                 
-                if len(x) > 0:
-                    for i in x:
-                        print(i["imp"])
-                    
-                    sadsads
-                
                 return (str(len(x)) + "\t" + str(len(hig)) + "\t" + str(len(med)) + "\t" + str(len(low)))
             
             # Write a gene for each contrast 
@@ -306,10 +300,7 @@ def parseG(file):
             # Mutation type
             ty = "snp" if len(ref) == 1 and len(alt) == 1 else "ind"
 
-            # How to label this variant? (either inside a gene or a promoter)
-            lab = "Normal" if gn in gns else "Promoter"
-
-            yield { "name":name, "lab":lab, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "con":con, "imp":imp, "gn":gn, "type":ty, "sift":sift, "phen":phen }
+            yield { "name":name, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "con":con, "imp":imp, "gn":gn, "type":ty, "sift":sift, "phen":phen }
 
 if sys.argv[1] == "G":
     save("AN1/AN1_G.pkl", list(parseG("AN1/AN1_G_FILTERED.csv"))) # Germline variants
