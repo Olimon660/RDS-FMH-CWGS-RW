@@ -1,7 +1,7 @@
 CREATE TABLE Annotation (
 	File   		  VARCHAR(50),
 	Sample   	  VARCHAR(50),
-        Type              VARCHAR(50),
+	Type              VARCHAR(50),
 	Resolution   	  VARCHAR(50),
 	SVType    	  VARCHAR(50),
 	Chr1    	  VARCHAR(50),
