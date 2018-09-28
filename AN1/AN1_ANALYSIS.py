@@ -4,6 +4,7 @@
 #     python3 AN1/AN1_ANALYSIS.py F "/home/twong/das/Outbox/Cancer Research Unit/RReddell/WGS/germline.csv" > AN1/AN1_W_FILTERED.csv
 #     python3 AN1/AN1_ANALYSIS.py W
 #     python3 AN1/AN1_ANALYSIS.py P
+#     python3 AN1/AN1_ANALYSIS.py T
 #     python3 AN1/AN1_ANALYSIS.py A
 #     python3 AN1/AN1_ANALYSIS.py R
 #
@@ -24,15 +25,6 @@ def file2Samp(x):
     assert("GATK" in x)
     return x.split("GATK_")[1].replace(".vcf", "")
 
-def isMod(x):
-    return x == "MODERATE"
-    
-def isHigh(x):
-    return x == "HIGH"
-    
-def isLow(x):
-    return x == "LOW" or x == "MODIFIER"
-    
 def ens2Name(x):
     if x == "ENSG00000204209":
         return "DAXX"
@@ -126,7 +118,7 @@ def analyze(W, P):
             # Construct a block of text for mortal/immortal for a gene
             def block(m, gn):
                 x = only(only(W, "name", m), "gn", gn)
-                assert(len(x) > 0)
+                #assert(len(x) > 0) Wait until new annotation is done
 
                 snp = only(x, "type", "snp") # SNPs for mortal
                 ind = only(x, "type", "ind") # Indels for mortal
@@ -144,7 +136,7 @@ def analyze(W, P):
             # Write a gene for each contrast 
             for gn in genes:
                 w1.write((m1 + "_" + m2) + "\t" + m1 + "\t" + m2 + "\t" + gn + "\t" + block(m1, gn) + "\t" + block(m2, gn))
-    w.close()
+    w1.close()
 
 def parseP(file):
     with open(file, "r") as r:
@@ -177,33 +169,18 @@ def parseW(file):
 
             # Translated gene name (from Ensembl)
             gn = ens2Name(toks[19])
+            
+            ft = toks[20] # Feature type
+            ff = toks[21] # Feature
+            
+            sift = toks[48] # Predict the effect of coding variants on protein function (e.g. deleterious and deleterious_low_confidence)
+            phen = toks[49] # Possible impact of amino acid substitutions on the stability and function of human proteins            
 
-            # Gene symbol
-            sym = toks[18]
-        
-            # Feature type
-            ft = toks[20]
-
-            # Feature
-            ff = toks[21]
-        
-            # Predict the effect of coding variants on protein function (e.g. deleterious and deleterious_low_confidence)
-            sift = toks[48]
-            
-            # Possible impact of amino acid substitutions on the stability and function of human proteins
-            phen = toks[49]
-            
-            # Impact (LOW, HIGH, MODERATE, MODIFIER)
-            imp = toks[17]
-            assert(imp == "HIGH" or imp == "MODERATE")
-            
-            # Consequence (e.g. TF_binding_site_variant, 3_prime_UTR_variant, 5_prime_UTR_variant and regulatory_region_variant)
-            con = toks[16]
+            imp = toks[17] # Impacts
+            con = toks[16] # Consequence
             
             # Shortest ditance from variant to transcript
             dist = toks[33]
-            
-            assert(isMod(imp) or isHigh(imp) or isLow(imp))
 
             chr = toks[11] # Chromosome
             pos = toks[12] # Position
@@ -218,12 +195,12 @@ def parseW(file):
 
             yield { "name":name, "lab":lab, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "con":con, "imp":imp, "gn":gn, "type":ty, "sift":sift, "phen":phen }
 
-if sys.argv[1] == "G":
-    save("AN1/AN1_W.pickle", list(parseW("AN1/AN1_W_FILTERED.csv")))
+if sys.argv[1] == "W":
+    save("AN1/AN1_W.pkl", list(parseW("AN1/AN1_W_FILTERED.csv")))
 elif sys.argv[1] == "S":
     pass
 elif sys.argv[1] == "A":
-    analyze(load("AN1/AN1_W.pickle"), load("AN1/AN1_P.pickle"))
+    analyze(load("AN1/AN1_W.pkl"), None)
 elif sys.argv[1] == "F":
     with open(sys.argv[2], "r") as r:
         # Make sure we capture all upstream variants
