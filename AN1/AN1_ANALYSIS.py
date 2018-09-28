@@ -261,10 +261,6 @@ def parseV(file):
             if g1 in gns or g2 in gns:
                 m1 = i2[m2] # Mortal
                 
-                if not m1 in i1:
-                    print(m1)
-                    ddasadds
-                
                 assert(m1 in i1 and m2 in i2)
                 
                 yield { "name":m1 + "_" + m2, "m1":m1, "m2":m2, "type":toks[2], "res":toks[3], "styp":toks[4], \
@@ -312,7 +308,7 @@ def parseG(file):
             yield { "name":name, "lab":lab, "chr":chr, "pos":pos, "ref":ref, "alt":alt, "con":con, "imp":imp, "gn":gn, "type":ty, "sift":sift, "phen":phen }
 
 if sys.argv[1] == "G":
-    save("AN1/AN1_G.pkl", list(parseG("AN1/AN1_W_FILTERED.csv"))) # Germline variants
+    save("AN1/AN1_G.pkl", list(parseG("AN1/AN1_G_FILTERED.csv"))) # Germline variants
 elif sys.argv[1] == "V":
     save("AN1/AN1_V.pkl", list(parseV("7/7.csv"))) # Structural variants
 elif sys.argv[1] == "A":
