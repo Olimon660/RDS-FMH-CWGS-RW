@@ -9,29 +9,6 @@ import csv
 import json
 import sqlite3
 
-def insert(c, conn, vs, cols):
-    assert(len(vs) > 0)
-    VAL = ''
-    for i in range(len(cols)):
-        if i != len(cols) - 1:
-            VAL = VAL + '\'%s' + '\','
-        else:
-            VAL = VAL + '\'%s' + '\''
-            
-    for i in vs:
-        SQL = 'INSERT INTO Annotation VALUES('
-        for j in range(len(cols)):
-            x = i[cols[j]]
-            if x is None or str(x) == '':
-                SQL = SQL + ' NULL' + ','
-            else:            
-                SQL = SQL + ' "' + str(x) + '",'
-        SQL += (')')
-        SQL = SQL.replace(",)", ')').replace(' "', '"')
-        c.execute(SQL)
-
-    conn.commit()
-    
 def parseSQL(file):
     x = []
     with open(file, 'r') as f:
