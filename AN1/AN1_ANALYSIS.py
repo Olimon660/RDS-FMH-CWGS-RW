@@ -326,8 +326,8 @@ elif sys.argv[1] == "F":
             
             if any(x == gn for x in gns):
                 print(line, end='')
-            elif c == "chrE" or "chrC" or "chrV": # Any of the special genome
+            elif c == "chrE" or c == "chrC" or c == "chrV": # Any of the special genome
                 print(line, end='')
             else:
                 if any((c == x["c"] and p >= x["p1"] and p <= x["p2"]) for x in chrs):                
-                    print(line, end='')                    
+                    print(line, end='')
